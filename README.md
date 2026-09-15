@@ -36,6 +36,32 @@ npx eas build --profile development --platform android
 npx expo start --dev-client
 ```
 
+## CI: auto build / OTA update
+
+`.github/workflows/eas-deploy.yml` runs on every push to `main` that touches
+`app/`. It uses Expo's official `continuous-deploy-fingerprint` action:
+computes this commit's native fingerprint, starts a new `eas build --profile
+preview` only if no existing build matches it, and always publishes an OTA
+update to the `preview` channel/branch otherwise. That action's own README
+flags it as **experimental / not yet production-ready** — worth knowing, not
+a reason to avoid it here.
+
+One-time setup (needs your EAS login, do this yourself):
+
+```sh
+cd app
+npx eas login
+npx eas init                    # links the project (owner: sarcastic-soul)
+npx eas update:configure        # installs expo-updates config, sets app.json "updates.url"
+npx eas channel:create preview  # if it doesn't already exist
+npx eas build --profile preview --platform android   # one manual build first —
+                                                       # the action needs an existing
+                                                       # build to compare fingerprints against
+```
+
+Then in the GitHub repo: **Settings → Secrets and variables → Actions**, add
+`EXPO_TOKEN` (generate at https://expo.dev/settings/access-tokens).
+
 ## Model
 
 The classifier (`assets/model/model.tflite`) is produced by the scripts in
