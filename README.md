@@ -4,6 +4,10 @@ Offline crop leaf disease detection. Point the camera at a leaf, get an
 instant diagnosis and treatment steps — fully on-device, no internet
 required. See `../BUILD-PLAN.md` for the full architecture and rationale.
 
+**Android only.** No app-store distribution planned, no Apple Developer
+account, no iOS builds/testing. Don't add iOS config, scripts, or build
+profiles back in.
+
 ## Status
 
 Stage 2 (app core) in progress:
@@ -41,8 +45,9 @@ npx expo start --dev-client
 `.github/workflows/eas-deploy.yml` runs on every push to `main` that touches
 `app/`. It uses Expo's official `continuous-deploy-fingerprint` action:
 computes this commit's native fingerprint, starts a new `eas build --profile
-preview` only if no existing build matches it, and always publishes an OTA
-update to the `preview` channel/branch otherwise. That action's own README
+preview --platform android` only if no existing build matches it, and always
+publishes an OTA update to the `preview` channel/branch otherwise (Android
+only — iOS is out of scope, see above). That action's own README
 flags it as **experimental / not yet production-ready** — worth knowing, not
 a reason to avoid it here.
 
