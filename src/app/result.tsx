@@ -1,13 +1,15 @@
 import { Image } from 'expo-image';
+import * as Network from 'expo-network';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { ActivityIndicator, ScrollView, StyleSheet } from 'react-native';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
 import { saveScan } from '@/lib/db';
+import { getSecondOpinion, isGeminiConfigured } from '@/lib/gemini';
 import { classifyLeaf, type Prediction } from '@/lib/model/inference';
 import { preprocessForModel } from '@/lib/model/preprocess';
 import { getTreatment, type Treatment } from '@/lib/model/treatments';
@@ -24,6 +26,25 @@ export default function ResultScreen() {
   const [prediction, setPrediction] = useState<Prediction | null>(null);
   const [treatment, setTreatment] = useState<Treatment | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isOnline, setIsOnline] = useState(false);
+  const [secondOpinion, setSecondOpinion] = useState<string | null>(null);
+  const [secondOpinionState, setSecondOpinionState] = useState<'idle' | 'loading' | 'error'>('idle');
+
+  useEffect(() => {
+    Network.getNetworkStateAsync().then((state) => setIsOnline(Boolean(state.isConnected)));
+  }, []);
+
+  async function handleGetSecondOpinion() {
+    if (!treatment) return;
+    setSecondOpinionState('loading');
+    try {
+      const text = await getSecondOpinion(uri, treatment);
+      setSecondOpinion(text);
+      setSecondOpinionState('idle');
+    } catch {
+      setSecondOpinionState('error');
+    }
+  }
 
   useEffect(() => {
     let cancelled = false;
@@ -108,6 +129,43 @@ export default function ResultScreen() {
                 </ThemedView>
               ))}
             </ThemedView>
+
+            {isOnline && isGeminiConfigured() && (
+              <ThemedView style={styles.section}>
+                <ThemedText type="smallBold" style={styles.treatmentHeading}>
+                  Second opinion (online)
+                </ThemedText>
+
+                {secondOpinionState === 'idle' && !secondOpinion && (
+                  <Pressable onPress={handleGetSecondOpinion} style={styles.secondOpinionButton}>
+                    <ThemedText type="default" style={styles.secondOpinionButtonText}>
+                      Ask Gemini for a richer explanation
+                    </ThemedText>
+                  </Pressable>
+                )}
+
+                {secondOpinionState === 'loading' && (
+                  <ThemedView style={styles.loadingRow}>
+                    <ActivityIndicator />
+                    <ThemedText type="default" themeColor="textSecondary">
+                      Asking Gemini…
+                    </ThemedText>
+                  </ThemedView>
+                )}
+
+                {secondOpinionState === 'error' && (
+                  <ThemedText type="default" themeColor="textSecondary">
+                    Couldn&apos;t reach Gemini right now. The on-device diagnosis above still stands.
+                  </ThemedText>
+                )}
+
+                {secondOpinion && (
+                  <ThemedView type="backgroundElement" style={styles.secondOpinionBox}>
+                    <ThemedText type="default">{secondOpinion}</ThemedText>
+                  </ThemedView>
+                )}
+              </ThemedView>
+            )}
           </>
         )}
       </SafeAreaView>
@@ -156,5 +214,19 @@ const styles = StyleSheet.create({
   },
   stepText: {
     flex: 1,
+  },
+  secondOpinionButton: {
+    alignSelf: 'flex-start',
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.three,
+    borderRadius: Spacing.four,
+    backgroundColor: '#3c87f7',
+  },
+  secondOpinionButtonText: {
+    color: '#ffffff',
+  },
+  secondOpinionBox: {
+    padding: Spacing.three,
+    borderRadius: Spacing.three,
   },
 });

@@ -15,8 +15,15 @@ Stage 2 (app core) in progress:
 - [x] Local scan history (`expo-sqlite`)
 - [x] Bundled treatment lookup (`assets/model/treatments.json`)
 - [x] Model conversion finished and dropped into `assets/model/` (see `../model/README.md`)
-- [ ] Gemini "second opinion" online enhancement (Stage 4)
+- [x] Gemini "second opinion" online enhancement (Stage 4) — `gemini-3.6-flash`, direct REST call, online-only, optional
 - [ ] Real on-device camera-photo validation (PyTorch/TFLite parity already verified on random input)
+
+## Gemini second opinion
+
+Requires `EXPO_PUBLIC_GEMINI_API_KEY` in `app/.env` (copy `.env.example`, get a
+free-tier key from [Google AI Studio](https://aistudio.google.com/apikey)).
+Ships client-side per the no-backend architecture — the key is embedded in
+the bundle, so restrict it in AI Studio and keep it on the free tier.
 
 ## Development
 
