@@ -14,8 +14,9 @@ Stage 2 (app core) in progress:
 - [x] `react-native-fast-tflite` wired up, awaiting `assets/model/model.tflite`
 - [x] Local scan history (`expo-sqlite`)
 - [x] Bundled treatment lookup (`assets/model/treatments.json`)
-- [ ] Model conversion finished and dropped into `assets/model/`
+- [x] Model conversion finished and dropped into `assets/model/` (see `../model/README.md`)
 - [ ] Gemini "second opinion" online enhancement (Stage 4)
+- [ ] Real on-device camera-photo validation (PyTorch/TFLite parity already verified on random input)
 
 ## Development
 
