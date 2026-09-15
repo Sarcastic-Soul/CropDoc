@@ -21,7 +21,9 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": ["android.permission.CAMERA", "android.permission.RECORD_AUDIO"],
+      "package": "com.sarcasticsoul.cropdoc"
     },
     "web": {
       "output": "static",
@@ -49,6 +51,15 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1b68c93c-d434-45f8-965c-2a89e8fb130d"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1b68c93c-d434-45f8-965c-2a89e8fb130d"
     }
   }
 }
