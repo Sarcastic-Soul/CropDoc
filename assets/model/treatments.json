@@ -1,0 +1,106 @@
+{
+  "_comment": "Keyed by exact PlantVillage label string from the model's id2label. 'demo' classes have full curated treatment text (Stage 1 validation focus per BUILD-PLAN.md). Any other class the 38-way model predicts falls back to the '_default' entry below so the app never crashes on an out-of-scope class.",
+  "_default": {
+    "displayName": "Unrecognized condition",
+    "severity": "unknown",
+    "description": "This result is outside the app's curated disease set. Confidence and treatment guidance may be less reliable.",
+    "treatment": [
+      "Isolate the affected plant if possible to limit spread.",
+      "Consult a local agricultural extension office for a confirmed diagnosis.",
+      "Retake the photo in good light, focused on a single affected leaf, for a clearer result."
+    ]
+  },
+  "Potato___healthy": {
+    "displayName": "Potato — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this potato leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially after rain."
+    ]
+  },
+  "Potato___Early_blight": {
+    "displayName": "Potato — Early Blight",
+    "severity": "moderate",
+    "description": "Fungal disease (Alternaria solani) causing dark concentric-ring spots on lower leaves, spreading upward.",
+    "treatment": [
+      "Remove and destroy infected leaves.",
+      "Apply a chlorothalonil or copper-based fungicide, repeating every 7-10 days.",
+      "Rotate crops; avoid planting potatoes/tomatoes in the same soil next season.",
+      "Improve airflow between plants and avoid overhead watering."
+    ]
+  },
+  "Potato___Late_blight": {
+    "displayName": "Potato — Late Blight",
+    "severity": "severe",
+    "description": "Aggressive water-mold disease (Phytophthora infestans) — the same pathogen behind the Irish potato famine. Spreads fast in cool, wet weather.",
+    "treatment": [
+      "Act immediately: remove and destroy all infected plant material, do not compost.",
+      "Apply a systemic fungicide (e.g. metalaxyl or mancozeb-based) as soon as possible.",
+      "Avoid overhead irrigation; water at the base only.",
+      "If severe, destroy the whole plant to protect neighboring crops."
+    ]
+  },
+  "Tomato___healthy": {
+    "displayName": "Tomato — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this tomato leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially in humid conditions."
+    ]
+  },
+  "Tomato___Bacterial_spot": {
+    "displayName": "Tomato — Bacterial Spot",
+    "severity": "moderate",
+    "description": "Bacterial infection (Xanthomonas spp.) causing small dark water-soaked spots on leaves and fruit.",
+    "treatment": [
+      "Remove infected leaves and destroy them, do not compost.",
+      "Apply a copper-based bactericide weekly during wet weather.",
+      "Avoid working with wet plants — bacteria spread easily on damp hands and tools.",
+      "Use disease-free seed and resistant varieties next season."
+    ]
+  },
+  "Tomato___Early_blight": {
+    "displayName": "Tomato — Early Blight",
+    "severity": "moderate",
+    "description": "Fungal disease (Alternaria solani) causing dark target-like spots starting on older, lower leaves.",
+    "treatment": [
+      "Remove and destroy affected lower leaves.",
+      "Apply a chlorothalonil or copper-based fungicide every 7-10 days.",
+      "Mulch around the base to prevent soil splash onto leaves.",
+      "Stake or cage plants to improve airflow."
+    ]
+  },
+  "Tomato___Late_blight": {
+    "displayName": "Tomato — Late Blight",
+    "severity": "severe",
+    "description": "Fast-spreading water-mold disease (Phytophthora infestans) causing large greasy, dark blotches on leaves and fruit.",
+    "treatment": [
+      "Act immediately: remove and destroy infected material, do not compost.",
+      "Apply a systemic fungicide (e.g. chlorothalonil or copper-based) right away.",
+      "Avoid overhead watering; water at the base only.",
+      "In severe cases, remove the whole plant to protect the rest of the crop."
+    ]
+  },
+  "Corn_(maize)___healthy": {
+    "displayName": "Corn — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this corn leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially during humid growing periods."
+    ]
+  },
+  "Corn_(maize)___Common_rust_": {
+    "displayName": "Corn — Common Rust",
+    "severity": "moderate",
+    "description": "Fungal disease (Puccinia sorghi) causing reddish-brown pustules on both leaf surfaces.",
+    "treatment": [
+      "Apply a foliar fungicide (e.g. azoxystrobin or propiconazole) if infection is heavy before tasseling.",
+      "Plant rust-resistant corn hybrids in future seasons.",
+      "Remove volunteer corn plants that can carry the fungus between seasons.",
+      "Monitor closely — mild infections often don't need treatment."
+    ]
+  }
+}
