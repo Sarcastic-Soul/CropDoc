@@ -2,6 +2,7 @@ import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { GeminiKeyProvider } from '@/contexts/gemini-key';
 import { ThemePreferenceProvider } from '@/contexts/theme-preference';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { useTheme } from '@/hooks/use-theme';
@@ -11,7 +12,9 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   return (
     <ThemePreferenceProvider>
-      <AppShell />
+      <GeminiKeyProvider>
+        <AppShell />
+      </GeminiKeyProvider>
     </ThemePreferenceProvider>
   );
 }

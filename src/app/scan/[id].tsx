@@ -7,8 +7,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { DiagnosisResult, type SecondOpinionState } from '@/components/diagnosis-result';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
+import { useGeminiKey } from '@/contexts/gemini-key';
 import { getScanById, updateScanSecondOpinion, type ScanRecord } from '@/lib/db';
-import { getSecondOpinion, isGeminiConfigured } from '@/lib/gemini';
+import { getSecondOpinion } from '@/lib/gemini';
 import { getTreatment } from '@/lib/model/treatments';
 
 export default function ScanDetailScreen() {
@@ -17,6 +18,7 @@ export default function ScanDetailScreen() {
   const [isOnline, setIsOnline] = useState(false);
   const [secondOpinion, setSecondOpinion] = useState<string | null>(null);
   const [secondOpinionState, setSecondOpinionState] = useState<SecondOpinionState>('idle');
+  const { apiKey } = useGeminiKey();
 
   useEffect(() => {
     Network.getNetworkStateAsync().then((state) => setIsOnline(Boolean(state.isConnected)));
@@ -30,11 +32,11 @@ export default function ScanDetailScreen() {
   }, [id]);
 
   async function handleGetSecondOpinion() {
-    if (!record) return;
+    if (!record || !apiKey) return;
     setSecondOpinionState('loading');
     try {
       const treatment = getTreatment(record.label);
-      const text = await getSecondOpinion(record.photoUri, treatment);
+      const text = await getSecondOpinion(record.photoUri, treatment, apiKey);
       setSecondOpinion(text);
       setSecondOpinionState('idle');
       await updateScanSecondOpinion(record.id, text);
@@ -60,7 +62,7 @@ export default function ScanDetailScreen() {
           photoUri={record.photoUri}
           prediction={{ label: record.label, confidence: record.confidence }}
           treatment={treatment}
-          canRequestSecondOpinion={isOnline && isGeminiConfigured()}
+          canRequestSecondOpinion={isOnline && Boolean(apiKey)}
           secondOpinion={secondOpinion}
           secondOpinionState={secondOpinionState}
           onRequestSecondOpinion={handleGetSecondOpinion}

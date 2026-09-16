@@ -6,14 +6,9 @@ import type { Treatment } from './model/treatments';
 // agentic and everyday tasks" per ai.google.dev/gemini-api/docs/models — fast/cheap
 // enough for a single on-demand vision call, free-tier eligible.
 const MODEL = 'gemini-3.6-flash';
-const API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY;
 const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
 
 const GEMINI_IMAGE_MAX_DIMENSION = 768;
-
-export function isGeminiConfigured() {
-  return Boolean(API_KEY);
-}
 
 async function toGeminiJpegBase64(photoUri: string) {
   const resized = await ImageManipulator.manipulate(photoUri)
@@ -29,12 +24,14 @@ async function toGeminiJpegBase64(photoUri: string) {
 /**
  * Asks Gemini for a richer, plain-language explanation layered on top of the
  * on-device diagnosis. Online-only, optional — never on the critical path.
+ *
+ * Takes the API key as a parameter rather than reading a build-time env var:
+ * an EXPO_PUBLIC_ variable gets inlined into the JS bundle at build time,
+ * which means it ships in plaintext inside the APK for anyone to extract.
+ * Each user supplies their own key in Settings instead (stored via
+ * expo-secure-store, Android Keystore-backed).
  */
-export async function getSecondOpinion(photoUri: string, treatment: Treatment): Promise<string> {
-  if (!API_KEY) {
-    throw new Error('Gemini API key not configured');
-  }
-
+export async function getSecondOpinion(photoUri: string, treatment: Treatment, apiKey: string): Promise<string> {
   const imageBase64 = await toGeminiJpegBase64(photoUri);
 
   const prompt = `You are helping a farmer understand a crop leaf diagnosis made by an offline, on-device model. The on-device model diagnosed: "${treatment.displayName}" (${treatment.description}).
@@ -46,7 +43,7 @@ Look at the attached photo and, in plain, non-technical language a farmer withou
 
 Keep it to 3-4 short sentences. Do not repeat the treatment steps verbatim — the app already shows those separately.`;
 
-  const response = await fetch(`${ENDPOINT}?key=${API_KEY}`, {
+  const response = await fetch(`${ENDPOINT}?key=${apiKey}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

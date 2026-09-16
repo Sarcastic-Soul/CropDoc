@@ -1,16 +1,17 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Constants from 'expo-constants';
 import { useState, type ComponentProps } from 'react';
-import { Alert, Pressable, StyleSheet } from 'react-native';
+import { Alert, Pressable, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { ExternalLink } from '@/components/external-link';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
+import { useGeminiKey } from '@/contexts/gemini-key';
 import { type ThemePreference, useThemePreference } from '@/contexts/theme-preference';
 import { useTheme } from '@/hooks/use-theme';
 import { clearScanHistory } from '@/lib/db';
-import { isGeminiConfigured } from '@/lib/gemini';
 
 type IconName = ComponentProps<typeof MaterialCommunityIcons>['name'];
 
@@ -22,7 +23,9 @@ const THEME_OPTIONS: { value: ThemePreference; label: string; icon: IconName }[]
 
 export default function SettingsScreen() {
   const [isClearing, setIsClearing] = useState(false);
+  const [draftKey, setDraftKey] = useState('');
   const { preference, setPreference } = useThemePreference();
+  const { apiKey, setApiKey } = useGeminiKey();
   const theme = useTheme();
 
   function handleClearHistory() {
@@ -43,79 +46,139 @@ export default function SettingsScreen() {
     ]);
   }
 
+  async function handleSaveKey() {
+    const trimmed = draftKey.trim();
+    if (!trimmed) return;
+    await setApiKey(trimmed);
+    setDraftKey('');
+  }
+
+  function handleRemoveKey() {
+    Alert.alert('Remove Gemini API key', 'The "second opinion" feature will be unavailable until you add a key again.', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Remove', style: 'destructive', onPress: () => setApiKey(null) },
+    ]);
+  }
+
   return (
     <ThemedView style={styles.container}>
-      <SafeAreaView edges={['bottom']} style={styles.safeArea}>
-        <ThemedView style={styles.section}>
-          <ThemedText type="smallBold" themeColor="textSecondary">
-            THEME
-          </ThemedText>
-          <ThemedView type="backgroundElement" style={styles.segmented}>
-            {THEME_OPTIONS.map((option) => {
-              const selected = preference === option.value;
-              return (
-                <Pressable
-                  key={option.value}
-                  onPress={() => setPreference(option.value)}
-                  style={[styles.segment, selected && { backgroundColor: theme.backgroundSelected }]}>
-                  <MaterialCommunityIcons
-                    name={option.icon}
-                    size={18}
-                    color={selected ? theme.text : theme.textSecondary}
-                  />
-                  <ThemedText type="small" themeColor={selected ? 'text' : 'textSecondary'}>
-                    {option.label}
+      <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
+        <SafeAreaView edges={['bottom']} style={styles.safeArea}>
+          <ThemedView style={styles.section}>
+            <ThemedText type="smallBold" themeColor="textSecondary">
+              THEME
+            </ThemedText>
+            <ThemedView type="backgroundElement" style={styles.segmented}>
+              {THEME_OPTIONS.map((option) => {
+                const selected = preference === option.value;
+                return (
+                  <Pressable
+                    key={option.value}
+                    onPress={() => setPreference(option.value)}
+                    style={[styles.segment, selected && { backgroundColor: theme.backgroundSelected }]}>
+                    <MaterialCommunityIcons
+                      name={option.icon}
+                      size={18}
+                      color={selected ? theme.text : theme.textSecondary}
+                    />
+                    <ThemedText type="small" themeColor={selected ? 'text' : 'textSecondary'}>
+                      {option.label}
+                    </ThemedText>
+                  </Pressable>
+                );
+              })}
+            </ThemedView>
+          </ThemedView>
+
+          <ThemedView style={styles.section}>
+            <ThemedText type="smallBold" themeColor="textSecondary">
+              DIAGNOSIS
+            </ThemedText>
+            <ThemedView type="backgroundElement" style={styles.row}>
+              <ThemedText type="default">On-device model</ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                Always on, works fully offline
+              </ThemedText>
+            </ThemedView>
+          </ThemedView>
+
+          <ThemedView style={styles.section}>
+            <ThemedText type="smallBold" themeColor="textSecondary">
+              GEMINI SECOND OPINION
+            </ThemedText>
+            <ThemedView type="backgroundElement" style={styles.row}>
+              {apiKey ? (
+                <>
+                  <ThemedText type="default">Key saved (•••• {apiKey.slice(-4)})</ThemedText>
+                  <ThemedText type="small" themeColor="textSecondary">
+                    Available when online. Stored encrypted on this device only.
                   </ThemedText>
-                </Pressable>
-              );
-            })}
+                  <Pressable onPress={handleRemoveKey} style={styles.linkButton}>
+                    <ThemedText type="small" style={styles.dangerText}>
+                      Remove key
+                    </ThemedText>
+                  </Pressable>
+                </>
+              ) : (
+                <>
+                  <ThemedText type="small" themeColor="textSecondary">
+                    Add your own free-tier Gemini API key to enable the optional online
+                    &ldquo;second opinion&rdquo; explanation. Stored encrypted on this device only —
+                    never bundled with the app.
+                  </ThemedText>
+                  <TextInput
+                    value={draftKey}
+                    onChangeText={setDraftKey}
+                    placeholder="Paste your Gemini API key"
+                    placeholderTextColor={theme.textSecondary}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    secureTextEntry
+                    style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
+                  />
+                  <Pressable
+                    onPress={handleSaveKey}
+                    disabled={!draftKey.trim()}
+                    style={[styles.saveButton, !draftKey.trim() && styles.rowDisabled]}>
+                    <ThemedText type="default" style={styles.saveButtonText}>
+                      Save key
+                    </ThemedText>
+                  </Pressable>
+                  <ExternalLink href="https://aistudio.google.com/apikey">
+                    <ThemedText type="linkPrimary">Get a free key from Google AI Studio</ThemedText>
+                  </ExternalLink>
+                </>
+              )}
+            </ThemedView>
           </ThemedView>
-        </ThemedView>
 
-        <ThemedView style={styles.section}>
-          <ThemedText type="smallBold" themeColor="textSecondary">
-            DIAGNOSIS
-          </ThemedText>
-          <ThemedView type="backgroundElement" style={styles.row}>
-            <ThemedText type="default">On-device model</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
-              Always on, works fully offline
+          <ThemedView style={styles.section}>
+            <ThemedText type="smallBold" themeColor="textSecondary">
+              DATA
             </ThemedText>
+            <Pressable
+              onPress={handleClearHistory}
+              disabled={isClearing}
+              style={[styles.row, styles.dangerRow, isClearing && styles.rowDisabled]}>
+              <ThemedText type="default" style={styles.dangerText}>
+                Clear scan history
+              </ThemedText>
+            </Pressable>
           </ThemedView>
-          <ThemedView type="backgroundElement" style={styles.row}>
-            <ThemedText type="default">Gemini second opinion</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
-              {isGeminiConfigured() ? 'Configured — available when online' : 'Not configured'}
-            </ThemedText>
-          </ThemedView>
-        </ThemedView>
 
-        <ThemedView style={styles.section}>
-          <ThemedText type="smallBold" themeColor="textSecondary">
-            DATA
-          </ThemedText>
-          <Pressable
-            onPress={handleClearHistory}
-            disabled={isClearing}
-            style={[styles.row, styles.dangerRow, isClearing && styles.rowDisabled]}>
-            <ThemedText type="default" style={styles.dangerText}>
-              Clear scan history
+          <ThemedView style={styles.section}>
+            <ThemedText type="smallBold" themeColor="textSecondary">
+              ABOUT
             </ThemedText>
-          </Pressable>
-        </ThemedView>
-
-        <ThemedView style={styles.section}>
-          <ThemedText type="smallBold" themeColor="textSecondary">
-            ABOUT
-          </ThemedText>
-          <ThemedView type="backgroundElement" style={styles.row}>
-            <ThemedText type="default">CropDoc</ThemedText>
-            <ThemedText type="small" themeColor="textSecondary">
-              Version {Constants.expoConfig?.version ?? '1.0.0'}
-            </ThemedText>
+            <ThemedView type="backgroundElement" style={styles.row}>
+              <ThemedText type="default">CropDoc</ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                Version {Constants.expoConfig?.version ?? '1.0.0'}
+              </ThemedText>
+            </ThemedView>
           </ThemedView>
-        </ThemedView>
-      </SafeAreaView>
+        </SafeAreaView>
+      </ScrollView>
     </ThemedView>
   );
 }
@@ -124,8 +187,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  scrollContent: {
+    flexGrow: 1,
+  },
   safeArea: {
-    flex: 1,
     paddingHorizontal: Spacing.three,
     paddingTop: Spacing.three,
     gap: Spacing.four,
@@ -151,7 +216,27 @@ const styles = StyleSheet.create({
   row: {
     padding: Spacing.three,
     borderRadius: Spacing.three,
-    gap: Spacing.half,
+    gap: Spacing.two,
+  },
+  input: {
+    borderWidth: 1,
+    borderRadius: Spacing.two,
+    paddingHorizontal: Spacing.two,
+    paddingVertical: Spacing.two,
+    fontSize: 14,
+  },
+  saveButton: {
+    alignSelf: 'flex-start',
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.three,
+    borderRadius: Spacing.four,
+    backgroundColor: '#3c87f7',
+  },
+  saveButtonText: {
+    color: '#ffffff',
+  },
+  linkButton: {
+    alignSelf: 'flex-start',
   },
   dangerRow: {
     borderWidth: 1,

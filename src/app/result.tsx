@@ -8,8 +8,9 @@ import { DiagnosisResult, type SecondOpinionState } from '@/components/diagnosis
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
+import { useGeminiKey } from '@/contexts/gemini-key';
 import { saveScan, updateScanSecondOpinion } from '@/lib/db';
-import { getSecondOpinion, isGeminiConfigured } from '@/lib/gemini';
+import { getSecondOpinion } from '@/lib/gemini';
 import { classifyLeaf, type Prediction } from '@/lib/model/inference';
 import { preprocessForModel } from '@/lib/model/preprocess';
 import { getTreatment, type Treatment } from '@/lib/model/treatments';
@@ -23,16 +24,17 @@ export default function ResultScreen() {
   const [scanId, setScanId] = useState<number | null>(null);
   const [secondOpinion, setSecondOpinion] = useState<string | null>(null);
   const [secondOpinionState, setSecondOpinionState] = useState<SecondOpinionState>('idle');
+  const { apiKey } = useGeminiKey();
 
   useEffect(() => {
     Network.getNetworkStateAsync().then((state) => setIsOnline(Boolean(state.isConnected)));
   }, []);
 
   async function handleGetSecondOpinion() {
-    if (!treatment) return;
+    if (!treatment || !apiKey) return;
     setSecondOpinionState('loading');
     try {
-      const text = await getSecondOpinion(uri, treatment);
+      const text = await getSecondOpinion(uri, treatment, apiKey);
       setSecondOpinion(text);
       setSecondOpinionState('idle');
       if (scanId !== null) {
@@ -97,7 +99,7 @@ export default function ResultScreen() {
             photoUri={uri}
             prediction={prediction}
             treatment={treatment}
-            canRequestSecondOpinion={isOnline && isGeminiConfigured()}
+            canRequestSecondOpinion={isOnline && Boolean(apiKey)}
             secondOpinion={secondOpinion}
             secondOpinionState={secondOpinionState}
             onRequestSecondOpinion={handleGetSecondOpinion}

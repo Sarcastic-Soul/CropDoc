@@ -24,10 +24,11 @@ Stage 2 (app core) in progress:
 
 ## Gemini second opinion
 
-Requires `EXPO_PUBLIC_GEMINI_API_KEY` in `app/.env` (copy `.env.example`, get a
-free-tier key from [Google AI Studio](https://aistudio.google.com/apikey)).
-Ships client-side per the no-backend architecture — the key is embedded in
-the bundle, so restrict it in AI Studio and keep it on the free tier.
+Each user supplies their own free-tier key in-app (Settings → Gemini second
+opinion), stored via `expo-secure-store` (Android Keystore-backed), not
+bundled with the app. An `EXPO_PUBLIC_*` env var would get inlined into the
+JS bundle at build time — extractable in plaintext from the shipped
+APK/AAB — so the app never ships with a key baked in.
 
 ## Development
 

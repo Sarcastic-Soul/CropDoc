@@ -52,7 +52,8 @@
         {
           "photosPermission": "CropDoc needs photo access to diagnose a leaf photo from your gallery."
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
