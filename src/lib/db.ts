@@ -7,6 +7,7 @@ export type ScanRecord = {
   displayName: string;
   confidence: number;
   createdAt: number;
+  secondOpinion: string | null;
 };
 
 const db = SQLite.openDatabaseSync('cropdoc.db');
@@ -15,22 +16,30 @@ let readyPromise: Promise<void> | null = null;
 
 export function initDb() {
   if (!readyPromise) {
-    readyPromise = db.execAsync(`
-      CREATE TABLE IF NOT EXISTS scans (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        photoUri TEXT NOT NULL,
-        label TEXT NOT NULL,
-        displayName TEXT NOT NULL,
-        confidence REAL NOT NULL,
-        createdAt INTEGER NOT NULL
-      );
-    `);
+    readyPromise = (async () => {
+      await db.execAsync(`
+        CREATE TABLE IF NOT EXISTS scans (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          photoUri TEXT NOT NULL,
+          label TEXT NOT NULL,
+          displayName TEXT NOT NULL,
+          confidence REAL NOT NULL,
+          createdAt INTEGER NOT NULL
+        );
+      `);
+      // Added after the initial release — check before altering so upgrades
+      // from an existing on-device db don't fail on a duplicate column.
+      const columns = await db.getAllAsync<{ name: string }>('PRAGMA table_info(scans)');
+      if (!columns.some((c) => c.name === 'secondOpinion')) {
+        await db.execAsync('ALTER TABLE scans ADD COLUMN secondOpinion TEXT');
+      }
+    })();
   }
   return readyPromise;
 }
 
 export async function saveScan(
-  scan: Omit<ScanRecord, 'id' | 'createdAt'>
+  scan: Omit<ScanRecord, 'id' | 'createdAt' | 'secondOpinion'>
 ): Promise<number> {
   await initDb();
   const result = await db.runAsync(
@@ -40,9 +49,20 @@ export async function saveScan(
   return result.lastInsertRowId;
 }
 
+export async function updateScanSecondOpinion(id: number, secondOpinion: string): Promise<void> {
+  await initDb();
+  await db.runAsync('UPDATE scans SET secondOpinion = ? WHERE id = ?', [secondOpinion, id]);
+}
+
 export async function getScanHistory(): Promise<ScanRecord[]> {
   await initDb();
   return db.getAllAsync<ScanRecord>('SELECT * FROM scans ORDER BY createdAt DESC');
+}
+
+export async function getScanById(id: number): Promise<ScanRecord | null> {
+  await initDb();
+  const record = await db.getFirstAsync<ScanRecord>('SELECT * FROM scans WHERE id = ?', [id]);
+  return record ?? null;
 }
 
 export async function clearScanHistory(): Promise<void> {

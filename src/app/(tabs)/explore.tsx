@@ -1,7 +1,7 @@
 import { Image } from 'expo-image';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
@@ -11,6 +11,7 @@ import { getScanHistory, type ScanRecord } from '@/lib/db';
 
 export default function HistoryScreen() {
   const [scans, setScans] = useState<ScanRecord[]>([]);
+  const router = useRouter();
 
   useFocusEffect(
     useCallback(() => {
@@ -37,15 +38,17 @@ export default function HistoryScreen() {
             keyExtractor={(item) => String(item.id)}
             contentContainerStyle={styles.list}
             renderItem={({ item }) => (
-              <ThemedView type="backgroundElement" style={styles.row}>
-                <Image source={{ uri: item.photoUri }} style={styles.thumb} contentFit="cover" />
-                <ThemedView style={styles.rowText}>
-                  <ThemedText type="smallBold">{item.displayName}</ThemedText>
-                  <ThemedText type="small" themeColor="textSecondary">
-                    {Math.round(item.confidence * 100)}% · {new Date(item.createdAt).toLocaleString()}
-                  </ThemedText>
+              <Pressable onPress={() => router.push(`/scan/${item.id}`)}>
+                <ThemedView type="backgroundElement" style={styles.row}>
+                  <Image source={{ uri: item.photoUri }} style={styles.thumb} contentFit="cover" />
+                  <View style={styles.rowText}>
+                    <ThemedText type="smallBold">{item.displayName}</ThemedText>
+                    <ThemedText type="small" themeColor="textSecondary">
+                      {Math.round(item.confidence * 100)}% · {new Date(item.createdAt).toLocaleString()}
+                    </ThemedText>
+                  </View>
                 </ThemedView>
-              </ThemedView>
+              </Pressable>
             )}
           />
         )}
