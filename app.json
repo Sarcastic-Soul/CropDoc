@@ -18,7 +18,10 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "permissions": ["android.permission.CAMERA", "android.permission.RECORD_AUDIO"],
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ],
       "package": "com.sarcasticsoul.cropdoc"
     },
     "web": {
@@ -41,6 +44,13 @@
         "expo-camera",
         {
           "cameraPermission": "CropDoc needs camera access to photograph crop leaves for disease detection."
+        }
+      ],
+      "expo-asset",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "CropDoc needs photo access to diagnose a leaf photo from your gallery."
         }
       ]
     ],

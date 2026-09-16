@@ -44,3 +44,8 @@ export async function getScanHistory(): Promise<ScanRecord[]> {
   await initDb();
   return db.getAllAsync<ScanRecord>('SELECT * FROM scans ORDER BY createdAt DESC');
 }
+
+export async function clearScanHistory(): Promise<void> {
+  await initDb();
+  await db.execAsync('DELETE FROM scans');
+}

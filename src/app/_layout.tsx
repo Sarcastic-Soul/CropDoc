@@ -19,7 +19,9 @@ export default function RootLayout() {
           headerTintColor: theme.text,
         }}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="camera" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
         <Stack.Screen name="result" options={{ title: 'Diagnosis', presentation: 'modal' }} />
+        <Stack.Screen name="settings" options={{ title: 'Settings', presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>
   );

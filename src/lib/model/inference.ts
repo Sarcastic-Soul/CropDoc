@@ -1,3 +1,4 @@
+import { Asset } from 'expo-asset';
 import { loadTensorflowModel } from 'react-native-fast-tflite';
 import type { TfliteModel } from 'react-native-fast-tflite';
 
@@ -7,9 +8,20 @@ let modelPromise: Promise<TfliteModel> | null = null;
 
 function getModel() {
   if (!modelPromise) {
-    // Metro's static analysis for bundling `.tflite` as an asset needs a literal require(..).
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    modelPromise = loadTensorflowModel(require('@/assets/model/model.tflite'), []);
+    modelPromise = (async () => {
+      // On a production Android build, bundled non-image assets are packaged as
+      // Android resources and `require(..)`'s resolved URI has no scheme (e.g.
+      // "assets_model_model"), which fast-tflite's URL loader rejects. Asset.downloadAsync
+      // resolves it to a real `file://` URI in both dev and production.
+      // Metro's static analysis for bundling `.tflite` as an asset needs a literal require(..).
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const asset = Asset.fromModule(require('@/assets/model/model.tflite'));
+      await asset.downloadAsync();
+      if (!asset.localUri) {
+        throw new Error('Failed to resolve local URI for bundled model.tflite');
+      }
+      return loadTensorflowModel({ url: asset.localUri }, []);
+    })();
   }
   return modelPromise;
 }

@@ -1,86 +1,72 @@
-import { CameraView, useCameraPermissions } from 'expo-camera';
+import * as ImagePicker from 'expo-image-picker';
 import * as Network from 'expo-network';
 import { useRouter } from 'expo-router';
-import { useEffect, useRef, useState } from 'react';
-import { Platform, Pressable, StyleSheet } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { BottomTabInset, Spacing } from '@/constants/theme';
 
-export default function ScanScreen() {
-  const [permission, requestPermission] = useCameraPermissions();
+export default function HomeScreen() {
   const [isOffline, setIsOffline] = useState<boolean | null>(null);
-  const [isCapturing, setIsCapturing] = useState(false);
-  const cameraRef = useRef<CameraView>(null);
   const router = useRouter();
 
   useEffect(() => {
     Network.getNetworkStateAsync().then((state) => setIsOffline(!state.isConnected));
   }, []);
 
-  async function handleCapture() {
-    if (!cameraRef.current || isCapturing) return;
-    setIsCapturing(true);
-    try {
-      const photo = await cameraRef.current.takePictureAsync({ quality: 0.9, exif: false });
-      if (!photo) return;
-      router.push({
-        pathname: '/result',
-        params: { uri: photo.uri, width: String(photo.width), height: String(photo.height) },
-      });
-    } finally {
-      setIsCapturing(false);
-    }
-  }
+  async function handleUpload() {
+    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!permission.granted) return;
 
-  if (!permission) {
-    return <ThemedView style={styles.container} />;
-  }
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['images'],
+      quality: 0.9,
+    });
+    if (result.canceled) return;
 
-  if (!permission.granted) {
-    return (
-      <ThemedView style={styles.container}>
-        <SafeAreaView style={styles.permissionSafeArea}>
-          <ThemedText type="subtitle" style={styles.centerText}>
-            Camera access needed
-          </ThemedText>
-          <ThemedText type="default" themeColor="textSecondary" style={styles.centerText}>
-            CropDoc needs your camera to photograph crop leaves for diagnosis.
-          </ThemedText>
-          <Pressable onPress={requestPermission} style={styles.permissionButton}>
-            <ThemedText type="default" style={styles.permissionButtonText}>
-              Grant camera access
-            </ThemedText>
-          </Pressable>
-        </SafeAreaView>
-      </ThemedView>
-    );
+    const picked = result.assets[0];
+    router.push({
+      pathname: '/result',
+      params: { uri: picked.uri, width: String(picked.width), height: String(picked.height) },
+    });
   }
 
   return (
     <ThemedView style={styles.container}>
-      <CameraView ref={cameraRef} style={StyleSheet.absoluteFill} facing="back" />
-
-      {isOffline && (
-        <SafeAreaView style={styles.offlineBadgeWrap} pointerEvents="none">
-          <ThemedView type="backgroundElement" style={styles.offlineBadge}>
-            <ThemedText type="smallBold">📡 Offline mode — diagnosis still works</ThemedText>
-          </ThemedView>
-        </SafeAreaView>
-      )}
-
-      <SafeAreaView style={styles.controls}>
-        <Pressable
-          onPress={handleCapture}
-          disabled={isCapturing}
-          style={[styles.shutter, isCapturing && styles.shutterDisabled]}>
-          <ThemedView style={styles.shutterInner} />
+      <SafeAreaView style={styles.safeArea}>
+        <Pressable onPress={() => router.push('/settings')} style={styles.settingsButton} hitSlop={12}>
+          <ThemedText type="default">⚙️</ThemedText>
         </Pressable>
-        <ThemedText type="small" style={styles.hint}>
-          Point at a single leaf, fill the frame, tap to scan
-        </ThemedText>
+
+        <ThemedView style={styles.hero}>
+          <ThemedText type="title" style={styles.title}>
+            CropDoc
+          </ThemedText>
+          <ThemedText type="default" themeColor="textSecondary" style={styles.subtitle}>
+            Point a leaf, get an instant diagnosis — fully offline, on-device.
+          </ThemedText>
+
+          {isOffline && (
+            <ThemedView type="backgroundElement" style={styles.offlineBadge}>
+              <ThemedText type="smallBold">📡 Offline mode — diagnosis still works</ThemedText>
+            </ThemedView>
+          )}
+        </ThemedView>
+
+        <ThemedView style={styles.actions}>
+          <Pressable onPress={() => router.push('/camera')} style={styles.primaryButton}>
+            <ThemedText type="default" style={styles.primaryButtonText}>
+              📷 Open camera
+            </ThemedText>
+          </Pressable>
+
+          <Pressable onPress={handleUpload} style={styles.secondaryButton}>
+            <ThemedText type="default">🖼️ Upload a photo</ThemedText>
+          </Pressable>
+        </ThemedView>
       </SafeAreaView>
     </ThemedView>
   );
@@ -90,67 +76,56 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  permissionSafeArea: {
+  safeArea: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     paddingHorizontal: Spacing.four,
-    gap: Spacing.three,
+    paddingBottom: BottomTabInset + Spacing.three,
   },
-  centerText: {
+  settingsButton: {
+    alignSelf: 'flex-end',
+    marginTop: Spacing.two,
+    width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  hero: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: Spacing.two,
+  },
+  title: {
     textAlign: 'center',
   },
-  permissionButton: {
-    marginTop: Spacing.two,
-    paddingVertical: Spacing.two,
-    paddingHorizontal: Spacing.four,
-    borderRadius: Spacing.four,
-    backgroundColor: '#3c87f7',
-  },
-  permissionButtonText: {
-    color: '#ffffff',
-  },
-  offlineBadgeWrap: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    alignItems: 'center',
+  subtitle: {
+    textAlign: 'center',
+    paddingHorizontal: Spacing.three,
   },
   offlineBadge: {
-    marginTop: Spacing.two,
+    marginTop: Spacing.three,
     paddingVertical: Spacing.one,
     paddingHorizontal: Spacing.three,
     borderRadius: Spacing.five,
   },
-  controls: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    alignItems: 'center',
+  actions: {
     gap: Spacing.two,
-    paddingBottom: Platform.select({ ios: BottomTabInset, android: BottomTabInset }) ?? Spacing.four,
+    paddingBottom: Spacing.four,
   },
-  shutter: {
-    width: 76,
-    height: 76,
-    borderRadius: 38,
-    borderWidth: 4,
-    borderColor: '#ffffff',
+  primaryButton: {
+    paddingVertical: Spacing.three,
+    borderRadius: Spacing.four,
+    backgroundColor: '#3c87f7',
     alignItems: 'center',
-    justifyContent: 'center',
   },
-  shutterDisabled: {
-    opacity: 0.5,
-  },
-  shutterInner: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: '#ffffff',
-  },
-  hint: {
+  primaryButtonText: {
     color: '#ffffff',
+  },
+  secondaryButton: {
+    paddingVertical: Spacing.three,
+    borderRadius: Spacing.four,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#3c87f7',
   },
 });
