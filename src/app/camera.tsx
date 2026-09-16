@@ -1,3 +1,4 @@
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import * as Network from 'expo-network';
 import { useRouter } from 'expo-router';
@@ -8,6 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
+import { useTheme } from '@/hooks/use-theme';
 
 export default function CameraScreen() {
   const [permission, requestPermission] = useCameraPermissions();
@@ -15,6 +17,7 @@ export default function CameraScreen() {
   const [isCapturing, setIsCapturing] = useState(false);
   const cameraRef = useRef<CameraView>(null);
   const router = useRouter();
+  const theme = useTheme();
 
   useEffect(() => {
     Network.getNetworkStateAsync().then((state) => setIsOffline(!state.isConnected));
@@ -65,14 +68,13 @@ export default function CameraScreen() {
 
       <SafeAreaView style={styles.topBar} pointerEvents="box-none">
         <Pressable onPress={() => router.back()} style={styles.closeButton} hitSlop={12}>
-          <ThemedText type="default" style={styles.closeButtonText}>
-            ✕
-          </ThemedText>
+          <MaterialCommunityIcons name="close" size={20} color="#ffffff" />
         </Pressable>
 
         {isOffline && (
           <ThemedView type="backgroundElement" style={styles.offlineBadge}>
-            <ThemedText type="smallBold">📡 Offline mode — diagnosis still works</ThemedText>
+            <MaterialCommunityIcons name="wifi-off" size={14} color={theme.text} />
+            <ThemedText type="smallBold">Offline mode — diagnosis still works</ThemedText>
           </ThemedView>
         )}
       </SafeAreaView>
@@ -135,11 +137,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  closeButtonText: {
-    color: '#ffffff',
-    fontSize: 16,
-  },
   offlineBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.one,
     paddingVertical: Spacing.one,
     paddingHorizontal: Spacing.three,
     borderRadius: Spacing.five,

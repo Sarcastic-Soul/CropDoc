@@ -1,16 +1,29 @@
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Constants from 'expo-constants';
-import { useState } from 'react';
+import { useState, type ComponentProps } from 'react';
 import { Alert, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
+import { type ThemePreference, useThemePreference } from '@/contexts/theme-preference';
+import { useTheme } from '@/hooks/use-theme';
 import { clearScanHistory } from '@/lib/db';
 import { isGeminiConfigured } from '@/lib/gemini';
 
+type IconName = ComponentProps<typeof MaterialCommunityIcons>['name'];
+
+const THEME_OPTIONS: { value: ThemePreference; label: string; icon: IconName }[] = [
+  { value: 'system', label: 'System', icon: 'cellphone-cog' },
+  { value: 'light', label: 'Light', icon: 'white-balance-sunny' },
+  { value: 'dark', label: 'Dark', icon: 'weather-night' },
+];
+
 export default function SettingsScreen() {
   const [isClearing, setIsClearing] = useState(false);
+  const { preference, setPreference } = useThemePreference();
+  const theme = useTheme();
 
   function handleClearHistory() {
     Alert.alert('Clear scan history', 'This deletes all saved diagnoses from this device. This cannot be undone.', [
@@ -33,6 +46,32 @@ export default function SettingsScreen() {
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView edges={['bottom']} style={styles.safeArea}>
+        <ThemedView style={styles.section}>
+          <ThemedText type="smallBold" themeColor="textSecondary">
+            THEME
+          </ThemedText>
+          <ThemedView type="backgroundElement" style={styles.segmented}>
+            {THEME_OPTIONS.map((option) => {
+              const selected = preference === option.value;
+              return (
+                <Pressable
+                  key={option.value}
+                  onPress={() => setPreference(option.value)}
+                  style={[styles.segment, selected && { backgroundColor: theme.backgroundSelected }]}>
+                  <MaterialCommunityIcons
+                    name={option.icon}
+                    size={18}
+                    color={selected ? theme.text : theme.textSecondary}
+                  />
+                  <ThemedText type="small" themeColor={selected ? 'text' : 'textSecondary'}>
+                    {option.label}
+                  </ThemedText>
+                </Pressable>
+              );
+            })}
+          </ThemedView>
+        </ThemedView>
+
         <ThemedView style={styles.section}>
           <ThemedText type="smallBold" themeColor="textSecondary">
             DIAGNOSIS
@@ -93,6 +132,21 @@ const styles = StyleSheet.create({
   },
   section: {
     gap: Spacing.two,
+  },
+  segmented: {
+    flexDirection: 'row',
+    borderRadius: Spacing.three,
+    padding: Spacing.half,
+    gap: Spacing.half,
+  },
+  segment: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: Spacing.one,
+    paddingVertical: Spacing.two,
+    borderRadius: Spacing.two,
   },
   row: {
     padding: Spacing.three,
