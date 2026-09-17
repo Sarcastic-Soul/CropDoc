@@ -10,13 +10,276 @@
       "Piga picha tena kwenye mwanga mzuri, ukilenga jani moja lililoathirika, kwa matokeo bora zaidi."
     ]
   },
-  "Healthy Potato Plant": {
-    "displayName": "Viazi — Vyenye Afya",
+  "Apple Scab": {
+    "displayName": "Epo — Upele (Scab)",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Venturia inaequalis) unaosababisha madoa meusi, yenye ukoko, ya kijani-mzeituni hadi kahawia kwenye majani na matunda. Huenea zaidi katika hali ya hewa ya baridi na unyevu ya masika.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano myclobutanil, captan, au mancozeb) kuanzia machipuko yanapotoka na kurudia kila siku 7-10 wakati wa unyevu.",
+      "Kusanya na kuharibu majani yaliyoanguka wakati wa kipupwe — fangasi hukaa kwenye majani hayo.",
+      "Punguza matawi ili kufungua kichaka; mzunguko mzuri wa hewa huongeza kasi ya majani kukauka na kupunguza maambukizi.",
+      "Panda aina zinazostahimili upele ikiwa utapanda tena."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya myclobutanil, captan, au mancozeb",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Apple with Black Rot": {
+    "displayName": "Epo — Uozo Mweusi",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Botryosphaeria obtusa) unaosababisha madoa ya jani yenye ukingo wa zambarau ('doa la jicho la chura') na matunda yanayooza na kukauka.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano captan au thiophanate-methyl) kuanzia majani machanga hadi ukuaji wa matunda.",
+      "Ondoa na haribu matunda yaliyokauka na mbao/vidonda vilivyokufa — vyote huhifadhi fangasi wakati wa kipupwe.",
+      "Kata matawi yaliyokufa au yenye ugonjwa mara moja; safisha vifaa vya kukata kati ya mikato.",
+      "Epuka mkazo wa mti (ukame, uharibifu wa baridi) unaofanya maambukizi kuwa rahisi zaidi."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya captan au thiophanate-methyl",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Cedar Apple Rust": {
+    "displayName": "Epo — Kutu ya Mierezi",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Gymnosporangium juniperi-virginianae) unaohitaji miti ya epo na mierezi/juniper ili kukamilisha mzunguko wake — unasababisha madoa ya njano-machungwa mkali kwenye majani ya epo.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano myclobutanil) kuanzia hatua ya chipukizi la waridi hadi wiki kadhaa baada ya maua kupukutika.",
+      "Ondoa miti ya mierezi/juniper iliyo karibu ikiwa inawezekana — vivimbe vya masika kwenye miti hiyo ndiyo chanzo cha maambukizi.",
+      "Panda aina za epo zinazostahimili kutu ikiwa utapanda tena.",
+      "Kusanya na tupa majani yaliyoanguka kupunguza vijidudu vinavyokaa wakati wa kipupwe."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya myclobutanil",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Apple": {
+    "displayName": "Epo — Yenye Afya",
     "severity": "none",
-    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la viazi.",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la epo.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa baada ya hali ya hewa ya unyevu ya masika."
+    ]
+  },
+  "Healthy Blueberry Plant": {
+    "displayName": "Bluberi — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la bluberi.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa wakati wa unyevu."
+    ]
+  },
+  "Cherry with Powdery Mildew": {
+    "displayName": "Cheri — Ukungu wa Unga",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Podosphaera clandestina) unaosababisha mfuniko mweupe kama unga kwenye majani na machipukizi, unaoonekana zaidi katika hali ya hewa ya joto, kavu na unyevu mwingi.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano salfa au myclobutanil) mara tu madoa meupe kama unga yanapoonekana.",
+      "Punguza matawi ili kuboresha mzunguko wa hewa na jua kupenya kwenye kichaka.",
+      "Epuka nitrojeni kupita kiasi, inayosababisha ukuaji laini unaopendwa na ukungu.",
+      "Ondoa na haribu machipukizi na majani yaliyoambukizwa vibaya."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya salfa au myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Cherry Plant": {
+    "displayName": "Cheri — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la cheri.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa katika hali ya joto na unyevu."
+    ]
+  },
+  "Corn (Maize) with Cercospora and Gray Leaf Spot": {
+    "displayName": "Mahindi — Madoa ya Kijivu ya Jani",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Cercospora zeae-maydis) unaosababisha madoa membamba, ya mstatili, ya kahawia-kijivu yanayofuata mstari wa mishipa ya jani. Unazidi kuwa mbaya katika hali ya hewa ya joto, unyevu, na mashambani yenye mabaki mengi ya mahindi.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu ya majani (mfano azoxystrobin, pyraclostrobin, au propiconazole) ikiwa madoa yanaenea juu ya mmea kabla ya kutoa maua.",
+      "Panda aina zinazostahimili ugonjwa na epuka kupanda mahindi mfululizo msimu ujao (badilisha mazao).",
+      "Dhibiti mabaki ya mazao (kulima au kuondoa) — fangasi huishi kwenye mabaki ya mahindi ya zamani kati ya misimu.",
+      "Epuka nitrojeni kupita kiasi na upandaji mnene sana; mzunguko mzuri wa hewa kati ya mimea hupunguza kasi ya kusambaa."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya azoxystrobin, pyraclostrobin, au propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Mahindi — Kutu ya Kawaida",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Puccinia sorghi) unaosababisha vipele vyekundu-kahawia kwenye pande zote za jani.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu ya majani (mfano azoxystrobin au propiconazole) ikiwa maambukizi ni makali kabla ya kutoa maua.",
+      "Panda aina za mahindi zinazostahimili kutu msimu ujao.",
+      "Ondoa mimea ya mahindi ya kujitokeza yenyewe inayoweza kubeba fangasi kati ya misimu.",
+      "Fuatilia kwa karibu — maambukizi madogo mara nyingi hayahitaji matibabu."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya majani ya Azoxystrobin au propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Northern Leaf Blight": {
+    "displayName": "Mahindi — Ugonjwa wa Kuungua kwa Jani (Kaskazini)",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Exserohilum turcicum) unaosababisha madoa marefu, ya mviringo kama sigara, ya kahawia-kijivu kwenye majani. Unapendelea joto la wastani na unyevu wa jani wa muda mrefu.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu ya majani (mfano azoxystrobin au propiconazole) ikiwa madoa yanaenea kabla ya kutoa maua.",
+      "Panda aina zinazostahimili ugonjwa na epuka kupanda mahindi mfululizo msimu ujao (badilisha mazao).",
+      "Dhibiti mabaki ya mazao (kulima au kuondoa) — fangasi huishi kwenye mabaki ya mahindi ya zamani kati ya misimu.",
+      "Fuatilia kwa karibu — maambukizi madogo mwishoni mwa msimu mara nyingi hayahitaji matibabu."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya azoxystrobin au propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Mahindi — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la mahindi.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa wakati wa vipindi vya ukuaji vyenye unyevu."
+    ]
+  },
+  "Grape with Black Rot": {
+    "displayName": "Zabibu — Uozo Mweusi",
+    "severity": "severe",
+    "description": "Ugonjwa wa fangasi (Guignardia bidwellii) unaosababisha madoa ya jani ya kahawia-nyekundu na matunda yanayokakamaa kuwa 'maiti' migumu myeusi. Unaweza kuharibu mazao mengi ya msimu ikiwa haitatibiwa.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano mancozeb au myclobutanil) kuanzia mwanzo wa msimu, mara baada ya machipuko.",
+      "Ondoa na haribu matunda yaliyokakamaa na machipukizi yaliyoambukizwa — vyote huleta fangasi msimu unaofuata.",
+      "Punguza matawi ili kufungua kichaka na kuongeza kasi ya kukauka baada ya mvua.",
+      "Badilisha aina za dawa za ukungu wakati wa msimu kuepuka fangasi kustahimili dawa."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya mancozeb au myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Grape with Esca (Black Measles)": {
+    "displayName": "Zabibu — Esca (Black Measles)",
+    "severity": "severe",
+    "description": "Mchanganyiko wa magonjwa ya fangasi ya shina unaosababisha mabadiliko ya rangi ya majani kama 'mistari ya chui' na madoa meusi kwenye matunda. Hakuna dawa ya ukungu inayoponya kwa uhakika baada ya kuathiri shina.",
+    "treatment": [
+      "Hakuna tiba ya kemikali yenye ufanisi — kunyunyizia majani hakufikii maambukizi ya shina.",
+      "Kata na haribu mbao zilizokufa au zenye dalili chini sana ya rangi inayoonekana, safisha vifaa kati ya mikato.",
+      "Katika hali mbaya, ondoa na badilisha mzabibu — utaendelea kudhoofika na unaweza kueneza vijidudu kwa mizabibu jirani.",
+      "Epuka kupogoa wakati wa hali ya hewa ya unyevu; fangasi huingia kupitia majeraha mapya ya kupogoa."
+    ]
+  },
+  "Grape with Isariopsis Leaf Spot": {
+    "displayName": "Zabibu — Kuungua kwa Jani (Doa la Isariopsis)",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Pseudocercospora vitis / doa la Isariopsis) unaosababisha madoa kahawia yenye pembe kwenye majani ambayo yanaweza kuungana na kusababisha majani kuanguka mapema.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano mancozeb) ikiwa madoa yanaenea, hasa katika hali ya unyevu.",
+      "Ondoa na haribu majani yaliyoambukizwa yaliyoanguka — fangasi hukaa kwenye majani hayo wakati wa kipupwe.",
+      "Punguza matawi ili kufungua kichaka na kupunguza muda wa unyevu wa jani.",
+      "Epuka umwagiliaji wa juu jioni, unaoongeza muda wa unyevu wa jani usiku."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya mancozeb",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Grape Plant": {
+    "displayName": "Zabibu — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la zabibu.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa katika hali ya unyevu."
+    ]
+  },
+  "Orange with Citrus Greening": {
+    "displayName": "Chungwa — Ugonjwa wa Kijani wa Machungwa (HLB)",
+    "severity": "severe",
+    "description": "Ugonjwa wa bakteria (Candidatus Liberibacter spp., huanglongbing) unaosambazwa na kisukuma cha machungwa cha Asia, unaosababisha njano yenye madoa kwenye majani na matunda madogo, machungu, yasiyo na umbo sawa. Hakuna tiba.",
+    "treatment": [
+      "Hakuna tiba ya kemikali baada ya mti kuambukizwa — lengo hubadilika kuzuia kuenea zaidi.",
+      "Dhibiti kisukuma cha machungwa cha Asia (mdudu anayesambaza ugonjwa) kwa mpango wa dawa ya kuua wadudu unaopendekezwa na huduma ya kilimo ya eneo hilo.",
+      "Ondoa na haribu mara moja miti iliyothibitishwa kuambukizwa — inakuwa chanzo cha maambukizi kwa miti yenye afya karibu.",
+      "Nunua miche mipya tu kutoka kitalu chenye cheti cha kutokuwa na ugonjwa."
+    ]
+  },
+  "Peach with Bacterial Spot": {
+    "displayName": "Pichi — Doa la Bakteria",
+    "severity": "moderate",
+    "description": "Ugonjwa wa bakteria (Xanthomonas arboricola pv. pruni) unaosababisha madoa madogo, meusi, yenye unyevu kwenye majani na vidonda vilivyochimbwa kwenye matunda.",
+    "treatment": [
+      "Nyunyizia dawa ya bakteria ya shaba wakati wa kulala na tena wakati wa majani machanga — shaba haifanyi kazi vizuri baada ya ugonjwa kuenea.",
+      "Punguza matawi ili kufungua kichaka na kuongeza kasi ya kukauka baada ya mvua au umwagiliaji.",
+      "Epuka umwagiliaji wa juu; mwagilia kwenye mzizi ili majani yakae makavu.",
+      "Panda aina zisizo rahisi kuambukizwa ikiwa utapanda tena."
+    ],
+    "dosage": {
+      "product": "Dawa ya bakteria ya shaba",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Peach Plant": {
+    "displayName": "Pichi — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la pichi.",
     "treatment": [
       "Hakuna matibabu yanayohitajika.",
       "Endelea kufuatilia kila wiki, hasa baada ya mvua."
+    ]
+  },
+  "Bell Pepper with Bacterial Spot": {
+    "displayName": "Pilipili Hoho — Doa la Bakteria",
+    "severity": "moderate",
+    "description": "Ugonjwa wa bakteria (Xanthomonas campestris pv. vesicatoria) unaosababisha madoa madogo, meusi, yenye unyevu kwenye majani na vidonda vilivyoinuka kwenye matunda.",
+    "treatment": [
+      "Nyunyizia dawa ya bakteria ya shaba mara tu madoa yanapoonekana, kurudia kila wiki wakati wa unyevu.",
+      "Ondoa na haribu majani na matunda yaliyoambukizwa — usiyatie kwenye mboji.",
+      "Epuka kufanya kazi na mimea yenye unyevu; bakteria husambaa kwa urahisi kwenye mikono na vifaa vyenye unyevu.",
+      "Tumia mbegu/miche isiyo na ugonjwa na aina zinazostahimili msimu ujao."
+    ],
+    "dosage": {
+      "product": "Dawa ya bakteria ya shaba",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Bell Pepper Plant": {
+    "displayName": "Pilipili Hoho — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la pilipili hoho.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa wakati wa hali ya unyevu."
     ]
   },
   "Potato with Early Blight": {
@@ -53,10 +316,71 @@
       "unit": "g/L"
     }
   },
-  "Healthy Tomato Plant": {
-    "displayName": "Nyanya — Zenye Afya",
+  "Healthy Potato Plant": {
+    "displayName": "Viazi — Vyenye Afya",
     "severity": "none",
-    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la nyanya.",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la viazi.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa baada ya mvua."
+    ]
+  },
+  "Healthy Raspberry Plant": {
+    "displayName": "Rasiberi — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la rasiberi.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa katika hali ya unyevu."
+    ]
+  },
+  "Healthy Soybean Plant": {
+    "displayName": "Soya — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la soya.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa wakati wa unyevu."
+    ]
+  },
+  "Squash with Powdery Mildew": {
+    "displayName": "Boga — Ukungu wa Unga",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi unaosababisha mfuniko mweupe kama unga kwenye majani na mashina, kawaida katika hali ya hewa ya joto na unyevu mwingi.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano salfa au myclobutanil) mara tu madoa meupe kama unga yanapoonekana.",
+      "Ondoa na haribu majani yaliyoambukizwa vibaya kupunguza kasi ya kusambaa.",
+      "Panda mimea kwa nafasi nzuri ya hewa na epuka kumwagilia kutoka juu jioni.",
+      "Panda aina zinazostahimili ukungu ikiwa utapanda tena."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya salfa au myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Strawberry with Leaf Scorch": {
+    "displayName": "Strawberi — Kuungua kwa Jani",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Diplocarpon earlianum) unaosababisha madoa madogo ya zambarau yanayoungana kuwa maeneo makubwa yanayofanana na yaliyoungua kwenye majani.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano captan au myclobutanil) ikiwa madoa yanaenea, hasa baada ya mavuno.",
+      "Ondoa majani ya zamani baada ya mavuno (kukata au kukusanya) kupunguza vijidudu vinavyokaa wakati wa kipupwe.",
+      "Epuka umwagiliaji wa juu; mwagilia kwenye mzizi ili majani yakae makavu.",
+      "Panda mimea kwa nafasi nzuri kati ya mistari kwa mzunguko wa hewa."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya captan au myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Strawberry Plant": {
+    "displayName": "Strawberi — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la strawberi.",
     "treatment": [
       "Hakuna matibabu yanayohitajika.",
       "Endelea kufuatilia kila wiki, hasa katika hali ya unyevu."
@@ -113,30 +437,103 @@
       "unit": "mL/L"
     }
   },
-  "Healthy Corn (Maize) Plant": {
-    "displayName": "Mahindi — Yenye Afya",
-    "severity": "none",
-    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la mahindi.",
-    "treatment": [
-      "Hakuna matibabu yanayohitajika.",
-      "Endelea kufuatilia kila wiki, hasa wakati wa vipindi vya ukuaji vyenye unyevu."
-    ]
-  },
-  "Corn (Maize) with Common Rust": {
-    "displayName": "Mahindi — Kutu ya Kawaida",
+  "Tomato with Leaf Mold": {
+    "displayName": "Nyanya — Ukungu wa Jani",
     "severity": "moderate",
-    "description": "Ugonjwa wa fangasi (Puccinia sorghi) unaosababisha vipele vyekundu-kahawia kwenye pande zote za jani.",
+    "description": "Ugonjwa wa fangasi (Passalora fulva) unaosababisha madoa ya njano hafifu upande wa juu wa jani na ukungu wa kijani-mzeituni hadi kijivu chini yake. Kawaida katika nyumba za kuoteshea/mitaro yenye unyevu.",
     "treatment": [
-      "Nyunyizia dawa ya ukungu ya majani (mfano azoxystrobin au propiconazole) ikiwa maambukizi ni makali kabla ya kutoa maua.",
-      "Panda aina za mahindi zinazostahimili kutu msimu ujao.",
-      "Ondoa mimea ya mahindi ya kujitokeza yenyewe inayoweza kubeba fangasi kati ya misimu.",
-      "Fuatilia kwa karibu — maambukizi madogo mara nyingi hayahitaji matibabu."
+      "Nyunyizia dawa ya ukungu (mfano chlorothalonil au ya shaba) mara tu madoa ya njano yanapoonekana.",
+      "Boresha mzunguko wa hewa na punguza unyevu — katika nyumba za kuoteshea/mitaro, hii mara nyingi ni muhimu zaidi kuliko kunyunyizia.",
+      "Ondoa na haribu majani ya chini yaliyoambukizwa kupunguza kasi ya kusambaa.",
+      "Epuka kumwagilia kutoka juu na kulowanisha majani jioni."
     ],
     "dosage": {
-      "product": "Dawa ya ukungu ya majani ya Azoxystrobin au propiconazole",
-      "rateMin": 1,
-      "rateMax": 1.5,
+      "product": "Dawa ya ukungu ya chlorothalonil au shaba",
+      "rateMin": 2,
+      "rateMax": 3,
       "unit": "mL/L"
     }
+  },
+  "Tomato with Septoria Leaf Spot": {
+    "displayName": "Nyanya — Doa la Jani la Septoria",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Septoria lycopersici) unaosababisha madoa madogo, ya mviringo, yenye ukingo mweusi na katikati ya kahawia hafifu, kawaida yakianzia kwenye majani ya chini.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano chlorothalonil au ya shaba) kila siku 7-10 mara madoa yanapoanza.",
+      "Ondoa na haribu majani ya chini yaliyoambukizwa, na safisha mabaki ya mmea mwishoni mwa msimu.",
+      "Weka matandazo chini ya mmea kupunguza udongo kurushwa kwenye majani.",
+      "Weka miti ya kuegemeza au vizimba na epuka kumwagilia kutoka juu ili kuboresha mzunguko wa hewa na kuweka majani makavu."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya chlorothalonil au shaba",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Spider Mites or Two-spotted Spider Mite": {
+    "displayName": "Nyanya — Utitiri (Spider Mites)",
+    "severity": "moderate",
+    "description": "Wadudu wadogo wanaonyonya utomvu (Tetranychus urticae) wanaosababisha madoa madogo ya njano kwenye majani na, wakiwa wengi, utando mwepesi unaoonekana. Huzidi kuwa mbaya katika hali ya joto, ukavu.",
+    "treatment": [
+      "Nyunyizia sabuni ya kuua wadudu, mafuta ya bustani, au dawa ya utitiri (mfano abamectin), ukifunika chini ya majani mahali wanapoishi utitiri.",
+      "Osha mimea kwa maji yenye kasi kupunguza idadi ya utitiri kati ya kunyunyizia.",
+      "Epuka nitrojeni kupita kiasi, inayosababisha ukuaji laini unaopendwa na utitiri.",
+      "Leta au hifadhi wadudu wanaowala utitiri kiasili (mfano utitiri wanaokula wenzao, kunguni) inapowezekana."
+    ],
+    "dosage": {
+      "product": "Dawa ya utitiri ya abamectin au mafuta ya bustani",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Target Spot": {
+    "displayName": "Nyanya — Doa la Shabaha",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Corynespora cassiicola) unaosababisha madoa kahawia yenye miduara hafifu inayozunguka ('mfano wa shabaha') kwenye majani, mashina, na matunda.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu (mfano chlorothalonil au azoxystrobin) mara madoa yanapothibitishwa, kurudia kila siku 7-10.",
+      "Ondoa na haribu majani yaliyoambukizwa na mabaki ya mmea mwishoni mwa msimu.",
+      "Weka miti ya kuegemeza au vizimba na panda kwa nafasi nzuri ya hewa.",
+      "Epuka kumwagilia kutoka juu; mwagilia kwenye mzizi ili majani yakae makavu."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya chlorothalonil au azoxystrobin",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato Yellow Leaf Curl Virus": {
+    "displayName": "Nyanya — Virusi vya Kujikunja kwa Jani la Njano",
+    "severity": "severe",
+    "description": "Ugonjwa wa virusi unaosambazwa na inzi weupe, unaosababisha majani kujikunja juu, kunyauka njano, na ukuaji uliodumaa. Hakuna tiba baada ya mmea kuambukizwa.",
+    "treatment": [
+      "Hakuna tiba ya kemikali — ondoa na haribu mara moja mimea iliyoambukizwa kupunguza kusambaa kwa mimea yenye afya.",
+      "Dhibiti inzi weupe (mdudu anayesambaza ugonjwa) (mfano kwa sabuni ya kuua wadudu au dawa ya wadudu inayopendekezwa) kwa sababu virusi vyenyewe haviwezi kutibiwa moja kwa moja.",
+      "Tumia aina za nyanya zinazostahimili virusi msimu ujao ikiwa zinapatikana.",
+      "Zingatia kutumia matandazo yenye kung'aa au wavu wa matundu madogo kupunguza inzi weupe kutua kwenye mimea michanga."
+    ]
+  },
+  "Tomato Mosaic Virus": {
+    "displayName": "Nyanya — Virusi vya Mozaiki",
+    "severity": "severe",
+    "description": "Ugonjwa wa virusi unaosababisha mifumo ya mozaiki ya rangi ya kijani hafifu/kikubwa yenye madoa kwenye majani, majani kujikunja, na matunda yaliyodumaa, yenye umbo mbaya. Hakuna tiba baada ya mmea kuambukizwa.",
+    "treatment": [
+      "Hakuna tiba ya kemikali — ondoa na haribu mimea iliyoambukizwa kuzuia kusambaa zaidi.",
+      "Osha mikono na safisha vifaa baada ya kushughulikia mimea iliyoambukizwa — virusi husambaa kwa urahisi kwa kugusa.",
+      "Tumia mbegu zilizothibitishwa kutokuwa na virusi na aina zinazostahimili msimu ujao.",
+      "Dhibiti vidukari na wadudu wengine wanaonyonya utomvu wanaoweza kusambaza virusi kati ya mimea."
+    ]
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Nyanya — Zenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la nyanya.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa katika hali ya unyevu."
+    ]
   }
 }

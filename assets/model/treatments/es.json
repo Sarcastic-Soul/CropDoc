@@ -10,13 +10,276 @@
       "Vuelve a tomar la foto con buena luz, enfocando una sola hoja afectada, para obtener un resultado más claro."
     ]
   },
-  "Healthy Potato Plant": {
-    "displayName": "Papa — Sana",
+  "Apple Scab": {
+    "displayName": "Manzano — Sarna",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Venturia inaequalis) que causa lesiones oscuras, ásperas, de color verde oliva a marrón en hojas y frutos. Se propaga más rápido en clima primaveral fresco y húmedo.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, myclobutanil, captan o mancozeb) desde la brotación y repite cada 7-10 días durante los períodos húmedos.",
+      "Rastrilla y destruye las hojas caídas en otoño — el hongo sobrevive el invierno en la hojarasca.",
+      "Poda para abrir el follaje; una mejor circulación de aire acelera el secado de las hojas y frena la infección.",
+      "Planta variedades resistentes a la sarna si vas a replantar."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de myclobutanil, captan o mancozeb",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Apple with Black Rot": {
+    "displayName": "Manzano — Podredumbre Negra",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Botryosphaeria obtusa) que causa manchas foliares con borde púrpura ('mancha de ojo de rana') y frutos que se pudren y momifican.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, captan o tiofanato-metílico) desde la brotación hasta el desarrollo del fruto.",
+      "Retira y destruye los frutos momificados y la madera muerta/cancros — ambos albergan el hongo durante el invierno.",
+      "Poda las ramas muertas o enfermas de inmediato; desinfecta las herramientas de poda entre corte y corte.",
+      "Evita el estrés del árbol (sequía, daño por frío), que aumenta la probabilidad de infección."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de captan o tiofanato-metílico",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Cedar Apple Rust": {
+    "displayName": "Manzano — Roya del Cedro",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Gymnosporangium juniperi-virginianae) que necesita tanto manzanos como cedros/enebros para completar su ciclo — causa manchas amarillo-naranja brillantes en las hojas del manzano.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, myclobutanil) desde la etapa de botón rosado hasta varias semanas después de la caída de pétalos.",
+      "Retira los cedros/enebros cercanos si es posible — las agallas que se forman en primavera son la fuente de infección.",
+      "Planta variedades de manzano resistentes a la roya si vas a replantar.",
+      "Rastrilla y desecha las hojas caídas para reducir las esporas que sobreviven el invierno."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de myclobutanil",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Apple": {
+    "displayName": "Manzano — Sano",
     "severity": "none",
-    "description": "No se detectaron signos de enfermedad en esta hoja de papa.",
+    "description": "No se detectaron signos de enfermedad en esta hoja de manzano.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente tras clima primaveral húmedo."
+    ]
+  },
+  "Healthy Blueberry Plant": {
+    "displayName": "Arándano — Sano",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de arándano.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente en períodos húmedos."
+    ]
+  },
+  "Cherry with Powdery Mildew": {
+    "displayName": "Cerezo — Oídio",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Podosphaera clandestina) que causa una capa blanca y polvorienta en hojas y brotes, más visible en clima cálido y seco con alta humedad.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, azufre o myclobutanil) al primer signo de manchas blancas polvorientas.",
+      "Poda para mejorar la circulación de aire y la entrada de luz solar en el follaje.",
+      "Evita el exceso de fertilizante nitrogenado, que favorece el crecimiento tierno que prefiere el oídio.",
+      "Retira y destruye los brotes y hojas muy infectados."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de azufre o myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Cherry Plant": {
+    "displayName": "Cerezo — Sano",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de cerezo.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente en condiciones cálidas y húmedas."
+    ]
+  },
+  "Corn (Maize) with Cercospora and Gray Leaf Spot": {
+    "displayName": "Maíz — Mancha gris de la hoja",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Cercospora zeae-maydis) que causa lesiones estrechas y rectangulares de color pardo grisáceo, paralelas a las venas de la hoja. Empeora en clima cálido y húmedo y en campos con mucho rastrojo de maíz.",
+    "treatment": [
+      "Aplica un fungicida foliar (por ejemplo, azoxistrobina, piraclostrobina o propiconazol) si las lesiones avanzan hacia la parte superior de la planta antes de la floración masculina.",
+      "Planta híbridos resistentes y evita el maíz continuo en la próxima temporada (rota los cultivos).",
+      "Maneja el rastrojo (labranza o retiro) — el hongo sobrevive en los restos de maíz entre temporadas.",
+      "Evita el exceso de nitrógeno y la siembra demasiado densa; una mejor circulación de aire entre plantas frena la propagación."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de azoxistrobina, piraclostrobina o propiconazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Maíz — Roya común",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Puccinia sorghi) que causa pústulas de color marrón rojizo en ambas caras de la hoja.",
+    "treatment": [
+      "Aplica un fungicida foliar (por ejemplo, a base de azoxistrobina o propiconazol) si la infección es intensa antes de la floración masculina.",
+      "Planta híbridos de maíz resistentes a la roya en futuras temporadas.",
+      "Elimina las plantas de maíz voluntarias que puedan portar el hongo entre temporadas.",
+      "Monitorea de cerca — las infecciones leves a menudo no necesitan tratamiento."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de azoxistrobina o propiconazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Northern Leaf Blight": {
+    "displayName": "Maíz — Tizón Foliar del Norte",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Exserohilum turcicum) que causa lesiones alargadas, en forma de puro, de color pardo grisáceo en las hojas. Favorecida por temperaturas moderadas y humedad foliar prolongada.",
+    "treatment": [
+      "Aplica un fungicida foliar (por ejemplo, azoxistrobina o propiconazol) si las lesiones se están extendiendo antes de la floración masculina.",
+      "Planta híbridos resistentes y evita el maíz continuo en la próxima temporada (rota los cultivos).",
+      "Maneja el rastrojo (labranza o retiro) — el hongo sobrevive en los restos de maíz entre temporadas.",
+      "Monitorea de cerca — las infecciones leves al final de la temporada a menudo no necesitan tratamiento."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de azoxistrobina o propiconazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Maíz — Sano",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de maíz.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente durante períodos de crecimiento húmedos."
+    ]
+  },
+  "Grape with Black Rot": {
+    "displayName": "Vid — Podredumbre Negra",
+    "severity": "severe",
+    "description": "Enfermedad fúngica (Guignardia bidwellii) que causa manchas foliares pardo-rojizas y frutos que se secan hasta convertirse en 'momias' negras y duras. Puede destruir la mayor parte de la cosecha si no se trata.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, mancozeb o myclobutanil) desde el inicio de la temporada, justo después de la brotación.",
+      "Retira y destruye las bayas momificadas y los sarmientos infectados — ambos transportan el hongo a la siguiente temporada.",
+      "Poda para mantener un follaje abierto que mejore la circulación de aire y el secado tras la lluvia.",
+      "Alterna los grupos químicos de fungicida durante la temporada para evitar que se desarrolle resistencia."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de mancozeb o myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Grape with Esca (Black Measles)": {
+    "displayName": "Vid — Esca (Sarampión Negro)",
+    "severity": "severe",
+    "description": "Un complejo de enfermedades fúngicas del tronco que causa decoloración foliar en 'rayas de tigre' y manchas oscuras en las bayas. Ningún fungicida la cura de forma confiable una vez establecida en el tronco.",
+    "treatment": [
+      "No existe una cura química eficaz — la aspersión de fungicida en las hojas no llega a la infección del tronco.",
+      "Corta y destruye la madera muerta o sintomática bien por debajo de cualquier mancha visible, desinfectando las herramientas entre corte y corte.",
+      "En casos avanzados, retira y reemplaza la vid — seguirá deteriorándose y puede propagar el inóculo a las vecinas.",
+      "Evita podar en clima húmedo; el hongo entra por las heridas de poda recientes."
+    ]
+  },
+  "Grape with Isariopsis Leaf Spot": {
+    "displayName": "Vid — Tizón Foliar (Mancha de Isariopsis)",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Pseudocercospora vitis / mancha de Isariopsis) que causa manchas angulares marrones en las hojas que pueden unirse y causar caída prematura del follaje.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, mancozeb) si las manchas se están extendiendo, especialmente en clima húmedo.",
+      "Retira y destruye las hojas caídas infectadas — el hongo sobrevive el invierno en la hojarasca.",
+      "Poda para mantener un follaje abierto que mejore la circulación de aire y reduzca el tiempo que las hojas permanecen húmedas.",
+      "Evita el riego por aspersión al final del día, que prolonga la humedad foliar durante la noche."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de mancozeb",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Grape Plant": {
+    "displayName": "Vid — Sana",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de vid.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente en condiciones húmedas."
+    ]
+  },
+  "Orange with Citrus Greening": {
+    "displayName": "Naranjo — Enverdecimiento de los Cítricos (HLB)",
+    "severity": "severe",
+    "description": "Enfermedad bacteriana (Candidatus Liberibacter spp., huanglongbing) transmitida por el psílido asiático de los cítricos, que causa moteado amarillo irregular en las hojas y frutos pequeños, amargos y deformes. No tiene cura.",
+    "treatment": [
+      "No existe cura química una vez que el árbol está infectado — el enfoque pasa a prevenir una mayor propagación.",
+      "Controla el psílido asiático de los cítricos con un programa de insecticida recomendado por un servicio de extensión agrícola local.",
+      "Retira y destruye de inmediato los árboles con infección confirmada — actúan como fuente de contagio para los árboles sanos cercanos.",
+      "Adquiere árboles nuevos solo de viveros certificados libres de enfermedad."
+    ]
+  },
+  "Peach with Bacterial Spot": {
+    "displayName": "Durazno — Mancha Bacteriana",
+    "severity": "moderate",
+    "description": "Enfermedad bacteriana (Xanthomonas arboricola pv. pruni) que causa pequeñas manchas oscuras y empapadas en las hojas y lesiones hundidas en el fruto.",
+    "treatment": [
+      "Aplica un bactericida a base de cobre durante el reposo invernal y de nuevo al inicio de la brotación — el cobre es mucho menos eficaz una vez establecida la enfermedad.",
+      "Poda para mantener un follaje abierto que acelere el secado tras la lluvia o el riego.",
+      "Evita el riego por aspersión; riega en la base para mantener el follaje seco.",
+      "Planta variedades menos susceptibles si vas a replantar."
+    ],
+    "dosage": {
+      "product": "Bactericida a base de cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Peach Plant": {
+    "displayName": "Durazno — Sano",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de durazno.",
     "treatment": [
       "No se necesita tratamiento.",
       "Sigue monitoreando semanalmente, especialmente después de la lluvia."
+    ]
+  },
+  "Bell Pepper with Bacterial Spot": {
+    "displayName": "Pimiento — Mancha Bacteriana",
+    "severity": "moderate",
+    "description": "Enfermedad bacteriana (Xanthomonas campestris pv. vesicatoria) que causa pequeñas manchas oscuras y empapadas en las hojas y lesiones costrosas elevadas en el fruto.",
+    "treatment": [
+      "Aplica un bactericida a base de cobre al primer signo de manchas, repitiendo semanalmente durante el clima húmedo.",
+      "Retira y destruye las hojas y frutos infectados — no los compostes.",
+      "Evita trabajar con plantas mojadas; la bacteria se propaga fácilmente por manos y herramientas húmedas.",
+      "Usa semillas/plantines libres de enfermedad y variedades resistentes la próxima temporada."
+    ],
+    "dosage": {
+      "product": "Bactericida a base de cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Bell Pepper Plant": {
+    "displayName": "Pimiento — Sano",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de pimiento.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente en clima húmedo."
     ]
   },
   "Potato with Early Blight": {
@@ -53,10 +316,71 @@
       "unit": "g/L"
     }
   },
-  "Healthy Tomato Plant": {
-    "displayName": "Tomate — Sano",
+  "Healthy Potato Plant": {
+    "displayName": "Papa — Sana",
     "severity": "none",
-    "description": "No se detectaron signos de enfermedad en esta hoja de tomate.",
+    "description": "No se detectaron signos de enfermedad en esta hoja de papa.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente después de la lluvia."
+    ]
+  },
+  "Healthy Raspberry Plant": {
+    "displayName": "Frambuesa — Sana",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de frambuesa.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente en condiciones húmedas."
+    ]
+  },
+  "Healthy Soybean Plant": {
+    "displayName": "Soja — Sana",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de soja.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente en períodos húmedos."
+    ]
+  },
+  "Squash with Powdery Mildew": {
+    "displayName": "Calabaza — Oídio",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica que causa una capa blanca y polvorienta en hojas y tallos, común en clima cálido con alta humedad.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, azufre o myclobutanil) al primer signo de manchas blancas polvorientas.",
+      "Retira y destruye las hojas muy infectadas para frenar la propagación.",
+      "Da espacio a las plantas para una buena circulación de aire y evita el riego por aspersión al final del día.",
+      "Planta variedades resistentes al oídio si vas a replantar."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de azufre o myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Strawberry with Leaf Scorch": {
+    "displayName": "Fresa — Quemadura Foliar",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Diplocarpon earlianum) que causa pequeñas manchas púrpuras que se unen formando manchas más grandes de apariencia quemada en las hojas.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, captan o myclobutanil) si las manchas se están extendiendo, especialmente después de la cosecha.",
+      "Retira las hojas viejas después de la cosecha (cortando o rastrillando) para reducir las esporas que sobreviven el invierno.",
+      "Evita el riego por aspersión; riega en la base para mantener el follaje seco.",
+      "Da espacio a las plantas para una buena circulación de aire entre hileras."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de captan o myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Strawberry Plant": {
+    "displayName": "Fresa — Sana",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de fresa.",
     "treatment": [
       "No se necesita tratamiento.",
       "Sigue monitoreando semanalmente, especialmente en condiciones húmedas."
@@ -113,30 +437,103 @@
       "unit": "mL/L"
     }
   },
-  "Healthy Corn (Maize) Plant": {
-    "displayName": "Maíz — Sano",
-    "severity": "none",
-    "description": "No se detectaron signos de enfermedad en esta hoja de maíz.",
-    "treatment": [
-      "No se necesita tratamiento.",
-      "Sigue monitoreando semanalmente, especialmente durante períodos de crecimiento húmedos."
-    ]
-  },
-  "Corn (Maize) with Common Rust": {
-    "displayName": "Maíz — Roya común",
+  "Tomato with Leaf Mold": {
+    "displayName": "Tomate — Moho Foliar",
     "severity": "moderate",
-    "description": "Enfermedad fúngica (Puccinia sorghi) que causa pústulas de color marrón rojizo en ambas caras de la hoja.",
+    "description": "Enfermedad fúngica (Passalora fulva) que causa manchas amarillo pálido en la cara superior de la hoja con un moho aterciopelado verde oliva a gris en el envés. Común en invernaderos/túneles húmedos.",
     "treatment": [
-      "Aplica un fungicida foliar (por ejemplo, a base de azoxistrobina o propiconazol) si la infección es intensa antes de la floración masculina.",
-      "Planta híbridos de maíz resistentes a la roya en futuras temporadas.",
-      "Elimina las plantas de maíz voluntarias que puedan portar el hongo entre temporadas.",
-      "Monitorea de cerca — las infecciones leves a menudo no necesitan tratamiento."
+      "Aplica un fungicida (por ejemplo, clorotalonil o a base de cobre) al primer signo de manchas amarillentas.",
+      "Mejora la ventilación y reduce la humedad — en invernaderos/túneles, esto a menudo importa más que la aspersión.",
+      "Retira y destruye las hojas inferiores infectadas para frenar la propagación.",
+      "Evita el riego por aspersión y mojar el follaje al anochecer."
     ],
     "dosage": {
-      "product": "Fungicida a base de azoxistrobina o propiconazol",
-      "rateMin": 1,
-      "rateMax": 1.5,
+      "product": "Fungicida a base de clorotalonil o cobre",
+      "rateMin": 2,
+      "rateMax": 3,
       "unit": "mL/L"
     }
+  },
+  "Tomato with Septoria Leaf Spot": {
+    "displayName": "Tomate — Mancha Foliar por Septoria",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Septoria lycopersici) que causa pequeñas manchas circulares con bordes oscuros y centros parduscos, generalmente comenzando en las hojas inferiores.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, clorotalonil o a base de cobre) cada 7-10 días una vez que aparezcan las manchas.",
+      "Retira y destruye las hojas inferiores afectadas, y limpia los restos de plantas viejas al final de la temporada.",
+      "Aplica mantillo alrededor de la base para reducir el salpicado de tierra sobre las hojas.",
+      "Entutora o enjaula las plantas y evita el riego por aspersión para mejorar la circulación de aire y mantener el follaje seco."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de clorotalonil o cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Spider Mites or Two-spotted Spider Mite": {
+    "displayName": "Tomate — Ácaros Araña",
+    "severity": "moderate",
+    "description": "Plagas diminutas chupadoras de savia (Tetranychus urticae) que causan un moteado amarillo fino en las hojas y, en infestaciones fuertes, telarañas finas visibles. Empeora en clima cálido y seco.",
+    "treatment": [
+      "Rocía con jabón insecticida, aceite hortícola o un acaricida (por ejemplo, abamectina), cubriendo el envés de las hojas donde viven los ácaros.",
+      "Enjuaga las plantas con un chorro fuerte de agua para reducir el número de ácaros entre aplicaciones.",
+      "Evita el exceso de fertilizante nitrogenado, que favorece el crecimiento tierno que prefieren los ácaros.",
+      "Introduce o conserva depredadores naturales (por ejemplo, ácaros depredadores, mariquitas) cuando sea posible."
+    ],
+    "dosage": {
+      "product": "Acaricida a base de abamectina o aceite hortícola",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Target Spot": {
+    "displayName": "Tomate — Mancha en Diana",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Corynespora cassiicola) que causa manchas marrones con anillos concéntricos tenues (patrón de 'diana') en hojas, tallos y frutos.",
+    "treatment": [
+      "Aplica un fungicida (por ejemplo, clorotalonil o azoxistrobina) una vez confirmadas las manchas, repitiendo cada 7-10 días.",
+      "Retira y destruye las hojas afectadas y los restos de plantas viejas al final de la temporada.",
+      "Entutora o enjaula las plantas y dales espacio para una buena circulación de aire.",
+      "Evita el riego por aspersión; riega en la base para mantener el follaje seco."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de clorotalonil o azoxistrobina",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato Yellow Leaf Curl Virus": {
+    "displayName": "Tomate — Virus del Rizado Amarillo de la Hoja",
+    "severity": "severe",
+    "description": "Enfermedad viral transmitida por moscas blancas que causa enrollamiento hacia arriba de las hojas, amarillamiento y crecimiento atrofiado. No tiene cura una vez que la planta está infectada.",
+    "treatment": [
+      "No existe cura química — retira y destruye las plantas infectadas de inmediato para reducir el contagio a las sanas.",
+      "Controla la mosca blanca vectora (por ejemplo, con jabón insecticida o un insecticida recomendado), ya que el virus en sí no puede tratarse directamente.",
+      "Usa variedades de tomate resistentes al virus la próxima temporada donde estén disponibles.",
+      "Considera usar acolchado reflectante o mallas finas para reducir el aterrizaje de moscas blancas en plantas jóvenes."
+    ]
+  },
+  "Tomato Mosaic Virus": {
+    "displayName": "Tomate — Virus del Mosaico",
+    "severity": "severe",
+    "description": "Enfermedad viral que causa patrones de mosaico verde claro/oscuro en las hojas, enrollamiento foliar y frutos atrofiados y deformados. No tiene cura una vez que la planta está infectada.",
+    "treatment": [
+      "No existe cura química — retira y destruye las plantas infectadas para evitar mayor propagación.",
+      "Lávate las manos y desinfecta las herramientas después de manipular plantas infectadas — el virus se propaga fácilmente por contacto.",
+      "Usa semilla certificada libre de virus y variedades resistentes la próxima temporada.",
+      "Controla pulgones y otros insectos chupadores de savia que pueden transmitir el virus entre plantas."
+    ]
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Tomate — Sano",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de tomate.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente en condiciones húmedas."
+    ]
   }
 }

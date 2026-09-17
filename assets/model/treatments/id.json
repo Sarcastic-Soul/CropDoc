@@ -10,13 +10,276 @@
       "Ambil ulang foto dengan pencahayaan baik, fokus pada satu daun yang terkena, untuk hasil yang lebih jelas."
     ]
   },
-  "Healthy Potato Plant": {
-    "displayName": "Kentang — Sehat",
+  "Apple Scab": {
+    "displayName": "Apel — Kudis (Scab)",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Venturia inaequalis) yang menyebabkan lesi gelap, kasar, berwarna hijau zaitun hingga cokelat pada daun dan buah. Menyebar paling cepat pada cuaca dingin dan lembap di musim semi.",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya berbahan miklobutanil, captan, atau mankozeb) mulai dari pecah tunas dan ulangi setiap 7-10 hari selama periode basah.",
+      "Kumpulkan dan buang daun yang gugur di musim gugur — jamur bertahan hidup di sisa daun selama musim dingin.",
+      "Lakukan pemangkasan untuk membuka kanopi; sirkulasi udara yang lebih baik mempercepat pengeringan daun dan memperlambat infeksi.",
+      "Tanam varietas tahan kudis jika penanaman ulang menjadi pilihan."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan miklobutanil, captan, atau mankozeb",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Apple with Black Rot": {
+    "displayName": "Apel — Busuk Hitam",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Botryosphaeria obtusa) yang menyebabkan bercak daun bertepi ungu ('frog-eye leaf spot') dan buah membusuk serta mengeriput (mumi).",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya berbahan captan atau tiofanat-metil) dari awal pertumbuhan daun hingga perkembangan buah.",
+      "Buang dan musnahkan buah yang mengeriput serta kayu mati/kanker — keduanya menjadi tempat jamur bertahan di musim dingin.",
+      "Segera pangkas cabang mati atau sakit; disinfeksi alat pangkas di antara pemotongan.",
+      "Hindari stres pada pohon (kekeringan, kerusakan musim dingin), yang membuat infeksi lebih mudah terjadi."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan captan atau tiofanat-metil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Cedar Apple Rust": {
+    "displayName": "Apel — Karat Cedar",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Gymnosporangium juniperi-virginianae) yang membutuhkan pohon apel dan cedar/juniper untuk menyelesaikan siklusnya — menyebabkan bercak kuning-oranye cerah pada daun apel.",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya berbahan miklobutanil) dari fase kuncup merah muda hingga beberapa minggu setelah kelopak bunga gugur.",
+      "Singkirkan pohon cedar/juniper di sekitar jika memungkinkan — pertumbuhan gall di musim semi pada pohon tersebut adalah sumber infeksi.",
+      "Tanam varietas apel tahan karat jika penanaman ulang menjadi pilihan.",
+      "Kumpulkan dan buang daun yang gugur untuk mengurangi spora yang bertahan di musim dingin."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan miklobutanil",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Apple": {
+    "displayName": "Apel — Sehat",
     "severity": "none",
-    "description": "Tidak ada tanda penyakit terdeteksi pada daun kentang ini.",
+    "description": "Tidak ada tanda-tanda penyakit yang terdeteksi pada daun apel ini.",
+    "treatment": [
+      "Tidak diperlukan pengobatan.",
+      "Terus pantau setiap minggu, terutama setelah hujan di musim semi."
+    ]
+  },
+  "Healthy Blueberry Plant": {
+    "displayName": "Blueberry — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda-tanda penyakit yang terdeteksi pada daun blueberry ini.",
+    "treatment": [
+      "Tidak diperlukan pengobatan.",
+      "Terus pantau setiap minggu, terutama selama masa pertumbuhan yang lembap."
+    ]
+  },
+  "Cherry with Powdery Mildew": {
+    "displayName": "Ceri — Embun Tepung",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Podosphaera clandestina) yang menyebabkan lapisan putih seperti tepung pada daun dan tunas, paling terlihat pada cuaca hangat dan kering dengan kelembapan tinggi.",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya belerang atau miklobutanil) saat pertama kali muncul bercak putih seperti tepung.",
+      "Lakukan pemangkasan untuk meningkatkan sirkulasi udara dan penetrasi sinar matahari melalui kanopi.",
+      "Hindari pupuk nitrogen berlebih, yang mendorong pertumbuhan baru yang lunak dan disukai embun tepung.",
+      "Buang dan musnahkan tunas serta daun yang terinfeksi berat."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan belerang atau miklobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Cherry Plant": {
+    "displayName": "Ceri — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda-tanda penyakit yang terdeteksi pada daun ceri ini.",
+    "treatment": [
+      "Tidak diperlukan pengobatan.",
+      "Terus pantau setiap minggu, terutama pada kondisi hangat dan lembap."
+    ]
+  },
+  "Corn (Maize) with Cercospora and Gray Leaf Spot": {
+    "displayName": "Jagung — Bercak Daun Abu-abu",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Cercospora zeae-maydis) yang menyebabkan bercak sempit berbentuk persegi panjang berwarna cokelat kekuningan hingga abu-abu, sejajar dengan tulang daun. Memburuk pada cuaca hangat dan lembap serta di lahan dengan banyak sisa tanaman jagung.",
+    "treatment": [
+      "Aplikasikan fungisida daun (misalnya azoksistrobin, piraklostrobin, atau propikonazol) jika bercak menyebar ke bagian atas tanaman sebelum masa keluar bunga.",
+      "Tanam hibrida tahan penyakit dan hindari penanaman jagung terus-menerus musim depan (lakukan rotasi tanaman).",
+      "Kelola sisa tanaman (olah tanah atau buang) — jamur bertahan hidup pada sisa jagung lama antar musim.",
+      "Hindari nitrogen berlebih dan penanaman terlalu rapat; sirkulasi udara yang lebih baik antar tanaman memperlambat penyebaran."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan azoksistrobin, piraklostrobin, atau propikonazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Jagung — Karat Umum",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Puccinia sorghi) yang menyebabkan bintil-bintil cokelat kemerahan pada kedua permukaan daun.",
+    "treatment": [
+      "Aplikasikan fungisida daun (misalnya berbahan azoksistrobin atau propikonazol) jika infeksi berat sebelum masa keluar bunga.",
+      "Tanam hibrida jagung tahan karat pada musim berikutnya.",
+      "Buang tanaman jagung liar yang dapat membawa jamur antar musim.",
+      "Pantau dengan cermat — infeksi ringan umumnya tidak memerlukan pengobatan."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan azoksistrobin atau propikonazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Northern Leaf Blight": {
+    "displayName": "Jagung — Bercak Daun Utara (Northern Leaf Blight)",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Exserohilum turcicum) yang menyebabkan lesi panjang berbentuk cerutu, berwarna cokelat kekuningan hingga abu-abu pada daun. Berkembang pada suhu sedang dan kelembapan daun yang lama.",
+    "treatment": [
+      "Aplikasikan fungisida daun (misalnya azoksistrobin atau propikonazol) jika lesi menyebar sebelum masa keluar bunga.",
+      "Tanam hibrida tahan penyakit dan hindari penanaman jagung terus-menerus musim depan (lakukan rotasi tanaman).",
+      "Kelola sisa tanaman (olah tanah atau buang) — jamur bertahan hidup pada sisa jagung lama antar musim.",
+      "Pantau dengan cermat — infeksi ringan di akhir musim umumnya tidak memerlukan pengobatan."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan azoksistrobin atau propikonazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Jagung — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda penyakit terdeteksi pada daun jagung ini.",
     "treatment": [
       "Tidak perlu pengobatan.",
+      "Terus pantau setiap minggu, terutama pada periode pertumbuhan yang lembap."
+    ]
+  },
+  "Grape with Black Rot": {
+    "displayName": "Anggur — Busuk Hitam",
+    "severity": "severe",
+    "description": "Penyakit jamur (Guignardia bidwellii) yang menyebabkan bercak daun cokelat kemerahan dan buah yang mengeriput menjadi 'mumi' hitam keras. Dapat merusak sebagian besar hasil panen jika tidak ditangani.",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya berbahan mankozeb atau miklobutanil) mulai awal musim, tepat setelah pecah tunas.",
+      "Buang dan musnahkan buah yang mengeriput (mumi) serta cabang yang terinfeksi — keduanya membawa jamur ke musim berikutnya.",
+      "Lakukan pemangkasan untuk kanopi terbuka guna meningkatkan sirkulasi udara dan mempercepat pengeringan setelah hujan.",
+      "Gantilah jenis bahan aktif fungisida selama musim untuk mencegah resistensi."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan mankozeb atau miklobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Grape with Esca (Black Measles)": {
+    "displayName": "Anggur — Esca (Black Measles)",
+    "severity": "severe",
+    "description": "Kompleks penyakit jamur pada batang yang menyebabkan perubahan warna daun bermotif 'garis harimau' dan bercak gelap pada buah. Tidak ada fungisida yang secara andal menyembuhkannya setelah menetap di batang.",
+    "treatment": [
+      "Tidak ada obat kimia yang efektif — penyemprotan fungisida pada daun tidak mencapai infeksi di batang.",
+      "Pangkas dan musnahkan kayu mati atau bergejala jauh di bawah bagian yang terlihat berubah warna, disinfeksi alat di antara pemotongan.",
+      "Pada kasus lanjut, cabut dan ganti tanaman anggur tersebut — kondisinya akan terus memburuk dan dapat menyebarkan inokulum ke tanaman tetangga.",
+      "Hindari pemangkasan saat cuaca basah; jamur masuk melalui luka pangkas yang baru."
+    ]
+  },
+  "Grape with Isariopsis Leaf Spot": {
+    "displayName": "Anggur — Bercak Daun Isariopsis",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Pseudocercospora vitis / bercak daun Isariopsis) yang menyebabkan bercak cokelat bersudut pada daun yang dapat menyatu dan menyebabkan daun gugur lebih awal.",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya berbahan mankozeb) jika bercak menyebar, terutama pada cuaca lembap.",
+      "Buang dan musnahkan daun gugur yang terinfeksi — jamur bertahan hidup di sisa daun selama musim dingin.",
+      "Lakukan pemangkasan untuk kanopi terbuka guna meningkatkan sirkulasi udara dan mengurangi durasi daun basah.",
+      "Hindari irigasi dari atas di sore hari, yang memperpanjang kondisi daun basah semalaman."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan mankozeb",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Grape Plant": {
+    "displayName": "Anggur — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda-tanda penyakit yang terdeteksi pada daun anggur ini.",
+    "treatment": [
+      "Tidak diperlukan pengobatan.",
+      "Terus pantau setiap minggu, terutama pada kondisi lembap."
+    ]
+  },
+  "Orange with Citrus Greening": {
+    "displayName": "Jeruk — Citrus Greening (HLB)",
+    "severity": "severe",
+    "description": "Penyakit bakteri (Candidatus Liberibacter spp., huanglongbing) yang disebarkan oleh kutu loncat jeruk Asia, menyebabkan belang kuning tidak beraturan pada daun serta buah kecil, pahit, dan tidak simetris. Tidak ada obatnya.",
+    "treatment": [
+      "Tidak ada obat kimia setelah pohon terinfeksi — fokus beralih pada mencegah penyebaran lebih lanjut.",
+      "Kendalikan vektor kutu loncat jeruk Asia dengan program insektisida yang disarankan oleh dinas pertanian setempat.",
+      "Segera cabut dan musnahkan pohon yang telah terkonfirmasi terinfeksi — pohon tersebut menjadi sumber infeksi bagi pohon sehat di sekitarnya.",
+      "Peroleh bibit baru hanya dari pembibitan bersertifikat bebas penyakit."
+    ]
+  },
+  "Peach with Bacterial Spot": {
+    "displayName": "Persik — Bercak Bakteri",
+    "severity": "moderate",
+    "description": "Penyakit bakteri (Xanthomonas arboricola pv. pruni) yang menyebabkan bercak kecil, gelap, basah pada daun dan lesi berlubang pada buah.",
+    "treatment": [
+      "Aplikasikan bakterisida berbahan tembaga saat masa dormansi dan lagi saat awal pertumbuhan daun — tembaga jauh kurang efektif setelah penyakit menetap.",
+      "Lakukan pemangkasan untuk kanopi terbuka guna mempercepat pengeringan setelah hujan atau irigasi.",
+      "Hindari irigasi dari atas; siram di bagian dasar untuk menjaga dedaunan tetap kering.",
+      "Tanam varietas yang kurang rentan jika penanaman ulang menjadi pilihan."
+    ],
+    "dosage": {
+      "product": "Bakterisida berbahan tembaga",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Peach Plant": {
+    "displayName": "Persik — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda-tanda penyakit yang terdeteksi pada daun persik ini.",
+    "treatment": [
+      "Tidak diperlukan pengobatan.",
       "Terus pantau setiap minggu, terutama setelah hujan."
+    ]
+  },
+  "Bell Pepper with Bacterial Spot": {
+    "displayName": "Paprika — Bercak Bakteri",
+    "severity": "moderate",
+    "description": "Penyakit bakteri (Xanthomonas campestris pv. vesicatoria) yang menyebabkan bercak kecil, gelap, basah pada daun dan lesi kasar terangkat pada buah.",
+    "treatment": [
+      "Aplikasikan bakterisida berbahan tembaga saat pertama kali muncul bercak, ulangi setiap minggu selama cuaca basah.",
+      "Buang dan musnahkan daun dan buah yang terinfeksi — jangan dikompos.",
+      "Hindari bekerja saat tanaman basah; bakteri mudah menyebar melalui tangan dan alat yang lembap.",
+      "Gunakan benih/bibit bebas penyakit dan varietas tahan pada musim berikutnya."
+    ],
+    "dosage": {
+      "product": "Bakterisida berbahan tembaga",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Bell Pepper Plant": {
+    "displayName": "Paprika — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda-tanda penyakit yang terdeteksi pada daun paprika ini.",
+    "treatment": [
+      "Tidak diperlukan pengobatan.",
+      "Terus pantau setiap minggu, terutama pada cuaca basah."
     ]
   },
   "Potato with Early Blight": {
@@ -53,12 +316,73 @@
       "unit": "g/L"
     }
   },
-  "Healthy Tomato Plant": {
-    "displayName": "Tomat — Sehat",
+  "Healthy Potato Plant": {
+    "displayName": "Kentang — Sehat",
     "severity": "none",
-    "description": "Tidak ada tanda penyakit terdeteksi pada daun tomat ini.",
+    "description": "Tidak ada tanda penyakit terdeteksi pada daun kentang ini.",
     "treatment": [
       "Tidak perlu pengobatan.",
+      "Terus pantau setiap minggu, terutama setelah hujan."
+    ]
+  },
+  "Healthy Raspberry Plant": {
+    "displayName": "Raspberry — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda-tanda penyakit yang terdeteksi pada daun raspberry ini.",
+    "treatment": [
+      "Tidak diperlukan pengobatan.",
+      "Terus pantau setiap minggu, terutama pada kondisi lembap."
+    ]
+  },
+  "Healthy Soybean Plant": {
+    "displayName": "Kedelai — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda-tanda penyakit yang terdeteksi pada daun kedelai ini.",
+    "treatment": [
+      "Tidak diperlukan pengobatan.",
+      "Terus pantau setiap minggu, terutama selama masa pertumbuhan yang lembap."
+    ]
+  },
+  "Squash with Powdery Mildew": {
+    "displayName": "Labu — Embun Tepung",
+    "severity": "moderate",
+    "description": "Penyakit jamur yang menyebabkan lapisan putih seperti tepung pada daun dan batang, umum terjadi pada cuaca hangat dengan kelembapan tinggi.",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya belerang atau miklobutanil) saat pertama kali muncul bercak putih seperti tepung.",
+      "Buang dan musnahkan daun yang terinfeksi berat untuk memperlambat penyebaran.",
+      "Beri jarak tanam yang cukup untuk sirkulasi udara yang baik dan hindari penyiraman dari atas di sore hari.",
+      "Tanam varietas tahan embun tepung jika penanaman ulang menjadi pilihan."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan belerang atau miklobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Strawberry with Leaf Scorch": {
+    "displayName": "Stroberi — Daun Terbakar (Leaf Scorch)",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Diplocarpon earlianum) yang menyebabkan bercak ungu kecil yang menyatu menjadi bercak besar seperti terbakar pada daun.",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya captan atau miklobutanil) jika bercak menyebar, terutama setelah panen.",
+      "Buang daun tua setelah panen (dipotong atau disapu) untuk mengurangi spora yang bertahan di musim dingin.",
+      "Hindari irigasi dari atas; siram di bagian dasar untuk menjaga dedaunan tetap kering.",
+      "Beri jarak tanam yang cukup antar baris untuk sirkulasi udara yang baik."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan captan atau miklobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Strawberry Plant": {
+    "displayName": "Stroberi — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda-tanda penyakit yang terdeteksi pada daun stroberi ini.",
+    "treatment": [
+      "Tidak diperlukan pengobatan.",
       "Terus pantau setiap minggu, terutama pada kondisi lembap."
     ]
   },
@@ -113,30 +437,103 @@
       "unit": "mL/L"
     }
   },
-  "Healthy Corn (Maize) Plant": {
-    "displayName": "Jagung — Sehat",
-    "severity": "none",
-    "description": "Tidak ada tanda penyakit terdeteksi pada daun jagung ini.",
-    "treatment": [
-      "Tidak perlu pengobatan.",
-      "Terus pantau setiap minggu, terutama pada periode pertumbuhan yang lembap."
-    ]
-  },
-  "Corn (Maize) with Common Rust": {
-    "displayName": "Jagung — Karat Umum",
+  "Tomato with Leaf Mold": {
+    "displayName": "Tomat — Jamur Daun (Leaf Mold)",
     "severity": "moderate",
-    "description": "Penyakit jamur (Puccinia sorghi) yang menyebabkan bintil-bintil cokelat kemerahan pada kedua permukaan daun.",
+    "description": "Penyakit jamur (Passalora fulva) yang menyebabkan bercak kuning pucat pada permukaan atas daun dengan jamur beludru hijau zaitun hingga abu-abu di bawahnya. Umum terjadi di rumah kaca/tunnel yang lembap.",
     "treatment": [
-      "Aplikasikan fungisida daun (misalnya berbahan azoksistrobin atau propikonazol) jika infeksi berat sebelum masa keluar bunga.",
-      "Tanam hibrida jagung tahan karat pada musim berikutnya.",
-      "Buang tanaman jagung liar yang dapat membawa jamur antar musim.",
-      "Pantau dengan cermat — infeksi ringan umumnya tidak memerlukan pengobatan."
+      "Aplikasikan fungisida (misalnya klorotalonil atau berbahan tembaga) saat pertama kali muncul bercak kekuningan.",
+      "Tingkatkan ventilasi dan kurangi kelembapan — di rumah kaca/tunnel, hal ini sering lebih penting daripada penyemprotan.",
+      "Buang dan musnahkan daun bawah yang terinfeksi untuk memperlambat penyebaran.",
+      "Hindari penyiraman dari atas dan membasahi dedaunan pada malam hari."
     ],
     "dosage": {
-      "product": "Fungisida berbahan azoksistrobin atau propikonazol",
-      "rateMin": 1,
-      "rateMax": 1.5,
+      "product": "Fungisida klorotalonil atau berbahan tembaga",
+      "rateMin": 2,
+      "rateMax": 3,
       "unit": "mL/L"
     }
+  },
+  "Tomato with Septoria Leaf Spot": {
+    "displayName": "Tomat — Bercak Daun Septoria",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Septoria lycopersici) yang menyebabkan bercak kecil bulat dengan tepi gelap dan bagian tengah cokelat kekuningan, biasanya dimulai pada daun bawah.",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya klorotalonil atau berbahan tembaga) setiap 7-10 hari setelah bercak muncul.",
+      "Buang dan musnahkan daun bawah yang terkena, dan bersihkan sisa tanaman lama di akhir musim.",
+      "Beri mulsa di sekitar dasar tanaman untuk mengurangi cipratan tanah ke daun.",
+      "Gunakan ajir atau sangkar untuk menopang tanaman dan hindari penyiraman dari atas agar sirkulasi udara baik dan dedaunan tetap kering."
+    ],
+    "dosage": {
+      "product": "Fungisida klorotalonil atau berbahan tembaga",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Spider Mites or Two-spotted Spider Mite": {
+    "displayName": "Tomat — Tungau Laba-laba",
+    "severity": "moderate",
+    "description": "Hama penghisap getah yang sangat kecil (Tetranychus urticae), menyebabkan bintik-bintik kuning halus pada daun dan, pada serangan berat, jaring halus yang terlihat. Memburuk pada cuaca panas dan kering.",
+    "treatment": [
+      "Semprotkan sabun insektisida, minyak hortikultura, atau akarisida (misalnya abamektin), pastikan mengenai bagian bawah daun tempat tungau hidup.",
+      "Bilas tanaman dengan semprotan air yang kuat untuk mengurangi populasi tungau di antara penyemprotan.",
+      "Hindari pupuk nitrogen berlebih, yang mendorong pertumbuhan lunak yang disukai tungau.",
+      "Perkenalkan atau lestarikan predator alami (misalnya tungau predator, kepik) jika memungkinkan."
+    ],
+    "dosage": {
+      "product": "Akarisida abamektin atau minyak hortikultura",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Target Spot": {
+    "displayName": "Tomat — Bercak Target (Target Spot)",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Corynespora cassiicola) yang menyebabkan bercak cokelat dengan cincin konsentris samar (pola 'target') pada daun, batang, dan buah.",
+    "treatment": [
+      "Aplikasikan fungisida (misalnya klorotalonil atau azoksistrobin) setelah bercak dikonfirmasi, ulangi setiap 7-10 hari.",
+      "Buang dan musnahkan daun yang terkena serta sisa tanaman lama di akhir musim.",
+      "Gunakan ajir atau sangkar untuk menopang tanaman dan beri jarak tanam yang cukup untuk sirkulasi udara yang baik.",
+      "Hindari penyiraman dari atas; siram di bagian dasar untuk menjaga dedaunan tetap kering."
+    ],
+    "dosage": {
+      "product": "Fungisida klorotalonil atau azoksistrobin",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato Yellow Leaf Curl Virus": {
+    "displayName": "Tomat — Virus Keriting Daun Kuning",
+    "severity": "severe",
+    "description": "Penyakit virus yang disebarkan oleh kutu kebul, menyebabkan daun menggulung ke atas, menguning, dan pertumbuhan terhambat. Tidak ada obat setelah tanaman terinfeksi.",
+    "treatment": [
+      "Tidak ada obat kimia — segera buang dan musnahkan tanaman yang terinfeksi untuk mengurangi penyebaran ke tanaman sehat.",
+      "Kendalikan vektor kutu kebul (misalnya dengan sabun insektisida atau insektisida yang disarankan), karena virus itu sendiri tidak dapat diobati secara langsung.",
+      "Gunakan varietas tomat tahan virus pada musim berikutnya jika tersedia.",
+      "Pertimbangkan mulsa reflektif atau jaring halus untuk mengurangi kutu kebul mendarat pada tanaman muda."
+    ]
+  },
+  "Tomato Mosaic Virus": {
+    "displayName": "Tomat — Virus Mosaik",
+    "severity": "severe",
+    "description": "Penyakit virus yang menyebabkan corak mosaik hijau terang/gelap pada daun, daun menggulung, serta buah yang terhambat dan cacat bentuk. Tidak ada obat setelah tanaman terinfeksi.",
+    "treatment": [
+      "Tidak ada obat kimia — buang dan musnahkan tanaman yang terinfeksi untuk mencegah penyebaran lebih lanjut.",
+      "Cuci tangan dan disinfeksi alat setelah menangani tanaman yang terinfeksi — virus mudah menyebar melalui kontak.",
+      "Gunakan benih bersertifikat bebas virus dan varietas tahan pada musim berikutnya.",
+      "Kendalikan kutu daun dan serangga penghisap getah lainnya yang dapat menyebarkan virus antar tanaman."
+    ]
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Tomat — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda penyakit terdeteksi pada daun tomat ini.",
+    "treatment": [
+      "Tidak perlu pengobatan.",
+      "Terus pantau setiap minggu, terutama pada kondisi lembap."
+    ]
   }
 }

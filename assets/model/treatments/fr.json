@@ -10,13 +10,276 @@
       "Reprenez la photo avec un bon éclairage, en vous concentrant sur une seule feuille affectée, pour un résultat plus clair."
     ]
   },
-  "Healthy Potato Plant": {
-    "displayName": "Pomme de terre — Saine",
+  "Apple Scab": {
+    "displayName": "Pomme — Tavelure",
+    "severity": "moderate",
+    "description": "Maladie fongique (Venturia inaequalis) provoquant des lésions sombres, croûteuses, vert olive à brunes sur les feuilles et les fruits. Se propage le plus vite par temps printanier frais et humide.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. myclobutanil, captane ou mancozèbe) dès le débourrement des bourgeons, en répétant tous les 7 à 10 jours pendant les périodes humides.",
+      "Ramassez et détruisez les feuilles tombées en automne — le champignon hiverne dans les feuilles mortes.",
+      "Éclaircissez la ramure par la taille ; une meilleure circulation d'air accélère le séchage des feuilles et ralentit l'infection.",
+      "Plantez des variétés résistantes à la tavelure si vous replantez."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de myclobutanil, captane ou mancozèbe",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Apple with Black Rot": {
+    "displayName": "Pomme — Pourriture Noire",
+    "severity": "moderate",
+    "description": "Maladie fongique (Botryosphaeria obtusa) provoquant des taches foliaires à bordure violette (« taches en œil de grenouille ») et des fruits pourris et momifiés.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. captane ou thiophanate-méthyl) du début de la feuillaison jusqu'au développement des fruits.",
+      "Retirez et détruisez les fruits momifiés et le bois mort/chancres — tous deux abritent le champignon en hiver.",
+      "Taillez rapidement les branches mortes ou malades ; désinfectez les outils de taille entre chaque coupe.",
+      "Évitez le stress de l'arbre (sécheresse, dégâts d'hiver), qui favorise l'infection."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de captane ou de thiophanate-méthyl",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Cedar Apple Rust": {
+    "displayName": "Pomme — Rouille du Genévrier",
+    "severity": "moderate",
+    "description": "Maladie fongique (Gymnosporangium juniperi-virginianae) nécessitant à la fois des pommiers et des cèdres/genévriers pour boucler son cycle — provoque des taches jaune-orangé vif sur les feuilles de pommier.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. myclobutanil) du stade bouton rose jusqu'à plusieurs semaines après la chute des pétales.",
+      "Retirez les cèdres/genévriers proches si possible — les galles printanières qu'ils portent sont la source de l'infection.",
+      "Plantez des variétés de pommier résistantes à la rouille si vous replantez.",
+      "Ramassez et éliminez les feuilles tombées pour réduire les spores hivernantes."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de myclobutanil",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Apple": {
+    "displayName": "Pomme — Saine",
     "severity": "none",
-    "description": "Aucun signe de maladie détecté sur cette feuille de pomme de terre.",
+    "description": "Aucun signe de maladie détecté sur cette feuille de pommier.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout après un printemps humide."
+    ]
+  },
+  "Healthy Blueberry Plant": {
+    "displayName": "Myrtille — Saine",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de myrtillier.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout pendant les périodes humides."
+    ]
+  },
+  "Cherry with Powdery Mildew": {
+    "displayName": "Cerise — Oïdium",
+    "severity": "moderate",
+    "description": "Maladie fongique (Podosphaera clandestina) provoquant un revêtement blanc poudreux sur les feuilles et les jeunes rameaux, plus visible par temps chaud et sec avec une humidité élevée.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. soufre ou myclobutanil) au premier signe de taches blanches poudreuses.",
+      "Taillez pour améliorer la circulation d'air et la pénétration de la lumière dans la ramure.",
+      "Évitez l'excès d'azote, qui favorise la pousse tendre que préfère l'oïdium.",
+      "Retirez et détruisez les rameaux et feuilles fortement infectés."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de soufre ou de myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Cherry Plant": {
+    "displayName": "Cerise — Saine",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de cerisier.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout par temps chaud et humide."
+    ]
+  },
+  "Corn (Maize) with Cercospora and Gray Leaf Spot": {
+    "displayName": "Maïs — Cercosporiose (tache grise)",
+    "severity": "moderate",
+    "description": "Maladie fongique (Cercospora zeae-maydis) provoquant des lésions étroites et rectangulaires, brun grisâtre, parallèles aux nervures de la feuille. S'aggrave par temps chaud et humide et dans les champs avec beaucoup de résidus de maïs.",
+    "treatment": [
+      "Appliquez un fongicide foliaire (par ex. azoxystrobine, pyraclostrobine ou propiconazole) si les lésions progressent vers le haut de la plante avant la formation des panicules.",
+      "Plantez des hybrides résistants et évitez le maïs en continu la saison suivante (pratiquez la rotation des cultures).",
+      "Gérez les résidus de culture (labour ou retrait) — le champignon survit dans les vieux résidus de maïs d'une saison à l'autre.",
+      "Évitez l'excès d'azote et les plantations trop denses ; une meilleure circulation de l'air entre les plants ralentit la propagation."
+    ],
+    "dosage": {
+      "product": "Fongicide à base d'azoxystrobine, de pyraclostrobine ou de propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Maïs — Rouille commune",
+    "severity": "moderate",
+    "description": "Maladie fongique (Puccinia sorghi) provoquant des pustules brun-rougeâtre sur les deux faces de la feuille.",
+    "treatment": [
+      "Appliquez un fongicide foliaire (par ex. azoxystrobine ou propiconazole) si l'infection est sévère avant la formation des panicules.",
+      "Plantez des hybrides de maïs résistants à la rouille les saisons suivantes.",
+      "Éliminez les plants de maïs spontanés pouvant porter le champignon d'une saison à l'autre.",
+      "Surveillez de près — les infections légères ne nécessitent souvent pas de traitement."
+    ],
+    "dosage": {
+      "product": "Fongicide à base d'azoxystrobine ou de propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Northern Leaf Blight": {
+    "displayName": "Maïs — Helminthosporiose du Nord",
+    "severity": "moderate",
+    "description": "Maladie fongique (Exserohilum turcicum) provoquant de longues lésions brun-gris en forme de cigare sur les feuilles. Favorisée par des températures modérées et une humidité foliaire prolongée.",
+    "treatment": [
+      "Appliquez un fongicide foliaire (par ex. azoxystrobine ou propiconazole) si les lésions progressent avant la formation des panicules.",
+      "Plantez des hybrides résistants et évitez le maïs en continu la saison suivante (pratiquez la rotation des cultures).",
+      "Gérez les résidus de culture (labour ou retrait) — le champignon survit dans les vieux résidus de maïs d'une saison à l'autre.",
+      "Surveillez de près — les infections légères en fin de saison ne nécessitent souvent pas de traitement."
+    ],
+    "dosage": {
+      "product": "Fongicide à base d'azoxystrobine ou de propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Maïs — Sain",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de maïs.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout pendant les périodes de croissance humides."
+    ]
+  },
+  "Grape with Black Rot": {
+    "displayName": "Raisin — Pourriture Noire",
+    "severity": "severe",
+    "description": "Maladie fongique (Guignardia bidwellii) provoquant des taches foliaires brun rougeâtre et des baies qui se dessèchent en « momies » noires et dures. Peut détruire la majeure partie de la récolte de la saison si elle n'est pas traitée.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. mancozèbe ou myclobutanil) dès le début de la saison, juste après le débourrement.",
+      "Retirez et détruisez les baies momifiées et les sarments infectés — tous deux transportent le champignon vers la saison suivante.",
+      "Taillez pour aérer la ramure et accélérer le séchage après la pluie.",
+      "Alternez les familles chimiques de fongicides au cours de la saison pour éviter l'apparition de résistances."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de mancozèbe ou de myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Grape with Esca (Black Measles)": {
+    "displayName": "Raisin — Esca (Black Measles)",
+    "severity": "severe",
+    "description": "Un complexe de maladies fongiques du bois provoquant une décoloration foliaire en « rayures de tigre » et des taches sombres sur les baies. Aucun fongicide ne guérit de façon fiable une fois l'infection installée dans le tronc.",
+    "treatment": [
+      "Il n'existe aucun traitement chimique efficace — pulvériser les feuilles ne touche pas l'infection du tronc.",
+      "Taillez et détruisez le bois mort ou symptomatique bien en dessous de toute coloration visible, en désinfectant les outils entre chaque coupe.",
+      "Dans les cas avancés, arrachez et remplacez le pied de vigne — il continuera de décliner et peut propager l'inoculum aux plants voisins.",
+      "Évitez de tailler par temps humide ; le champignon pénètre par les plaies de taille fraîches."
+    ]
+  },
+  "Grape with Isariopsis Leaf Spot": {
+    "displayName": "Raisin — Brûlure des Feuilles (Tache Isariopsis)",
+    "severity": "moderate",
+    "description": "Maladie fongique (Pseudocercospora vitis / tache Isariopsis) provoquant des taches brunes anguleuses sur les feuilles, qui peuvent fusionner et provoquer une chute précoce des feuilles.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. mancozèbe) si les taches se propagent, surtout par temps humide.",
+      "Retirez et détruisez les feuilles infectées tombées — le champignon hiverne dans les feuilles mortes.",
+      "Taillez pour aérer la ramure et réduire la durée d'humidité des feuilles.",
+      "Évitez l'irrigation par aspersion tard dans la journée, qui prolonge l'humidité des feuilles pendant la nuit."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de mancozèbe",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Grape Plant": {
+    "displayName": "Raisin — Sain",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de vigne.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout par temps humide."
+    ]
+  },
+  "Orange with Citrus Greening": {
+    "displayName": "Orange — Maladie du Dragon Jaune (HLB)",
+    "severity": "severe",
+    "description": "Maladie bactérienne (Candidatus Liberibacter spp., huanglongbing) transmise par le psylle asiatique des agrumes, provoquant un jaunissement tacheté des feuilles et des fruits petits, amers et déformés. Il n'existe aucun remède.",
+    "treatment": [
+      "Il n'existe aucun remède chimique une fois l'arbre infecté — l'objectif devient d'éviter la propagation.",
+      "Luttez contre le psylle asiatique des agrumes, le vecteur, avec un programme insecticide recommandé par un service agricole local.",
+      "Retirez et détruisez rapidement les arbres confirmés infectés — ils constituent une source d'infection pour les arbres sains voisins.",
+      "N'achetez de nouveaux arbres que dans une pépinière certifiée exempte de maladie."
+    ]
+  },
+  "Peach with Bacterial Spot": {
+    "displayName": "Pêche — Tache Bactérienne",
+    "severity": "moderate",
+    "description": "Maladie bactérienne (Xanthomonas arboricola pv. pruni) provoquant de petites taches sombres et détrempées sur les feuilles et des lésions creuses sur les fruits.",
+    "treatment": [
+      "Appliquez un bactéricide à base de cuivre pendant la dormance puis à nouveau au début de la feuillaison — le cuivre est bien moins efficace une fois la maladie installée.",
+      "Taillez pour aérer la ramure et accélérer le séchage après la pluie ou l'irrigation.",
+      "Évitez l'irrigation par aspersion ; arrosez au pied pour garder le feuillage sec.",
+      "Plantez des variétés moins sensibles si vous replantez."
+    ],
+    "dosage": {
+      "product": "Bactéricide à base de cuivre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Peach Plant": {
+    "displayName": "Pêche — Saine",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de pêcher.",
     "treatment": [
       "Aucun traitement nécessaire.",
       "Continuez à surveiller chaque semaine, surtout après la pluie."
+    ]
+  },
+  "Bell Pepper with Bacterial Spot": {
+    "displayName": "Poivron — Tache Bactérienne",
+    "severity": "moderate",
+    "description": "Maladie bactérienne (Xanthomonas campestris pv. vesicatoria) provoquant de petites taches sombres et détrempées sur les feuilles et des lésions croûteuses en relief sur les fruits.",
+    "treatment": [
+      "Appliquez un bactéricide à base de cuivre au premier signe de taches, en répétant chaque semaine par temps humide.",
+      "Retirez et détruisez les feuilles et fruits infectés — ne les compostez pas.",
+      "Évitez de manipuler les plants humides ; les bactéries se propagent facilement sur les mains et outils mouillés.",
+      "Utilisez des semences/plants sains et des variétés résistantes la saison suivante."
+    ],
+    "dosage": {
+      "product": "Bactéricide à base de cuivre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Bell Pepper Plant": {
+    "displayName": "Poivron — Sain",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de poivron.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout par temps humide."
     ]
   },
   "Potato with Early Blight": {
@@ -53,13 +316,74 @@
       "unit": "g/L"
     }
   },
-  "Healthy Tomato Plant": {
-    "displayName": "Tomate — Saine",
+  "Healthy Potato Plant": {
+    "displayName": "Pomme de terre — Saine",
     "severity": "none",
-    "description": "Aucun signe de maladie détecté sur cette feuille de tomate.",
+    "description": "Aucun signe de maladie détecté sur cette feuille de pomme de terre.",
     "treatment": [
       "Aucun traitement nécessaire.",
-      "Continuez à surveiller chaque semaine, surtout en conditions humides."
+      "Continuez à surveiller chaque semaine, surtout après la pluie."
+    ]
+  },
+  "Healthy Raspberry Plant": {
+    "displayName": "Framboise — Saine",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de framboisier.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout par temps humide."
+    ]
+  },
+  "Healthy Soybean Plant": {
+    "displayName": "Soja — Sain",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de soja.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout pendant les périodes humides."
+    ]
+  },
+  "Squash with Powdery Mildew": {
+    "displayName": "Courge — Oïdium",
+    "severity": "moderate",
+    "description": "Maladie fongique provoquant un revêtement blanc poudreux sur les feuilles et les tiges, fréquente par temps chaud avec une humidité élevée.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. soufre ou myclobutanil) au premier signe de taches blanches poudreuses.",
+      "Retirez et détruisez les feuilles fortement infectées pour ralentir la propagation.",
+      "Espacez les plants pour une bonne circulation d'air et évitez l'arrosage par le dessus tard dans la journée.",
+      "Plantez des variétés résistantes à l'oïdium si vous replantez."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de soufre ou de myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Strawberry with Leaf Scorch": {
+    "displayName": "Fraise — Brûlure des Feuilles",
+    "severity": "moderate",
+    "description": "Maladie fongique (Diplocarpon earlianum) provoquant de petites taches violettes qui fusionnent en larges plages foliaires comme brûlées.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. captane ou myclobutanil) si les taches se propagent, surtout après la récolte.",
+      "Retirez les vieilles feuilles après la récolte (tonte ou ratissage) pour réduire les spores hivernantes.",
+      "Évitez l'irrigation par aspersion ; arrosez au pied pour garder le feuillage sec.",
+      "Espacez les plants pour une bonne circulation d'air entre les rangs."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de captane ou de myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Strawberry Plant": {
+    "displayName": "Fraise — Saine",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de fraisier.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout par temps humide."
     ]
   },
   "Tomato with Bacterial Spot": {
@@ -113,30 +437,103 @@
       "unit": "mL/L"
     }
   },
-  "Healthy Corn (Maize) Plant": {
-    "displayName": "Maïs — Sain",
-    "severity": "none",
-    "description": "Aucun signe de maladie détecté sur cette feuille de maïs.",
-    "treatment": [
-      "Aucun traitement nécessaire.",
-      "Continuez à surveiller chaque semaine, surtout pendant les périodes de croissance humides."
-    ]
-  },
-  "Corn (Maize) with Common Rust": {
-    "displayName": "Maïs — Rouille commune",
+  "Tomato with Leaf Mold": {
+    "displayName": "Tomate — Moisissure des Feuilles",
     "severity": "moderate",
-    "description": "Maladie fongique (Puccinia sorghi) provoquant des pustules brun-rougeâtre sur les deux faces de la feuille.",
+    "description": "Maladie fongique (Passalora fulva) provoquant des taches jaune pâle sur la face supérieure des feuilles avec une moisissure veloutée vert olive à grise en dessous. Fréquente dans les serres/tunnels humides.",
     "treatment": [
-      "Appliquez un fongicide foliaire (par ex. azoxystrobine ou propiconazole) si l'infection est sévère avant la formation des panicules.",
-      "Plantez des hybrides de maïs résistants à la rouille les saisons suivantes.",
-      "Éliminez les plants de maïs spontanés pouvant porter le champignon d'une saison à l'autre.",
-      "Surveillez de près — les infections légères ne nécessitent souvent pas de traitement."
+      "Appliquez un fongicide (par ex. chlorothalonil ou à base de cuivre) au premier signe de taches jaunissantes.",
+      "Améliorez la ventilation et réduisez l'humidité — en serre/tunnel, cela compte souvent plus que les traitements.",
+      "Retirez et détruisez les feuilles basses infectées pour ralentir la propagation.",
+      "Évitez d'arroser par le dessus et de mouiller le feuillage le soir."
     ],
     "dosage": {
-      "product": "Fongicide à base d'azoxystrobine ou de propiconazole",
-      "rateMin": 1,
-      "rateMax": 1.5,
+      "product": "Fongicide à base de chlorothalonil ou de cuivre",
+      "rateMin": 2,
+      "rateMax": 3,
       "unit": "mL/L"
     }
+  },
+  "Tomato with Septoria Leaf Spot": {
+    "displayName": "Tomate — Septoriose",
+    "severity": "moderate",
+    "description": "Maladie fongique (Septoria lycopersici) provoquant de petites taches circulaires à bordure sombre et centre brun clair, commençant généralement sur les feuilles basses.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. chlorothalonil ou à base de cuivre) tous les 7 à 10 jours dès l'apparition des taches.",
+      "Retirez et détruisez les feuilles basses atteintes, et éliminez les débris végétaux en fin de saison.",
+      "Paillez la base des plants pour réduire les projections de terre sur les feuilles.",
+      "Tuteurez ou attachez les plants et évitez l'arrosage par le dessus pour améliorer la circulation d'air et garder le feuillage sec."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de chlorothalonil ou de cuivre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Spider Mites or Two-spotted Spider Mite": {
+    "displayName": "Tomate — Acariens (Tétranyques)",
+    "severity": "moderate",
+    "description": "De minuscules ravageurs suceurs de sève (Tetranychus urticae) provoquant un fin mouchetage jaune sur les feuilles et, en cas de forte infestation, une fine toile visible. S'aggrave par temps chaud et sec.",
+    "treatment": [
+      "Pulvérisez du savon insecticide, de l'huile horticole, ou un acaricide (par ex. abamectine), en couvrant le dessous des feuilles où vivent les acariens.",
+      "Rincez les plants avec un jet d'eau puissant pour réduire le nombre d'acariens entre les pulvérisations.",
+      "Évitez l'excès d'azote, qui favorise la pousse tendre que préfèrent les acariens.",
+      "Introduisez ou préservez les prédateurs naturels (par ex. acariens prédateurs, coccinelles) si possible."
+    ],
+    "dosage": {
+      "product": "Acaricide à base d'abamectine ou huile horticole",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Target Spot": {
+    "displayName": "Tomate — Tache Cible",
+    "severity": "moderate",
+    "description": "Maladie fongique (Corynespora cassiicola) provoquant des taches brunes avec de faibles cercles concentriques (motif « cible ») sur les feuilles, les tiges et les fruits.",
+    "treatment": [
+      "Appliquez un fongicide (par ex. chlorothalonil ou azoxystrobine) dès confirmation des taches, en répétant tous les 7 à 10 jours.",
+      "Retirez et détruisez les feuilles atteintes et les débris végétaux en fin de saison.",
+      "Tuteurez ou attachez les plants et espacez-les pour une bonne circulation d'air.",
+      "Évitez l'arrosage par le dessus ; arrosez au pied pour garder le feuillage sec."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de chlorothalonil ou d'azoxystrobine",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato Yellow Leaf Curl Virus": {
+    "displayName": "Tomate — Virus des Feuilles Jaunes Enroulées",
+    "severity": "severe",
+    "description": "Maladie virale transmise par les aleurodes (mouches blanches), provoquant un enroulement vers le haut des feuilles, un jaunissement et un retard de croissance. Il n'existe aucun remède une fois le plant infecté.",
+    "treatment": [
+      "Il n'existe aucun remède chimique — retirez et détruisez rapidement les plants infectés pour limiter la propagation aux plants sains.",
+      "Luttez contre l'aleurode, le vecteur, (par ex. avec du savon insecticide ou un insecticide recommandé) puisque le virus lui-même ne peut pas être traité directement.",
+      "Utilisez des variétés de tomate résistantes au virus la saison suivante si disponibles.",
+      "Envisagez un paillage réfléchissant ou un filet à mailles fines pour réduire l'atterrissage des aleurodes sur les jeunes plants."
+    ]
+  },
+  "Tomato Mosaic Virus": {
+    "displayName": "Tomate — Virus de la Mosaïque",
+    "severity": "severe",
+    "description": "Maladie virale provoquant des motifs de mosaïque vert clair/foncé tachetés sur les feuilles, un enroulement des feuilles et des fruits rabougris et déformés. Il n'existe aucun remède une fois le plant infecté.",
+    "treatment": [
+      "Il n'existe aucun remède chimique — retirez et détruisez les plants infectés pour empêcher toute propagation.",
+      "Lavez-vous les mains et désinfectez les outils après avoir manipulé des plants infectés — le virus se propage facilement par contact.",
+      "Utilisez des semences certifiées exemptes de virus et des variétés résistantes la saison suivante.",
+      "Luttez contre les pucerons et autres insectes suceurs de sève qui peuvent transmettre le virus entre les plants."
+    ]
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Tomate — Saine",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de tomate.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout en conditions humides."
+    ]
   }
 }

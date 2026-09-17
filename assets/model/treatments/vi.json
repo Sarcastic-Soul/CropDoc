@@ -10,13 +10,276 @@
       "Chụp lại ảnh trong điều kiện ánh sáng tốt, tập trung vào một lá bị ảnh hưởng, để có kết quả rõ ràng hơn."
     ]
   },
-  "Healthy Potato Plant": {
-    "displayName": "Khoai tây — Khỏe mạnh",
+  "Apple Scab": {
+    "displayName": "Táo — Bệnh Ghẻ",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Venturia inaequalis) gây các vết bệnh sẫm màu, sần sùi, màu xanh ô-liu đến nâu trên lá và quả. Lây lan nhanh nhất trong thời tiết mùa xuân mát và ẩm.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ myclobutanil, captan, hoặc mancozeb) từ khi nảy chồi, lặp lại mỗi 7-10 ngày trong các đợt ẩm ướt.",
+      "Cào và tiêu hủy lá rụng vào mùa thu — nấm trú qua đông trong lá mục.",
+      "Cắt tỉa để mở rộng tán cây; thông thoáng tốt giúp lá nhanh khô và làm chậm lây nhiễm.",
+      "Trồng giống kháng bệnh ghẻ nếu có kế hoạch trồng lại."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm myclobutanil, captan, hoặc mancozeb",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Apple with Black Rot": {
+    "displayName": "Táo — Bệnh Thối Đen",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Botryosphaeria obtusa) gây các đốm lá viền tím ('đốm mắt ếch') và quả thối, khô cứng lại.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ captan hoặc thiophanate-methyl) từ khi ra lá non đến khi quả phát triển.",
+      "Loại bỏ và tiêu hủy quả khô cứng và cành/vết loét chết — cả hai đều chứa nấm qua mùa đông.",
+      "Cắt bỏ cành chết hoặc bị bệnh ngay; khử trùng dụng cụ cắt giữa các lần cắt.",
+      "Tránh để cây bị stress (hạn hán, tổn thương do lạnh) vì làm tăng khả năng nhiễm bệnh."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm captan hoặc thiophanate-methyl",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Cedar Apple Rust": {
+    "displayName": "Táo — Bệnh Gỉ Sắt Cedar",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Gymnosporangium juniperi-virginianae) cần cả cây táo và cây tuyết tùng/cây bách xù để hoàn thành chu kỳ sống — gây các đốm vàng cam sáng trên lá táo.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ myclobutanil) từ giai đoạn nụ hồng đến vài tuần sau khi rụng cánh hoa.",
+      "Loại bỏ cây tuyết tùng/bách xù gần đó nếu có thể — các u sưng mùa xuân trên chúng là nguồn lây nhiễm.",
+      "Trồng giống táo kháng bệnh gỉ sắt nếu có kế hoạch trồng lại.",
+      "Cào và dọn bỏ lá rụng để giảm bào tử trú qua đông."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm myclobutanil",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Apple": {
+    "displayName": "Táo — Khỏe Mạnh",
     "severity": "none",
-    "description": "Không phát hiện dấu hiệu bệnh trên lá khoai tây này.",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá táo này.",
     "treatment": [
       "Không cần điều trị.",
-      "Tiếp tục theo dõi hàng tuần, đặc biệt sau khi mưa."
+      "Tiếp tục theo dõi hàng tuần, đặc biệt sau thời tiết mùa xuân ẩm ướt."
+    ]
+  },
+  "Healthy Blueberry Plant": {
+    "displayName": "Việt Quất — Khỏe Mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá việt quất này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong thời kỳ ẩm ướt."
+    ]
+  },
+  "Cherry with Powdery Mildew": {
+    "displayName": "Anh Đào — Bệnh Phấn Trắng",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Podosphaera clandestina) gây lớp phủ trắng như bột trên lá và chồi, dễ thấy nhất trong thời tiết ấm, khô với độ ẩm cao.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ lưu huỳnh hoặc myclobutanil) ngay khi thấy các đốm trắng như bột.",
+      "Cắt tỉa để cải thiện thông thoáng và ánh sáng xuyên qua tán cây.",
+      "Tránh bón thừa đạm, vì làm tăng chồi non mềm mà bệnh phấn trắng ưa thích.",
+      "Loại bỏ và tiêu hủy chồi và lá bị nhiễm nặng."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm lưu huỳnh hoặc myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Cherry Plant": {
+    "displayName": "Anh Đào — Khỏe Mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá anh đào này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong điều kiện ấm, ẩm."
+    ]
+  },
+  "Corn (Maize) with Cercospora and Gray Leaf Spot": {
+    "displayName": "Ngô — Bệnh đốm lá xám",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Cercospora zeae-maydis) gây các vết bệnh hẹp, hình chữ nhật, màu nâu xám, chạy song song với gân lá. Bệnh nặng hơn trong thời tiết ấm, ẩm và ở ruộng có nhiều tàn dư cây ngô.",
+    "treatment": [
+      "Phun thuốc trừ nấm qua lá (ví dụ azoxystrobin, pyraclostrobin, hoặc propiconazole) nếu vết bệnh lan lên phía trên cây trước khi trổ cờ.",
+      "Trồng giống kháng bệnh và tránh trồng ngô liên tục vào vụ sau (luân canh cây trồng).",
+      "Quản lý tàn dư cây trồng (cày xới hoặc dọn bỏ) — nấm tồn tại trong tàn dư ngô cũ qua các vụ.",
+      "Tránh bón thừa đạm và trồng quá dày; thông thoáng tốt giữa các cây làm chậm sự lây lan."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm azoxystrobin, pyraclostrobin, hoặc propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Ngô — Bệnh gỉ sắt thông thường",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Puccinia sorghi) gây các mụn mủ màu nâu đỏ trên cả hai mặt lá.",
+    "treatment": [
+      "Phun thuốc trừ nấm qua lá (ví dụ azoxystrobin hoặc propiconazole) nếu nhiễm bệnh nặng trước khi trổ cờ.",
+      "Trồng giống ngô kháng gỉ sắt cho các vụ sau.",
+      "Loại bỏ cây ngô mọc tự nhiên có thể mang mầm nấm qua các vụ.",
+      "Theo dõi sát sao — nhiễm bệnh nhẹ thường không cần điều trị."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm Azoxystrobin hoặc propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Northern Leaf Blight": {
+    "displayName": "Ngô — Bệnh Đốm Lá Lớn Phương Bắc",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Exserohilum turcicum) gây các vết bệnh dài, hình điếu xì gà, màu nâu xám trên lá. Phát triển mạnh ở nhiệt độ ôn hòa và lá ẩm kéo dài.",
+    "treatment": [
+      "Phun thuốc trừ nấm qua lá (ví dụ azoxystrobin hoặc propiconazole) nếu vết bệnh đang lan rộng trước khi trổ cờ.",
+      "Trồng giống kháng bệnh và tránh trồng ngô liên tục vào vụ sau (luân canh cây trồng).",
+      "Quản lý tàn dư cây trồng (cày xới hoặc dọn bỏ) — nấm tồn tại trong tàn dư ngô cũ qua các vụ.",
+      "Theo dõi sát sao — nhiễm bệnh nhẹ vào cuối vụ thường không cần điều trị."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm azoxystrobin hoặc propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Ngô — Khỏe mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá ngô này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong giai đoạn sinh trưởng ẩm ướt."
+    ]
+  },
+  "Grape with Black Rot": {
+    "displayName": "Nho — Bệnh Thối Đen",
+    "severity": "severe",
+    "description": "Bệnh nấm (Guignardia bidwellii) gây đốm lá màu nâu đỏ và quả khô teo thành 'xác khô' đen cứng. Có thể phá hủy hầu hết mùa vụ nếu không điều trị.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ mancozeb hoặc myclobutanil) từ đầu vụ, ngay sau khi nảy chồi.",
+      "Loại bỏ và tiêu hủy quả khô teo và cành bị nhiễm — cả hai mang nấm sang vụ sau.",
+      "Cắt tỉa để tán cây thông thoáng, giúp khô nhanh sau mưa.",
+      "Luân đổi loại thuốc trừ nấm trong vụ để tránh nấm kháng thuốc."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm mancozeb hoặc myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Grape with Esca (Black Measles)": {
+    "displayName": "Nho — Bệnh Esca (Black Measles)",
+    "severity": "severe",
+    "description": "Một nhóm bệnh nấm ở thân cây gây đổi màu lá kiểu 'vằn hổ' và đốm sẫm trên quả. Không có thuốc trừ nấm nào chữa khỏi hiệu quả khi bệnh đã ăn sâu vào thân.",
+    "treatment": [
+      "Không có cách điều trị hóa học hiệu quả — phun thuốc lên lá không tiếp cận được nhiễm bệnh trong thân cây.",
+      "Cắt bỏ và tiêu hủy phần gỗ chết hoặc có triệu chứng, cắt sâu hơn vùng đổi màu nhìn thấy, khử trùng dụng cụ giữa các lần cắt.",
+      "Trong trường hợp nặng, nhổ bỏ và trồng lại cây — cây sẽ tiếp tục suy yếu và có thể lây mầm bệnh sang cây lân cận.",
+      "Tránh cắt tỉa trong thời tiết ẩm ướt; nấm xâm nhập qua vết cắt tỉa mới."
+    ]
+  },
+  "Grape with Isariopsis Leaf Spot": {
+    "displayName": "Nho — Bệnh Cháy Lá (Đốm Lá Isariopsis)",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Pseudocercospora vitis / đốm lá Isariopsis) gây các đốm nâu góc cạnh trên lá, có thể hòa vào nhau gây rụng lá sớm.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ mancozeb) nếu đốm bệnh đang lan rộng, đặc biệt trong thời tiết ẩm.",
+      "Loại bỏ và tiêu hủy lá rụng bị nhiễm — nấm trú qua đông trong lá mục.",
+      "Cắt tỉa để tán cây thông thoáng, giảm thời gian lá ẩm.",
+      "Tránh tưới phun mưa vào cuối ngày, vì kéo dài thời gian lá ẩm qua đêm."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm mancozeb",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Grape Plant": {
+    "displayName": "Nho — Khỏe Mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá nho này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong điều kiện ẩm ướt."
+    ]
+  },
+  "Orange with Citrus Greening": {
+    "displayName": "Cam — Bệnh Vàng Lá Gân Xanh (HLB)",
+    "severity": "severe",
+    "description": "Bệnh vi khuẩn (Candidatus Liberibacter spp., huanglongbing) do rầy chổng cánh lây truyền, gây vàng lá loang lổ và quả nhỏ, đắng, lệch hình. Không có cách chữa.",
+    "treatment": [
+      "Không có cách chữa hóa học khi cây đã nhiễm bệnh — mục tiêu chuyển sang ngăn lây lan thêm.",
+      "Kiểm soát rầy chổng cánh (côn trùng trung gian) bằng chương trình thuốc trừ sâu được khuyến nghị từ cơ quan khuyến nông địa phương.",
+      "Loại bỏ và tiêu hủy ngay các cây đã xác nhận nhiễm bệnh — chúng là nguồn lây nhiễm cho cây khỏe lân cận.",
+      "Chỉ mua cây mới từ vườn ươm được chứng nhận không có bệnh."
+    ]
+  },
+  "Peach with Bacterial Spot": {
+    "displayName": "Đào — Bệnh Đốm Vi Khuẩn",
+    "severity": "moderate",
+    "description": "Bệnh vi khuẩn (Xanthomonas arboricola pv. pruni) gây các đốm nhỏ, sẫm màu, ướt nước trên lá và các vết lõm trên quả.",
+    "treatment": [
+      "Phun thuốc diệt khuẩn gốc đồng trong thời kỳ ngủ đông và lại vào lúc ra lá non — đồng kém hiệu quả hơn nhiều khi bệnh đã hình thành.",
+      "Cắt tỉa để tán cây thông thoáng, giúp khô nhanh sau mưa hoặc tưới.",
+      "Tránh tưới phun mưa; tưới ở gốc để giữ lá khô.",
+      "Trồng giống ít nhạy cảm hơn nếu có kế hoạch trồng lại."
+    ],
+    "dosage": {
+      "product": "Thuốc diệt khuẩn gốc đồng",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Peach Plant": {
+    "displayName": "Đào — Khỏe Mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá đào này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt sau mưa."
+    ]
+  },
+  "Bell Pepper with Bacterial Spot": {
+    "displayName": "Ớt Chuông — Bệnh Đốm Vi Khuẩn",
+    "severity": "moderate",
+    "description": "Bệnh vi khuẩn (Xanthomonas campestris pv. vesicatoria) gây các đốm nhỏ, sẫm màu, ướt nước trên lá và các vết sần nổi trên quả.",
+    "treatment": [
+      "Phun thuốc diệt khuẩn gốc đồng ngay khi thấy đốm bệnh, lặp lại hàng tuần trong thời tiết ẩm.",
+      "Loại bỏ và tiêu hủy lá và quả bị nhiễm — không ủ làm phân compost.",
+      "Tránh làm việc với cây ướt; vi khuẩn dễ lây qua tay và dụng cụ ẩm.",
+      "Dùng hạt giống/cây con sạch bệnh và giống kháng bệnh cho vụ sau."
+    ],
+    "dosage": {
+      "product": "Thuốc diệt khuẩn gốc đồng",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Bell Pepper Plant": {
+    "displayName": "Ớt Chuông — Khỏe Mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá ớt chuông này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong thời tiết ẩm."
     ]
   },
   "Potato with Early Blight": {
@@ -53,10 +316,71 @@
       "unit": "g/L"
     }
   },
-  "Healthy Tomato Plant": {
-    "displayName": "Cà chua — Khỏe mạnh",
+  "Healthy Potato Plant": {
+    "displayName": "Khoai tây — Khỏe mạnh",
     "severity": "none",
-    "description": "Không phát hiện dấu hiệu bệnh trên lá cà chua này.",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá khoai tây này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt sau khi mưa."
+    ]
+  },
+  "Healthy Raspberry Plant": {
+    "displayName": "Mâm Xôi — Khỏe Mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá mâm xôi này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong điều kiện ẩm ướt."
+    ]
+  },
+  "Healthy Soybean Plant": {
+    "displayName": "Đậu Nành — Khỏe Mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá đậu nành này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong thời kỳ ẩm ướt."
+    ]
+  },
+  "Squash with Powdery Mildew": {
+    "displayName": "Bí — Bệnh Phấn Trắng",
+    "severity": "moderate",
+    "description": "Bệnh nấm gây lớp phủ trắng như bột trên lá và thân, thường gặp trong thời tiết ấm với độ ẩm cao.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ lưu huỳnh hoặc myclobutanil) ngay khi thấy các đốm trắng như bột.",
+      "Loại bỏ và tiêu hủy lá bị nhiễm nặng để làm chậm lây lan.",
+      "Trồng cây với khoảng cách hợp lý để thông thoáng và tránh tưới phun mưa vào cuối ngày.",
+      "Trồng giống kháng bệnh phấn trắng nếu có kế hoạch trồng lại."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm lưu huỳnh hoặc myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Strawberry with Leaf Scorch": {
+    "displayName": "Dâu Tây — Bệnh Cháy Lá",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Diplocarpon earlianum) gây các đốm tím nhỏ, hòa vào nhau tạo thành vùng lá lớn như bị cháy.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ captan hoặc myclobutanil) nếu đốm bệnh lan rộng, đặc biệt sau thu hoạch.",
+      "Loại bỏ lá già sau thu hoạch (cắt hoặc cào) để giảm bào tử trú qua đông.",
+      "Tránh tưới phun mưa; tưới ở gốc để giữ lá khô.",
+      "Trồng cây với khoảng cách hợp lý giữa các hàng để thông thoáng."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm captan hoặc myclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Strawberry Plant": {
+    "displayName": "Dâu Tây — Khỏe Mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá dâu tây này.",
     "treatment": [
       "Không cần điều trị.",
       "Tiếp tục theo dõi hàng tuần, đặc biệt trong điều kiện ẩm ướt."
@@ -113,30 +437,103 @@
       "unit": "mL/L"
     }
   },
-  "Healthy Corn (Maize) Plant": {
-    "displayName": "Ngô — Khỏe mạnh",
-    "severity": "none",
-    "description": "Không phát hiện dấu hiệu bệnh trên lá ngô này.",
-    "treatment": [
-      "Không cần điều trị.",
-      "Tiếp tục theo dõi hàng tuần, đặc biệt trong giai đoạn sinh trưởng ẩm ướt."
-    ]
-  },
-  "Corn (Maize) with Common Rust": {
-    "displayName": "Ngô — Bệnh gỉ sắt thông thường",
+  "Tomato with Leaf Mold": {
+    "displayName": "Cà Chua — Bệnh Mốc Lá",
     "severity": "moderate",
-    "description": "Bệnh nấm (Puccinia sorghi) gây các mụn mủ màu nâu đỏ trên cả hai mặt lá.",
+    "description": "Bệnh nấm (Passalora fulva) gây các đốm vàng nhạt ở mặt trên lá với lớp mốc nhung màu xanh ô-liu đến xám ở mặt dưới. Thường gặp trong nhà kính/nhà lưới ẩm.",
     "treatment": [
-      "Phun thuốc trừ nấm qua lá (ví dụ azoxystrobin hoặc propiconazole) nếu nhiễm bệnh nặng trước khi trổ cờ.",
-      "Trồng giống ngô kháng gỉ sắt cho các vụ sau.",
-      "Loại bỏ cây ngô mọc tự nhiên có thể mang mầm nấm qua các vụ.",
-      "Theo dõi sát sao — nhiễm bệnh nhẹ thường không cần điều trị."
+      "Phun thuốc trừ nấm (ví dụ chlorothalonil hoặc gốc đồng) ngay khi thấy đốm vàng.",
+      "Cải thiện thông gió và giảm độ ẩm — trong nhà kính/nhà lưới, điều này thường quan trọng hơn việc phun thuốc.",
+      "Loại bỏ và tiêu hủy lá dưới bị nhiễm để làm chậm lây lan.",
+      "Tránh tưới từ trên cao và làm ướt lá vào buổi tối."
     ],
     "dosage": {
-      "product": "Thuốc trừ nấm Azoxystrobin hoặc propiconazole",
-      "rateMin": 1,
-      "rateMax": 1.5,
+      "product": "Thuốc trừ nấm chlorothalonil hoặc gốc đồng",
+      "rateMin": 2,
+      "rateMax": 3,
       "unit": "mL/L"
     }
+  },
+  "Tomato with Septoria Leaf Spot": {
+    "displayName": "Cà Chua — Bệnh Đốm Lá Septoria",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Septoria lycopersici) gây các đốm nhỏ, hình tròn, viền sẫm với tâm màu nâu nhạt, thường bắt đầu ở lá dưới.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ chlorothalonil hoặc gốc đồng) mỗi 7-10 ngày khi bắt đầu có đốm bệnh.",
+      "Loại bỏ và tiêu hủy lá dưới bị nhiễm, và dọn sạch tàn dư cây trồng cuối vụ.",
+      "Phủ gốc để giảm đất bắn lên lá.",
+      "Làm giàn hoặc cắm cọc và tránh tưới từ trên cao để tăng thông thoáng và giữ lá khô."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm chlorothalonil hoặc gốc đồng",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Spider Mites or Two-spotted Spider Mite": {
+    "displayName": "Cà Chua — Nhện Đỏ",
+    "severity": "moderate",
+    "description": "Loài gây hại nhỏ hút nhựa cây (Tetranychus urticae) gây các đốm vàng nhỏ trên lá và, khi nhiễm nặng, có mạng tơ mỏng nhìn thấy được. Nặng hơn trong thời tiết nóng, khô.",
+    "treatment": [
+      "Phun xà phòng diệt côn trùng, dầu làm vườn, hoặc thuốc trừ nhện (ví dụ abamectin), phun kỹ mặt dưới lá nơi nhện sinh sống.",
+      "Xịt rửa cây bằng tia nước mạnh để giảm số lượng nhện giữa các lần phun.",
+      "Tránh bón thừa đạm, vì làm tăng chồi non mềm mà nhện ưa thích.",
+      "Đưa vào hoặc bảo tồn kẻ thù tự nhiên (ví dụ nhện bắt mồi, bọ rùa) nếu có thể."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nhện abamectin hoặc dầu làm vườn",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Target Spot": {
+    "displayName": "Cà Chua — Bệnh Đốm Vòng",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Corynespora cassiicola) gây các đốm nâu với vòng tròn đồng tâm mờ (kiểu 'hình bia') trên lá, thân và quả.",
+    "treatment": [
+      "Phun thuốc trừ nấm (ví dụ chlorothalonil hoặc azoxystrobin) ngay khi xác nhận có đốm bệnh, lặp lại mỗi 7-10 ngày.",
+      "Loại bỏ và tiêu hủy lá bị nhiễm và tàn dư cây trồng cuối vụ.",
+      "Làm giàn hoặc cắm cọc và trồng với khoảng cách hợp lý để thông thoáng.",
+      "Tránh tưới từ trên cao; tưới ở gốc để giữ lá khô."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm chlorothalonil hoặc azoxystrobin",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato Yellow Leaf Curl Virus": {
+    "displayName": "Cà Chua — Vi-rút Xoăn Vàng Lá",
+    "severity": "severe",
+    "description": "Bệnh vi-rút do bọ trĩ trắng (rầy phấn trắng) lây truyền, gây lá cuộn lên, vàng lá và cây phát triển kém. Không có cách chữa khi cây đã nhiễm bệnh.",
+    "treatment": [
+      "Không có cách chữa hóa học — loại bỏ và tiêu hủy ngay cây bị nhiễm để giảm lây lan sang cây khỏe.",
+      "Kiểm soát rầy phấn trắng (côn trùng trung gian) (ví dụ bằng xà phòng diệt côn trùng hoặc thuốc trừ sâu được khuyến nghị) vì vi-rút bản thân không thể điều trị trực tiếp.",
+      "Dùng giống cà chua kháng vi-rút cho vụ sau nếu có.",
+      "Xem xét dùng màng phủ phản chiếu hoặc lưới chắn mắt nhỏ để giảm rầy phấn trắng bám vào cây non."
+    ]
+  },
+  "Tomato Mosaic Virus": {
+    "displayName": "Cà Chua — Vi-rút Khảm",
+    "severity": "severe",
+    "description": "Bệnh vi-rút gây các mảng khảm xanh nhạt/xanh đậm loang lổ trên lá, lá cuộn lại, và quả phát triển kém, biến dạng. Không có cách chữa khi cây đã nhiễm bệnh.",
+    "treatment": [
+      "Không có cách chữa hóa học — loại bỏ và tiêu hủy cây bị nhiễm để ngăn lây lan thêm.",
+      "Rửa tay và khử trùng dụng cụ sau khi tiếp xúc với cây bị nhiễm — vi-rút dễ lây qua tiếp xúc.",
+      "Dùng hạt giống được chứng nhận sạch vi-rút và giống kháng bệnh cho vụ sau.",
+      "Kiểm soát rệp và các côn trùng hút nhựa khác có thể lây vi-rút giữa các cây."
+    ]
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Cà chua — Khỏe mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá cà chua này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong điều kiện ẩm ướt."
+    ]
   }
 }

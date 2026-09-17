@@ -10,13 +10,276 @@
       "在光线良好的条件下，聚焦单片受影响的叶子重新拍照，以获得更清晰的结果。"
     ]
   },
-  "Healthy Potato Plant": {
-    "displayName": "马铃薯 — 健康",
+  "Apple Scab": {
+    "displayName": "苹果 — 黑星病",
+    "severity": "moderate",
+    "description": "真菌性病害（Venturia inaequalis），在叶片和果实上形成深色、粗糙的橄榄绿至棕色病斑。在凉爽潮湿的春季天气中传播最快。",
+    "treatment": [
+      "从萌芽期开始喷施杀菌剂（如戊唑醇类的苯醚甲环唑、代森锰锌或克菌丹），潮湿期每7-10天重复一次。",
+      "秋季清除并销毁落叶——真菌在落叶中越冬。",
+      "修剪以打开树冠；更好的通风能加快叶片干燥并减缓感染。",
+      "如需重新种植，选择抗黑星病的品种。"
+    ],
+    "dosage": {
+      "product": "苯醚甲环唑、克菌丹或代森锰锌杀菌剂",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Apple with Black Rot": {
+    "displayName": "苹果 — 黑腐病",
+    "severity": "moderate",
+    "description": "真菌性病害（Botryosphaeria obtusa），在叶片上形成紫色边缘的斑点（“蛙眼病斑”），并使果实腐烂、干缩成僵果。",
+    "treatment": [
+      "从早期展叶到果实发育期喷施杀菌剂（如克菌丹或甲基硫菌灵）。",
+      "清除并销毁僵果和死木/溃疡病斑——两者都会使真菌越冬。",
+      "及时修剪掉死枝或病枝；每次剪切之间对工具消毒。",
+      "避免树木受到压力（干旱、冻害），这会增加感染的可能性。"
+    ],
+    "dosage": {
+      "product": "克菌丹或甲基硫菌灵杀菌剂",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Cedar Apple Rust": {
+    "displayName": "苹果 — 雪松锈病",
+    "severity": "moderate",
+    "description": "真菌性病害（Gymnosporangium juniperi-virginianae），需要苹果树和雪松/桧柏两种寄主才能完成生命周期——在苹果叶片上形成鲜艳的黄橙色斑点。",
+    "treatment": [
+      "从粉红花蕾期到落瓣后数周内喷施杀菌剂（如苯醚甲环唑）。",
+      "如条件允许，清除附近的雪松/桧柏树——它们春季长出的菌瘿是感染源。",
+      "如需重新种植，选择抗锈病的苹果品种。",
+      "清除并处理落叶，以减少越冬孢子。"
+    ],
+    "dosage": {
+      "product": "苯醚甲环唑杀菌剂",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Apple": {
+    "displayName": "苹果 — 健康",
     "severity": "none",
-    "description": "此马铃薯叶片未检测到病害迹象。",
+    "description": "此苹果叶片未检测到病害迹象。",
     "treatment": [
       "无需治疗。",
-      "继续每周监测，尤其是降雨之后。"
+      "继续每周监测，尤其是在潮湿的春季天气之后。"
+    ]
+  },
+  "Healthy Blueberry Plant": {
+    "displayName": "蓝莓 — 健康",
+    "severity": "none",
+    "description": "此蓝莓叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在潮湿季节。"
+    ]
+  },
+  "Cherry with Powdery Mildew": {
+    "displayName": "樱桃 — 白粉病",
+    "severity": "moderate",
+    "description": "真菌性病害（Podosphaera clandestina），在叶片和嫩枝上形成白色粉状覆盖物，在温暖干燥但湿度较高的天气中最明显。",
+    "treatment": [
+      "一旦出现白色粉状斑块，立即喷施杀菌剂（如硫制剂或苯醚甲环唑）。",
+      "修剪以改善树冠内的通风和光照。",
+      "避免过量施用氮肥，因为白粉病喜欢柔嫩的新生组织。",
+      "清除并销毁严重感染的嫩枝和叶片。"
+    ],
+    "dosage": {
+      "product": "硫制剂或苯醚甲环唑杀菌剂",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Cherry Plant": {
+    "displayName": "樱桃 — 健康",
+    "severity": "none",
+    "description": "此樱桃叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在温暖潮湿的条件下。"
+    ]
+  },
+  "Corn (Maize) with Cercospora and Gray Leaf Spot": {
+    "displayName": "玉米 — 灰斑病",
+    "severity": "moderate",
+    "description": "真菌性病害（Cercospora zeae-maydis），沿叶脉方向形成狭长的矩形黄褐至灰色病斑。在温暖潮湿天气和秸秆残留较多的田地中会加重。",
+    "treatment": [
+      "若在抽雄前病斑向植株上部扩展，可喷施叶面杀菌剂（如嘧菌酯、吡唑醚菌酯或丙环唑）。",
+      "种植抗病杂交品种，下一季避免连续种植玉米（轮作）。",
+      "处理秸秆残留（翻耕或清除）——真菌可在旧玉米残体中越季存活。",
+      "避免施氮过多和种植过密；植株间通风良好可减缓病害扩散。"
+    ],
+    "dosage": {
+      "product": "嘧菌酯、吡唑醚菌酯或丙环唑杀菌剂",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "玉米 — 普通锈病",
+    "severity": "moderate",
+    "description": "真菌性病害（Puccinia sorghi），在叶片两面形成红褐色脓疱状斑点。",
+    "treatment": [
+      "若在抽雄前感染严重，可喷施叶面杀菌剂（如嘧菌酯或丙环唑）。",
+      "未来几季种植抗锈病玉米杂交品种。",
+      "清除可能在季节间携带真菌的自生玉米植株。",
+      "密切监测 — 轻度感染通常无需治疗。"
+    ],
+    "dosage": {
+      "product": "嘧菌酯或丙环唑杀菌剂",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Northern Leaf Blight": {
+    "displayName": "玉米 — 大斑病",
+    "severity": "moderate",
+    "description": "真菌性病害（Exserohilum turcicum），在叶片上形成长条形、雪茄状的黄褐至灰色病斑。适宜中等温度和长时间叶片潮湿。",
+    "treatment": [
+      "若在抽雄前病斑正在扩展，可喷施叶面杀菌剂（如嘧菌酯或丙环唑）。",
+      "种植抗病杂交品种，下一季避免连续种植玉米（轮作）。",
+      "处理秸秆残留（翻耕或清除）——真菌可在旧玉米残体中越季存活。",
+      "密切监测——季末的轻度感染通常无需治疗。"
+    ],
+    "dosage": {
+      "product": "嘧菌酯或丙环唑杀菌剂",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "玉米 — 健康",
+    "severity": "none",
+    "description": "此玉米叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在潮湿的生长期。"
+    ]
+  },
+  "Grape with Black Rot": {
+    "displayName": "葡萄 — 黑腐病",
+    "severity": "severe",
+    "description": "真菌性病害（Guignardia bidwellii），在叶片上形成红棕色斑点，并使果实干缩成坚硬的黑色“僵果”。若不防治，可能摧毁一季大部分收成。",
+    "treatment": [
+      "从萌芽后季初开始喷施杀菌剂（如代森锰锌或苯醚甲环唑）。",
+      "清除并销毁僵果和感染的枝条——两者都会将真菌带入下一季。",
+      "修剪保持树冠开放，以改善通风并加快雨后干燥。",
+      "全季轮换使用不同类型的杀菌剂，避免产生抗药性。"
+    ],
+    "dosage": {
+      "product": "代森锰锌或苯醚甲环唑杀菌剂",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Grape with Esca (Black Measles)": {
+    "displayName": "葡萄 — 埃斯卡病（黑麻疹病）",
+    "severity": "severe",
+    "description": "一种真菌性主干病害综合症，会导致叶片出现“虎斑”状变色，果实出现深色斑点。一旦在主干中形成，没有杀菌剂能可靠治愈。",
+    "treatment": [
+      "没有有效的化学治疗方法——叶面喷洒杀菌剂无法到达主干感染部位。",
+      "在明显变色区域以下充分修剪并销毁死亡或有症状的木质部分，每次剪切之间对工具消毒。",
+      "严重情况下，移除并更换整株葡萄藤——它会持续恶化，并可能将病原传播给邻近植株。",
+      "避免在潮湿天气修剪；真菌通过新鲜的修剪伤口侵入。"
+    ]
+  },
+  "Grape with Isariopsis Leaf Spot": {
+    "displayName": "葡萄 — 叶斑病（Isariopsis叶斑病）",
+    "severity": "moderate",
+    "description": "真菌性病害（Pseudocercospora vitis / Isariopsis叶斑病），在叶片上形成棱角状棕色斑点，斑点可能连合导致早期落叶。",
+    "treatment": [
+      "若斑点正在扩散，尤其是在潮湿天气中，可喷施杀菌剂（如代森锰锌）。",
+      "清除并销毁落地的感染叶片——真菌在落叶中越冬。",
+      "修剪保持树冠开放，以改善通风并缩短叶片潮湿的时间。",
+      "避免在傍晚进行喷灌，这会使叶片整夜保持潮湿。"
+    ],
+    "dosage": {
+      "product": "代森锰锌杀菌剂",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Grape Plant": {
+    "displayName": "葡萄 — 健康",
+    "severity": "none",
+    "description": "此葡萄叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在潮湿条件下。"
+    ]
+  },
+  "Orange with Citrus Greening": {
+    "displayName": "橙子 — 柑橘黄龙病（HLB）",
+    "severity": "severe",
+    "description": "由亚洲柑橘木虱传播的细菌性病害（Candidatus Liberibacter spp.，黄龙病），导致叶片出现斑块状黄化斑纹，果实小而苦且畸形。目前无法治愈。",
+    "treatment": [
+      "树木感染后没有化学治愈方法——重点转为防止进一步传播。",
+      "按当地农业推广部门推荐的杀虫方案控制亚洲柑橘木虱媒介。",
+      "及时清除并销毁确诊感染的树木——它们会成为附近健康树木的感染源。",
+      "新树只从获得认证的无病苗圃购入。"
+    ]
+  },
+  "Peach with Bacterial Spot": {
+    "displayName": "桃树 — 细菌性穿孔病",
+    "severity": "moderate",
+    "description": "细菌性病害（Xanthomonas arboricola pv. pruni），在叶片上形成小而深色的水浸状斑点，在果实上形成凹陷病斑。",
+    "treatment": [
+      "在休眠期和早期展叶期喷施铜制剂杀菌剂——病害一旦形成，铜制剂的效果会大大降低。",
+      "修剪保持树冠开放，以加快雨后或灌溉后的干燥。",
+      "避免喷灌；从根部浇水以保持叶片干燥。",
+      "如需重新种植，选择抗性较强的品种。"
+    ],
+    "dosage": {
+      "product": "铜制剂杀菌剂",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Peach Plant": {
+    "displayName": "桃树 — 健康",
+    "severity": "none",
+    "description": "此桃树叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是雨后。"
+    ]
+  },
+  "Bell Pepper with Bacterial Spot": {
+    "displayName": "甜椒 — 细菌性斑点病",
+    "severity": "moderate",
+    "description": "细菌性病害（Xanthomonas campestris pv. vesicatoria），在叶片上形成小而深色的水浸状斑点，在果实上形成隆起的粗糙病斑。",
+    "treatment": [
+      "一旦出现斑点，立即喷施铜制剂杀菌剂，潮湿天气中每周重复喷施。",
+      "清除并销毁感染的叶片和果实——不要堆肥。",
+      "避免在植株潮湿时进行操作；细菌容易通过湿润的手和工具传播。",
+      "下一季使用无病种子/苗，以及抗病品种。"
+    ],
+    "dosage": {
+      "product": "铜制剂杀菌剂",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Bell Pepper Plant": {
+    "displayName": "甜椒 — 健康",
+    "severity": "none",
+    "description": "此甜椒叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在潮湿天气中。"
     ]
   },
   "Potato with Early Blight": {
@@ -53,10 +316,71 @@
       "unit": "g/L"
     }
   },
-  "Healthy Tomato Plant": {
-    "displayName": "番茄 — 健康",
+  "Healthy Potato Plant": {
+    "displayName": "马铃薯 — 健康",
     "severity": "none",
-    "description": "此番茄叶片未检测到病害迹象。",
+    "description": "此马铃薯叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是降雨之后。"
+    ]
+  },
+  "Healthy Raspberry Plant": {
+    "displayName": "覆盆子 — 健康",
+    "severity": "none",
+    "description": "此覆盆子叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在潮湿条件下。"
+    ]
+  },
+  "Healthy Soybean Plant": {
+    "displayName": "大豆 — 健康",
+    "severity": "none",
+    "description": "此大豆叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在潮湿季节。"
+    ]
+  },
+  "Squash with Powdery Mildew": {
+    "displayName": "南瓜 — 白粉病",
+    "severity": "moderate",
+    "description": "真菌性病害，在叶片和茎上形成白色粉状覆盖物，在温暖高湿天气中常见。",
+    "treatment": [
+      "一旦出现白色粉状斑块，立即喷施杀菌剂（如硫制剂或苯醚甲环唑）。",
+      "清除并销毁严重感染的叶片以减缓传播。",
+      "植株间保持适当间距以改善通风，避免傍晚喷灌。",
+      "如需重新种植，选择抗白粉病品种。"
+    ],
+    "dosage": {
+      "product": "硫制剂或苯醚甲环唑杀菌剂",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Strawberry with Leaf Scorch": {
+    "displayName": "草莓 — 叶焦病",
+    "severity": "moderate",
+    "description": "真菌性病害（Diplocarpon earlianum），形成小紫色斑点，斑点连合后在叶片上形成较大的焦枯状斑块。",
+    "treatment": [
+      "若斑点正在扩散，尤其是采收后，可喷施杀菌剂（如克菌丹或苯醚甲环唑）。",
+      "采收后清除老叶（修剪或耙除）以减少越冬孢子。",
+      "避免喷灌；从根部浇水以保持叶片干燥。",
+      "行间保持适当间距以改善通风。"
+    ],
+    "dosage": {
+      "product": "克菌丹或苯醚甲环唑杀菌剂",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Strawberry Plant": {
+    "displayName": "草莓 — 健康",
+    "severity": "none",
+    "description": "此草莓叶片未检测到病害迹象。",
     "treatment": [
       "无需治疗。",
       "继续每周监测，尤其是在潮湿条件下。"
@@ -113,30 +437,103 @@
       "unit": "mL/L"
     }
   },
-  "Healthy Corn (Maize) Plant": {
-    "displayName": "玉米 — 健康",
-    "severity": "none",
-    "description": "此玉米叶片未检测到病害迹象。",
-    "treatment": [
-      "无需治疗。",
-      "继续每周监测，尤其是在潮湿的生长期。"
-    ]
-  },
-  "Corn (Maize) with Common Rust": {
-    "displayName": "玉米 — 普通锈病",
+  "Tomato with Leaf Mold": {
+    "displayName": "番茄 — 叶霉病",
     "severity": "moderate",
-    "description": "真菌性病害（Puccinia sorghi），在叶片两面形成红褐色脓疱状斑点。",
+    "description": "真菌性病害（Passalora fulva），叶片正面出现浅黄色斑点，背面出现橄榄绿至灰色的绒状霉层。在潮湿的大棚/温室中常见。",
     "treatment": [
-      "若在抽雄前感染严重，可喷施叶面杀菌剂（如嘧菌酯或丙环唑）。",
-      "未来几季种植抗锈病玉米杂交品种。",
-      "清除可能在季节间携带真菌的自生玉米植株。",
-      "密切监测 — 轻度感染通常无需治疗。"
+      "一旦出现黄化斑点，立即喷施杀菌剂（如百菌清或铜制剂）。",
+      "改善通风并降低湿度——在大棚/温室中，这往往比喷药更重要。",
+      "清除并销毁感染的下部叶片以减缓传播。",
+      "避免喷灌和傍晚淋湿叶片。"
     ],
     "dosage": {
-      "product": "嘧菌酯或丙环唑杀菌剂",
-      "rateMin": 1,
-      "rateMax": 1.5,
+      "product": "百菌清或铜制剂杀菌剂",
+      "rateMin": 2,
+      "rateMax": 3,
       "unit": "mL/L"
     }
+  },
+  "Tomato with Septoria Leaf Spot": {
+    "displayName": "番茄 — 斑枯病",
+    "severity": "moderate",
+    "description": "真菌性病害（Septoria lycopersici），形成边缘深色、中心黄褐色的小圆斑，通常从下部叶片开始出现。",
+    "treatment": [
+      "斑点出现后每7-10天喷施杀菌剂（如百菌清或铜制剂）。",
+      "清除并销毁受感染的下部叶片，季末清理老旧植株残体。",
+      "在植株基部覆盖地膜，减少泥土溅到叶片上。",
+      "为植株搭架或使用支架，避免喷灌，以改善通风并保持叶片干燥。"
+    ],
+    "dosage": {
+      "product": "百菌清或铜制剂杀菌剂",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Spider Mites or Two-spotted Spider Mite": {
+    "displayName": "番茄 — 红蜘蛛（叶螨）",
+    "severity": "moderate",
+    "description": "微小的吸食汁液害虫（Tetranychus urticae二斑叶螨），使叶片出现细密黄色斑点，严重时可见细密的蛛丝网。在炎热干燥天气中加重。",
+    "treatment": [
+      "喷施杀虫皂、园艺油或杀螨剂（如阿维菌素），重点覆盖叶螨栖息的叶片背面。",
+      "喷药间隔期用强力水流冲洗植株，以减少叶螨数量。",
+      "避免过量施用氮肥，因为叶螨偏好柔嫩的新生组织。",
+      "尽可能引入或保护天然捕食者（如捕食螨、瓢虫）。"
+    ],
+    "dosage": {
+      "product": "阿维菌素杀螨剂或园艺油",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Target Spot": {
+    "displayName": "番茄 — 靶斑病",
+    "severity": "moderate",
+    "description": "真菌性病害（Corynespora cassiicola），在叶片、茎和果实上形成带有淡淡同心环纹（“靶心”图案）的棕色斑点。",
+    "treatment": [
+      "确认出现斑点后立即喷施杀菌剂（如百菌清或嘧菌酯），每7-10天重复一次。",
+      "清除并销毁受感染的叶片，季末清理老旧植株残体。",
+      "为植株搭架或使用支架，并保持适当间距以改善通风。",
+      "避免喷灌；从根部浇水以保持叶片干燥。"
+    ],
+    "dosage": {
+      "product": "百菌清或嘧菌酯杀菌剂",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato Yellow Leaf Curl Virus": {
+    "displayName": "番茄 — 黄化曲叶病毒",
+    "severity": "severe",
+    "description": "由白粉虱传播的病毒性病害，导致叶片向上卷曲、黄化并使植株生长受阻。植株一旦感染，无法治愈。",
+    "treatment": [
+      "没有化学治愈方法——立即清除并销毁感染植株，以减少向健康植株的传播。",
+      "控制白粉虱媒介（如使用杀虫皂或推荐的杀虫剂），因为病毒本身无法直接治疗。",
+      "下一季尽可能使用抗病毒番茄品种。",
+      "考虑使用反光地膜或细网防虫网，减少白粉虱在幼苗上停留。"
+    ]
+  },
+  "Tomato Mosaic Virus": {
+    "displayName": "番茄 — 花叶病毒",
+    "severity": "severe",
+    "description": "病毒性病害，导致叶片出现深浅绿色相间的花叶斑纹、叶片卷曲，以及果实生长受阻和畸形。植株一旦感染，无法治愈。",
+    "treatment": [
+      "没有化学治愈方法——清除并销毁感染植株以防止进一步传播。",
+      "接触感染植株后洗手并对工具消毒——该病毒很容易通过接触传播。",
+      "下一季使用经认证的无病毒种子和抗病品种。",
+      "控制蚜虫等吸食汁液的昆虫，它们可在植株之间传播病毒。"
+    ]
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "番茄 — 健康",
+    "severity": "none",
+    "description": "此番茄叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在潮湿条件下。"
+    ]
   }
 }

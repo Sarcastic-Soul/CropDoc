@@ -10,13 +10,276 @@
       "Tire a foto novamente com boa iluminação, focando em uma única folha afetada, para obter um resultado mais claro."
     ]
   },
-  "Healthy Potato Plant": {
-    "displayName": "Batata — Saudável",
+  "Apple Scab": {
+    "displayName": "Maçã — Sarna",
+    "severity": "moderate",
+    "description": "Doença fúngica (Venturia inaequalis) que causa lesões escuras, ásperas, verde-oliva a marrons nas folhas e frutos. Se espalha mais rápido em clima frio e úmido na primavera.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, à base de miclobutanil, captana ou mancozeb) a partir da brotação, repetindo a cada 7-10 dias durante períodos chuvosos.",
+      "Rastele e destrua as folhas caídas no outono — o fungo sobrevive no inverno na folhagem caída.",
+      "Faça a poda para abrir a copa; melhor circulação de ar acelera a secagem das folhas e reduz a infecção.",
+      "Plante variedades resistentes à sarna, se for possível replantar."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de miclobutanil, captana ou mancozeb",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Apple with Black Rot": {
+    "displayName": "Maçã — Podridão Negra",
+    "severity": "moderate",
+    "description": "Doença fúngica (Botryosphaeria obtusa) que causa manchas foliares com borda roxa ('mancha de olho de sapo') e frutos podres e mumificados.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, à base de captana ou tiofanato-metílico) desde o início da brotação até o desenvolvimento dos frutos.",
+      "Remova e destrua frutos mumificados e madeira morta/cancros — ambos abrigam o fungo durante o inverno.",
+      "Corte ramos mortos ou doentes prontamente; desinfete as ferramentas de poda entre os cortes.",
+      "Evite estresse na árvore (seca, danos de inverno), que aumenta a chance de infecção."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de captana ou tiofanato-metílico",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Cedar Apple Rust": {
+    "displayName": "Maçã — Ferrugem do Cedro",
+    "severity": "moderate",
+    "description": "Doença fúngica (Gymnosporangium juniperi-virginianae) que precisa de macieiras e cedros/zimbros para completar seu ciclo — causa manchas amarelo-alaranjadas brilhantes nas folhas da macieira.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, à base de miclobutanil) desde o estágio de botão rosa até várias semanas após a queda das pétalas.",
+      "Remova cedros/zimbros próximos, se possível — as formações de primavera neles são a fonte da infecção.",
+      "Plante variedades de macieira resistentes à ferrugem, se for possível replantar.",
+      "Rastele e descarte as folhas caídas para reduzir os esporos que sobrevivem ao inverno."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de miclobutanil",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Apple": {
+    "displayName": "Maçã — Saudável",
     "severity": "none",
-    "description": "Nenhum sinal de doença detectado nesta folha de batata.",
+    "description": "Nenhum sinal de doença detectado nesta folha de macieira.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente após chuvas na primavera."
+    ]
+  },
+  "Healthy Blueberry Plant": {
+    "displayName": "Mirtilo — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de mirtilo.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente durante períodos úmidos de crescimento."
+    ]
+  },
+  "Cherry with Powdery Mildew": {
+    "displayName": "Cereja — Oídio",
+    "severity": "moderate",
+    "description": "Doença fúngica (Podosphaera clandestina) que causa uma cobertura branca e pulverulenta nas folhas e ramos, mais visível em clima quente e seco com alta umidade.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, enxofre ou miclobutanil) ao primeiro sinal de manchas brancas pulverulentas.",
+      "Faça a poda para melhorar a circulação de ar e a penetração de luz solar na copa.",
+      "Evite excesso de adubação nitrogenada, que favorece o crescimento novo e tenro que o oídio prefere.",
+      "Remova e destrua ramos e folhas fortemente infectados."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de enxofre ou miclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Cherry Plant": {
+    "displayName": "Cereja — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de cerejeira.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente em condições quentes e úmidas."
+    ]
+  },
+  "Corn (Maize) with Cercospora and Gray Leaf Spot": {
+    "displayName": "Milho — Mancha Cinzenta da Folha",
+    "severity": "moderate",
+    "description": "Doença fúngica (Cercospora zeae-maydis) que causa lesões estreitas e retangulares de cor bronzeada a cinza, paralelas às nervuras da folha. Piora em clima quente e úmido e em lavouras com muita palha de milho.",
+    "treatment": [
+      "Aplique um fungicida foliar (por exemplo, à base de azoxistrobina, piraclostrobina ou propiconazol) se as lesões estiverem avançando para a parte superior da planta antes do florescimento.",
+      "Plante híbridos resistentes e evite milho contínuo na próxima safra (faça rotação de culturas).",
+      "Gerencie a palha (aração ou remoção) — o fungo sobrevive nos restos de milho entre as safras.",
+      "Evite excesso de nitrogênio e plantio muito denso; melhor circulação de ar entre as plantas reduz a propagação."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de azoxistrobina, piraclostrobina ou propiconazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Milho — Ferrugem Comum",
+    "severity": "moderate",
+    "description": "Doença fúngica (Puccinia sorghi) que causa pústulas de cor marrom-avermelhada em ambas as faces da folha.",
+    "treatment": [
+      "Aplique um fungicida foliar (por exemplo, à base de azoxistrobina ou propiconazol) se a infecção estiver intensa antes do florescimento.",
+      "Plante híbridos de milho resistentes à ferrugem nas próximas safras.",
+      "Remova plantas voluntárias de milho que possam carregar o fungo entre as safras.",
+      "Monitore de perto — infecções leves geralmente não precisam de tratamento."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de azoxistrobina ou propiconazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Northern Leaf Blight": {
+    "displayName": "Milho — Helmintosporiose (Queima das Folhas)",
+    "severity": "moderate",
+    "description": "Doença fúngica (Exserohilum turcicum) que causa lesões longas, em forma de cigarro, de cor bronzeada a cinza nas folhas. Favorecida por temperaturas moderadas e umidade prolongada nas folhas.",
+    "treatment": [
+      "Aplique um fungicida foliar (por exemplo, à base de azoxistrobina ou propiconazol) se as lesões estiverem se espalhando antes do florescimento.",
+      "Plante híbridos resistentes e evite milho contínuo na próxima safra (faça rotação de culturas).",
+      "Gerencie a palha (aração ou remoção) — o fungo sobrevive nos restos de milho entre as safras.",
+      "Monitore de perto — infecções leves no final da temporada geralmente não precisam de tratamento."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de azoxistrobina ou propiconazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Milho — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de milho.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente em períodos de crescimento úmidos."
+    ]
+  },
+  "Grape with Black Rot": {
+    "displayName": "Uva — Podridão Negra",
+    "severity": "severe",
+    "description": "Doença fúngica (Guignardia bidwellii) que causa manchas foliares marrom-avermelhadas e frutos que secam formando 'passas' negras e duras. Pode destruir a maior parte da safra se não for tratada.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, à base de mancozeb ou miclobutanil) desde o início da temporada, logo após a brotação.",
+      "Remova e destrua as bagas mumificadas e os ramos infectados — ambos carregam o fungo para a próxima safra.",
+      "Faça a poda para uma copa aberta, melhorando a circulação de ar e a secagem após a chuva.",
+      "Alterne os princípios ativos do fungicida durante a temporada para evitar resistência."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de mancozeb ou miclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Grape with Esca (Black Measles)": {
+    "displayName": "Uva — Esca (Sarampo Negro)",
+    "severity": "severe",
+    "description": "Um complexo de doenças fúngicas do tronco que causa descoloração das folhas em 'listras de tigre' e manchas escuras nas bagas. Nenhum fungicida cura de forma confiável esta doença uma vez instalada no tronco.",
+    "treatment": [
+      "Não há cura química eficaz — a pulverização de fungicida nas folhas não alcança a infecção no tronco.",
+      "Corte e destrua a madeira morta ou sintomática bem abaixo de qualquer mancha visível, desinfetando as ferramentas entre os cortes.",
+      "Em casos avançados, remova e substitua a videira — ela continuará a declinar e pode espalhar o inóculo para as vizinhas.",
+      "Evite podar em tempo chuvoso; o fungo entra pelos cortes de poda recentes."
+    ]
+  },
+  "Grape with Isariopsis Leaf Spot": {
+    "displayName": "Uva — Mancha das Folhas (Isariopsis)",
+    "severity": "moderate",
+    "description": "Doença fúngica (Pseudocercospora vitis / mancha das folhas Isariopsis) que causa manchas marrons angulares nas folhas, que podem se unir e causar queda precoce das folhas.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, à base de mancozeb) se as manchas estiverem se espalhando, especialmente em clima úmido.",
+      "Remova e destrua as folhas caídas infectadas — o fungo sobrevive no inverno na folhagem caída.",
+      "Faça a poda para uma copa aberta, melhorando a circulação de ar e reduzindo o tempo de umidade nas folhas.",
+      "Evite irrigação por aspersão no final do dia, o que prolonga a umidade das folhas durante a noite."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de mancozeb",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Grape Plant": {
+    "displayName": "Uva — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de videira.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente em condições úmidas."
+    ]
+  },
+  "Orange with Citrus Greening": {
+    "displayName": "Laranja — Greening dos Citros (HLB)",
+    "severity": "severe",
+    "description": "Doença bacteriana (Candidatus Liberibacter spp., huanglongbing) transmitida pelo psilídeo-asiático-dos-citros, causando manchas amarelas irregulares nas folhas e frutos pequenos, amargos e assimétricos. Não há cura.",
+    "treatment": [
+      "Não há cura química uma vez que a árvore esteja infectada — o foco passa a ser evitar novas contaminações.",
+      "Controle o vetor psilídeo-asiático-dos-citros com um programa de insecticida recomendado por um serviço de extensão local.",
+      "Remova e destrua prontamente as árvores confirmadamente infectadas — elas são fonte de infecção para as árvores sadias próximas.",
+      "Obtenha novas mudas apenas de viveiros certificados livres da doença."
+    ]
+  },
+  "Peach with Bacterial Spot": {
+    "displayName": "Pêssego — Mancha Bacteriana",
+    "severity": "moderate",
+    "description": "Doença bacteriana (Xanthomonas arboricola pv. pruni) que causa pequenas manchas escuras e encharcadas nas folhas e lesões perfuradas nos frutos.",
+    "treatment": [
+      "Aplique um bactericida à base de cobre durante a dormência e novamente no início da brotação — o cobre é muito menos eficaz depois que a doença já se instalou.",
+      "Faça a poda para uma copa aberta, acelerando a secagem após chuva ou irrigação.",
+      "Evite irrigação por aspersão; regue na base para manter a folhagem seca.",
+      "Plante variedades menos suscetíveis, se for possível replantar."
+    ],
+    "dosage": {
+      "product": "Bactericida à base de cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Peach Plant": {
+    "displayName": "Pêssego — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de pessegueiro.",
     "treatment": [
       "Nenhum tratamento necessário.",
       "Continue monitorando semanalmente, especialmente após chuvas."
+    ]
+  },
+  "Bell Pepper with Bacterial Spot": {
+    "displayName": "Pimentão — Mancha Bacteriana",
+    "severity": "moderate",
+    "description": "Doença bacteriana (Xanthomonas campestris pv. vesicatoria) que causa pequenas manchas escuras e encharcadas nas folhas e lesões ásperas e elevadas nos frutos.",
+    "treatment": [
+      "Aplique um bactericida à base de cobre ao primeiro sinal de manchas, repetindo semanalmente durante o clima chuvoso.",
+      "Remova e destrua folhas e frutos infectados — não composte.",
+      "Evite manusear as plantas quando estiverem úmidas; as bactérias se espalham facilmente por mãos e ferramentas molhadas.",
+      "Use mudas/sementes livres de doenças e variedades resistentes na próxima safra."
+    ],
+    "dosage": {
+      "product": "Bactericida à base de cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Bell Pepper Plant": {
+    "displayName": "Pimentão — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de pimentão.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente em clima chuvoso."
     ]
   },
   "Potato with Early Blight": {
@@ -53,13 +316,74 @@
       "unit": "g/L"
     }
   },
-  "Healthy Tomato Plant": {
-    "displayName": "Tomate — Saudável",
+  "Healthy Potato Plant": {
+    "displayName": "Batata — Saudável",
     "severity": "none",
-    "description": "Nenhum sinal de doença detectado nesta folha de tomate.",
+    "description": "Nenhum sinal de doença detectado nesta folha de batata.",
     "treatment": [
       "Nenhum tratamento necessário.",
-      "Continue monitorando semanalmente, especialmente em condições de alta umidade."
+      "Continue monitorando semanalmente, especialmente após chuvas."
+    ]
+  },
+  "Healthy Raspberry Plant": {
+    "displayName": "Framboesa — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de framboeseira.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente em condições úmidas."
+    ]
+  },
+  "Healthy Soybean Plant": {
+    "displayName": "Soja — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de soja.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente durante períodos úmidos de crescimento."
+    ]
+  },
+  "Squash with Powdery Mildew": {
+    "displayName": "Abóbora — Oídio",
+    "severity": "moderate",
+    "description": "Doença fúngica que causa uma cobertura branca e pulverulenta nas folhas e caules, comum em clima quente com alta umidade.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, enxofre ou miclobutanil) ao primeiro sinal de manchas brancas pulverulentas.",
+      "Remova e destrua as folhas fortemente infectadas para reduzir a propagação.",
+      "Espace as plantas para boa circulação de ar e evite regar por aspersão no final do dia.",
+      "Plante variedades resistentes ao oídio, se for possível replantar."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de enxofre ou miclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Strawberry with Leaf Scorch": {
+    "displayName": "Morango — Queima das Folhas",
+    "severity": "moderate",
+    "description": "Doença fúngica (Diplocarpon earlianum) que causa pequenas manchas roxas que se unem formando manchas maiores com aspecto de queimado nas folhas.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, captana ou miclobutanil) se as manchas estiverem se espalhando, especialmente após a colheita.",
+      "Remova as folhas velhas após a colheita (roçando ou rastelando) para reduzir os esporos que sobrevivem ao inverno.",
+      "Evite irrigação por aspersão; regue na base para manter a folhagem seca.",
+      "Espace as plantas para boa circulação de ar entre as fileiras."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de captana ou miclobutanil",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Strawberry Plant": {
+    "displayName": "Morango — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de morangueiro.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente em condições úmidas."
     ]
   },
   "Tomato with Bacterial Spot": {
@@ -113,30 +437,103 @@
       "unit": "mL/L"
     }
   },
-  "Healthy Corn (Maize) Plant": {
-    "displayName": "Milho — Saudável",
-    "severity": "none",
-    "description": "Nenhum sinal de doença detectado nesta folha de milho.",
-    "treatment": [
-      "Nenhum tratamento necessário.",
-      "Continue monitorando semanalmente, especialmente em períodos de crescimento úmidos."
-    ]
-  },
-  "Corn (Maize) with Common Rust": {
-    "displayName": "Milho — Ferrugem Comum",
+  "Tomato with Leaf Mold": {
+    "displayName": "Tomate — Mofo das Folhas",
     "severity": "moderate",
-    "description": "Doença fúngica (Puccinia sorghi) que causa pústulas de cor marrom-avermelhada em ambas as faces da folha.",
+    "description": "Doença fúngica (Passalora fulva) que causa manchas amarelo-claras na face superior da folha, com um mofo aveludado verde-oliva a cinza por baixo. Comum em estufas/túneis úmidos.",
     "treatment": [
-      "Aplique um fungicida foliar (por exemplo, à base de azoxistrobina ou propiconazol) se a infecção estiver intensa antes do florescimento.",
-      "Plante híbridos de milho resistentes à ferrugem nas próximas safras.",
-      "Remova plantas voluntárias de milho que possam carregar o fungo entre as safras.",
-      "Monitore de perto — infecções leves geralmente não precisam de tratamento."
+      "Aplique um fungicida (por exemplo, à base de clorotalonil ou cobre) ao primeiro sinal de manchas amareladas.",
+      "Melhore a ventilação e reduza a umidade — em estufas/túneis, isso costuma importar mais do que a pulverização.",
+      "Remova e destrua as folhas inferiores infectadas para reduzir a propagação.",
+      "Evite regar por aspersão e molhar a folhagem à noite."
     ],
     "dosage": {
-      "product": "Fungicida à base de azoxistrobina ou propiconazol",
-      "rateMin": 1,
-      "rateMax": 1.5,
+      "product": "Fungicida à base de clorotalonil ou cobre",
+      "rateMin": 2,
+      "rateMax": 3,
       "unit": "mL/L"
     }
+  },
+  "Tomato with Septoria Leaf Spot": {
+    "displayName": "Tomate — Mancha de Septoria",
+    "severity": "moderate",
+    "description": "Doença fúngica (Septoria lycopersici) que causa pequenas manchas circulares com bordas escuras e centro bronzeado, geralmente começando nas folhas inferiores.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, à base de clorotalonil ou cobre) a cada 7-10 dias assim que as manchas aparecerem.",
+      "Remova e destrua as folhas inferiores afetadas e limpe os restos de plantas no final da temporada.",
+      "Faça cobertura morta na base para reduzir salpicos de terra nas folhas.",
+      "Estaque ou tutore as plantas e evite regar por aspersão para melhorar a circulação de ar e manter a folhagem seca."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de clorotalonil ou cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Spider Mites or Two-spotted Spider Mite": {
+    "displayName": "Tomate — Ácaros",
+    "severity": "moderate",
+    "description": "Pragas minúsculas que sugam a seiva (Tetranychus urticae), causando pequenas manchas amareladas nas folhas e, em infestações fortes, teias finas visíveis. Piora em clima quente e seco.",
+    "treatment": [
+      "Pulverize com sabão inseticida, óleo hortícola, ou um acaricida (por exemplo, abamectina), cobrindo a parte inferior das folhas onde os ácaros vivem.",
+      "Enxágue as plantas com um jato forte de água para reduzir a população de ácaros entre as pulverizações.",
+      "Evite excesso de adubação nitrogenada, que favorece o crescimento tenro que os ácaros preferem.",
+      "Introduza ou preserve predadores naturais (por exemplo, ácaros predadores, joaninhas), quando possível."
+    ],
+    "dosage": {
+      "product": "Acaricida à base de abamectina ou óleo hortícola",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Target Spot": {
+    "displayName": "Tomate — Mancha Alvo",
+    "severity": "moderate",
+    "description": "Doença fúngica (Corynespora cassiicola) que causa manchas marrons com anéis concêntricos tênues (padrão de 'alvo') nas folhas, caules e frutos.",
+    "treatment": [
+      "Aplique um fungicida (por exemplo, à base de clorotalonil ou azoxistrobina) assim que as manchas forem confirmadas, repetindo a cada 7-10 dias.",
+      "Remova e destrua as folhas afetadas e os restos de plantas no final da temporada.",
+      "Estaque ou tutore as plantas e espace-as para boa circulação de ar.",
+      "Evite regar por aspersão; regue na base para manter a folhagem seca."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de clorotalonil ou azoxistrobina",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato Yellow Leaf Curl Virus": {
+    "displayName": "Tomate — Vírus do Enrolamento Amarelo da Folha",
+    "severity": "severe",
+    "description": "Doença viral transmitida por moscas-brancas, causando enrolamento das folhas para cima, amarelecimento e crescimento atrofiado. Não há cura depois que a planta é infectada.",
+    "treatment": [
+      "Não há cura química — remova e destrua prontamente as plantas infectadas para reduzir a propagação para as sadias.",
+      "Controle o vetor mosca-branca (por exemplo, com sabão inseticida ou um inseticida recomendado), já que o vírus em si não pode ser tratado diretamente.",
+      "Use variedades de tomate resistentes ao vírus na próxima safra, quando disponíveis.",
+      "Considere cobertura refletiva ou tela fina para reduzir o pousio de moscas-brancas nas plantas jovens."
+    ]
+  },
+  "Tomato Mosaic Virus": {
+    "displayName": "Tomate — Vírus do Mosaico",
+    "severity": "severe",
+    "description": "Doença viral que causa padrões de mosaico com manchas verdes claras e escuras nas folhas, enrolamento das folhas e frutos atrofiados e deformados. Não há cura depois que a planta é infectada.",
+    "treatment": [
+      "Não há cura química — remova e destrua as plantas infectadas para evitar mais propagação.",
+      "Lave as mãos e desinfete as ferramentas após manusear plantas infectadas — o vírus se espalha facilmente por contato.",
+      "Use sementes certificadas livres de vírus e variedades resistentes na próxima safra.",
+      "Controle pulgões e outros insetos que sugam a seiva e podem espalhar o vírus entre as plantas."
+    ]
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Tomate — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de tomate.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente em condições de alta umidade."
+    ]
   }
 }

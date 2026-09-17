@@ -10,13 +10,276 @@
       "Retake the photo in good light, focused on a single affected leaf, for a clearer result."
     ]
   },
-  "Healthy Potato Plant": {
-    "displayName": "Potato — Healthy",
+  "Apple Scab": {
+    "displayName": "Apple — Scab",
+    "severity": "moderate",
+    "description": "Fungal disease (Venturia inaequalis) causing dark, scabby, olive-green to brown lesions on leaves and fruit. Spreads fastest in cool, wet spring weather.",
+    "treatment": [
+      "Apply a fungicide (e.g. myclobutanil, captan, or mancozeb) starting at bud break and repeating on a 7-10 day schedule through wet periods.",
+      "Rake and destroy fallen leaves in autumn — the fungus overwinters in leaf litter.",
+      "Prune to open up the canopy; better airflow speeds leaf drying and slows infection.",
+      "Plant scab-resistant varieties where replanting is an option."
+    ],
+    "dosage": {
+      "product": "Myclobutanil, captan, or mancozeb fungicide",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Apple with Black Rot": {
+    "displayName": "Apple — Black Rot",
+    "severity": "moderate",
+    "description": "Fungal disease (Botryosphaeria obtusa) causing purple-bordered leaf spots ('frog-eye leaf spot') and rotting, mummified fruit.",
+    "treatment": [
+      "Apply a fungicide (e.g. captan or thiophanate-methyl) from early leaf-out through fruit development.",
+      "Remove and destroy mummified fruit and dead wood/cankers — both harbor the fungus over winter.",
+      "Prune out dead or diseased branches promptly; disinfect pruning tools between cuts.",
+      "Avoid tree stress (drought, winter injury) which makes infection more likely."
+    ],
+    "dosage": {
+      "product": "Captan or thiophanate-methyl fungicide",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Cedar Apple Rust": {
+    "displayName": "Apple — Cedar Rust",
+    "severity": "moderate",
+    "description": "Fungal disease (Gymnosporangium juniperi-virginianae) needing both apple and cedar/juniper trees to complete its cycle — causes bright yellow-orange spots on apple leaves.",
+    "treatment": [
+      "Apply a fungicide (e.g. myclobutanil) from pink bud stage through several weeks after petal fall.",
+      "Remove nearby cedar/juniper trees if practical — spring gall growths on them are the infection source.",
+      "Plant rust-resistant apple varieties where replanting is an option.",
+      "Rake and dispose of fallen leaves to reduce overwintering spores."
+    ],
+    "dosage": {
+      "product": "Myclobutanil fungicide",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Apple": {
+    "displayName": "Apple — Healthy",
     "severity": "none",
-    "description": "No signs of disease detected on this potato leaf.",
+    "description": "No signs of disease detected on this apple leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially after wet spring weather."
+    ]
+  },
+  "Healthy Blueberry Plant": {
+    "displayName": "Blueberry — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this blueberry leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially during humid growing periods."
+    ]
+  },
+  "Cherry with Powdery Mildew": {
+    "displayName": "Cherry — Powdery Mildew",
+    "severity": "moderate",
+    "description": "Fungal disease (Podosphaera clandestina) causing a white, powdery coating on leaves and shoots, most visible in warm, dry weather with high humidity.",
+    "treatment": [
+      "Apply a fungicide (e.g. sulfur or myclobutanil) at first sign of white powdery patches.",
+      "Prune to improve airflow and sunlight penetration through the canopy.",
+      "Avoid excess nitrogen fertilizer, which encourages the soft new growth mildew prefers.",
+      "Remove and destroy heavily infected shoots and leaves."
+    ],
+    "dosage": {
+      "product": "Sulfur or myclobutanil fungicide",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Cherry Plant": {
+    "displayName": "Cherry — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this cherry leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially in warm, humid conditions."
+    ]
+  },
+  "Corn (Maize) with Cercospora and Gray Leaf Spot": {
+    "displayName": "Corn — Gray Leaf Spot",
+    "severity": "moderate",
+    "description": "Fungal disease (Cercospora zeae-maydis) causing narrow, rectangular tan-to-gray lesions running parallel to the leaf veins. Worsens in warm, humid weather and in fields with heavy corn residue.",
+    "treatment": [
+      "Apply a foliar fungicide (e.g. azoxystrobin, pyraclostrobin, or propiconazole) if lesions are spreading up the plant before tasseling.",
+      "Plant resistant hybrids and rotate away from continuous corn next season.",
+      "Manage crop residue (tillage or removal) — the fungus survives in old corn debris between seasons.",
+      "Avoid excess nitrogen and overly dense planting; better airflow between plants slows spread."
+    ],
+    "dosage": {
+      "product": "Azoxystrobin, pyraclostrobin, or propiconazole fungicide",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Corn — Common Rust",
+    "severity": "moderate",
+    "description": "Fungal disease (Puccinia sorghi) causing reddish-brown pustules on both leaf surfaces.",
+    "treatment": [
+      "Apply a foliar fungicide (e.g. azoxystrobin or propiconazole) if infection is heavy before tasseling.",
+      "Plant rust-resistant corn hybrids in future seasons.",
+      "Remove volunteer corn plants that can carry the fungus between seasons.",
+      "Monitor closely — mild infections often don't need treatment."
+    ],
+    "dosage": {
+      "product": "Azoxystrobin or propiconazole fungicide",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Corn (Maize) with Northern Leaf Blight": {
+    "displayName": "Corn — Northern Leaf Blight",
+    "severity": "moderate",
+    "description": "Fungal disease (Exserohilum turcicum) causing long, cigar-shaped tan-to-gray lesions on the leaves. Favors moderate temperatures and extended leaf wetness.",
+    "treatment": [
+      "Apply a foliar fungicide (e.g. azoxystrobin or propiconazole) if lesions are spreading before tasseling.",
+      "Plant resistant hybrids and rotate away from continuous corn next season.",
+      "Manage crop residue (tillage or removal) — the fungus survives in old corn debris between seasons.",
+      "Monitor closely — mild infections late in the season often don't need treatment."
+    ],
+    "dosage": {
+      "product": "Azoxystrobin or propiconazole fungicide",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Corn — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this corn leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially during humid growing periods."
+    ]
+  },
+  "Grape with Black Rot": {
+    "displayName": "Grape — Black Rot",
+    "severity": "severe",
+    "description": "Fungal disease (Guignardia bidwellii) causing reddish-brown leaf spots and fruit that shrivels into hard black 'mummies'. Can destroy most of a season's crop if untreated.",
+    "treatment": [
+      "Apply a fungicide (e.g. mancozeb or myclobutanil) starting early in the season, right after bud break.",
+      "Remove and destroy mummified berries and infected canes — both carry the fungus into the next season.",
+      "Prune for an open canopy to improve airflow and speed drying after rain.",
+      "Rotate fungicide chemistries across the season to avoid resistance building up."
+    ],
+    "dosage": {
+      "product": "Mancozeb or myclobutanil fungicide",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Grape with Esca (Black Measles)": {
+    "displayName": "Grape — Esca (Black Measles)",
+    "severity": "severe",
+    "description": "A fungal trunk-disease complex causing 'tiger-stripe' leaf discoloration and dark spotting on berries. No fungicide reliably cures it once established in the trunk.",
+    "treatment": [
+      "There is no effective chemical cure — fungicide spraying on leaves does not reach the trunk infection.",
+      "Prune out and destroy dead or symptomatic wood well below any visible staining, disinfecting tools between cuts.",
+      "In advanced cases, remove and replace the vine — it will keep declining and can spread inoculum to neighbors.",
+      "Avoid pruning during wet weather; the fungus enters through fresh pruning wounds."
+    ]
+  },
+  "Grape with Isariopsis Leaf Spot": {
+    "displayName": "Grape — Leaf Blight (Isariopsis Leaf Spot)",
+    "severity": "moderate",
+    "description": "Fungal disease (Pseudocercospora vitis / Isariopsis leaf spot) causing angular brown spots on leaves that can merge and cause early leaf drop.",
+    "treatment": [
+      "Apply a fungicide (e.g. mancozeb) if spotting is spreading, especially in humid weather.",
+      "Remove and destroy fallen infected leaves — the fungus overwinters in leaf litter.",
+      "Prune for an open canopy to improve airflow and reduce leaf-wetness duration.",
+      "Avoid overhead irrigation late in the day, which extends leaf wetness overnight."
+    ],
+    "dosage": {
+      "product": "Mancozeb fungicide",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Grape Plant": {
+    "displayName": "Grape — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this grape leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially in humid conditions."
+    ]
+  },
+  "Orange with Citrus Greening": {
+    "displayName": "Orange — Citrus Greening (HLB)",
+    "severity": "severe",
+    "description": "Bacterial disease (Candidatus Liberibacter spp., huanglongbing) spread by the Asian citrus psyllid, causing blotchy yellow leaf mottling and small, bitter, lopsided fruit. There is no cure.",
+    "treatment": [
+      "There is no chemical cure once a tree is infected — focus shifts to preventing further spread.",
+      "Control the Asian citrus psyllid vector with a recommended insecticide program from a local extension service.",
+      "Remove and destroy confirmed infected trees promptly — they act as a source of infection for healthy trees nearby.",
+      "Source new trees only from certified disease-free nursery stock."
+    ]
+  },
+  "Peach with Bacterial Spot": {
+    "displayName": "Peach — Bacterial Spot",
+    "severity": "moderate",
+    "description": "Bacterial disease (Xanthomonas arboricola pv. pruni) causing small, dark, water-soaked spots on leaves and pitted lesions on fruit.",
+    "treatment": [
+      "Apply a copper-based bactericide during dormancy and again at early leaf-out — copper is far less effective once the disease is established.",
+      "Prune for an open canopy to speed drying after rain or irrigation.",
+      "Avoid overhead irrigation; water at the base to keep foliage dry.",
+      "Plant less-susceptible varieties where replanting is an option."
+    ],
+    "dosage": {
+      "product": "Copper-based bactericide",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Peach Plant": {
+    "displayName": "Peach — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this peach leaf.",
     "treatment": [
       "No treatment needed.",
       "Keep monitoring weekly, especially after rain."
+    ]
+  },
+  "Bell Pepper with Bacterial Spot": {
+    "displayName": "Bell Pepper — Bacterial Spot",
+    "severity": "moderate",
+    "description": "Bacterial disease (Xanthomonas campestris pv. vesicatoria) causing small, dark, water-soaked spots on leaves and raised scabby lesions on fruit.",
+    "treatment": [
+      "Apply a copper-based bactericide at first sign of spotting, repeating weekly during wet weather.",
+      "Remove and destroy infected leaves and fruit — do not compost.",
+      "Avoid working with wet plants; the bacteria spread easily on damp hands and tools.",
+      "Use disease-free seed/transplants and resistant varieties next season."
+    ],
+    "dosage": {
+      "product": "Copper-based bactericide",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Bell Pepper Plant": {
+    "displayName": "Bell Pepper — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this bell pepper leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially in wet weather."
     ]
   },
   "Potato with Early Blight": {
@@ -53,10 +316,71 @@
       "unit": "g/L"
     }
   },
-  "Healthy Tomato Plant": {
-    "displayName": "Tomato — Healthy",
+  "Healthy Potato Plant": {
+    "displayName": "Potato — Healthy",
     "severity": "none",
-    "description": "No signs of disease detected on this tomato leaf.",
+    "description": "No signs of disease detected on this potato leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially after rain."
+    ]
+  },
+  "Healthy Raspberry Plant": {
+    "displayName": "Raspberry — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this raspberry leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially in humid conditions."
+    ]
+  },
+  "Healthy Soybean Plant": {
+    "displayName": "Soybean — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this soybean leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially during humid growing periods."
+    ]
+  },
+  "Squash with Powdery Mildew": {
+    "displayName": "Squash — Powdery Mildew",
+    "severity": "moderate",
+    "description": "Fungal disease causing a white, powdery coating on leaves and stems, common in warm weather with high humidity.",
+    "treatment": [
+      "Apply a fungicide (e.g. sulfur or myclobutanil) at first sign of white powdery patches.",
+      "Remove and destroy heavily infected leaves to slow spread.",
+      "Space plants for good airflow and avoid overhead watering late in the day.",
+      "Plant mildew-resistant varieties where replanting is an option."
+    ],
+    "dosage": {
+      "product": "Sulfur or myclobutanil fungicide",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Strawberry with Leaf Scorch": {
+    "displayName": "Strawberry — Leaf Scorch",
+    "severity": "moderate",
+    "description": "Fungal disease (Diplocarpon earlianum) causing small purple spots that merge into larger scorched-looking blotches on leaves.",
+    "treatment": [
+      "Apply a fungicide (e.g. captan or myclobutanil) if spotting is spreading, especially after harvest.",
+      "Remove old leaves after harvest (mowing or raking) to reduce overwintering spores.",
+      "Avoid overhead irrigation; water at the base to keep foliage dry.",
+      "Space plants for good airflow between rows."
+    ],
+    "dosage": {
+      "product": "Captan or myclobutanil fungicide",
+      "rateMin": 1.5,
+      "rateMax": 2.5,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Strawberry Plant": {
+    "displayName": "Strawberry — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this strawberry leaf.",
     "treatment": [
       "No treatment needed.",
       "Keep monitoring weekly, especially in humid conditions."
@@ -113,30 +437,103 @@
       "unit": "mL/L"
     }
   },
-  "Healthy Corn (Maize) Plant": {
-    "displayName": "Corn — Healthy",
-    "severity": "none",
-    "description": "No signs of disease detected on this corn leaf.",
-    "treatment": [
-      "No treatment needed.",
-      "Keep monitoring weekly, especially during humid growing periods."
-    ]
-  },
-  "Corn (Maize) with Common Rust": {
-    "displayName": "Corn — Common Rust",
+  "Tomato with Leaf Mold": {
+    "displayName": "Tomato — Leaf Mold",
     "severity": "moderate",
-    "description": "Fungal disease (Puccinia sorghi) causing reddish-brown pustules on both leaf surfaces.",
+    "description": "Fungal disease (Passalora fulva) causing pale yellow spots on the upper leaf surface with olive-green to gray velvety mold underneath. Common in humid greenhouses/tunnels.",
     "treatment": [
-      "Apply a foliar fungicide (e.g. azoxystrobin or propiconazole) if infection is heavy before tasseling.",
-      "Plant rust-resistant corn hybrids in future seasons.",
-      "Remove volunteer corn plants that can carry the fungus between seasons.",
-      "Monitor closely — mild infections often don't need treatment."
+      "Apply a fungicide (e.g. chlorothalonil or copper-based) at first sign of yellowing spots.",
+      "Improve ventilation and reduce humidity — in greenhouses/tunnels, this often matters more than spraying.",
+      "Remove and destroy infected lower leaves to slow spread.",
+      "Avoid overhead watering and wetting foliage in the evening."
     ],
     "dosage": {
-      "product": "Azoxystrobin or propiconazole fungicide",
-      "rateMin": 1,
-      "rateMax": 1.5,
+      "product": "Chlorothalonil or copper-based fungicide",
+      "rateMin": 2,
+      "rateMax": 3,
       "unit": "mL/L"
     }
+  },
+  "Tomato with Septoria Leaf Spot": {
+    "displayName": "Tomato — Septoria Leaf Spot",
+    "severity": "moderate",
+    "description": "Fungal disease (Septoria lycopersici) causing small, circular spots with dark borders and tan centers, usually starting on lower leaves.",
+    "treatment": [
+      "Apply a fungicide (e.g. chlorothalonil or copper-based) every 7-10 days once spotting starts.",
+      "Remove and destroy affected lower leaves, and clear old plant debris at season's end.",
+      "Mulch around the base to reduce soil splash onto leaves.",
+      "Stake or cage plants and avoid overhead watering to improve airflow and keep foliage dry."
+    ],
+    "dosage": {
+      "product": "Chlorothalonil or copper-based fungicide",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Spider Mites or Two-spotted Spider Mite": {
+    "displayName": "Tomato — Spider Mites",
+    "severity": "moderate",
+    "description": "Tiny sap-sucking pests (Tetranychus urticae) causing fine yellow speckling on leaves and, in heavy infestations, visible fine webbing. Worsens in hot, dry weather.",
+    "treatment": [
+      "Spray with insecticidal soap, horticultural oil, or a miticide (e.g. abamectin), covering the undersides of leaves where mites live.",
+      "Rinse plants with a strong jet of water to knock down mite numbers between sprays.",
+      "Avoid excess nitrogen fertilizer, which encourages the soft growth mites prefer.",
+      "Introduce or conserve natural predators (e.g. predatory mites, ladybugs) where possible."
+    ],
+    "dosage": {
+      "product": "Abamectin miticide or horticultural oil",
+      "rateMin": 1,
+      "rateMax": 2,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Target Spot": {
+    "displayName": "Tomato — Target Spot",
+    "severity": "moderate",
+    "description": "Fungal disease (Corynespora cassiicola) causing brown spots with faint concentric rings ('target' pattern) on leaves, stems, and fruit.",
+    "treatment": [
+      "Apply a fungicide (e.g. chlorothalonil or azoxystrobin) once spotting is confirmed, repeating every 7-10 days.",
+      "Remove and destroy affected leaves and old plant debris at season's end.",
+      "Stake or cage plants and space them for good airflow.",
+      "Avoid overhead watering; water at the base to keep foliage dry."
+    ],
+    "dosage": {
+      "product": "Chlorothalonil or azoxystrobin fungicide",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato Yellow Leaf Curl Virus": {
+    "displayName": "Tomato — Yellow Leaf Curl Virus",
+    "severity": "severe",
+    "description": "Viral disease spread by whiteflies, causing upward leaf curling, yellowing, and stunted growth. There is no cure once a plant is infected.",
+    "treatment": [
+      "There is no chemical cure — remove and destroy infected plants promptly to reduce spread to healthy ones.",
+      "Control the whitefly vector (e.g. with insecticidal soap or a recommended insecticide) since the virus itself can't be treated directly.",
+      "Use virus-resistant tomato varieties next season where available.",
+      "Consider reflective mulch or fine mesh netting to reduce whitefly landing on young plants."
+    ]
+  },
+  "Tomato Mosaic Virus": {
+    "displayName": "Tomato — Mosaic Virus",
+    "severity": "severe",
+    "description": "Viral disease causing mottled light/dark green mosaic patterns on leaves, leaf curling, and stunted, distorted fruit. There is no cure once a plant is infected.",
+    "treatment": [
+      "There is no chemical cure — remove and destroy infected plants to prevent further spread.",
+      "Wash hands and disinfect tools after handling infected plants — the virus spreads easily by contact.",
+      "Use certified virus-free seed and resistant varieties next season.",
+      "Control aphids and other sap-feeding insects that can spread the virus between plants."
+    ]
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Tomato — Healthy",
+    "severity": "none",
+    "description": "No signs of disease detected on this tomato leaf.",
+    "treatment": [
+      "No treatment needed.",
+      "Keep monitoring weekly, especially in humid conditions."
+    ]
   }
 }
