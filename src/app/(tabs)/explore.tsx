@@ -1,5 +1,5 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import DateTimePicker, { type DateTimePickerEvent } from '@react-native-community/datetimepicker';
+import DateTimePicker, { type DateTimePickerChangeEvent } from '@react-native-community/datetimepicker';
 import { Image } from 'expo-image';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useMemo, useRef, useState } from 'react';
@@ -89,15 +89,19 @@ export default function HistoryScreen() {
     }
   }
 
-  function handlePickerChange(event: DateTimePickerEvent, date: Date | undefined) {
+  function handlePickerValueChange(_event: DateTimePickerChangeEvent, date: Date) {
     const picker = activePicker;
     setActivePicker(null);
-    if (event.type !== 'set' || !date || !picker) return;
+    if (!picker) return;
     if (picker === 'start') {
       setStartDate(date);
     } else {
       setEndDate(date);
     }
+  }
+
+  function handlePickerDismiss() {
+    setActivePicker(null);
   }
 
   function clearFilters() {
@@ -166,7 +170,8 @@ export default function HistoryScreen() {
             mode="date"
             display="default"
             maximumDate={new Date()}
-            onChange={handlePickerChange}
+            onValueChange={handlePickerValueChange}
+            onDismiss={handlePickerDismiss}
           />
         )}
 
