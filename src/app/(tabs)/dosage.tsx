@@ -69,7 +69,7 @@ export default function DosageCalculatorScreen() {
   return (
     <ThemedView style={styles.container}>
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
-        <SafeAreaView edges={['bottom']} style={styles.safeArea}>
+        <SafeAreaView style={styles.safeArea}>
           <ThemedText type="title" style={styles.title}>
             {t('nav.dosageCalculator')}
           </ThemedText>
