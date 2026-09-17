@@ -61,6 +61,21 @@ export function getDosageTreatments(language?: string): [string, Treatment][] {
   );
 }
 
+export function getAllTreatments(language?: string): [string, Treatment][] {
+  const table = getTable(language ?? i18n.language);
+  return Object.entries(table).filter((entry): entry is [string, Treatment] => !entry[0].startsWith('_'));
+}
+
+export function formatTreatmentContext(label: string, treatment: Treatment): string {
+  return [
+    `Diagnosis: ${treatment.displayName} (severity: ${treatment.severity})`,
+    treatment.description,
+    treatment.treatment.length ? `Treatment steps: ${treatment.treatment.join('; ')}` : '',
+  ]
+    .filter(Boolean)
+    .join('\n');
+}
+
 export const SEVERITY_COLOR: Record<Treatment['severity'], string> = {
   none: '#2e9e4f',
   moderate: '#d9932a',

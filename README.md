@@ -27,6 +27,10 @@ profiles back in.
   instructions.
 - **Gemini second opinion** — optional, online-only, layered on top of the
   offline result (see below).
+- **Ask (offline AI assistant)** — its own bottom tab. A small LLM
+  (SmolLM2-360M-Instruct, GGUF) that answers farming questions fully
+  on-device, no internet required once set up. Not bundled with the app —
+  opt-in download (~370 MB) keeps the base install small; see below.
 - **11 languages** — English plus Hindi, Spanish, Mandarin, Portuguese,
   Bengali, Indonesian, Swahili, Vietnamese, French, and Urdu (RTL), picked for
   large farming populations. A first-launch picker sets the language; it's
@@ -34,8 +38,8 @@ profiles back in.
   too, not just UI chrome.
 - **Theme** — system/light/dark, in Settings.
 
-Three bottom tabs: **Home** (scan/upload/batch entry points), **History**,
-**Dosage**.
+Four bottom tabs: **Home** (scan/upload/batch entry points), **History**,
+**Dosage**, **Ask**.
 
 ## Gemini second opinion
 
@@ -44,6 +48,32 @@ opinion), stored via `expo-secure-store` (Android Keystore-backed), not
 bundled with the app. An `EXPO_PUBLIC_*` env var would get inlined into the
 JS bundle at build time — extractable in plaintext from the shipped
 APK/AAB — so the app never ships with a key baked in.
+
+## Ask (offline AI assistant)
+
+A local LLM (`SmolLM2-360M-Instruct`, Q8_0 GGUF, ~370 MB) that runs fully
+on-device via `llama.rn` (CPU-only — this library's GPU offload is iOS-only,
+so Android always runs CPU inference; fine at this model size). Not bundled
+with the app: the Ask tab walks the user through download → one-time setup
+(loads the model into memory, can take a couple of minutes the first time) →
+ready. Downloaded model lives in app-private storage
+(`expo-file-system`'s `File`/`Directory`/`Paths` API) and can be removed from
+the same screen to reclaim space.
+
+Grounding is deliberately small, not a full RAG pipeline:
+- The farmer picks which past scan (if any) to ground answers on, via a chip
+  row above the chat.
+- `src/lib/llm/retrieval.ts` does a keyword-overlap match (no embeddings —
+  none fit this scope on-device) against all 38 treatment classes'
+  `displayName`/`description`, so a question about a disease that's never
+  been scanned can still surface the right bundled treatment text.
+- Grounding is capped at 3 treatment blocks (selected scan + up to 2
+  retrieved matches) and conversation history at the last 6 turns
+  (`MAX_HISTORY_TURNS` in `src/lib/llm/engine.ts`) — SmolLM2-360M's
+  architectural ceiling is 8192 tokens, but its benchmarks are weak (MMLU
+  ~33%, GSM8K ~7%) with no published guidance on reliable context length, so
+  the prompt budget stays in the low hundreds of tokens rather than pushing
+  toward that ceiling.
 
 ## Development
 
@@ -110,10 +140,10 @@ pass before this ships anywhere real.
 
 ## Native modules / rebuilding
 
-`@react-native-community/datetimepicker` and `react-native-fast-tflite` are
-native modules — after pulling changes that touch either, or after editing
-`app.json`'s `plugins`, you need `npx expo run:android` (or a fresh EAS
-build), not just a Metro reload.
+`@react-native-community/datetimepicker`, `react-native-fast-tflite`, and
+`llama.rn` are native modules — after pulling changes that touch any of
+them, or after editing `app.json`'s `plugins`, you need `npx expo run:android`
+(or a fresh EAS build), not just a Metro reload.
 
 Local Gradle builds are pinned to `arm64-v8a` only
 (`android/gradle.properties` and the `ORG_GRADLE_PROJECT_reactNativeArchitectures`

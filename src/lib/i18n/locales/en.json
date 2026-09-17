@@ -14,7 +14,8 @@
   "tabs": {
     "home": "Home",
     "history": "History",
-    "dosage": "Dosage"
+    "dosage": "Dosage",
+    "ask": "Ask"
   },
   "home": {
     "title": "CropDoc",
@@ -122,6 +123,32 @@
     "removeKeyAlertMessage": "The \"second opinion\" feature will be unavailable until you add a key again.",
     "removeKeyAlertCancel": "Cancel",
     "removeKeyAlertConfirm": "Remove"
+  },
+  "ask": {
+    "title": "Ask",
+    "subtitle": "An offline AI assistant for farming questions — no internet needed once set up.",
+    "downloadHeading": "Download the assistant model",
+    "downloadDesc": "One-time download (~{{size}} MB) of a small AI model that runs fully on this device. Skipped by default to keep the app small.",
+    "downloadButton": "Download model",
+    "downloading": "Downloading… {{percent}}%",
+    "cancelDownload": "Cancel",
+    "setupHeading": "Model downloaded",
+    "setupDesc": "Set it up once to load it into memory. This can take a few minutes on first run, then it's ready instantly every time after.",
+    "setupButton": "Set up",
+    "settingUp": "Setting up… {{percent}}%",
+    "removeModel": "Remove downloaded model",
+    "placeholder": "Ask about crop diseases, dosage, or farming practices…",
+    "send": "Send",
+    "thinking": "Thinking…",
+    "errorDownload": "Couldn't download the model. Check your connection and try again.",
+    "errorSetup": "Couldn't set up the model on this device.",
+    "errorAsk": "Couldn't get an answer. Try again.",
+    "contextLabel": "ANSWER USING CONTEXT FROM",
+    "generalChip": "General question",
+    "removeModelAlertTitle": "Remove downloaded model",
+    "removeModelAlertMessage": "Deletes the downloaded AI model from this device. You can download it again anytime.",
+    "removeModelAlertCancel": "Cancel",
+    "removeModelAlertConfirm": "Remove"
   },
   "languagePicker": {
     "title": "Choose your language",

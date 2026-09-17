@@ -41,6 +41,13 @@
       "expo-sqlite",
       "react-native-fast-tflite",
       [
+        "llama.rn",
+        {
+          "forceCxx20": false,
+          "enableOpenCLAndHexagon": false
+        }
+      ],
+      [
         "expo-camera",
         {
           "cameraPermission": "CropDoc needs camera access to photograph crop leaves for disease detection."
