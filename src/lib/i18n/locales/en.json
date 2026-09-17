@@ -1,6 +1,8 @@
 {
   "common": {
-    "offlineBadge": "Offline mode — diagnosis still works"
+    "offlineBadge": "Offline mode — diagnosis still works",
+    "docsLink": "Docs",
+    "confidencePercent": "{{confidence}}% confidence"
   },
   "nav": {
     "diagnosis": "Diagnosis",
@@ -97,7 +99,11 @@
     "labelReadError": "Couldn't read that label. Try again with better lighting.",
     "labelUnitMismatch": "Label shows {{rate}}, a different unit than this app's typical rate — compare manually.",
     "labelWithinRange": "Label shows {{rate}} — matches the typical rate for this product.",
-    "labelOutsideRange": "Label shows {{rate}}, but the typical rate for this product is {{typicalRate}}. Follow the instructions on the actual product you're using."
+    "labelOutsideRange": "Label shows {{rate}}, but the typical rate for this product is {{typicalRate}}. Follow the instructions on the actual product you're using.",
+    "plotSizePlaceholder": "e.g. 2",
+    "waterPerHectarePlaceholder": "e.g. 500",
+    "plantCountPlaceholder": "e.g. 40",
+    "waterPerPlantPlaceholder": "e.g. 300"
   },
   "settings": {
     "theme": "THEME",

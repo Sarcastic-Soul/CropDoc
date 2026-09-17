@@ -1,6 +1,8 @@
 {
   "common": {
-    "offlineBadge": "Hali ya nje ya mtandao — uchunguzi bado unafanya kazi"
+    "offlineBadge": "Hali ya nje ya mtandao — uchunguzi bado unafanya kazi",
+    "docsLink": "Nyaraka",
+    "confidencePercent": "Uhakika wa {{confidence}}%"
   },
   "nav": {
     "diagnosis": "Uchunguzi",
@@ -14,7 +16,8 @@
   "tabs": {
     "home": "Nyumbani",
     "history": "Historia",
-    "dosage": "Dozi"
+    "dosage": "Dozi",
+    "ask": "Uliza"
   },
   "home": {
     "title": "CropDoc",
@@ -89,7 +92,18 @@
     "typicalRate": "Kiwango cha kawaida: {{min}}–{{max}} {{unit}}",
     "resultLabel": "MATOKEO",
     "resultOf": "ya {{product}} katika lita {{liters}} za maji",
-    "disclaimer": "Kiwango cha kawaida cha lebo kwa bidhaa iliyotajwa — hakikisha kila wakati unafuata maagizo ya bidhaa yako mahususi, kwa kuwa chapa na muundo hutofautiana."
+    "disclaimer": "Kiwango cha kawaida cha lebo kwa bidhaa iliyotajwa — hakikisha kila wakati unafuata maagizo ya bidhaa yako mahususi, kwa kuwa chapa na muundo hutofautiana.",
+    "scanLabel": "Changanua lebo ya bidhaa",
+    "scanningLabel": "Inasoma lebo…",
+    "labelNoRateFound": "Imeshindwa kupata kiwango kwenye lebo hiyo. Jaribu picha iliyo wazi zaidi na ya karibu ya maagizo ya kiwango.",
+    "labelReadError": "Imeshindwa kusoma lebo hiyo. Jaribu tena kwa mwanga bora.",
+    "labelUnitMismatch": "Lebo inaonyesha {{rate}}, kipimo tofauti na kiwango cha kawaida cha programu hii — linganisha mwenyewe.",
+    "labelWithinRange": "Lebo inaonyesha {{rate}} — inalingana na kiwango cha kawaida cha bidhaa hii.",
+    "labelOutsideRange": "Lebo inaonyesha {{rate}}, lakini kiwango cha kawaida cha bidhaa hii ni {{typicalRate}}. Fuata maagizo ya bidhaa halisi unayotumia.",
+    "plotSizePlaceholder": "mfano 2",
+    "waterPerHectarePlaceholder": "mfano 500",
+    "plantCountPlaceholder": "mfano 40",
+    "waterPerPlantPlaceholder": "mfano 300"
   },
   "settings": {
     "theme": "MANDHARI",
@@ -122,6 +136,33 @@
     "removeKeyAlertMessage": "Kipengele cha \"maoni ya pili\" hakitapatikana hadi utakapoongeza ufunguo tena.",
     "removeKeyAlertCancel": "Ghairi",
     "removeKeyAlertConfirm": "Ondoa"
+  },
+  "ask": {
+    "title": "Uliza",
+    "subtitle": "Msaidizi wa AI usiotumia mtandao kwa maswali ya kilimo — hauhitaji intaneti baada ya kusanidiwa.",
+    "downloadHeading": "Pakua mfano wa msaidizi",
+    "downloadDesc": "Upakuaji wa mara moja (~{{size}} MB) wa mfano mdogo wa AI unaofanya kazi kikamilifu kwenye kifaa hiki. Unarukwa kwa default ili kuweka programu ndogo.",
+    "downloadButton": "Pakua mfano",
+    "downloading": "Inapakua… {{percent}}%",
+    "cancelDownload": "Ghairi",
+    "setupHeading": "Mfano umepakuliwa",
+    "setupDesc": "Sanidi mara moja ili kuupakia kwenye kumbukumbu. Hii inaweza kuchukua dakika chache mara ya kwanza, kisha itakuwa tayari papo hapo kila wakati baadaye.",
+    "setupButton": "Sanidi",
+    "settingUp": "Inasanidi… {{percent}}%",
+    "removeModel": "Ondoa mfano uliopakuliwa",
+    "placeholder": "Uliza kuhusu magonjwa ya mazao, kiwango cha dawa, au mbinu za kilimo…",
+    "send": "Tuma",
+    "thinking": "Inafikiri…",
+    "errorDownload": "Imeshindwa kupakua mfano. Angalia muunganisho wako na ujaribu tena.",
+    "errorSetup": "Imeshindwa kusanidi mfano kwenye kifaa hiki.",
+    "errorAsk": "Imeshindwa kupata jibu. Jaribu tena.",
+    "contextLabel": "JIBU LIKITUMIA MUKTADHA KUTOKA",
+    "indexing": "Inaorodhesha hazina ya maarifa kwa majibu bora zaidi…",
+    "generalChip": "Swali la jumla",
+    "removeModelAlertTitle": "Ondoa mfano uliopakuliwa",
+    "removeModelAlertMessage": "Inafuta mfano wa AI uliopakuliwa kutoka kwenye kifaa hiki. Unaweza kuupakua tena wakati wowote.",
+    "removeModelAlertCancel": "Ghairi",
+    "removeModelAlertConfirm": "Ondoa"
   },
   "languagePicker": {
     "title": "Chagua lugha yako",

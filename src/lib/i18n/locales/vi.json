@@ -1,6 +1,8 @@
 {
   "common": {
-    "offlineBadge": "Chế độ ngoại tuyến — vẫn chẩn đoán được"
+    "offlineBadge": "Chế độ ngoại tuyến — vẫn chẩn đoán được",
+    "docsLink": "Tài liệu",
+    "confidencePercent": "Độ tin cậy {{confidence}}%"
   },
   "nav": {
     "diagnosis": "Chẩn đoán",
@@ -14,7 +16,8 @@
   "tabs": {
     "home": "Trang chủ",
     "history": "Lịch sử",
-    "dosage": "Liều lượng"
+    "dosage": "Liều lượng",
+    "ask": "Hỏi đáp"
   },
   "home": {
     "title": "CropDoc",
@@ -89,7 +92,18 @@
     "typicalRate": "Liều lượng thông thường: {{min}}–{{max}} {{unit}}",
     "resultLabel": "KẾT QUẢ",
     "resultOf": "{{product}} trong {{liters}} lít nước",
-    "disclaimer": "Đây là liều lượng thông thường ghi trên nhãn sản phẩm được nêu — luôn kiểm tra và làm theo hướng dẫn của sản phẩm cụ thể bạn dùng, vì mỗi thương hiệu và công thức có thể khác nhau."
+    "disclaimer": "Đây là liều lượng thông thường ghi trên nhãn sản phẩm được nêu — luôn kiểm tra và làm theo hướng dẫn của sản phẩm cụ thể bạn dùng, vì mỗi thương hiệu và công thức có thể khác nhau.",
+    "scanLabel": "Quét nhãn sản phẩm",
+    "scanningLabel": "Đang đọc nhãn…",
+    "labelNoRateFound": "Không tìm thấy liều lượng trên nhãn đó. Hãy thử chụp ảnh rõ hơn, gần hơn về hướng dẫn liều lượng.",
+    "labelReadError": "Không thể đọc nhãn đó. Hãy thử lại với ánh sáng tốt hơn.",
+    "labelUnitMismatch": "Nhãn hiển thị {{rate}}, đơn vị khác với liều lượng thông thường của ứng dụng này — hãy tự so sánh.",
+    "labelWithinRange": "Nhãn hiển thị {{rate}} — khớp với liều lượng thông thường của sản phẩm này.",
+    "labelOutsideRange": "Nhãn hiển thị {{rate}}, nhưng liều lượng thông thường của sản phẩm này là {{typicalRate}}. Hãy làm theo hướng dẫn của sản phẩm mà bạn thực sự đang sử dụng.",
+    "plotSizePlaceholder": "VD: 2",
+    "waterPerHectarePlaceholder": "VD: 500",
+    "plantCountPlaceholder": "VD: 40",
+    "waterPerPlantPlaceholder": "VD: 300"
   },
   "settings": {
     "theme": "GIAO DIỆN",
@@ -122,6 +136,33 @@
     "removeKeyAlertMessage": "Tính năng \"ý kiến thứ hai\" sẽ không khả dụng cho đến khi bạn thêm lại khóa.",
     "removeKeyAlertCancel": "Hủy",
     "removeKeyAlertConfirm": "Xóa"
+  },
+  "ask": {
+    "title": "Hỏi đáp",
+    "subtitle": "Trợ lý AI ngoại tuyến cho các câu hỏi về nông nghiệp — không cần internet sau khi thiết lập.",
+    "downloadHeading": "Tải xuống mô hình trợ lý",
+    "downloadDesc": "Tải xuống một lần (~{{size}} MB) một mô hình AI nhỏ chạy hoàn toàn trên thiết bị này. Được bỏ qua theo mặc định để giữ ứng dụng nhỏ gọn.",
+    "downloadButton": "Tải mô hình",
+    "downloading": "Đang tải… {{percent}}%",
+    "cancelDownload": "Hủy",
+    "setupHeading": "Đã tải mô hình",
+    "setupDesc": "Thiết lập một lần để tải vào bộ nhớ. Lần đầu có thể mất vài phút, sau đó sẽ sẵn sàng ngay lập tức mỗi lần.",
+    "setupButton": "Thiết lập",
+    "settingUp": "Đang thiết lập… {{percent}}%",
+    "removeModel": "Xóa mô hình đã tải",
+    "placeholder": "Hỏi về bệnh cây trồng, liều lượng, hoặc kỹ thuật canh tác…",
+    "send": "Gửi",
+    "thinking": "Đang suy nghĩ…",
+    "errorDownload": "Không thể tải mô hình. Kiểm tra kết nối của bạn và thử lại.",
+    "errorSetup": "Không thể thiết lập mô hình trên thiết bị này.",
+    "errorAsk": "Không thể nhận được câu trả lời. Hãy thử lại.",
+    "contextLabel": "TRẢ LỜI DỰA TRÊN NGỮ CẢNH TỪ",
+    "indexing": "Đang lập chỉ mục cơ sở kiến thức để có câu trả lời chính xác hơn…",
+    "generalChip": "Câu hỏi chung",
+    "removeModelAlertTitle": "Xóa mô hình đã tải",
+    "removeModelAlertMessage": "Xóa mô hình AI đã tải khỏi thiết bị này. Bạn có thể tải lại bất cứ lúc nào.",
+    "removeModelAlertCancel": "Hủy",
+    "removeModelAlertConfirm": "Xóa"
   },
   "languagePicker": {
     "title": "Chọn ngôn ngữ của bạn",

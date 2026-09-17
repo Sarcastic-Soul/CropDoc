@@ -1,6 +1,8 @@
 {
   "common": {
-    "offlineBadge": "离线模式 — 诊断功能仍可使用"
+    "offlineBadge": "离线模式 — 诊断功能仍可使用",
+    "docsLink": "文档",
+    "confidencePercent": "置信度 {{confidence}}%"
   },
   "nav": {
     "diagnosis": "诊断",
@@ -14,7 +16,8 @@
   "tabs": {
     "home": "首页",
     "history": "历史记录",
-    "dosage": "剂量"
+    "dosage": "剂量",
+    "ask": "问答"
   },
   "home": {
     "title": "CropDoc",
@@ -89,7 +92,18 @@
     "typicalRate": "常用剂量：{{min}}–{{max}} {{unit}}",
     "resultLabel": "结果",
     "resultOf": "在 {{liters}} 升水中加入 {{product}}",
-    "disclaimer": "此为该产品的常见标签用量 — 请务必查阅并遵循您所用具体产品的说明，因为不同品牌和配方会有所不同。"
+    "disclaimer": "此为该产品的常见标签用量 — 请务必查阅并遵循您所用具体产品的说明，因为不同品牌和配方会有所不同。",
+    "scanLabel": "扫描产品标签",
+    "scanningLabel": "正在读取标签…",
+    "labelNoRateFound": "未能在该标签上找到用量。请尝试拍摄更清晰、更近距离的用量说明照片。",
+    "labelReadError": "无法读取该标签。请在更好的光线下重试。",
+    "labelUnitMismatch": "标签显示 {{rate}}，单位与本应用的常用剂量不同 — 请手动比对。",
+    "labelWithinRange": "标签显示 {{rate}} — 与该产品的常用剂量相符。",
+    "labelOutsideRange": "标签显示 {{rate}}，但该产品的常用剂量为 {{typicalRate}}。请遵循您实际使用产品上的说明。",
+    "plotSizePlaceholder": "例如 2",
+    "waterPerHectarePlaceholder": "例如 500",
+    "plantCountPlaceholder": "例如 40",
+    "waterPerPlantPlaceholder": "例如 300"
   },
   "settings": {
     "theme": "主题",
@@ -122,6 +136,33 @@
     "removeKeyAlertMessage": "在您重新添加密钥之前，\"第二意见\"功能将无法使用。",
     "removeKeyAlertCancel": "取消",
     "removeKeyAlertConfirm": "移除"
+  },
+  "ask": {
+    "title": "问答",
+    "subtitle": "用于农业问题的离线 AI 助手 — 设置完成后无需联网。",
+    "downloadHeading": "下载助手模型",
+    "downloadDesc": "一次性下载（约 {{size}} MB）一个完全在本设备上运行的小型 AI 模型。默认跳过以保持应用体积较小。",
+    "downloadButton": "下载模型",
+    "downloading": "正在下载… {{percent}}%",
+    "cancelDownload": "取消",
+    "setupHeading": "模型已下载",
+    "setupDesc": "设置一次即可将其加载到内存中。首次运行可能需要几分钟，之后每次都会即时就绪。",
+    "setupButton": "设置",
+    "settingUp": "正在设置… {{percent}}%",
+    "removeModel": "移除已下载的模型",
+    "placeholder": "询问作物病害、用药剂量或种植方法…",
+    "send": "发送",
+    "thinking": "思考中…",
+    "errorDownload": "无法下载模型。请检查您的网络连接并重试。",
+    "errorSetup": "无法在此设备上设置模型。",
+    "errorAsk": "无法获取回答。请重试。",
+    "contextLabel": "回答依据的内容来自",
+    "indexing": "正在为知识库建立索引，以获得更精准的回答…",
+    "generalChip": "一般性问题",
+    "removeModelAlertTitle": "移除已下载的模型",
+    "removeModelAlertMessage": "从此设备中删除已下载的 AI 模型。您可以随时重新下载。",
+    "removeModelAlertCancel": "取消",
+    "removeModelAlertConfirm": "移除"
   },
   "languagePicker": {
     "title": "选择您的语言",

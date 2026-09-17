@@ -1,6 +1,8 @@
 {
   "common": {
-    "offlineBadge": "Mode hors ligne — le diagnostic fonctionne toujours"
+    "offlineBadge": "Mode hors ligne — le diagnostic fonctionne toujours",
+    "docsLink": "Documentation",
+    "confidencePercent": "Confiance de {{confidence}}%"
   },
   "nav": {
     "diagnosis": "Diagnostic",
@@ -14,7 +16,8 @@
   "tabs": {
     "home": "Accueil",
     "history": "Historique",
-    "dosage": "Dosage"
+    "dosage": "Dosage",
+    "ask": "Demander"
   },
   "home": {
     "title": "CropDoc",
@@ -89,7 +92,18 @@
     "typicalRate": "Dose habituelle : {{min}}–{{max}} {{unit}}",
     "resultLabel": "RÉSULTAT",
     "resultOf": "de {{product}} dans {{liters}} L d'eau",
-    "disclaimer": "Dose habituelle indiquée sur l'étiquette du produit nommé — vérifiez toujours et suivez les instructions de votre produit spécifique, car les marques et formulations varient."
+    "disclaimer": "Dose habituelle indiquée sur l'étiquette du produit nommé — vérifiez toujours et suivez les instructions de votre produit spécifique, car les marques et formulations varient.",
+    "scanLabel": "Scanner l'étiquette du produit",
+    "scanningLabel": "Lecture de l'étiquette…",
+    "labelNoRateFound": "Aucune dose trouvée sur cette étiquette. Essayez avec une photo plus nette et plus rapprochée des instructions de dosage.",
+    "labelReadError": "Impossible de lire cette étiquette. Réessayez avec un meilleur éclairage.",
+    "labelUnitMismatch": "L'étiquette indique {{rate}}, une unité différente de la dose habituelle de cette application — comparez manuellement.",
+    "labelWithinRange": "L'étiquette indique {{rate}} — correspond à la dose habituelle pour ce produit.",
+    "labelOutsideRange": "L'étiquette indique {{rate}}, mais la dose habituelle pour ce produit est {{typicalRate}}. Suivez les instructions du produit que vous utilisez réellement.",
+    "plotSizePlaceholder": "p. ex. 2",
+    "waterPerHectarePlaceholder": "p. ex. 500",
+    "plantCountPlaceholder": "p. ex. 40",
+    "waterPerPlantPlaceholder": "p. ex. 300"
   },
   "settings": {
     "theme": "THÈME",
@@ -122,6 +136,33 @@
     "removeKeyAlertMessage": "La fonction \"deuxième avis\" ne sera plus disponible tant que vous n'aurez pas ajouté une nouvelle clé.",
     "removeKeyAlertCancel": "Annuler",
     "removeKeyAlertConfirm": "Supprimer"
+  },
+  "ask": {
+    "title": "Demander",
+    "subtitle": "Un assistant IA hors ligne pour les questions agricoles — aucun internet requis une fois configuré.",
+    "downloadHeading": "Télécharger le modèle d'assistant",
+    "downloadDesc": "Téléchargement unique (~{{size}} Mo) d'un petit modèle d'IA qui fonctionne entièrement sur cet appareil. Ignoré par défaut pour garder l'application légère.",
+    "downloadButton": "Télécharger le modèle",
+    "downloading": "Téléchargement… {{percent}} %",
+    "cancelDownload": "Annuler",
+    "setupHeading": "Modèle téléchargé",
+    "setupDesc": "Configurez-le une fois pour le charger en mémoire. Cela peut prendre quelques minutes la première fois, puis il sera prêt instantanément à chaque fois.",
+    "setupButton": "Configurer",
+    "settingUp": "Configuration… {{percent}} %",
+    "removeModel": "Supprimer le modèle téléchargé",
+    "placeholder": "Posez une question sur les maladies des cultures, les doses ou les pratiques agricoles…",
+    "send": "Envoyer",
+    "thinking": "Réflexion en cours…",
+    "errorDownload": "Impossible de télécharger le modèle. Vérifiez votre connexion et réessayez.",
+    "errorSetup": "Impossible de configurer le modèle sur cet appareil.",
+    "errorAsk": "Impossible d'obtenir une réponse. Réessayez.",
+    "contextLabel": "RÉPONSE BASÉE SUR LE CONTEXTE DE",
+    "indexing": "Indexation de la base de connaissances pour des réponses plus pertinentes…",
+    "generalChip": "Question générale",
+    "removeModelAlertTitle": "Supprimer le modèle téléchargé",
+    "removeModelAlertMessage": "Supprime le modèle d'IA téléchargé de cet appareil. Vous pouvez le retélécharger à tout moment.",
+    "removeModelAlertCancel": "Annuler",
+    "removeModelAlertConfirm": "Supprimer"
   },
   "languagePicker": {
     "title": "Choisissez votre langue",

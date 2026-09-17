@@ -1,6 +1,8 @@
 {
   "common": {
-    "offlineBadge": "Mode offline — diagnosis tetap berfungsi"
+    "offlineBadge": "Mode offline — diagnosis tetap berfungsi",
+    "docsLink": "Dokumentasi",
+    "confidencePercent": "Keyakinan {{confidence}}%"
   },
   "nav": {
     "diagnosis": "Diagnosis",
@@ -14,7 +16,8 @@
   "tabs": {
     "home": "Beranda",
     "history": "Riwayat",
-    "dosage": "Dosis"
+    "dosage": "Dosis",
+    "ask": "Tanya"
   },
   "home": {
     "title": "CropDoc",
@@ -89,7 +92,18 @@
     "typicalRate": "Dosis umum: {{min}}–{{max}} {{unit}}",
     "resultLabel": "HASIL",
     "resultOf": "{{product}} dalam {{liters}} L air",
-    "disclaimer": "Dosis label umum untuk produk yang disebutkan — selalu periksa dan ikuti petunjuk produk spesifik Anda, karena merek dan formulasi bisa berbeda-beda."
+    "disclaimer": "Dosis label umum untuk produk yang disebutkan — selalu periksa dan ikuti petunjuk produk spesifik Anda, karena merek dan formulasi bisa berbeda-beda.",
+    "scanLabel": "Pindai label produk",
+    "scanningLabel": "Membaca label…",
+    "labelNoRateFound": "Tidak dapat menemukan dosis pada label tersebut. Coba dengan foto petunjuk dosis yang lebih jelas dan dekat.",
+    "labelReadError": "Tidak dapat membaca label tersebut. Coba lagi dengan pencahayaan yang lebih baik.",
+    "labelUnitMismatch": "Label menunjukkan {{rate}}, satuan yang berbeda dari dosis umum aplikasi ini — bandingkan secara manual.",
+    "labelWithinRange": "Label menunjukkan {{rate}} — sesuai dengan dosis umum untuk produk ini.",
+    "labelOutsideRange": "Label menunjukkan {{rate}}, tetapi dosis umum untuk produk ini adalah {{typicalRate}}. Ikuti petunjuk pada produk yang sebenarnya Anda gunakan.",
+    "plotSizePlaceholder": "cth. 2",
+    "waterPerHectarePlaceholder": "cth. 500",
+    "plantCountPlaceholder": "cth. 40",
+    "waterPerPlantPlaceholder": "cth. 300"
   },
   "settings": {
     "theme": "TEMA",
@@ -122,6 +136,33 @@
     "removeKeyAlertMessage": "Fitur \"pendapat kedua\" tidak akan tersedia sampai Anda menambahkan kunci lagi.",
     "removeKeyAlertCancel": "Batal",
     "removeKeyAlertConfirm": "Hapus"
+  },
+  "ask": {
+    "title": "Tanya",
+    "subtitle": "Asisten AI offline untuk pertanyaan seputar pertanian — tidak perlu internet setelah disiapkan.",
+    "downloadHeading": "Unduh model asisten",
+    "downloadDesc": "Unduhan satu kali (~{{size}} MB) untuk model AI kecil yang berjalan sepenuhnya di perangkat ini. Dilewati secara default agar aplikasi tetap ringan.",
+    "downloadButton": "Unduh model",
+    "downloading": "Mengunduh… {{percent}}%",
+    "cancelDownload": "Batal",
+    "setupHeading": "Model telah diunduh",
+    "setupDesc": "Siapkan sekali untuk memuatnya ke memori. Ini mungkin memakan waktu beberapa menit pada pertama kali, setelah itu akan langsung siap setiap saat.",
+    "setupButton": "Siapkan",
+    "settingUp": "Menyiapkan… {{percent}}%",
+    "removeModel": "Hapus model yang diunduh",
+    "placeholder": "Tanyakan tentang penyakit tanaman, dosis, atau praktik bertani…",
+    "send": "Kirim",
+    "thinking": "Sedang berpikir…",
+    "errorDownload": "Gagal mengunduh model. Periksa koneksi Anda dan coba lagi.",
+    "errorSetup": "Gagal menyiapkan model di perangkat ini.",
+    "errorAsk": "Gagal mendapatkan jawaban. Coba lagi.",
+    "contextLabel": "JAWABAN MENGGUNAKAN KONTEKS DARI",
+    "indexing": "Mengindeks basis pengetahuan untuk jawaban yang lebih baik…",
+    "generalChip": "Pertanyaan umum",
+    "removeModelAlertTitle": "Hapus model yang diunduh",
+    "removeModelAlertMessage": "Menghapus model AI yang diunduh dari perangkat ini. Anda dapat mengunduhnya lagi kapan saja.",
+    "removeModelAlertCancel": "Batal",
+    "removeModelAlertConfirm": "Hapus"
   },
   "languagePicker": {
     "title": "Pilih bahasa Anda",

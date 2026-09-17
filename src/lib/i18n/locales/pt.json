@@ -1,6 +1,8 @@
 {
   "common": {
-    "offlineBadge": "Modo offline — o diagnóstico continua funcionando"
+    "offlineBadge": "Modo offline — o diagnóstico continua funcionando",
+    "docsLink": "Documentação",
+    "confidencePercent": "{{confidence}}% de confiança"
   },
   "nav": {
     "diagnosis": "Diagnóstico",
@@ -14,7 +16,8 @@
   "tabs": {
     "home": "Início",
     "history": "Histórico",
-    "dosage": "Dosagem"
+    "dosage": "Dosagem",
+    "ask": "Perguntar"
   },
   "home": {
     "title": "CropDoc",
@@ -89,7 +92,18 @@
     "typicalRate": "Dose típica: {{min}}–{{max}} {{unit}}",
     "resultLabel": "RESULTADO",
     "resultOf": "de {{product}} em {{liters}} L de água",
-    "disclaimer": "Dose típica de rótulo para o produto indicado — sempre verifique e siga as instruções do seu produto específico, pois marcas e formulações variam."
+    "disclaimer": "Dose típica de rótulo para o produto indicado — sempre verifique e siga as instruções do seu produto específico, pois marcas e formulações variam.",
+    "scanLabel": "Escanear rótulo do produto",
+    "scanningLabel": "Lendo o rótulo…",
+    "labelNoRateFound": "Não foi possível encontrar uma dose nesse rótulo. Tente uma foto mais nítida e próxima das instruções de dosagem.",
+    "labelReadError": "Não foi possível ler esse rótulo. Tente novamente com melhor iluminação.",
+    "labelUnitMismatch": "O rótulo mostra {{rate}}, uma unidade diferente da dose típica deste aplicativo — compare manualmente.",
+    "labelWithinRange": "O rótulo mostra {{rate}} — corresponde à dose típica deste produto.",
+    "labelOutsideRange": "O rótulo mostra {{rate}}, mas a dose típica deste produto é {{typicalRate}}. Siga as instruções do produto que você está realmente usando.",
+    "plotSizePlaceholder": "ex. 2",
+    "waterPerHectarePlaceholder": "ex. 500",
+    "plantCountPlaceholder": "ex. 40",
+    "waterPerPlantPlaceholder": "ex. 300"
   },
   "settings": {
     "theme": "TEMA",
@@ -122,6 +136,33 @@
     "removeKeyAlertMessage": "O recurso de \"segunda opinião\" ficará indisponível até que você adicione uma chave novamente.",
     "removeKeyAlertCancel": "Cancelar",
     "removeKeyAlertConfirm": "Remover"
+  },
+  "ask": {
+    "title": "Perguntar",
+    "subtitle": "Um assistente de IA offline para perguntas agrícolas — não precisa de internet depois de configurado.",
+    "downloadHeading": "Baixar o modelo do assistente",
+    "downloadDesc": "Download único (~{{size}} MB) de um pequeno modelo de IA que roda totalmente neste dispositivo. Ignorado por padrão para manter o aplicativo leve.",
+    "downloadButton": "Baixar modelo",
+    "downloading": "Baixando… {{percent}}%",
+    "cancelDownload": "Cancelar",
+    "setupHeading": "Modelo baixado",
+    "setupDesc": "Configure-o uma vez para carregá-lo na memória. Isso pode levar alguns minutos na primeira vez, depois ficará pronto instantaneamente sempre.",
+    "setupButton": "Configurar",
+    "settingUp": "Configurando… {{percent}}%",
+    "removeModel": "Remover modelo baixado",
+    "placeholder": "Pergunte sobre doenças da lavoura, dosagem ou práticas agrícolas…",
+    "send": "Enviar",
+    "thinking": "Pensando…",
+    "errorDownload": "Não foi possível baixar o modelo. Verifique sua conexão e tente novamente.",
+    "errorSetup": "Não foi possível configurar o modelo neste dispositivo.",
+    "errorAsk": "Não foi possível obter uma resposta. Tente novamente.",
+    "contextLabel": "RESPOSTA COM BASE NO CONTEXTO DE",
+    "indexing": "Indexando a base de conhecimento para respostas mais precisas…",
+    "generalChip": "Pergunta geral",
+    "removeModelAlertTitle": "Remover modelo baixado",
+    "removeModelAlertMessage": "Remove o modelo de IA baixado deste dispositivo. Você pode baixá-lo novamente a qualquer momento.",
+    "removeModelAlertCancel": "Cancelar",
+    "removeModelAlertConfirm": "Remover"
   },
   "languagePicker": {
     "title": "Escolha seu idioma",

@@ -538,7 +538,7 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   thinkingText: {
-    marginLeft: Spacing.one,
+    marginStart: Spacing.one,
   },
   inputRow: {
     flexDirection: 'row',

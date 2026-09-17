@@ -235,7 +235,7 @@ export default function DosageCalculatorScreen() {
                   value={areaValue}
                   onChangeText={setAreaValue}
                   keyboardType="decimal-pad"
-                  placeholder="e.g. 2"
+                  placeholder={t('dosage.plotSizePlaceholder')}
                   placeholderTextColor={theme.textSecondary}
                   style={[
                     styles.input,
@@ -267,7 +267,7 @@ export default function DosageCalculatorScreen() {
                 value={waterPerHectare}
                 onChangeText={setWaterPerHectare}
                 keyboardType="decimal-pad"
-                placeholder="e.g. 500"
+                placeholder={t('dosage.waterPerHectarePlaceholder')}
                 placeholderTextColor={theme.textSecondary}
                 style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
               />
@@ -281,7 +281,7 @@ export default function DosageCalculatorScreen() {
                 value={plantCount}
                 onChangeText={setPlantCount}
                 keyboardType="number-pad"
-                placeholder="e.g. 40"
+                placeholder={t('dosage.plantCountPlaceholder')}
                 placeholderTextColor={theme.textSecondary}
                 style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
               />
@@ -293,7 +293,7 @@ export default function DosageCalculatorScreen() {
                 value={waterPerPlantMl}
                 onChangeText={setWaterPerPlantMl}
                 keyboardType="decimal-pad"
-                placeholder="e.g. 300"
+                placeholder={t('dosage.waterPerPlantPlaceholder')}
                 placeholderTextColor={theme.textSecondary}
                 style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
               />

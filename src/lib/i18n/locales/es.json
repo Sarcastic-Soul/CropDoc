@@ -1,6 +1,8 @@
 {
   "common": {
-    "offlineBadge": "Modo sin conexión — el diagnóstico sigue funcionando"
+    "offlineBadge": "Modo sin conexión — el diagnóstico sigue funcionando",
+    "docsLink": "Documentación",
+    "confidencePercent": "{{confidence}}% de confianza"
   },
   "nav": {
     "diagnosis": "Diagnóstico",
@@ -14,7 +16,8 @@
   "tabs": {
     "home": "Inicio",
     "history": "Historial",
-    "dosage": "Dosis"
+    "dosage": "Dosis",
+    "ask": "Preguntar"
   },
   "home": {
     "title": "CropDoc",
@@ -89,7 +92,18 @@
     "typicalRate": "Dosis típica: {{min}}–{{max}} {{unit}}",
     "resultLabel": "RESULTADO",
     "resultOf": "de {{product}} en {{liters}} L de agua",
-    "disclaimer": "Dosis típica de etiqueta para el producto indicado — siempre revisa y sigue las instrucciones de tu producto específico, ya que las marcas y formulaciones varían."
+    "disclaimer": "Dosis típica de etiqueta para el producto indicado — siempre revisa y sigue las instrucciones de tu producto específico, ya que las marcas y formulaciones varían.",
+    "scanLabel": "Escanear etiqueta del producto",
+    "scanningLabel": "Leyendo etiqueta…",
+    "labelNoRateFound": "No se encontró una dosis en esa etiqueta. Prueba con una foto más clara y cercana de las instrucciones de dosificación.",
+    "labelReadError": "No se pudo leer esa etiqueta. Inténtalo de nuevo con mejor iluminación.",
+    "labelUnitMismatch": "La etiqueta muestra {{rate}}, una unidad distinta a la dosis típica de esta app — compara manualmente.",
+    "labelWithinRange": "La etiqueta muestra {{rate}} — coincide con la dosis típica de este producto.",
+    "labelOutsideRange": "La etiqueta muestra {{rate}}, pero la dosis típica de este producto es {{typicalRate}}. Sigue las instrucciones del producto que realmente estás usando.",
+    "plotSizePlaceholder": "ej. 2",
+    "waterPerHectarePlaceholder": "ej. 500",
+    "plantCountPlaceholder": "ej. 40",
+    "waterPerPlantPlaceholder": "ej. 300"
   },
   "settings": {
     "theme": "TEMA",
@@ -122,6 +136,33 @@
     "removeKeyAlertMessage": "La función de \"segunda opinión\" no estará disponible hasta que agregues una clave nuevamente.",
     "removeKeyAlertCancel": "Cancelar",
     "removeKeyAlertConfirm": "Eliminar"
+  },
+  "ask": {
+    "title": "Preguntar",
+    "subtitle": "Un asistente de IA sin conexión para preguntas agrícolas — no necesita internet una vez configurado.",
+    "downloadHeading": "Descargar el modelo del asistente",
+    "downloadDesc": "Descarga única (~{{size}} MB) de un modelo de IA pequeño que funciona completamente en este dispositivo. Se omite de forma predeterminada para mantener la app ligera.",
+    "downloadButton": "Descargar modelo",
+    "downloading": "Descargando… {{percent}}%",
+    "cancelDownload": "Cancelar",
+    "setupHeading": "Modelo descargado",
+    "setupDesc": "Configúralo una vez para cargarlo en memoria. Esto puede tardar unos minutos la primera vez, luego estará listo al instante cada vez.",
+    "setupButton": "Configurar",
+    "settingUp": "Configurando… {{percent}}%",
+    "removeModel": "Eliminar modelo descargado",
+    "placeholder": "Pregunta sobre enfermedades del cultivo, dosis o prácticas agrícolas…",
+    "send": "Enviar",
+    "thinking": "Pensando…",
+    "errorDownload": "No se pudo descargar el modelo. Verifica tu conexión e inténtalo de nuevo.",
+    "errorSetup": "No se pudo configurar el modelo en este dispositivo.",
+    "errorAsk": "No se pudo obtener una respuesta. Inténtalo de nuevo.",
+    "contextLabel": "RESPUESTA BASADA EN EL CONTEXTO DE",
+    "indexing": "Indexando la base de conocimientos para respuestas más precisas…",
+    "generalChip": "Pregunta general",
+    "removeModelAlertTitle": "Eliminar modelo descargado",
+    "removeModelAlertMessage": "Elimina el modelo de IA descargado de este dispositivo. Puedes volver a descargarlo en cualquier momento.",
+    "removeModelAlertCancel": "Cancelar",
+    "removeModelAlertConfirm": "Eliminar"
   },
   "languagePicker": {
     "title": "Elige tu idioma",

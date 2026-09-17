@@ -48,7 +48,7 @@ export default function BatchDetailScreen() {
                   <View style={styles.rowText}>
                     <ThemedText type="smallBold">{getTreatment(item.label).displayName}</ThemedText>
                     <ThemedText type="small" themeColor="textSecondary">
-                      {Math.round(item.confidence * 100)}% confidence
+                      {t('common.confidencePercent', { confidence: Math.round(item.confidence * 100) })}
                     </ThemedText>
                   </View>
                   <ThemedView style={[styles.severityDot, { backgroundColor: SEVERITY_COLOR[severity] }]} />
