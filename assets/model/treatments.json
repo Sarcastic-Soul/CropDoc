@@ -28,7 +28,13 @@
       "Apply a chlorothalonil or copper-based fungicide, repeating every 7-10 days.",
       "Rotate crops; avoid planting potatoes/tomatoes in the same soil next season.",
       "Improve airflow between plants and avoid overhead watering."
-    ]
+    ],
+    "dosage": {
+      "product": "Chlorothalonil fungicide",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
   },
   "Potato with Late Blight": {
     "displayName": "Potato — Late Blight",
@@ -39,7 +45,13 @@
       "Apply a systemic fungicide (e.g. metalaxyl or mancozeb-based) as soon as possible.",
       "Avoid overhead irrigation; water at the base only.",
       "If severe, destroy the whole plant to protect neighboring crops."
-    ]
+    ],
+    "dosage": {
+      "product": "Metalaxyl or mancozeb-based fungicide",
+      "rateMin": 2,
+      "rateMax": 2.5,
+      "unit": "g/L"
+    }
   },
   "Healthy Tomato Plant": {
     "displayName": "Tomato — Healthy",
@@ -59,7 +71,13 @@
       "Apply a copper-based bactericide weekly during wet weather.",
       "Avoid working with wet plants — bacteria spread easily on damp hands and tools.",
       "Use disease-free seed and resistant varieties next season."
-    ]
+    ],
+    "dosage": {
+      "product": "Copper-based bactericide",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
   },
   "Tomato with Early Blight": {
     "displayName": "Tomato — Early Blight",
@@ -70,7 +88,13 @@
       "Apply a chlorothalonil or copper-based fungicide every 7-10 days.",
       "Mulch around the base to prevent soil splash onto leaves.",
       "Stake or cage plants to improve airflow."
-    ]
+    ],
+    "dosage": {
+      "product": "Chlorothalonil fungicide",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
   },
   "Tomato with Late Blight": {
     "displayName": "Tomato — Late Blight",
@@ -81,7 +105,13 @@
       "Apply a systemic fungicide (e.g. chlorothalonil or copper-based) right away.",
       "Avoid overhead watering; water at the base only.",
       "In severe cases, remove the whole plant to protect the rest of the crop."
-    ]
+    ],
+    "dosage": {
+      "product": "Chlorothalonil or copper-based fungicide",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
   },
   "Healthy Corn (Maize) Plant": {
     "displayName": "Corn — Healthy",
@@ -101,6 +131,12 @@
       "Plant rust-resistant corn hybrids in future seasons.",
       "Remove volunteer corn plants that can carry the fungus between seasons.",
       "Monitor closely — mild infections often don't need treatment."
-    ]
+    ],
+    "dosage": {
+      "product": "Azoxystrobin or propiconazole fungicide",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
   }
 }

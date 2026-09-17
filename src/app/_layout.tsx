@@ -38,6 +38,10 @@ function AppShell() {
         <Stack.Screen name="plot/[tag]" options={{ title: 'Progression', presentation: 'modal' }} />
         <Stack.Screen name="batch-summary" options={{ title: 'Batch results', presentation: 'modal' }} />
         <Stack.Screen name="batch/[batchId]" options={{ title: 'Batch scan', presentation: 'modal' }} />
+        <Stack.Screen
+          name="dosage-calculator"
+          options={{ title: 'Dosage calculator', presentation: 'modal' }}
+        />
         <Stack.Screen name="settings" options={{ title: 'Settings', presentation: 'modal' }} />
       </Stack>
     </ThemeProvider>

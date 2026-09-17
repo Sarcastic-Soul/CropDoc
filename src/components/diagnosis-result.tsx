@@ -1,4 +1,5 @@
 import { Image } from 'expo-image';
+import { useRouter } from 'expo-router';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
@@ -28,6 +29,8 @@ export function DiagnosisResult({
   secondOpinionState,
   onRequestSecondOpinion,
 }: Props) {
+  const router = useRouter();
+
   return (
     <>
       <Image source={{ uri: photoUri }} style={styles.photo} contentFit="cover" />
@@ -60,6 +63,14 @@ export function DiagnosisResult({
             </ThemedText>
           </ThemedView>
         ))}
+
+        {treatment.dosage && (
+          <Pressable onPress={() => router.push('/dosage-calculator')} style={styles.dosageButton}>
+            <ThemedText type="small" style={styles.dosageButtonText}>
+              Calculate dosage for {treatment.dosage.product}
+            </ThemedText>
+          </Pressable>
+        )}
       </ThemedView>
 
       {canRequestSecondOpinion && (
@@ -137,6 +148,13 @@ const styles = StyleSheet.create({
   },
   stepText: {
     flex: 1,
+  },
+  dosageButton: {
+    alignSelf: 'flex-start',
+    marginTop: Spacing.one,
+  },
+  dosageButtonText: {
+    color: Tint,
   },
   secondOpinionButton: {
     alignSelf: 'flex-start',

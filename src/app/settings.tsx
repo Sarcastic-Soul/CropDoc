@@ -1,5 +1,6 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Constants from 'expo-constants';
+import { useRouter } from 'expo-router';
 import { useState, type ComponentProps } from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -27,6 +28,7 @@ export default function SettingsScreen() {
   const { preference, setPreference } = useThemePreference();
   const { apiKey, setApiKey } = useGeminiKey();
   const theme = useTheme();
+  const router = useRouter();
 
   function handleClearHistory() {
     Alert.alert('Clear scan history', 'This deletes all saved diagnoses from this device. This cannot be undone.', [
@@ -154,6 +156,18 @@ export default function SettingsScreen() {
 
           <ThemedView style={styles.section}>
             <ThemedText type="smallBold" themeColor="textSecondary">
+              TOOLS
+            </ThemedText>
+            <Pressable
+              onPress={() => router.push('/dosage-calculator')}
+              style={[styles.row, styles.linkRow, { backgroundColor: theme.backgroundElement }]}>
+              <MaterialCommunityIcons name="beaker-outline" size={20} color={theme.text} />
+              <ThemedText type="default">Dosage calculator</ThemedText>
+            </Pressable>
+          </ThemedView>
+
+          <ThemedView style={styles.section}>
+            <ThemedText type="smallBold" themeColor="textSecondary">
               DATA
             </ThemedText>
             <Pressable
@@ -216,6 +230,11 @@ const styles = StyleSheet.create({
   row: {
     padding: Spacing.three,
     borderRadius: Spacing.three,
+    gap: Spacing.two,
+  },
+  linkRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: Spacing.two,
   },
   input: {
