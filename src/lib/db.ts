@@ -9,6 +9,7 @@ export type ScanRecord = {
   createdAt: number;
   secondOpinion: string | null;
   plotTag: string | null;
+  batchId: string | null;
 };
 
 const db = SQLite.openDatabaseSync('cropdoc.db');
@@ -37,18 +38,32 @@ export function initDb() {
       if (!columns.some((c) => c.name === 'plotTag')) {
         await db.execAsync('ALTER TABLE scans ADD COLUMN plotTag TEXT');
       }
+      if (!columns.some((c) => c.name === 'batchId')) {
+        await db.execAsync('ALTER TABLE scans ADD COLUMN batchId TEXT');
+      }
     })();
   }
   return readyPromise;
 }
 
 export async function saveScan(
-  scan: Omit<ScanRecord, 'id' | 'createdAt' | 'secondOpinion' | 'plotTag'> & { plotTag?: string | null }
+  scan: Omit<ScanRecord, 'id' | 'createdAt' | 'secondOpinion' | 'plotTag' | 'batchId'> & {
+    plotTag?: string | null;
+    batchId?: string | null;
+  }
 ): Promise<number> {
   await initDb();
   const result = await db.runAsync(
-    'INSERT INTO scans (photoUri, label, displayName, confidence, createdAt, plotTag) VALUES (?, ?, ?, ?, ?, ?)',
-    [scan.photoUri, scan.label, scan.displayName, scan.confidence, Date.now(), scan.plotTag ?? null]
+    'INSERT INTO scans (photoUri, label, displayName, confidence, createdAt, plotTag, batchId) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [
+      scan.photoUri,
+      scan.label,
+      scan.displayName,
+      scan.confidence,
+      Date.now(),
+      scan.plotTag ?? null,
+      scan.batchId ?? null,
+    ]
   );
   return result.lastInsertRowId;
 }
@@ -111,6 +126,11 @@ export async function getPlotTags(): Promise<string[]> {
 export async function getScansByPlotTag(plotTag: string): Promise<ScanRecord[]> {
   await initDb();
   return db.getAllAsync<ScanRecord>('SELECT * FROM scans WHERE plotTag = ? ORDER BY createdAt ASC', [plotTag]);
+}
+
+export async function getScansByBatchId(batchId: string): Promise<ScanRecord[]> {
+  await initDb();
+  return db.getAllAsync<ScanRecord>('SELECT * FROM scans WHERE batchId = ? ORDER BY id ASC', [batchId]);
 }
 
 export async function getScanById(id: number): Promise<ScanRecord | null> {

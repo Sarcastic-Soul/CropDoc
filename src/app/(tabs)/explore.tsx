@@ -2,7 +2,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import DateTimePicker, { type DateTimePickerEvent } from '@react-native-community/datetimepicker';
 import { Image } from 'expo-image';
 import { useFocusEffect, useRouter } from 'expo-router';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, FlatList, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -13,6 +13,23 @@ import { useTheme } from '@/hooks/use-theme';
 import { getPlotTags, getScanHistoryPage, type ScanRecord } from '@/lib/db';
 
 const PAGE_SIZE = 20;
+
+type HistoryRow = { kind: 'single'; item: ScanRecord } | { kind: 'batch'; batchId: string; items: ScanRecord[] };
+
+function groupHistoryRows(scans: ScanRecord[]): HistoryRow[] {
+  const rows: HistoryRow[] = [];
+  for (const scan of scans) {
+    const last = rows[rows.length - 1];
+    if (scan.batchId && last?.kind === 'batch' && last.batchId === scan.batchId) {
+      last.items.push(scan);
+    } else if (scan.batchId) {
+      rows.push({ kind: 'batch', batchId: scan.batchId, items: [scan] });
+    } else {
+      rows.push({ kind: 'single', item: scan });
+    }
+  }
+  return rows;
+}
 
 function startOfDay(date: Date): number {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
@@ -86,6 +103,7 @@ export default function HistoryScreen() {
   }
 
   const hasFilter = startDate !== null || endDate !== null;
+  const rows = useMemo(() => groupHistoryRows(scans), [scans]);
 
   return (
     <ThemedView style={styles.container}>
@@ -159,25 +177,45 @@ export default function HistoryScreen() {
           </ThemedView>
         ) : (
           <FlatList
-            data={scans}
-            keyExtractor={(item) => String(item.id)}
+            data={rows}
+            keyExtractor={(row) => (row.kind === 'batch' ? `batch-${row.batchId}` : String(row.item.id))}
             contentContainerStyle={styles.list}
             onEndReached={loadMore}
             onEndReachedThreshold={0.4}
             ListFooterComponent={loadingMore ? <ActivityIndicator style={styles.footerLoader} /> : null}
-            renderItem={({ item }) => (
-              <Pressable onPress={() => router.push(`/scan/${item.id}`)}>
-                <ThemedView type="backgroundElement" style={styles.row}>
-                  <Image source={{ uri: item.photoUri }} style={styles.thumb} contentFit="cover" />
-                  <View style={styles.rowText}>
-                    <ThemedText type="smallBold">{item.displayName}</ThemedText>
-                    <ThemedText type="small" themeColor="textSecondary">
-                      {Math.round(item.confidence * 100)}% · {new Date(item.createdAt).toLocaleString()}
-                    </ThemedText>
-                  </View>
-                </ThemedView>
-              </Pressable>
-            )}
+            renderItem={({ item: row }) => {
+              if (row.kind === 'batch') {
+                const cover = row.items[0];
+                return (
+                  <Pressable onPress={() => router.push(`/batch/${row.batchId}`)}>
+                    <ThemedView type="backgroundElement" style={styles.row}>
+                      <Image source={{ uri: cover.photoUri }} style={styles.thumb} contentFit="cover" />
+                      <View style={styles.rowText}>
+                        <ThemedText type="smallBold">Batch scan · {row.items.length} leaves</ThemedText>
+                        <ThemedText type="small" themeColor="textSecondary">
+                          {new Date(cover.createdAt).toLocaleString()}
+                        </ThemedText>
+                      </View>
+                      <MaterialCommunityIcons name="view-grid-outline" size={18} color={theme.textSecondary} />
+                    </ThemedView>
+                  </Pressable>
+                );
+              }
+              const item = row.item;
+              return (
+                <Pressable onPress={() => router.push(`/scan/${item.id}`)}>
+                  <ThemedView type="backgroundElement" style={styles.row}>
+                    <Image source={{ uri: item.photoUri }} style={styles.thumb} contentFit="cover" />
+                    <View style={styles.rowText}>
+                      <ThemedText type="smallBold">{item.displayName}</ThemedText>
+                      <ThemedText type="small" themeColor="textSecondary">
+                        {Math.round(item.confidence * 100)}% · {new Date(item.createdAt).toLocaleString()}
+                      </ThemedText>
+                    </View>
+                  </ThemedView>
+                </Pressable>
+              );
+            }}
           />
         )}
       </SafeAreaView>

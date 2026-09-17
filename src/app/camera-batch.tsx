@@ -3,19 +3,24 @@ import { CameraView, useCameraPermissions } from 'expo-camera';
 import * as Network from 'expo-network';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { CameraPermissionGate } from '@/components/camera-permission-gate';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
+import { Spacing, Tint } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
+import { classifyLeaf } from '@/lib/model/inference';
+import { preprocessForModel } from '@/lib/model/preprocess';
+import { getTreatment } from '@/lib/model/treatments';
+import type { BatchItem } from '@/lib/model/batch';
 
-export default function CameraScreen() {
+export default function CameraBatchScreen() {
   const [permission, requestPermission] = useCameraPermissions();
   const [isOffline, setIsOffline] = useState<boolean | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
+  const [results, setResults] = useState<BatchItem[]>([]);
   const cameraRef = useRef<CameraView>(null);
   const router = useRouter();
   const theme = useTheme();
@@ -30,13 +35,25 @@ export default function CameraScreen() {
     try {
       const photo = await cameraRef.current.takePictureAsync({ quality: 0.9, exif: false });
       if (!photo) return;
-      router.replace({
-        pathname: '/result',
-        params: { uri: photo.uri, width: String(photo.width), height: String(photo.height) },
-      });
+      const { input } = await preprocessForModel(photo.uri, photo.width, photo.height);
+      const prediction = await classifyLeaf(input);
+      const treatment = getTreatment(prediction.label);
+      setResults((prev) => [
+        ...prev,
+        {
+          photoUri: photo.uri,
+          label: prediction.label,
+          displayName: treatment.displayName,
+          confidence: prediction.confidence,
+        },
+      ]);
     } finally {
       setIsCapturing(false);
     }
+  }
+
+  function handleFinish() {
+    router.push({ pathname: '/batch-summary', params: { items: JSON.stringify(results) } });
   }
 
   if (!permission) {
@@ -44,7 +61,12 @@ export default function CameraScreen() {
   }
 
   if (!permission.granted) {
-    return <CameraPermissionGate onRequest={requestPermission} />;
+    return (
+      <CameraPermissionGate
+        message="CropDoc needs your camera to batch-scan crop leaves for diagnosis."
+        onRequest={requestPermission}
+      />
+    );
   }
 
   return (
@@ -56,6 +78,11 @@ export default function CameraScreen() {
           <MaterialCommunityIcons name="close" size={20} color="#ffffff" />
         </Pressable>
 
+        <ThemedView type="backgroundElement" style={styles.countBadge}>
+          <MaterialCommunityIcons name="leaf" size={14} color={theme.text} />
+          <ThemedText type="smallBold">{results.length} scanned</ThemedText>
+        </ThemedView>
+
         {isOffline && (
           <ThemedView type="backgroundElement" style={styles.offlineBadge}>
             <MaterialCommunityIcons name="wifi-off" size={14} color={theme.text} />
@@ -65,15 +92,28 @@ export default function CameraScreen() {
       </SafeAreaView>
 
       <SafeAreaView style={styles.controls}>
-        <Pressable
-          onPress={handleCapture}
-          disabled={isCapturing}
-          style={[styles.shutter, isCapturing && styles.shutterDisabled]}>
-          <ThemedView style={styles.shutterInner} />
-        </Pressable>
         <ThemedText type="small" style={styles.hint}>
-          Point at a single leaf, fill the frame, tap to scan
+          Point at a leaf, fill the frame, tap to scan — repeat for each leaf
         </ThemedText>
+        <ThemedView style={styles.controlsRow}>
+          <Pressable
+            onPress={handleFinish}
+            disabled={results.length === 0}
+            style={[styles.finishButton, results.length === 0 && styles.finishButtonDisabled]}>
+            <ThemedText type="default" style={styles.finishButtonText}>
+              Done
+            </ThemedText>
+          </Pressable>
+
+          <Pressable
+            onPress={handleCapture}
+            disabled={isCapturing}
+            style={[styles.shutter, isCapturing && styles.shutterDisabled]}>
+            {isCapturing ? <ActivityIndicator color="#000000" /> : <ThemedView style={styles.shutterInner} />}
+          </Pressable>
+
+          <ThemedView style={styles.finishButtonSpacer} />
+        </ThemedView>
       </SafeAreaView>
     </ThemedView>
   );
@@ -93,6 +133,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: Spacing.three,
     paddingTop: Spacing.two,
+    gap: Spacing.two,
   },
   closeButton: {
     width: 36,
@@ -101,6 +142,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.5)',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  countBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.one,
+    paddingVertical: Spacing.one,
+    paddingHorizontal: Spacing.three,
+    borderRadius: Spacing.five,
   },
   offlineBadge: {
     flexDirection: 'row',
@@ -118,6 +167,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: Spacing.two,
     paddingBottom: Spacing.four,
+    paddingHorizontal: Spacing.three,
+  },
+  controlsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
   },
   shutter: {
     width: 76,
@@ -139,5 +195,22 @@ const styles = StyleSheet.create({
   },
   hint: {
     color: '#ffffff',
+    textAlign: 'center',
+  },
+  finishButton: {
+    paddingVertical: Spacing.two,
+    paddingHorizontal: Spacing.four,
+    borderRadius: Spacing.four,
+    backgroundColor: Tint,
+  },
+  finishButtonDisabled: {
+    opacity: 0.4,
+  },
+  finishButtonText: {
+    color: '#ffffff',
+  },
+  finishButtonSpacer: {
+    width: 76,
+    backgroundColor: 'transparent',
   },
 });

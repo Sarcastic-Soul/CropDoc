@@ -72,6 +72,11 @@ export default function HomeScreen() {
             <MaterialCommunityIcons name="image-multiple-outline" size={20} color={theme.text} />
             <ThemedText type="default">Upload a photo</ThemedText>
           </Pressable>
+
+          <Pressable onPress={() => router.push('/camera-batch')} style={styles.secondaryButton}>
+            <MaterialCommunityIcons name="view-grid-outline" size={20} color={theme.text} />
+            <ThemedText type="default">Batch scan a field</ThemedText>
+          </Pressable>
         </ThemedView>
       </SafeAreaView>
     </ThemedView>
