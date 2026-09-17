@@ -5,11 +5,12 @@ import { ActivityIndicator, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { DiagnosisResult, type SecondOpinionState } from '@/components/diagnosis-result';
+import { PlotTagField } from '@/components/plot-tag-field';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
 import { useGeminiKey } from '@/contexts/gemini-key';
-import { saveScan, updateScanSecondOpinion } from '@/lib/db';
+import { saveScan, updateScanPlotTag, updateScanSecondOpinion } from '@/lib/db';
 import { getSecondOpinion } from '@/lib/gemini';
 import { classifyLeaf, type Prediction } from '@/lib/model/inference';
 import { preprocessForModel } from '@/lib/model/preprocess';
@@ -22,6 +23,7 @@ export default function ResultScreen() {
   const [error, setError] = useState<string | null>(null);
   const [isOnline, setIsOnline] = useState(false);
   const [scanId, setScanId] = useState<number | null>(null);
+  const [plotTag, setPlotTag] = useState<string | null>(null);
   const [secondOpinion, setSecondOpinion] = useState<string | null>(null);
   const [secondOpinionState, setSecondOpinionState] = useState<SecondOpinionState>('idle');
   const { apiKey } = useGeminiKey();
@@ -29,6 +31,13 @@ export default function ResultScreen() {
   useEffect(() => {
     Network.getNetworkStateAsync().then((state) => setIsOnline(Boolean(state.isConnected)));
   }, []);
+
+  async function handlePlotTagChange(tag: string | null) {
+    setPlotTag(tag);
+    if (scanId !== null) {
+      await updateScanPlotTag(scanId, tag);
+    }
+  }
 
   async function handleGetSecondOpinion() {
     if (!treatment || !apiKey) return;
@@ -95,15 +104,18 @@ export default function ResultScreen() {
         )}
 
         {prediction && treatment && (
-          <DiagnosisResult
-            photoUri={uri}
-            prediction={prediction}
-            treatment={treatment}
-            canRequestSecondOpinion={isOnline && Boolean(apiKey)}
-            secondOpinion={secondOpinion}
-            secondOpinionState={secondOpinionState}
-            onRequestSecondOpinion={handleGetSecondOpinion}
-          />
+          <>
+            <DiagnosisResult
+              photoUri={uri}
+              prediction={prediction}
+              treatment={treatment}
+              canRequestSecondOpinion={isOnline && Boolean(apiKey)}
+              secondOpinion={secondOpinion}
+              secondOpinionState={secondOpinionState}
+              onRequestSecondOpinion={handleGetSecondOpinion}
+            />
+            <PlotTagField value={plotTag} onChange={handlePlotTagChange} />
+          </>
         )}
       </SafeAreaView>
     </ScrollView>

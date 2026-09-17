@@ -8,6 +8,7 @@ export type ScanRecord = {
   confidence: number;
   createdAt: number;
   secondOpinion: string | null;
+  plotTag: string | null;
 };
 
 const db = SQLite.openDatabaseSync('cropdoc.db');
@@ -33,18 +34,21 @@ export function initDb() {
       if (!columns.some((c) => c.name === 'secondOpinion')) {
         await db.execAsync('ALTER TABLE scans ADD COLUMN secondOpinion TEXT');
       }
+      if (!columns.some((c) => c.name === 'plotTag')) {
+        await db.execAsync('ALTER TABLE scans ADD COLUMN plotTag TEXT');
+      }
     })();
   }
   return readyPromise;
 }
 
 export async function saveScan(
-  scan: Omit<ScanRecord, 'id' | 'createdAt' | 'secondOpinion'>
+  scan: Omit<ScanRecord, 'id' | 'createdAt' | 'secondOpinion' | 'plotTag'> & { plotTag?: string | null }
 ): Promise<number> {
   await initDb();
   const result = await db.runAsync(
-    'INSERT INTO scans (photoUri, label, displayName, confidence, createdAt) VALUES (?, ?, ?, ?, ?)',
-    [scan.photoUri, scan.label, scan.displayName, scan.confidence, Date.now()]
+    'INSERT INTO scans (photoUri, label, displayName, confidence, createdAt, plotTag) VALUES (?, ?, ?, ?, ?, ?)',
+    [scan.photoUri, scan.label, scan.displayName, scan.confidence, Date.now(), scan.plotTag ?? null]
   );
   return result.lastInsertRowId;
 }
@@ -54,9 +58,59 @@ export async function updateScanSecondOpinion(id: number, secondOpinion: string)
   await db.runAsync('UPDATE scans SET secondOpinion = ? WHERE id = ?', [secondOpinion, id]);
 }
 
-export async function getScanHistory(): Promise<ScanRecord[]> {
+export async function updateScanPlotTag(id: number, plotTag: string | null): Promise<void> {
   await initDb();
-  return db.getAllAsync<ScanRecord>('SELECT * FROM scans ORDER BY createdAt DESC');
+  await db.runAsync('UPDATE scans SET plotTag = ? WHERE id = ?', [plotTag, id]);
+}
+
+export type ScanHistoryQuery = {
+  limit: number;
+  offset: number;
+  startDate?: number;
+  endDate?: number;
+  plotTag?: string;
+};
+
+export async function getScanHistoryPage({
+  limit,
+  offset,
+  startDate,
+  endDate,
+  plotTag,
+}: ScanHistoryQuery): Promise<ScanRecord[]> {
+  await initDb();
+  const conditions: string[] = [];
+  const args: (number | string)[] = [];
+  if (startDate !== undefined) {
+    conditions.push('createdAt >= ?');
+    args.push(startDate);
+  }
+  if (endDate !== undefined) {
+    conditions.push('createdAt <= ?');
+    args.push(endDate);
+  }
+  if (plotTag !== undefined) {
+    conditions.push('plotTag = ?');
+    args.push(plotTag);
+  }
+  const where = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
+  return db.getAllAsync<ScanRecord>(
+    `SELECT * FROM scans ${where} ORDER BY createdAt DESC LIMIT ? OFFSET ?`,
+    [...args, limit, offset]
+  );
+}
+
+export async function getPlotTags(): Promise<string[]> {
+  await initDb();
+  const rows = await db.getAllAsync<{ plotTag: string }>(
+    "SELECT DISTINCT plotTag FROM scans WHERE plotTag IS NOT NULL AND plotTag != '' ORDER BY plotTag COLLATE NOCASE"
+  );
+  return rows.map((row) => row.plotTag);
+}
+
+export async function getScansByPlotTag(plotTag: string): Promise<ScanRecord[]> {
+  await initDb();
+  return db.getAllAsync<ScanRecord>('SELECT * FROM scans WHERE plotTag = ? ORDER BY createdAt ASC', [plotTag]);
 }
 
 export async function getScanById(id: number): Promise<ScanRecord | null> {

@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
+import { Spacing, Tint } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function CameraScreen() {
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.two,
     paddingHorizontal: Spacing.four,
     borderRadius: Spacing.four,
-    backgroundColor: '#3c87f7',
+    backgroundColor: Tint,
   },
   permissionButtonText: {
     color: '#ffffff',

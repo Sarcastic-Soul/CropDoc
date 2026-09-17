@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, Spacing } from '@/constants/theme';
+import { BottomTabInset, Spacing, Tint } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function HomeScreen() {
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     gap: Spacing.two,
     paddingVertical: Spacing.three,
     borderRadius: Spacing.four,
-    backgroundColor: '#3c87f7',
+    backgroundColor: Tint,
   },
   primaryButtonText: {
     color: '#ffffff',
@@ -141,6 +141,6 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.three,
     borderRadius: Spacing.four,
     borderWidth: 1,
-    borderColor: '#3c87f7',
+    borderColor: Tint,
   },
 });

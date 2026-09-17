@@ -5,10 +5,11 @@ import { ActivityIndicator, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { DiagnosisResult, type SecondOpinionState } from '@/components/diagnosis-result';
+import { PlotTagField } from '@/components/plot-tag-field';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
 import { useGeminiKey } from '@/contexts/gemini-key';
-import { getScanById, updateScanSecondOpinion, type ScanRecord } from '@/lib/db';
+import { getScanById, updateScanPlotTag, updateScanSecondOpinion, type ScanRecord } from '@/lib/db';
 import { getSecondOpinion } from '@/lib/gemini';
 import { getTreatment } from '@/lib/model/treatments';
 
@@ -30,6 +31,12 @@ export default function ScanDetailScreen() {
       setSecondOpinion(result?.secondOpinion ?? null);
     });
   }, [id]);
+
+  async function handlePlotTagChange(tag: string | null) {
+    if (!record) return;
+    setRecord({ ...record, plotTag: tag });
+    await updateScanPlotTag(record.id, tag);
+  }
 
   async function handleGetSecondOpinion() {
     if (!record || !apiKey) return;
@@ -67,6 +74,7 @@ export default function ScanDetailScreen() {
           secondOpinionState={secondOpinionState}
           onRequestSecondOpinion={handleGetSecondOpinion}
         />
+        <PlotTagField value={record.plotTag} onChange={handlePlotTagChange} />
       </SafeAreaView>
     </ScrollView>
   );

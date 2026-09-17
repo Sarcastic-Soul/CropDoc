@@ -7,7 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { ExternalLink } from '@/components/external-link';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
+import { Spacing, Tint } from '@/constants/theme';
 import { useGeminiKey } from '@/contexts/gemini-key';
 import { type ThemePreference, useThemePreference } from '@/contexts/theme-preference';
 import { useTheme } from '@/hooks/use-theme';
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.two,
     paddingHorizontal: Spacing.three,
     borderRadius: Spacing.four,
-    backgroundColor: '#3c87f7',
+    backgroundColor: Tint,
   },
   saveButtonText: {
     color: '#ffffff',

@@ -3,16 +3,9 @@ import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
+import { Spacing, Tint } from '@/constants/theme';
 import type { Prediction } from '@/lib/model/inference';
-import type { Treatment } from '@/lib/model/treatments';
-
-const SEVERITY_COLOR: Record<Treatment['severity'], string> = {
-  none: '#2e9e4f',
-  moderate: '#d9932a',
-  severe: '#d1453b',
-  unknown: '#60646c',
-};
+import { SEVERITY_COLOR, type Treatment } from '@/lib/model/treatments';
 
 export type SecondOpinionState = 'idle' | 'loading' | 'error';
 
@@ -150,7 +143,7 @@ const styles = StyleSheet.create({
     paddingVertical: Spacing.two,
     paddingHorizontal: Spacing.three,
     borderRadius: Spacing.four,
-    backgroundColor: '#3c87f7',
+    backgroundColor: Tint,
   },
   secondOpinionButtonText: {
     color: '#ffffff',
