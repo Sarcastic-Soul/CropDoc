@@ -9,7 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, Spacing, Tint } from '@/constants/theme';
+import { Spacing, Tint } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function HomeScreen() {
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     paddingHorizontal: Spacing.four,
-    paddingBottom: BottomTabInset + Spacing.three,
+    paddingBottom: Spacing.three,
   },
   settingsButton: {
     alignSelf: 'flex-end',

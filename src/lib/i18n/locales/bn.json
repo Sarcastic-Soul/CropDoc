@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "একটি পাতার দিকে ধরুন, ফ্রেম ভরে ফেলুন, স্ক্যান করতে ট্যাপ করুন",
-    "permissionMessage": "রোগ নির্ণয়ের জন্য ফসলের পাতার ছবি তুলতে CropDoc-এর আপনার ক্যামেরা প্রয়োজন।"
+    "permissionMessage": "রোগ নির্ণয়ের জন্য ফসলের পাতার ছবি তুলতে CropDoc-এর আপনার ক্যামেরা প্রয়োজন।",
+    "hintLabel": "লেবেলের মাত্রার হারের দিকে তাক করুন, ফ্রেম পূরণ করুন, স্ক্যান করতে ট্যাপ করুন"
   },
   "cameraPermission": {
     "title": "ক্যামেরার অনুমতি প্রয়োজন",
@@ -64,7 +65,8 @@
     "clear": "মুছুন",
     "emptyFiltered": "এই তারিখের মধ্যে কোনো স্ক্যান নেই।",
     "emptyDefault": "এখনও কোনো স্ক্যান নেই। এখানে দেখতে স্ক্যান ট্যাব থেকে একটি পাতার রোগ নির্ণয় করুন।",
-    "batchRow": "ব্যাচ স্ক্যান · {{count}}টি পাতা"
+    "batchRow": "ব্যাচ স্ক্যান · {{count}}টি পাতা",
+    "filterLabel": "ফিল্টার:"
   },
   "plot": {
     "worse": "এই জমির আগের স্ক্যানের চেয়ে খারাপ দেখাচ্ছে।",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "যেমন 2",
     "waterPerHectarePlaceholder": "যেমন 500",
     "plantCountPlaceholder": "যেমন 40",
-    "waterPerPlantPlaceholder": "যেমন 300"
+    "waterPerPlantPlaceholder": "যেমন 300",
+    "cropLabel": "ফসল",
+    "selectCrop": "ফসল নির্বাচন করুন",
+    "selectDisease": "রোগ নির্বাচন করুন",
+    "noDosageGuidance": "এই রোগনির্ণয়ের জন্য কোনো মাত্রার নির্দেশনা উপলব্ধ নেই।"
   },
   "settings": {
     "theme": "থিম",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "Gemini API কী সরান",
     "removeKeyAlertMessage": "আপনি আবার একটি কী যোগ না করা পর্যন্ত \"দ্বিতীয় মতামত\" বৈশিষ্ট্যটি অনুপলব্ধ থাকবে।",
     "removeKeyAlertCancel": "বাতিল",
-    "removeKeyAlertConfirm": "সরান"
+    "removeKeyAlertConfirm": "সরান",
+    "assistantSection": "এআই সহায়ক",
+    "assistantNotDownloaded": "ডাউনলোড হয়নি",
+    "assistantDownloaded": "ডাউনলোড হয়েছে",
+    "assistantDesc": "আস্ক ট্যাবে অফলাইন চ্যাট সহায়ক চালায়।",
+    "sttSection": "ভয়েস ইনপুট",
+    "sttNotDownloaded": "ডাউনলোড হয়নি",
+    "sttDownloaded": "ডাউনলোড হয়েছে",
+    "sttDesc": "জিজ্ঞাসায় ভয়েস ইনপুটের জন্য স্পিচ-টু-টেক্সট — সম্পূর্ণ অফলাইন, ডিভাইসেই।",
+    "removeSttModel": "ডাউনলোড করা ভয়েস মডেল সরান",
+    "removeSttModelAlertTitle": "ডাউনলোড করা ভয়েস মডেল সরান",
+    "removeSttModelAlertMessage": "এই ডিভাইস থেকে ডাউনলোড করা স্পিচ-টু-টেক্সট মডেলটি মুছে দেয়। আপনি যেকোনো সময় আবার ডাউনলোড করতে পারবেন।",
+    "removeSttModelAlertCancel": "বাতিল",
+    "removeSttModelAlertConfirm": "সরান"
   },
   "ask": {
     "title": "জিজ্ঞাসা",
@@ -150,7 +169,7 @@
     "setupButton": "সেট আপ করুন",
     "settingUp": "সেট আপ হচ্ছে… {{percent}}%",
     "removeModel": "ডাউনলোড করা মডেল সরান",
-    "placeholder": "ফসলের রোগ, মাত্রা, বা কৃষিকাজ সম্পর্কে জিজ্ঞাসা করুন…",
+    "placeholder": "একটি প্রশ্ন করুন…",
     "send": "পাঠান",
     "thinking": "ভাবছে…",
     "errorDownload": "মডেল ডাউনলোড করা যায়নি। আপনার সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "ডাউনলোড করা মডেল সরান",
     "removeModelAlertMessage": "এই ডিভাইস থেকে ডাউনলোড করা AI মডেলটি মুছে ফেলে। আপনি যেকোনো সময় আবার ডাউনলোড করতে পারবেন।",
     "removeModelAlertCancel": "বাতিল",
-    "removeModelAlertConfirm": "সরান"
+    "removeModelAlertConfirm": "সরান",
+    "historyTitle": "চ্যাট ইতিহাস",
+    "historyEmpty": "এখনো কোনো কথোপকথন নেই",
+    "historyEmptyPreview": "নতুন কথোপকথন",
+    "attachPickerTitle": "একটি রোগনির্ণয় সংযুক্ত করুন",
+    "attachPickerSubtitle": "এটি সেই স্ক্যানের চিকিৎসার তথ্য আপনার প্রশ্নে যোগ করবে — ছবিটি মডেলে পাঠানো হয় না।",
+    "attachPickerEmpty": "এখনো কোনো পূর্ববর্তী রোগনির্ণয় নেই",
+    "attachPickerLoadMore": "আরও দেখুন",
+    "attachPickerCancel": "বাতিল করুন",
+    "micDownloadConfirmTitle": "ভয়েস ইনপুট মডেল ডাউনলোড করবেন?",
+    "micDownloadConfirmMessage": "একটি ছোট স্পিচ-রিকগনিশন মডেলের একবারের ডাউনলোড (~{{size}} MB) যা সম্পূর্ণভাবে এই ডিভাইসেই চলে।",
+    "micDownloadConfirmCancel": "বাতিল",
+    "micDownloadConfirmConfirm": "ডাউনলোড করুন",
+    "micDownloading": "ভয়েস মডেল ডাউনলোড হচ্ছে… {{percent}}%",
+    "micPreparing": "ভয়েস ইনপুট প্রস্তুত হচ্ছে…",
+    "micRecording": "রেকর্ড হচ্ছে… থামাতে ট্যাপ করুন",
+    "micTranscribing": "ট্রান্সক্রাইব হচ্ছে…",
+    "micPermissionDenied": "ভয়েস ইনপুটের জন্য মাইক্রোফোন অনুমতি প্রয়োজন।",
+    "micError": "ট্রান্সক্রাইব করা যায়নি। আবার চেষ্টা করুন।"
   },
   "languagePicker": {
     "title": "আপনার ভাষা বেছে নিন",

@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "Elekeza kwenye jani moja, jaza fremu, gusa ili kuchunguza",
-    "permissionMessage": "CropDoc inahitaji kamera yako kupiga picha za majani ya mimea kwa uchunguzi."
+    "permissionMessage": "CropDoc inahitaji kamera yako kupiga picha za majani ya mimea kwa uchunguzi.",
+    "hintLabel": "Elekeza kwenye kiwango cha dozi kwenye lebo, jaza fremu, gusa ili kuchanganua"
   },
   "cameraPermission": {
     "title": "Ruhusa ya kamera inahitajika",
@@ -64,7 +65,8 @@
     "clear": "Futa",
     "emptyFiltered": "Hakuna uchunguzi katika muda huu.",
     "emptyDefault": "Bado hakuna uchunguzi. Chunguza jani kutoka kwenye kichupo cha Kuchunguza ili kuona hapa.",
-    "batchRow": "Uchunguzi wa kundi · majani {{count}}"
+    "batchRow": "Uchunguzi wa kundi · majani {{count}}",
+    "filterLabel": "Chuja:"
   },
   "plot": {
     "worse": "Inaonekana mbaya zaidi kuliko uchunguzi uliopita wa shamba hili.",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "mfano 2",
     "waterPerHectarePlaceholder": "mfano 500",
     "plantCountPlaceholder": "mfano 40",
-    "waterPerPlantPlaceholder": "mfano 300"
+    "waterPerPlantPlaceholder": "mfano 300",
+    "cropLabel": "ZAO",
+    "selectCrop": "Chagua zao",
+    "selectDisease": "Chagua ugonjwa",
+    "noDosageGuidance": "Hakuna mwongozo wa kipimo kwa utambuzi huu."
   },
   "settings": {
     "theme": "MANDHARI",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "Ondoa ufunguo wa Gemini API",
     "removeKeyAlertMessage": "Kipengele cha \"maoni ya pili\" hakitapatikana hadi utakapoongeza ufunguo tena.",
     "removeKeyAlertCancel": "Ghairi",
-    "removeKeyAlertConfirm": "Ondoa"
+    "removeKeyAlertConfirm": "Ondoa",
+    "assistantSection": "MSAIDIZI WA AI",
+    "assistantNotDownloaded": "Haijapakuliwa",
+    "assistantDownloaded": "Imepakuliwa",
+    "assistantDesc": "Inaendesha msaidizi wa mazungumzo nje ya mtandao kwenye kichupo cha Uliza.",
+    "sttSection": "INGIZO LA SAUTI",
+    "sttNotDownloaded": "Haijapakuliwa",
+    "sttDownloaded": "Imepakuliwa",
+    "sttDesc": "Sauti-kwa-maandishi kwa ingizo la sauti katika Uliza — nje ya mtandao kabisa, kwenye kifaa.",
+    "removeSttModel": "Ondoa modeli ya sauti iliyopakuliwa",
+    "removeSttModelAlertTitle": "Ondoa modeli ya sauti iliyopakuliwa",
+    "removeSttModelAlertMessage": "Inafuta modeli ya sauti-kwa-maandishi iliyopakuliwa kutoka kifaa hiki. Unaweza kuipakua tena wakati wowote.",
+    "removeSttModelAlertCancel": "Ghairi",
+    "removeSttModelAlertConfirm": "Ondoa"
   },
   "ask": {
     "title": "Uliza",
@@ -150,7 +169,7 @@
     "setupButton": "Sanidi",
     "settingUp": "Inasanidi… {{percent}}%",
     "removeModel": "Ondoa mfano uliopakuliwa",
-    "placeholder": "Uliza kuhusu magonjwa ya mazao, kiwango cha dawa, au mbinu za kilimo…",
+    "placeholder": "Uliza swali…",
     "send": "Tuma",
     "thinking": "Inafikiri…",
     "errorDownload": "Imeshindwa kupakua mfano. Angalia muunganisho wako na ujaribu tena.",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "Ondoa mfano uliopakuliwa",
     "removeModelAlertMessage": "Inafuta mfano wa AI uliopakuliwa kutoka kwenye kifaa hiki. Unaweza kuupakua tena wakati wowote.",
     "removeModelAlertCancel": "Ghairi",
-    "removeModelAlertConfirm": "Ondoa"
+    "removeModelAlertConfirm": "Ondoa",
+    "historyTitle": "Historia ya mazungumzo",
+    "historyEmpty": "Bado hakuna mazungumzo",
+    "historyEmptyPreview": "Mazungumzo mapya",
+    "attachPickerTitle": "Ambatisha utambuzi",
+    "attachPickerSubtitle": "Huongeza maelezo ya matibabu ya uchunguzi huo kwenye swali lako — picha yenyewe haitumwi kwa modeli.",
+    "attachPickerEmpty": "Bado hakuna utambuzi wa awali",
+    "attachPickerLoadMore": "Pakia zaidi",
+    "attachPickerCancel": "Ghairi",
+    "micDownloadConfirmTitle": "Pakua modeli ya ingizo la sauti?",
+    "micDownloadConfirmMessage": "Upakuaji wa mara moja (~{{size}} MB) wa modeli ndogo ya utambuzi wa sauti inayofanya kazi kikamilifu kwenye kifaa hiki.",
+    "micDownloadConfirmCancel": "Ghairi",
+    "micDownloadConfirmConfirm": "Pakua",
+    "micDownloading": "Inapakua modeli ya sauti… {{percent}}%",
+    "micPreparing": "Inaandaa ingizo la sauti…",
+    "micRecording": "Inarekodi… gusa kusimamisha",
+    "micTranscribing": "Inaandika maandishi…",
+    "micPermissionDenied": "Ruhusa ya maikrofoni inahitajika kwa ingizo la sauti.",
+    "micError": "Imeshindwa kuandika maandishi. Jaribu tena."
   },
   "languagePicker": {
     "title": "Chagua lugha yako",

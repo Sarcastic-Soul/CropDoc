@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "Aponte para uma única folha, preencha o quadro, toque para escanear",
-    "permissionMessage": "O CropDoc precisa da sua câmera para fotografar folhas da lavoura para diagnóstico."
+    "permissionMessage": "O CropDoc precisa da sua câmera para fotografar folhas da lavoura para diagnóstico.",
+    "hintLabel": "Aponte para a taxa de dosagem no rótulo, preencha o quadro, toque para escanear"
   },
   "cameraPermission": {
     "title": "Acesso à câmera necessário",
@@ -64,7 +65,8 @@
     "clear": "Limpar",
     "emptyFiltered": "Nenhum escaneamento nesse período.",
     "emptyDefault": "Ainda não há escaneamentos. Diagnostique uma folha na aba Escanear para vê-la aqui.",
-    "batchRow": "Escaneamento em lote · {{count}} folhas"
+    "batchRow": "Escaneamento em lote · {{count}} folhas",
+    "filterLabel": "Filtro:"
   },
   "plot": {
     "worse": "Parece pior do que o último escaneamento deste talhão.",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "ex. 2",
     "waterPerHectarePlaceholder": "ex. 500",
     "plantCountPlaceholder": "ex. 40",
-    "waterPerPlantPlaceholder": "ex. 300"
+    "waterPerPlantPlaceholder": "ex. 300",
+    "cropLabel": "CULTURA",
+    "selectCrop": "Selecionar cultura",
+    "selectDisease": "Selecionar doença",
+    "noDosageGuidance": "Nenhuma orientação de dosagem disponível para este diagnóstico."
   },
   "settings": {
     "theme": "TEMA",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "Remover chave de API do Gemini",
     "removeKeyAlertMessage": "O recurso de \"segunda opinião\" ficará indisponível até que você adicione uma chave novamente.",
     "removeKeyAlertCancel": "Cancelar",
-    "removeKeyAlertConfirm": "Remover"
+    "removeKeyAlertConfirm": "Remover",
+    "assistantSection": "ASSISTENTE DE IA",
+    "assistantNotDownloaded": "Não baixado",
+    "assistantDownloaded": "Baixado",
+    "assistantDesc": "Executa o assistente de chat offline na aba Perguntar.",
+    "sttSection": "ENTRADA POR VOZ",
+    "sttNotDownloaded": "Não baixado",
+    "sttDownloaded": "Baixado",
+    "sttDesc": "Reconhecimento de voz para entrada no Perguntar — totalmente offline, no dispositivo.",
+    "removeSttModel": "Remover modelo de voz baixado",
+    "removeSttModelAlertTitle": "Remover modelo de voz baixado",
+    "removeSttModelAlertMessage": "Exclui o modelo de reconhecimento de voz baixado deste dispositivo. Você pode baixá-lo novamente quando quiser.",
+    "removeSttModelAlertCancel": "Cancelar",
+    "removeSttModelAlertConfirm": "Remover"
   },
   "ask": {
     "title": "Perguntar",
@@ -150,7 +169,7 @@
     "setupButton": "Configurar",
     "settingUp": "Configurando… {{percent}}%",
     "removeModel": "Remover modelo baixado",
-    "placeholder": "Pergunte sobre doenças da lavoura, dosagem ou práticas agrícolas…",
+    "placeholder": "Faça uma pergunta…",
     "send": "Enviar",
     "thinking": "Pensando…",
     "errorDownload": "Não foi possível baixar o modelo. Verifique sua conexão e tente novamente.",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "Remover modelo baixado",
     "removeModelAlertMessage": "Remove o modelo de IA baixado deste dispositivo. Você pode baixá-lo novamente a qualquer momento.",
     "removeModelAlertCancel": "Cancelar",
-    "removeModelAlertConfirm": "Remover"
+    "removeModelAlertConfirm": "Remover",
+    "historyTitle": "Histórico de conversas",
+    "historyEmpty": "Ainda não há conversas",
+    "historyEmptyPreview": "Nova conversa",
+    "attachPickerTitle": "Anexar um diagnóstico",
+    "attachPickerSubtitle": "Adiciona as informações de tratamento desse diagnóstico à sua pergunta — a foto em si não é enviada ao modelo.",
+    "attachPickerEmpty": "Ainda não há diagnósticos anteriores",
+    "attachPickerLoadMore": "Carregar mais",
+    "attachPickerCancel": "Cancelar",
+    "micDownloadConfirmTitle": "Baixar modelo de entrada por voz?",
+    "micDownloadConfirmMessage": "Download único (~{{size}} MB) de um pequeno modelo de reconhecimento de voz que roda totalmente neste dispositivo.",
+    "micDownloadConfirmCancel": "Cancelar",
+    "micDownloadConfirmConfirm": "Baixar",
+    "micDownloading": "Baixando modelo de voz… {{percent}}%",
+    "micPreparing": "Preparando entrada por voz…",
+    "micRecording": "Gravando… toque para parar",
+    "micTranscribing": "Transcrevendo…",
+    "micPermissionDenied": "É necessária permissão de microfone para entrada por voz.",
+    "micError": "Não foi possível transcrever. Tente novamente."
   },
   "languagePicker": {
     "title": "Escolha seu idioma",

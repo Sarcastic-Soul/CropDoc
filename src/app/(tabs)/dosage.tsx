@@ -1,18 +1,19 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import * as ImagePicker from 'expo-image-picker';
-import { useLocalSearchParams } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { DropdownField } from '@/components/dropdown-field';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, Spacing, Tint } from '@/constants/theme';
+import { Spacing, Tint } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { extractRateFromText, formatRate, recognizeLabelText, type ParsedLabelRate } from '@/lib/dosage/label-ocr';
-import { getDosageTreatments, SEVERITY_COLOR, type Treatment } from '@/lib/model/treatments';
+import { CROPS, LABEL_TO_CROP, type Label } from '@/lib/model/labels';
+import { getAllTreatments, SEVERITY_COLOR, type Treatment } from '@/lib/model/treatments';
 
 type LabelResult =
   | { status: 'no-rate' }
@@ -42,12 +43,29 @@ function parseNumber(value: string): number | null {
 }
 
 export default function DosageCalculatorScreen() {
-  const { label: preselectLabel } = useLocalSearchParams<{ label?: string }>();
+  const { label: preselectLabel, labelScanUri } = useLocalSearchParams<{ label?: string; labelScanUri?: string }>();
   const { t, i18n } = useTranslation();
-  const diseases = useMemo(() => getDosageTreatments(i18n.language), [i18n.language]);
+  const router = useRouter();
+  const lastProcessedScanUriRef = useRef<string | null>(null);
+  const allTreatments = useMemo(() => getAllTreatments(i18n.language), [i18n.language]);
+  const preselectCrop =
+    preselectLabel && LABEL_TO_CROP[preselectLabel as Label] ? LABEL_TO_CROP[preselectLabel as Label] : null;
+  const [selectedCrop, setSelectedCrop] = useState<string | null>(preselectCrop ?? CROPS[0] ?? null);
+  const diseases = useMemo(
+    () => allTreatments.filter(([label]) => LABEL_TO_CROP[label as Label] === selectedCrop),
+    [allTreatments, selectedCrop]
+  );
   const [selectedLabel, setSelectedLabel] = useState<string | null>(
     diseases.some(([label]) => label === preselectLabel) ? (preselectLabel as string) : diseases[0]?.[0] ?? null
   );
+
+  function handleSelectCrop(crop: string) {
+    setSelectedCrop(crop);
+    const first = allTreatments.find(([label]) => LABEL_TO_CROP[label as Label] === crop);
+    setSelectedLabel(first?.[0] ?? null);
+    setLabelResult(null);
+  }
+
   const [mode, setMode] = useState<Mode>('area');
   const [areaValue, setAreaValue] = useState('');
   const [areaUnit, setAreaUnit] = useState<AreaUnit>('hectare');
@@ -65,34 +83,40 @@ export default function DosageCalculatorScreen() {
     setLabelResult(null);
   }
 
-  async function handleScanLabel() {
+  function handleScanLabel() {
     if (!selected?.dosage) return;
-    const permission = await ImagePicker.requestCameraPermissionsAsync();
-    if (!permission.granted) return;
-    const photo = await ImagePicker.launchCameraAsync({ quality: 0.8 });
-    if (photo.canceled) return;
-
-    setIsScanningLabel(true);
-    setLabelResult(null);
-    try {
-      const text = await recognizeLabelText(photo.assets[0].uri, i18n.language);
-      const parsed = extractRateFromText(text);
-      if (!parsed) {
-        setLabelResult({ status: 'no-rate' });
-        return;
-      }
-      if (parsed.unit !== selected.dosage.unit) {
-        setLabelResult({ status: 'unit-mismatch', parsed });
-        return;
-      }
-      const overlaps = parsed.min <= selected.dosage.rateMax && parsed.max >= selected.dosage.rateMin;
-      setLabelResult({ status: overlaps ? 'match' : 'mismatch', parsed });
-    } catch {
-      setLabelResult({ status: 'error' });
-    } finally {
-      setIsScanningLabel(false);
-    }
+    router.push({ pathname: '/camera', params: { mode: 'label-scan' } });
   }
+
+  useEffect(() => {
+    if (!labelScanUri || labelScanUri === lastProcessedScanUriRef.current || !selected?.dosage) return;
+    lastProcessedScanUriRef.current = labelScanUri;
+    const dosage = selected.dosage;
+
+    (async () => {
+      setIsScanningLabel(true);
+      setLabelResult(null);
+      try {
+        const text = await recognizeLabelText(labelScanUri, i18n.language);
+        const parsed = extractRateFromText(text);
+        if (!parsed) {
+          setLabelResult({ status: 'no-rate' });
+          return;
+        }
+        if (parsed.unit !== dosage.unit) {
+          setLabelResult({ status: 'unit-mismatch', parsed });
+          return;
+        }
+        const overlaps = parsed.min <= dosage.rateMax && parsed.max >= dosage.rateMin;
+        setLabelResult({ status: overlaps ? 'match' : 'mismatch', parsed });
+      } catch {
+        setLabelResult({ status: 'error' });
+      } finally {
+        setIsScanningLabel(false);
+        router.setParams({ labelScanUri: undefined });
+      }
+    })();
+  }, [labelScanUri, selected, i18n.language, router]);
 
   const totalWaterLiters = useMemo(() => {
     if (mode === 'area') {
@@ -121,31 +145,42 @@ export default function DosageCalculatorScreen() {
         enableOnAndroid
         extraScrollHeight={Spacing.four}>
         <SafeAreaView style={styles.safeArea}>
-          <ThemedText type="title" style={styles.title}>
-            {t('nav.dosageCalculator')}
+          <View style={styles.titleRow}>
+            <ThemedText type="title" style={styles.title}>
+              {t('nav.dosageCalculator')}
+            </ThemedText>
+            <Pressable onPress={() => router.push('/settings')} hitSlop={12} style={styles.settingsButton}>
+              <MaterialCommunityIcons name="cog-outline" size={24} color={theme.text} />
+            </Pressable>
+          </View>
+
+          <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionLabel}>
+            {t('dosage.cropLabel')}
           </ThemedText>
+          <DropdownField
+            title={t('dosage.cropLabel')}
+            value={selectedCrop}
+            onChange={handleSelectCrop}
+            placeholder={t('dosage.selectCrop')}
+            options={CROPS.map((crop) => ({ value: crop, label: crop }))}
+          />
 
           <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionLabel}>
             {t('dosage.diseaseLabel')}
           </ThemedText>
-          <View style={styles.chipRow}>
-            {diseases.map(([label, treatment]) => {
-              const isSelected = label === selectedLabel;
-              return (
-                <Pressable
-                  key={label}
-                  onPress={() => handleSelectDisease(label)}
-                  style={[
-                    styles.chip,
-                    { backgroundColor: isSelected ? theme.backgroundSelected : theme.backgroundElement },
-                  ]}>
-                  <ThemedText type="small" themeColor={isSelected ? 'text' : 'textSecondary'}>
-                    {treatment.displayName}
-                  </ThemedText>
-                </Pressable>
-              );
-            })}
-          </View>
+          <DropdownField
+            title={t('dosage.diseaseLabel')}
+            value={selectedLabel}
+            onChange={handleSelectDisease}
+            placeholder={t('dosage.selectDisease')}
+            options={diseases.map(([label, treatment]) => ({ value: label, label: treatment.displayName }))}
+          />
+
+          {selected && !selected.dosage && (
+            <ThemedText type="small" themeColor="textSecondary" style={styles.sectionLabel}>
+              {t('dosage.noDosageGuidance')}
+            </ThemedText>
+          )}
 
           {selected?.dosage && (
             <ThemedView type="backgroundElement" style={styles.productBox}>
@@ -338,30 +373,28 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    paddingBottom: BottomTabInset + Spacing.four,
+    paddingBottom: Spacing.four,
   },
   safeArea: {
     paddingHorizontal: Spacing.three,
     paddingTop: Spacing.two,
     gap: Spacing.two,
   },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: Spacing.two,
+  },
   title: {
     fontSize: 32,
     lineHeight: 40,
-    marginBottom: Spacing.two,
+  },
+  settingsButton: {
+    padding: Spacing.one,
   },
   sectionLabel: {
     marginTop: Spacing.two,
-  },
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: Spacing.two,
-  },
-  chip: {
-    paddingVertical: Spacing.one,
-    paddingHorizontal: Spacing.three,
-    borderRadius: Spacing.four,
   },
   productBox: {
     padding: Spacing.three,

@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "ایک پتے کی طرف اشارہ کریں، فریم کو بھریں، اسکین کرنے کے لیے تھپتھپائیں",
-    "permissionMessage": "CropDoc کو فصل کے پتوں کی تصویر لے کر تشخیص کے لیے آپ کے کیمرے کی ضرورت ہے۔"
+    "permissionMessage": "CropDoc کو فصل کے پتوں کی تصویر لے کر تشخیص کے لیے آپ کے کیمرے کی ضرورت ہے۔",
+    "hintLabel": "لیبل کی خوراک کی شرح پر نشانہ لگائیں، فریم بھریں، اسکین کرنے کے لیے ٹیپ کریں"
   },
   "cameraPermission": {
     "title": "کیمرے تک رسائی درکار ہے",
@@ -64,7 +65,8 @@
     "clear": "صاف کریں",
     "emptyFiltered": "اس تاریخ کی حد میں کوئی اسکین نہیں ہے۔",
     "emptyDefault": "ابھی تک کوئی اسکین نہیں ہے۔ یہاں دیکھنے کے لیے اسکین ٹیب سے ایک پتے کی تشخیص کریں۔",
-    "batchRow": "بیچ اسکین · {{count}} پتے"
+    "batchRow": "بیچ اسکین · {{count}} پتے",
+    "filterLabel": "فلٹر:"
   },
   "plot": {
     "worse": "اس پلاٹ کے پچھلے اسکین کے مقابلے میں بدتر لگتا ہے۔",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "مثلاً 2",
     "waterPerHectarePlaceholder": "مثلاً 500",
     "plantCountPlaceholder": "مثلاً 40",
-    "waterPerPlantPlaceholder": "مثلاً 300"
+    "waterPerPlantPlaceholder": "مثلاً 300",
+    "cropLabel": "فصل",
+    "selectCrop": "فصل منتخب کریں",
+    "selectDisease": "بیماری منتخب کریں",
+    "noDosageGuidance": "اس تشخیص کے لیے کوئی خوراک رہنمائی دستیاب نہیں۔"
   },
   "settings": {
     "theme": "تھیم",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "Gemini API کلید ہٹائیں",
     "removeKeyAlertMessage": "جب تک آپ دوبارہ کلید شامل نہیں کرتے \"دوسری رائے\" کی خصوصیت دستیاب نہیں ہوگی۔",
     "removeKeyAlertCancel": "منسوخ کریں",
-    "removeKeyAlertConfirm": "ہٹائیں"
+    "removeKeyAlertConfirm": "ہٹائیں",
+    "assistantSection": "اے آئی معاون",
+    "assistantNotDownloaded": "ڈاؤن لوڈ نہیں ہوا",
+    "assistantDownloaded": "ڈاؤن لوڈ ہو گیا",
+    "assistantDesc": "آسک ٹیب پر آف لائن چیٹ اسسٹنٹ چلاتا ہے۔",
+    "sttSection": "صوتی ان پٹ",
+    "sttNotDownloaded": "ڈاؤن لوڈ نہیں ہوا",
+    "sttDownloaded": "ڈاؤن لوڈ ہو گیا",
+    "sttDesc": "آسک میں صوتی ان پٹ کے لیے اسپیچ ٹو ٹیکسٹ — مکمل طور پر آف لائن، ڈیوائس پر۔",
+    "removeSttModel": "ڈاؤن لوڈ شدہ صوتی ماڈل ہٹائیں",
+    "removeSttModelAlertTitle": "ڈاؤن لوڈ شدہ صوتی ماڈل ہٹائیں",
+    "removeSttModelAlertMessage": "اس ڈیوائس سے ڈاؤن لوڈ شدہ اسپیچ ٹو ٹیکسٹ ماڈل حذف کر دیتا ہے۔ آپ اسے کسی بھی وقت دوبارہ ڈاؤن لوڈ کر سکتے ہیں۔",
+    "removeSttModelAlertCancel": "منسوخ کریں",
+    "removeSttModelAlertConfirm": "ہٹائیں"
   },
   "ask": {
     "title": "پوچھیں",
@@ -150,7 +169,7 @@
     "setupButton": "سیٹ اپ کریں",
     "settingUp": "سیٹ اپ ہو رہا ہے… {{percent}}%",
     "removeModel": "ڈاؤن لوڈ شدہ ماڈل ہٹائیں",
-    "placeholder": "فصل کی بیماریوں، مقدار، یا کاشتکاری کے طریقوں کے بارے میں پوچھیں…",
+    "placeholder": "ایک سوال پوچھیں…",
     "send": "بھیجیں",
     "thinking": "سوچ رہا ہے…",
     "errorDownload": "ماڈل ڈاؤن لوڈ نہیں ہو سکا۔ اپنا کنکشن چیک کریں اور دوبارہ کوشش کریں۔",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "ڈاؤن لوڈ شدہ ماڈل ہٹائیں",
     "removeModelAlertMessage": "اس ڈیوائس سے ڈاؤن لوڈ شدہ AI ماڈل کو حذف کرتا ہے۔ آپ اسے کسی بھی وقت دوبارہ ڈاؤن لوڈ کر سکتے ہیں۔",
     "removeModelAlertCancel": "منسوخ کریں",
-    "removeModelAlertConfirm": "ہٹائیں"
+    "removeModelAlertConfirm": "ہٹائیں",
+    "historyTitle": "چیٹ کی تاریخ",
+    "historyEmpty": "ابھی تک کوئی گفتگو نہیں",
+    "historyEmptyPreview": "نئی گفتگو",
+    "attachPickerTitle": "تشخیص منسلک کریں",
+    "attachPickerSubtitle": "یہ اس اسکین کی علاج کی معلومات آپ کے سوال میں شامل کر دے گا — تصویر خود ماڈل کو نہیں بھیجی جاتی۔",
+    "attachPickerEmpty": "ابھی تک کوئی سابقہ تشخیص نہیں",
+    "attachPickerLoadMore": "مزید لوڈ کریں",
+    "attachPickerCancel": "منسوخ کریں",
+    "micDownloadConfirmTitle": "صوتی ان پٹ ماڈل ڈاؤن لوڈ کریں؟",
+    "micDownloadConfirmMessage": "ایک چھوٹے اسپیچ ریکگنیشن ماڈل کا ایک بار کا ڈاؤن لوڈ (~{{size}} MB) جو مکمل طور پر اسی ڈیوائس پر چلتا ہے۔",
+    "micDownloadConfirmCancel": "منسوخ کریں",
+    "micDownloadConfirmConfirm": "ڈاؤن لوڈ کریں",
+    "micDownloading": "صوتی ماڈل ڈاؤن لوڈ ہو رہا ہے… {{percent}}%",
+    "micPreparing": "صوتی ان پٹ تیار ہو رہا ہے…",
+    "micRecording": "ریکارڈنگ ہو رہی ہے… روکنے کے لیے ٹیپ کریں",
+    "micTranscribing": "تحریر میں تبدیل ہو رہا ہے…",
+    "micPermissionDenied": "صوتی ان پٹ کے لیے مائیکروفون کی اجازت درکار ہے۔",
+    "micError": "تحریر میں تبدیل نہیں ہو سکا۔ دوبارہ کوشش کریں۔"
   },
   "languagePicker": {
     "title": "اپنی زبان منتخب کریں",

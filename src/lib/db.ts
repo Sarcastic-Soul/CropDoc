@@ -1,5 +1,22 @@
 import * as SQLite from 'expo-sqlite';
 
+export type ConversationSummary = {
+  id: number;
+  createdAt: number;
+  updatedAt: number;
+  previewContent: string | null;
+  previewCreatedAt: number | null;
+};
+
+export type ConversationMessage = {
+  id: number;
+  conversationId: number;
+  role: 'user' | 'assistant';
+  content: string;
+  attachedLabel: string | null;
+  createdAt: number;
+};
+
 export type ScanRecord = {
   id: number;
   photoUri: string;
@@ -48,6 +65,23 @@ export function initDb() {
           model TEXT NOT NULL,
           vector TEXT NOT NULL,
           PRIMARY KEY (label, language, model)
+        );
+      `);
+      await db.execAsync(`
+        CREATE TABLE IF NOT EXISTS conversations (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          createdAt INTEGER NOT NULL,
+          updatedAt INTEGER NOT NULL
+        );
+      `);
+      await db.execAsync(`
+        CREATE TABLE IF NOT EXISTS conversation_messages (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          conversationId INTEGER NOT NULL,
+          role TEXT NOT NULL,
+          content TEXT NOT NULL,
+          attachedLabel TEXT,
+          createdAt INTEGER NOT NULL
         );
       `);
     })();
@@ -181,4 +215,65 @@ export async function setCachedEmbedding(
 export async function clearTreatmentEmbeddings(): Promise<void> {
   await initDb();
   await db.execAsync('DELETE FROM treatment_embeddings');
+}
+
+export async function createConversation(): Promise<number> {
+  await initDb();
+  const now = Date.now();
+  const result = await db.runAsync('INSERT INTO conversations (createdAt, updatedAt) VALUES (?, ?)', [now, now]);
+  return result.lastInsertRowId;
+}
+
+export async function touchConversation(id: number): Promise<void> {
+  await initDb();
+  await db.runAsync('UPDATE conversations SET updatedAt = ? WHERE id = ?', [Date.now(), id]);
+}
+
+export async function saveConversationMessage(
+  conversationId: number,
+  role: 'user' | 'assistant',
+  content: string,
+  attachedLabel: string | null
+): Promise<number> {
+  await initDb();
+  const result = await db.runAsync(
+    'INSERT INTO conversation_messages (conversationId, role, content, attachedLabel, createdAt) VALUES (?, ?, ?, ?, ?)',
+    [conversationId, role, content, attachedLabel, Date.now()]
+  );
+  return result.lastInsertRowId;
+}
+
+export async function getConversations(): Promise<ConversationSummary[]> {
+  await initDb();
+  return db.getAllAsync<ConversationSummary>(`
+    SELECT
+      c.id AS id,
+      c.createdAt AS createdAt,
+      c.updatedAt AS updatedAt,
+      last.content AS previewContent,
+      last.createdAt AS previewCreatedAt
+    FROM conversations c
+    LEFT JOIN conversation_messages last
+      ON last.id = (
+        SELECT id FROM conversation_messages
+        WHERE conversationId = c.id
+        ORDER BY createdAt DESC, id DESC
+        LIMIT 1
+      )
+    ORDER BY c.updatedAt DESC
+  `);
+}
+
+export async function getConversationMessages(conversationId: number): Promise<ConversationMessage[]> {
+  await initDb();
+  return db.getAllAsync<ConversationMessage>(
+    'SELECT * FROM conversation_messages WHERE conversationId = ? ORDER BY createdAt ASC, id ASC',
+    [conversationId]
+  );
+}
+
+export async function deleteConversation(id: number): Promise<void> {
+  await initDb();
+  await db.runAsync('DELETE FROM conversation_messages WHERE conversationId = ?', [id]);
+  await db.runAsync('DELETE FROM conversations WHERE id = ?', [id]);
 }

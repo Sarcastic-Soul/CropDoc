@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "Visez une seule feuille, remplissez le cadre, appuyez pour scanner",
-    "permissionMessage": "CropDoc a besoin de votre caméra pour photographier les feuilles des cultures à des fins de diagnostic."
+    "permissionMessage": "CropDoc a besoin de votre caméra pour photographier les feuilles des cultures à des fins de diagnostic.",
+    "hintLabel": "Visez le taux de dosage indiqué sur l'étiquette, remplissez le cadre, appuyez pour scanner"
   },
   "cameraPermission": {
     "title": "Accès à la caméra requis",
@@ -64,7 +65,8 @@
     "clear": "Effacer",
     "emptyFiltered": "Aucun scan sur cette période.",
     "emptyDefault": "Aucun scan pour l'instant. Diagnostiquez une feuille depuis l'onglet Scan pour la voir ici.",
-    "batchRow": "Scan par lot · {{count}} feuilles"
+    "batchRow": "Scan par lot · {{count}} feuilles",
+    "filterLabel": "Filtre :"
   },
   "plot": {
     "worse": "Semble pire que le dernier scan de cette parcelle.",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "p. ex. 2",
     "waterPerHectarePlaceholder": "p. ex. 500",
     "plantCountPlaceholder": "p. ex. 40",
-    "waterPerPlantPlaceholder": "p. ex. 300"
+    "waterPerPlantPlaceholder": "p. ex. 300",
+    "cropLabel": "CULTURE",
+    "selectCrop": "Sélectionner une culture",
+    "selectDisease": "Sélectionner une maladie",
+    "noDosageGuidance": "Aucune indication de dosage disponible pour ce diagnostic."
   },
   "settings": {
     "theme": "THÈME",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "Supprimer la clé API Gemini",
     "removeKeyAlertMessage": "La fonction \"deuxième avis\" ne sera plus disponible tant que vous n'aurez pas ajouté une nouvelle clé.",
     "removeKeyAlertCancel": "Annuler",
-    "removeKeyAlertConfirm": "Supprimer"
+    "removeKeyAlertConfirm": "Supprimer",
+    "assistantSection": "ASSISTANT IA",
+    "assistantNotDownloaded": "Non téléchargé",
+    "assistantDownloaded": "Téléchargé",
+    "assistantDesc": "Exécute l'assistant de discussion hors ligne dans l'onglet Demander.",
+    "sttSection": "SAISIE VOCALE",
+    "sttNotDownloaded": "Non téléchargé",
+    "sttDownloaded": "Téléchargé",
+    "sttDesc": "Reconnaissance vocale pour la saisie dans Demander — entièrement hors ligne, sur l'appareil.",
+    "removeSttModel": "Supprimer le modèle vocal téléchargé",
+    "removeSttModelAlertTitle": "Supprimer le modèle vocal téléchargé",
+    "removeSttModelAlertMessage": "Supprime le modèle de reconnaissance vocale téléchargé sur cet appareil. Vous pouvez le retélécharger à tout moment.",
+    "removeSttModelAlertCancel": "Annuler",
+    "removeSttModelAlertConfirm": "Supprimer"
   },
   "ask": {
     "title": "Demander",
@@ -150,7 +169,7 @@
     "setupButton": "Configurer",
     "settingUp": "Configuration… {{percent}} %",
     "removeModel": "Supprimer le modèle téléchargé",
-    "placeholder": "Posez une question sur les maladies des cultures, les doses ou les pratiques agricoles…",
+    "placeholder": "Posez une question…",
     "send": "Envoyer",
     "thinking": "Réflexion en cours…",
     "errorDownload": "Impossible de télécharger le modèle. Vérifiez votre connexion et réessayez.",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "Supprimer le modèle téléchargé",
     "removeModelAlertMessage": "Supprime le modèle d'IA téléchargé de cet appareil. Vous pouvez le retélécharger à tout moment.",
     "removeModelAlertCancel": "Annuler",
-    "removeModelAlertConfirm": "Supprimer"
+    "removeModelAlertConfirm": "Supprimer",
+    "historyTitle": "Historique des discussions",
+    "historyEmpty": "Aucune conversation pour l'instant",
+    "historyEmptyPreview": "Nouvelle conversation",
+    "attachPickerTitle": "Joindre un diagnostic",
+    "attachPickerSubtitle": "Ajoute les infos de traitement de ce diagnostic à votre question — la photo elle-même n'est pas envoyée au modèle.",
+    "attachPickerEmpty": "Aucun diagnostic précédent",
+    "attachPickerLoadMore": "Charger plus",
+    "attachPickerCancel": "Annuler",
+    "micDownloadConfirmTitle": "Télécharger le modèle de saisie vocale ?",
+    "micDownloadConfirmMessage": "Téléchargement unique (~{{size}} Mo) d'un petit modèle de reconnaissance vocale qui fonctionne entièrement sur cet appareil.",
+    "micDownloadConfirmCancel": "Annuler",
+    "micDownloadConfirmConfirm": "Télécharger",
+    "micDownloading": "Téléchargement du modèle vocal… {{percent}} %",
+    "micPreparing": "Préparation de la saisie vocale…",
+    "micRecording": "Enregistrement… appuyez pour arrêter",
+    "micTranscribing": "Transcription…",
+    "micPermissionDenied": "L'autorisation du microphone est nécessaire pour la saisie vocale.",
+    "micError": "Impossible de transcrire. Réessayez."
   },
   "languagePicker": {
     "title": "Choisissez votre langue",

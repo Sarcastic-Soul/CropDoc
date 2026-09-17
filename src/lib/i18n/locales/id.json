@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "Arahkan ke satu daun, penuhi bingkai, ketuk untuk memindai",
-    "permissionMessage": "CropDoc memerlukan kamera Anda untuk memotret daun tanaman guna diagnosis."
+    "permissionMessage": "CropDoc memerlukan kamera Anda untuk memotret daun tanaman guna diagnosis.",
+    "hintLabel": "Arahkan ke takaran dosis pada label, penuhi bingkai, ketuk untuk memindai"
   },
   "cameraPermission": {
     "title": "Izin kamera diperlukan",
@@ -64,7 +65,8 @@
     "clear": "Hapus",
     "emptyFiltered": "Tidak ada pemindaian dalam rentang tanggal ini.",
     "emptyDefault": "Belum ada pemindaian. Diagnosis daun dari tab Pindai untuk melihatnya di sini.",
-    "batchRow": "Pindai batch · {{count}} daun"
+    "batchRow": "Pindai batch · {{count}} daun",
+    "filterLabel": "Filter:"
   },
   "plot": {
     "worse": "Tampak lebih buruk dibanding pemindaian terakhir petak ini.",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "cth. 2",
     "waterPerHectarePlaceholder": "cth. 500",
     "plantCountPlaceholder": "cth. 40",
-    "waterPerPlantPlaceholder": "cth. 300"
+    "waterPerPlantPlaceholder": "cth. 300",
+    "cropLabel": "TANAMAN",
+    "selectCrop": "Pilih tanaman",
+    "selectDisease": "Pilih penyakit",
+    "noDosageGuidance": "Tidak ada panduan dosis untuk diagnosis ini."
   },
   "settings": {
     "theme": "TEMA",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "Hapus kunci API Gemini",
     "removeKeyAlertMessage": "Fitur \"pendapat kedua\" tidak akan tersedia sampai Anda menambahkan kunci lagi.",
     "removeKeyAlertCancel": "Batal",
-    "removeKeyAlertConfirm": "Hapus"
+    "removeKeyAlertConfirm": "Hapus",
+    "assistantSection": "ASISTEN AI",
+    "assistantNotDownloaded": "Belum diunduh",
+    "assistantDownloaded": "Sudah diunduh",
+    "assistantDesc": "Menjalankan asisten obrolan offline di tab Tanya.",
+    "sttSection": "INPUT SUARA",
+    "sttNotDownloaded": "Belum diunduh",
+    "sttDownloaded": "Sudah diunduh",
+    "sttDesc": "Ucapan-ke-teks untuk input suara di Tanya — sepenuhnya offline, di perangkat.",
+    "removeSttModel": "Hapus model suara yang diunduh",
+    "removeSttModelAlertTitle": "Hapus model suara yang diunduh",
+    "removeSttModelAlertMessage": "Menghapus model ucapan-ke-teks yang diunduh dari perangkat ini. Anda dapat mengunduhnya lagi kapan saja.",
+    "removeSttModelAlertCancel": "Batal",
+    "removeSttModelAlertConfirm": "Hapus"
   },
   "ask": {
     "title": "Tanya",
@@ -150,7 +169,7 @@
     "setupButton": "Siapkan",
     "settingUp": "Menyiapkan… {{percent}}%",
     "removeModel": "Hapus model yang diunduh",
-    "placeholder": "Tanyakan tentang penyakit tanaman, dosis, atau praktik bertani…",
+    "placeholder": "Ajukan pertanyaan…",
     "send": "Kirim",
     "thinking": "Sedang berpikir…",
     "errorDownload": "Gagal mengunduh model. Periksa koneksi Anda dan coba lagi.",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "Hapus model yang diunduh",
     "removeModelAlertMessage": "Menghapus model AI yang diunduh dari perangkat ini. Anda dapat mengunduhnya lagi kapan saja.",
     "removeModelAlertCancel": "Batal",
-    "removeModelAlertConfirm": "Hapus"
+    "removeModelAlertConfirm": "Hapus",
+    "historyTitle": "Riwayat obrolan",
+    "historyEmpty": "Belum ada percakapan",
+    "historyEmptyPreview": "Percakapan baru",
+    "attachPickerTitle": "Lampirkan diagnosis",
+    "attachPickerSubtitle": "Menambahkan info perawatan dari diagnosis itu ke pertanyaan Anda — fotonya sendiri tidak dikirim ke model.",
+    "attachPickerEmpty": "Belum ada diagnosis sebelumnya",
+    "attachPickerLoadMore": "Muat lebih banyak",
+    "attachPickerCancel": "Batal",
+    "micDownloadConfirmTitle": "Unduh model input suara?",
+    "micDownloadConfirmMessage": "Unduhan satu kali (~{{size}} MB) model pengenalan suara kecil yang berjalan sepenuhnya di perangkat ini.",
+    "micDownloadConfirmCancel": "Batal",
+    "micDownloadConfirmConfirm": "Unduh",
+    "micDownloading": "Mengunduh model suara… {{percent}}%",
+    "micPreparing": "Menyiapkan input suara…",
+    "micRecording": "Merekam… ketuk untuk berhenti",
+    "micTranscribing": "Mentranskripsi…",
+    "micPermissionDenied": "Izin mikrofon diperlukan untuk input suara.",
+    "micError": "Tidak dapat mentranskripsi. Coba lagi."
   },
   "languagePicker": {
     "title": "Pilih bahasa Anda",

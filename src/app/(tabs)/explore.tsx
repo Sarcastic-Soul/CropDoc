@@ -9,7 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, Spacing } from '@/constants/theme';
+import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { getPlotTags, getScanHistoryPage, type ScanRecord } from '@/lib/db';
 import { getTreatment } from '@/lib/model/treatments';
@@ -115,9 +115,14 @@ export default function HistoryScreen() {
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
-        <ThemedText type="title" style={styles.title}>
-          {t('history.title')}
-        </ThemedText>
+        <View style={styles.titleRow}>
+          <ThemedText type="title" style={styles.title}>
+            {t('history.title')}
+          </ThemedText>
+          <Pressable onPress={() => router.push('/settings')} hitSlop={12} style={styles.settingsButton}>
+            <MaterialCommunityIcons name="cog-outline" size={24} color={theme.text} />
+          </Pressable>
+        </View>
 
         {plotTags.length > 0 && (
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.plotRow} contentContainerStyle={styles.plotRowContent}>
@@ -136,6 +141,9 @@ export default function HistoryScreen() {
         )}
 
         <View style={styles.filterRow}>
+          <ThemedText type="small" themeColor="textSecondary">
+            {t('history.filterLabel')}
+          </ThemedText>
           <Pressable
             onPress={() => setActivePicker('start')}
             style={[styles.filterChip, { backgroundColor: theme.backgroundElement }]}>
@@ -239,11 +247,19 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: Spacing.three,
   },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: Spacing.two,
+    marginBottom: Spacing.three,
+  },
   title: {
     fontSize: 32,
     lineHeight: 40,
-    marginTop: Spacing.two,
-    marginBottom: Spacing.three,
+  },
+  settingsButton: {
+    padding: Spacing.one,
   },
   plotRow: {
     marginBottom: Spacing.two,
@@ -278,7 +294,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.four,
   },
   list: {
-    paddingBottom: BottomTabInset + Spacing.three,
+    paddingBottom: Spacing.three,
     gap: Spacing.two,
   },
   footerLoader: {

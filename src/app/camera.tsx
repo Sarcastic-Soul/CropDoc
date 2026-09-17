@@ -1,7 +1,7 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import * as Network from 'expo-network';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet } from 'react-native';
@@ -14,6 +14,7 @@ import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function CameraScreen() {
+  const { mode } = useLocalSearchParams<{ mode?: string }>();
   const [permission, requestPermission] = useCameraPermissions();
   const [isOffline, setIsOffline] = useState<boolean | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
@@ -32,6 +33,10 @@ export default function CameraScreen() {
     try {
       const photo = await cameraRef.current.takePictureAsync({ quality: 0.9, exif: false });
       if (!photo) return;
+      if (mode === 'label-scan') {
+        router.replace({ pathname: '/(tabs)/dosage', params: { labelScanUri: photo.uri } });
+        return;
+      }
       router.replace({
         pathname: '/result',
         params: { uri: photo.uri, width: String(photo.width), height: String(photo.height) },
@@ -74,7 +79,7 @@ export default function CameraScreen() {
           <ThemedView style={styles.shutterInner} />
         </Pressable>
         <ThemedText type="small" style={styles.hint}>
-          {t('camera.hint')}
+          {mode === 'label-scan' ? t('camera.hintLabel') : t('camera.hint')}
         </ThemedText>
       </SafeAreaView>
     </ThemedView>

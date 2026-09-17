@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "एक पत्ती पर कैमरा फोकस करें, फ्रेम भरें, स्कैन करने के लिए टैप करें",
-    "permissionMessage": "फ़सल की पत्तियों की फ़ोटो लेने के लिए CropDoc को आपके कैमरे की आवश्यकता है।"
+    "permissionMessage": "फ़सल की पत्तियों की फ़ोटो लेने के लिए CropDoc को आपके कैमरे की आवश्यकता है।",
+    "hintLabel": "लेबल की खुराक दर पर इंगित करें, फ़्रेम भरें, स्कैन करने के लिए टैप करें"
   },
   "cameraPermission": {
     "title": "कैमरा एक्सेस चाहिए",
@@ -64,7 +65,8 @@
     "clear": "हटाएं",
     "emptyFiltered": "इस तारीख़ सीमा में कोई स्कैन नहीं है।",
     "emptyDefault": "अभी तक कोई स्कैन नहीं है। यहाँ देखने के लिए स्कैन टैब से किसी पत्ती का निदान करें।",
-    "batchRow": "बैच स्कैन · {{count}} पत्तियां"
+    "batchRow": "बैच स्कैन · {{count}} पत्तियां",
+    "filterLabel": "फ़िल्टर:"
   },
   "plot": {
     "worse": "पिछले स्कैन की तुलना में इस प्लॉट की स्थिति ख़राब लग रही है।",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "उदा. 2",
     "waterPerHectarePlaceholder": "उदा. 500",
     "plantCountPlaceholder": "उदा. 40",
-    "waterPerPlantPlaceholder": "उदा. 300"
+    "waterPerPlantPlaceholder": "उदा. 300",
+    "cropLabel": "फ़सल",
+    "selectCrop": "फ़सल चुनें",
+    "selectDisease": "रोग चुनें",
+    "noDosageGuidance": "इस निदान के लिए कोई खुराक मार्गदर्शन उपलब्ध नहीं है।"
   },
   "settings": {
     "theme": "थीम",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "Gemini API कुंजी हटाएं",
     "removeKeyAlertMessage": "जब तक आप दोबारा कुंजी नहीं जोड़ते, \"दूसरी राय\" सुविधा उपलब्ध नहीं होगी।",
     "removeKeyAlertCancel": "रद्द करें",
-    "removeKeyAlertConfirm": "हटाएं"
+    "removeKeyAlertConfirm": "हटाएं",
+    "assistantSection": "एआई सहायक",
+    "assistantNotDownloaded": "डाउनलोड नहीं हुआ",
+    "assistantDownloaded": "डाउनलोड हो गया",
+    "assistantDesc": "आस्क टैब पर ऑफ़लाइन चैट सहायक चलाता है।",
+    "sttSection": "आवाज़ इनपुट",
+    "sttNotDownloaded": "डाउनलोड नहीं हुआ",
+    "sttDownloaded": "डाउनलोड हो गया",
+    "sttDesc": "आस्क में आवाज़ इनपुट के लिए स्पीच-टू-टेक्स्ट — पूरी तरह ऑफ़लाइन, डिवाइस पर।",
+    "removeSttModel": "डाउनलोड किया गया आवाज़ मॉडल हटाएं",
+    "removeSttModelAlertTitle": "डाउनलोड किया गया आवाज़ मॉडल हटाएं",
+    "removeSttModelAlertMessage": "इस डिवाइस से डाउनलोड किया गया स्पीच-टू-टेक्स्ट मॉडल हटा देता है। आप इसे कभी भी फिर से डाउनलोड कर सकते हैं।",
+    "removeSttModelAlertCancel": "रद्द करें",
+    "removeSttModelAlertConfirm": "हटाएं"
   },
   "ask": {
     "title": "पूछें",
@@ -150,7 +169,7 @@
     "setupButton": "सेट अप करें",
     "settingUp": "सेट अप हो रहा है… {{percent}}%",
     "removeModel": "डाउनलोड किया मॉडल हटाएं",
-    "placeholder": "फ़सल के रोगों, मात्रा, या खेती के तरीकों के बारे में पूछें…",
+    "placeholder": "एक सवाल पूछें…",
     "send": "भेजें",
     "thinking": "सोच रहा है…",
     "errorDownload": "मॉडल डाउनलोड नहीं हो सका। अपना कनेक्शन जांचें और फिर से प्रयास करें।",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "डाउनलोड किया मॉडल हटाएं",
     "removeModelAlertMessage": "इस डिवाइस से डाउनलोड किए गए AI मॉडल को हटा देता है। आप इसे कभी भी फिर से डाउनलोड कर सकते हैं।",
     "removeModelAlertCancel": "रद्द करें",
-    "removeModelAlertConfirm": "हटाएं"
+    "removeModelAlertConfirm": "हटाएं",
+    "historyTitle": "चैट इतिहास",
+    "historyEmpty": "अभी तक कोई बातचीत नहीं",
+    "historyEmptyPreview": "नई बातचीत",
+    "attachPickerTitle": "निदान संलग्न करें",
+    "attachPickerSubtitle": "यह उस स्कैन की उपचार जानकारी आपके सवाल में जोड़ देगा — फोटो मॉडल को नहीं भेजी जाती।",
+    "attachPickerEmpty": "अभी तक कोई पिछला निदान नहीं",
+    "attachPickerLoadMore": "और लोड करें",
+    "attachPickerCancel": "रद्द करें",
+    "micDownloadConfirmTitle": "आवाज़ इनपुट मॉडल डाउनलोड करें?",
+    "micDownloadConfirmMessage": "एक छोटे वाक् पहचान मॉडल की एक बार की डाउनलोड (~{{size}} MB) जो पूरी तरह इसी डिवाइस पर चलता है।",
+    "micDownloadConfirmCancel": "रद्द करें",
+    "micDownloadConfirmConfirm": "डाउनलोड करें",
+    "micDownloading": "आवाज़ मॉडल डाउनलोड हो रहा है… {{percent}}%",
+    "micPreparing": "आवाज़ इनपुट तैयार हो रहा है…",
+    "micRecording": "रिकॉर्डिंग हो रही है… रोकने के लिए टैप करें",
+    "micTranscribing": "ट्रांसक्राइब हो रहा है…",
+    "micPermissionDenied": "आवाज़ इनपुट के लिए माइक्रोफ़ोन अनुमति आवश्यक है।",
+    "micError": "ट्रांसक्राइब नहीं हो सका। फिर कोशिश करें।"
   },
   "languagePicker": {
     "title": "अपनी भाषा चुनें",

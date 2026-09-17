@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "Point at a single leaf, fill the frame, tap to scan",
-    "permissionMessage": "CropDoc needs your camera to photograph crop leaves for diagnosis."
+    "permissionMessage": "CropDoc needs your camera to photograph crop leaves for diagnosis.",
+    "hintLabel": "Point at the label's dosage rate, fill the frame, tap to scan"
   },
   "cameraPermission": {
     "title": "Camera access needed",
@@ -64,7 +65,8 @@
     "clear": "Clear",
     "emptyFiltered": "No scans in this date range.",
     "emptyDefault": "No scans yet. Diagnose a leaf from the Scan tab to see it here.",
-    "batchRow": "Batch scan · {{count}} leaves"
+    "batchRow": "Batch scan · {{count}} leaves",
+    "filterLabel": "Filter:"
   },
   "plot": {
     "worse": "Looks worse than the last scan for this plot.",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "e.g. 2",
     "waterPerHectarePlaceholder": "e.g. 500",
     "plantCountPlaceholder": "e.g. 40",
-    "waterPerPlantPlaceholder": "e.g. 300"
+    "waterPerPlantPlaceholder": "e.g. 300",
+    "cropLabel": "CROP",
+    "selectCrop": "Select crop",
+    "selectDisease": "Select disease",
+    "noDosageGuidance": "No dosage guidance available for this diagnosis."
   },
   "settings": {
     "theme": "THEME",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "Remove Gemini API key",
     "removeKeyAlertMessage": "The \"second opinion\" feature will be unavailable until you add a key again.",
     "removeKeyAlertCancel": "Cancel",
-    "removeKeyAlertConfirm": "Remove"
+    "removeKeyAlertConfirm": "Remove",
+    "assistantSection": "AI ASSISTANT",
+    "assistantNotDownloaded": "Not downloaded",
+    "assistantDownloaded": "Downloaded",
+    "assistantDesc": "Runs the offline chat assistant on the Ask tab.",
+    "sttSection": "VOICE INPUT",
+    "sttNotDownloaded": "Not downloaded",
+    "sttDownloaded": "Downloaded",
+    "sttDesc": "Speech-to-text for voice input in Ask — fully offline, on-device.",
+    "removeSttModel": "Remove downloaded speech model",
+    "removeSttModelAlertTitle": "Remove downloaded speech model",
+    "removeSttModelAlertMessage": "Deletes the downloaded speech-to-text model from this device. You can download it again anytime.",
+    "removeSttModelAlertCancel": "Cancel",
+    "removeSttModelAlertConfirm": "Remove"
   },
   "ask": {
     "title": "Ask",
@@ -150,7 +169,7 @@
     "setupButton": "Set up",
     "settingUp": "Setting up… {{percent}}%",
     "removeModel": "Remove downloaded model",
-    "placeholder": "Ask about crop diseases, dosage, or farming practices…",
+    "placeholder": "Ask a question…",
     "send": "Send",
     "thinking": "Thinking…",
     "errorDownload": "Couldn't download the model. Check your connection and try again.",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "Remove downloaded model",
     "removeModelAlertMessage": "Deletes the downloaded AI model from this device. You can download it again anytime.",
     "removeModelAlertCancel": "Cancel",
-    "removeModelAlertConfirm": "Remove"
+    "removeModelAlertConfirm": "Remove",
+    "historyTitle": "Chat history",
+    "historyEmpty": "No conversations yet",
+    "historyEmptyPreview": "New conversation",
+    "attachPickerTitle": "Attach a diagnosis",
+    "attachPickerSubtitle": "Adds that scan's treatment info to your question — the photo itself isn't sent to the model.",
+    "attachPickerEmpty": "No past diagnoses yet",
+    "attachPickerLoadMore": "Load more",
+    "attachPickerCancel": "Cancel",
+    "micDownloadConfirmTitle": "Download voice input model?",
+    "micDownloadConfirmMessage": "One-time download (~{{size}} MB) of a small speech-recognition model that runs fully on this device.",
+    "micDownloadConfirmCancel": "Cancel",
+    "micDownloadConfirmConfirm": "Download",
+    "micDownloading": "Downloading voice model… {{percent}}%",
+    "micPreparing": "Preparing voice input…",
+    "micRecording": "Recording… tap to stop",
+    "micTranscribing": "Transcribing…",
+    "micPermissionDenied": "Microphone permission is needed for voice input.",
+    "micError": "Couldn't transcribe that. Try again."
   },
   "languagePicker": {
     "title": "Choose your language",

@@ -17,6 +17,7 @@ import { getSecondOpinion } from '@/lib/gemini';
 import { classifyLeaf, type Prediction } from '@/lib/model/inference';
 import { preprocessForModel } from '@/lib/model/preprocess';
 import { getTreatment, type Treatment } from '@/lib/model/treatments';
+import { persistScanPhoto } from '@/lib/scan-photo';
 
 export default function ResultScreen() {
   const { uri, width, height } = useLocalSearchParams<{ uri: string; width: string; height: string }>();
@@ -68,8 +69,10 @@ export default function ResultScreen() {
         const treatmentInfo = getTreatment(result.label);
         setPrediction(result);
         setTreatment(treatmentInfo);
+        const persistedUri = await persistScanPhoto(uri);
+        if (cancelled) return;
         const id = await saveScan({
-          photoUri: uri,
+          photoUri: persistedUri,
           label: result.label,
           displayName: treatmentInfo.displayName,
           confidence: result.confidence,

@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "对准单片叶子，充满取景框，点击进行扫描",
-    "permissionMessage": "CropDoc 需要使用您的相机拍摄作物叶片以进行诊断。"
+    "permissionMessage": "CropDoc 需要使用您的相机拍摄作物叶片以进行诊断。",
+    "hintLabel": "对准标签上的用量，填满取景框，点击扫描"
   },
   "cameraPermission": {
     "title": "需要相机权限",
@@ -64,7 +65,8 @@
     "clear": "清除",
     "emptyFiltered": "此日期范围内没有扫描记录。",
     "emptyDefault": "还没有扫描记录。请在扫描标签页诊断一片叶子，即可在此查看。",
-    "batchRow": "批量扫描 · {{count}} 片叶子"
+    "batchRow": "批量扫描 · {{count}} 片叶子",
+    "filterLabel": "筛选："
   },
   "plot": {
     "worse": "与上次扫描相比，此地块的情况看起来更严重了。",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "例如 2",
     "waterPerHectarePlaceholder": "例如 500",
     "plantCountPlaceholder": "例如 40",
-    "waterPerPlantPlaceholder": "例如 300"
+    "waterPerPlantPlaceholder": "例如 300",
+    "cropLabel": "作物",
+    "selectCrop": "选择作物",
+    "selectDisease": "选择病害",
+    "noDosageGuidance": "此诊断暂无剂量指导。"
   },
   "settings": {
     "theme": "主题",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "移除 Gemini API 密钥",
     "removeKeyAlertMessage": "在您重新添加密钥之前，\"第二意见\"功能将无法使用。",
     "removeKeyAlertCancel": "取消",
-    "removeKeyAlertConfirm": "移除"
+    "removeKeyAlertConfirm": "移除",
+    "assistantSection": "AI 助手",
+    "assistantNotDownloaded": "未下载",
+    "assistantDownloaded": "已下载",
+    "assistantDesc": "在“问答”标签页运行离线聊天助手。",
+    "sttSection": "语音输入",
+    "sttNotDownloaded": "未下载",
+    "sttDownloaded": "已下载",
+    "sttDesc": "用于问答语音输入的语音转文字——完全离线，设备本地运行。",
+    "removeSttModel": "删除已下载的语音模型",
+    "removeSttModelAlertTitle": "删除已下载的语音模型",
+    "removeSttModelAlertMessage": "从此设备删除已下载的语音转文字模型。您可以随时重新下载。",
+    "removeSttModelAlertCancel": "取消",
+    "removeSttModelAlertConfirm": "删除"
   },
   "ask": {
     "title": "问答",
@@ -150,7 +169,7 @@
     "setupButton": "设置",
     "settingUp": "正在设置… {{percent}}%",
     "removeModel": "移除已下载的模型",
-    "placeholder": "询问作物病害、用药剂量或种植方法…",
+    "placeholder": "输入你的问题…",
     "send": "发送",
     "thinking": "思考中…",
     "errorDownload": "无法下载模型。请检查您的网络连接并重试。",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "移除已下载的模型",
     "removeModelAlertMessage": "从此设备中删除已下载的 AI 模型。您可以随时重新下载。",
     "removeModelAlertCancel": "取消",
-    "removeModelAlertConfirm": "移除"
+    "removeModelAlertConfirm": "移除",
+    "historyTitle": "聊天记录",
+    "historyEmpty": "还没有对话",
+    "historyEmptyPreview": "新对话",
+    "attachPickerTitle": "附加诊断",
+    "attachPickerSubtitle": "会把该次诊断的治疗信息加入你的问题——照片本身不会发送给模型。",
+    "attachPickerEmpty": "还没有过往诊断",
+    "attachPickerLoadMore": "加载更多",
+    "attachPickerCancel": "取消",
+    "micDownloadConfirmTitle": "下载语音输入模型？",
+    "micDownloadConfirmMessage": "一次性下载（约 {{size}} MB）一个完全在本设备上运行的小型语音识别模型。",
+    "micDownloadConfirmCancel": "取消",
+    "micDownloadConfirmConfirm": "下载",
+    "micDownloading": "正在下载语音模型…{{percent}}%",
+    "micPreparing": "正在准备语音输入…",
+    "micRecording": "正在录音…点按停止",
+    "micTranscribing": "正在转录…",
+    "micPermissionDenied": "语音输入需要麦克风权限。",
+    "micError": "无法转录，请重试。"
   },
   "languagePicker": {
     "title": "选择您的语言",

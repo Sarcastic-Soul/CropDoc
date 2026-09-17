@@ -28,7 +28,8 @@
   },
   "camera": {
     "hint": "Hướng vào một lá cây, lấp đầy khung hình, chạm để quét",
-    "permissionMessage": "CropDoc cần quyền truy cập máy ảnh để chụp ảnh lá cây trồng phục vụ chẩn đoán."
+    "permissionMessage": "CropDoc cần quyền truy cập máy ảnh để chụp ảnh lá cây trồng phục vụ chẩn đoán.",
+    "hintLabel": "Hướng vào liều lượng trên nhãn, lấp đầy khung hình, chạm để quét"
   },
   "cameraPermission": {
     "title": "Cần quyền truy cập máy ảnh",
@@ -64,7 +65,8 @@
     "clear": "Xóa",
     "emptyFiltered": "Không có lượt quét nào trong khoảng thời gian này.",
     "emptyDefault": "Chưa có lượt quét nào. Hãy chẩn đoán một lá cây từ tab Quét để xem tại đây.",
-    "batchRow": "Quét hàng loạt · {{count}} lá"
+    "batchRow": "Quét hàng loạt · {{count}} lá",
+    "filterLabel": "Lọc:"
   },
   "plot": {
     "worse": "Có vẻ nặng hơn so với lần quét trước của lô này.",
@@ -103,7 +105,11 @@
     "plotSizePlaceholder": "VD: 2",
     "waterPerHectarePlaceholder": "VD: 500",
     "plantCountPlaceholder": "VD: 40",
-    "waterPerPlantPlaceholder": "VD: 300"
+    "waterPerPlantPlaceholder": "VD: 300",
+    "cropLabel": "CÂY TRỒNG",
+    "selectCrop": "Chọn cây trồng",
+    "selectDisease": "Chọn bệnh",
+    "noDosageGuidance": "Không có hướng dẫn liều lượng cho chẩn đoán này."
   },
   "settings": {
     "theme": "GIAO DIỆN",
@@ -135,7 +141,20 @@
     "removeKeyAlertTitle": "Xóa khóa API Gemini",
     "removeKeyAlertMessage": "Tính năng \"ý kiến thứ hai\" sẽ không khả dụng cho đến khi bạn thêm lại khóa.",
     "removeKeyAlertCancel": "Hủy",
-    "removeKeyAlertConfirm": "Xóa"
+    "removeKeyAlertConfirm": "Xóa",
+    "assistantSection": "TRỢ LÝ AI",
+    "assistantNotDownloaded": "Chưa tải xuống",
+    "assistantDownloaded": "Đã tải xuống",
+    "assistantDesc": "Chạy trợ lý trò chuyện ngoại tuyến trên tab Hỏi.",
+    "sttSection": "NHẬP LIỆU BẰNG GIỌNG NÓI",
+    "sttNotDownloaded": "Chưa tải xuống",
+    "sttDownloaded": "Đã tải xuống",
+    "sttDesc": "Chuyển giọng nói thành văn bản cho mục Hỏi — hoàn toàn ngoại tuyến, trên thiết bị.",
+    "removeSttModel": "Xóa mô hình giọng nói đã tải",
+    "removeSttModelAlertTitle": "Xóa mô hình giọng nói đã tải",
+    "removeSttModelAlertMessage": "Xóa mô hình chuyển giọng nói thành văn bản đã tải khỏi thiết bị này. Bạn có thể tải lại bất cứ lúc nào.",
+    "removeSttModelAlertCancel": "Hủy",
+    "removeSttModelAlertConfirm": "Xóa"
   },
   "ask": {
     "title": "Hỏi đáp",
@@ -150,7 +169,7 @@
     "setupButton": "Thiết lập",
     "settingUp": "Đang thiết lập… {{percent}}%",
     "removeModel": "Xóa mô hình đã tải",
-    "placeholder": "Hỏi về bệnh cây trồng, liều lượng, hoặc kỹ thuật canh tác…",
+    "placeholder": "Đặt câu hỏi…",
     "send": "Gửi",
     "thinking": "Đang suy nghĩ…",
     "errorDownload": "Không thể tải mô hình. Kiểm tra kết nối của bạn và thử lại.",
@@ -162,7 +181,25 @@
     "removeModelAlertTitle": "Xóa mô hình đã tải",
     "removeModelAlertMessage": "Xóa mô hình AI đã tải khỏi thiết bị này. Bạn có thể tải lại bất cứ lúc nào.",
     "removeModelAlertCancel": "Hủy",
-    "removeModelAlertConfirm": "Xóa"
+    "removeModelAlertConfirm": "Xóa",
+    "historyTitle": "Lịch sử trò chuyện",
+    "historyEmpty": "Chưa có cuộc trò chuyện nào",
+    "historyEmptyPreview": "Cuộc trò chuyện mới",
+    "attachPickerTitle": "Đính kèm chẩn đoán",
+    "attachPickerSubtitle": "Thêm thông tin điều trị của lần chẩn đoán đó vào câu hỏi của bạn — ảnh không được gửi cho mô hình.",
+    "attachPickerEmpty": "Chưa có chẩn đoán trước đó",
+    "attachPickerLoadMore": "Tải thêm",
+    "attachPickerCancel": "Hủy",
+    "micDownloadConfirmTitle": "Tải mô hình nhập liệu bằng giọng nói?",
+    "micDownloadConfirmMessage": "Tải xuống một lần (~{{size}} MB) một mô hình nhận dạng giọng nói nhỏ chạy hoàn toàn trên thiết bị này.",
+    "micDownloadConfirmCancel": "Hủy",
+    "micDownloadConfirmConfirm": "Tải xuống",
+    "micDownloading": "Đang tải mô hình giọng nói… {{percent}}%",
+    "micPreparing": "Đang chuẩn bị nhập liệu bằng giọng nói…",
+    "micRecording": "Đang ghi âm… chạm để dừng",
+    "micTranscribing": "Đang chuyển thành văn bản…",
+    "micPermissionDenied": "Cần quyền truy cập micrô để nhập liệu bằng giọng nói.",
+    "micError": "Không thể chuyển thành văn bản. Hãy thử lại."
   },
   "languagePicker": {
     "title": "Chọn ngôn ngữ của bạn",

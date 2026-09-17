@@ -1,7 +1,7 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Constants from 'expo-constants';
-import { useRouter } from 'expo-router';
-import { useState, type ComponentProps } from 'react';
+import { useFocusEffect, useRouter } from 'expo-router';
+import { useCallback, useState, type ComponentProps } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Pressable, StyleSheet, TextInput } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -15,8 +15,13 @@ import { useGeminiKey } from '@/contexts/gemini-key';
 import { useLanguagePreference } from '@/contexts/language-preference';
 import { type ThemePreference, useThemePreference } from '@/contexts/theme-preference';
 import { useTheme } from '@/hooks/use-theme';
-import { clearScanHistory } from '@/lib/db';
+import { clearScanHistory, clearTreatmentEmbeddings } from '@/lib/db';
 import { SUPPORTED_LANGUAGES } from '@/lib/i18n';
+import { isLlmReady, releaseLlm } from '@/lib/llm/engine';
+import { deleteModelFile, isModelDownloaded } from '@/lib/llm/model-file';
+import { isSttReady, releaseStt } from '@/lib/stt/engine';
+import { deleteModelFile as deleteSttModelFile, isModelDownloaded as isSttModelDownloaded } from '@/lib/stt/model-file';
+import { stopSpeaking } from '@/lib/tts';
 
 type IconName = ComponentProps<typeof MaterialCommunityIcons>['name'];
 
@@ -26,9 +31,21 @@ const THEME_OPTIONS: { value: ThemePreference; labelKey: string; icon: IconName 
   { value: 'dark', labelKey: 'settings.themeDark', icon: 'weather-night' },
 ];
 
+type AssistantStatus = 'not-downloaded' | 'downloaded' | 'ready';
+
+function computeAssistantStatus(): AssistantStatus {
+  return isLlmReady() ? 'ready' : isModelDownloaded() ? 'downloaded' : 'not-downloaded';
+}
+
+function computeSttStatus(): AssistantStatus {
+  return isSttReady() ? 'ready' : isSttModelDownloaded() ? 'downloaded' : 'not-downloaded';
+}
+
 export default function SettingsScreen() {
   const [isClearing, setIsClearing] = useState(false);
   const [draftKey, setDraftKey] = useState('');
+  const [assistantStatus, setAssistantStatus] = useState<AssistantStatus>(computeAssistantStatus);
+  const [sttStatus, setSttStatus] = useState<AssistantStatus>(computeSttStatus);
   const { preference, setPreference } = useThemePreference();
   const { apiKey, setApiKey } = useGeminiKey();
   const { language } = useLanguagePreference();
@@ -37,6 +54,45 @@ export default function SettingsScreen() {
   const { t } = useTranslation();
 
   const currentLanguage = SUPPORTED_LANGUAGES.find((option) => option.code === language);
+
+  useFocusEffect(
+    useCallback(() => {
+      setAssistantStatus(computeAssistantStatus());
+      setSttStatus(computeSttStatus());
+    }, [])
+  );
+
+  function handleRemoveAssistantModel() {
+    Alert.alert(t('ask.removeModelAlertTitle'), t('ask.removeModelAlertMessage'), [
+      { text: t('ask.removeModelAlertCancel'), style: 'cancel' },
+      {
+        text: t('ask.removeModelAlertConfirm'),
+        style: 'destructive',
+        onPress: async () => {
+          stopSpeaking();
+          await releaseLlm();
+          deleteModelFile();
+          await clearTreatmentEmbeddings();
+          setAssistantStatus('not-downloaded');
+        },
+      },
+    ]);
+  }
+
+  function handleRemoveSttModel() {
+    Alert.alert(t('settings.removeSttModelAlertTitle'), t('settings.removeSttModelAlertMessage'), [
+      { text: t('settings.removeSttModelAlertCancel'), style: 'cancel' },
+      {
+        text: t('settings.removeSttModelAlertConfirm'),
+        style: 'destructive',
+        onPress: async () => {
+          await releaseStt();
+          deleteSttModelFile();
+          setSttStatus('not-downloaded');
+        },
+      },
+    ]);
+  }
 
   function handleClearHistory() {
     Alert.alert(t('settings.clearHistoryAlertTitle'), t('settings.clearHistoryAlertMessage'), [
@@ -113,6 +169,48 @@ export default function SettingsScreen() {
               <ThemedText type="small" themeColor="textSecondary">
                 {t('settings.onDeviceModelDesc')}
               </ThemedText>
+            </ThemedView>
+          </ThemedView>
+
+          <ThemedView style={styles.section}>
+            <ThemedText type="smallBold" themeColor="textSecondary">
+              {t('settings.assistantSection')}
+            </ThemedText>
+            <ThemedView type="backgroundElement" style={styles.row}>
+              <ThemedText type="default">
+                {assistantStatus === 'not-downloaded' ? t('settings.assistantNotDownloaded') : t('settings.assistantDownloaded')}
+              </ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                {t('settings.assistantDesc')}
+              </ThemedText>
+              {assistantStatus !== 'not-downloaded' && (
+                <Pressable onPress={handleRemoveAssistantModel} style={styles.linkButton}>
+                  <ThemedText type="small" style={styles.dangerText}>
+                    {t('ask.removeModel')}
+                  </ThemedText>
+                </Pressable>
+              )}
+            </ThemedView>
+          </ThemedView>
+
+          <ThemedView style={styles.section}>
+            <ThemedText type="smallBold" themeColor="textSecondary">
+              {t('settings.sttSection')}
+            </ThemedText>
+            <ThemedView type="backgroundElement" style={styles.row}>
+              <ThemedText type="default">
+                {sttStatus === 'not-downloaded' ? t('settings.sttNotDownloaded') : t('settings.sttDownloaded')}
+              </ThemedText>
+              <ThemedText type="small" themeColor="textSecondary">
+                {t('settings.sttDesc')}
+              </ThemedText>
+              {sttStatus !== 'not-downloaded' && (
+                <Pressable onPress={handleRemoveSttModel} style={styles.linkButton}>
+                  <ThemedText type="small" style={styles.dangerText}>
+                    {t('settings.removeSttModel')}
+                  </ThemedText>
+                </Pressable>
+              )}
             </ThemedView>
           </ThemedView>
 

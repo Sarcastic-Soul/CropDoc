@@ -44,3 +44,48 @@ export const LABELS = [
 ] as const;
 
 export type Label = (typeof LABELS)[number];
+
+// Not derivable by parsing the label strings (e.g. "Cedar Apple Rust" isn't
+// crop-prefixed) — maintained by hand alongside LABELS.
+export const LABEL_TO_CROP: Record<Label, string> = {
+  'Apple Scab': 'Apple',
+  'Apple with Black Rot': 'Apple',
+  'Cedar Apple Rust': 'Apple',
+  'Healthy Apple': 'Apple',
+  'Healthy Blueberry Plant': 'Blueberry',
+  'Cherry with Powdery Mildew': 'Cherry',
+  'Healthy Cherry Plant': 'Cherry',
+  'Corn (Maize) with Cercospora and Gray Leaf Spot': 'Corn (Maize)',
+  'Corn (Maize) with Common Rust': 'Corn (Maize)',
+  'Corn (Maize) with Northern Leaf Blight': 'Corn (Maize)',
+  'Healthy Corn (Maize) Plant': 'Corn (Maize)',
+  'Grape with Black Rot': 'Grape',
+  'Grape with Esca (Black Measles)': 'Grape',
+  'Grape with Isariopsis Leaf Spot': 'Grape',
+  'Healthy Grape Plant': 'Grape',
+  'Orange with Citrus Greening': 'Orange',
+  'Peach with Bacterial Spot': 'Peach',
+  'Healthy Peach Plant': 'Peach',
+  'Bell Pepper with Bacterial Spot': 'Bell Pepper',
+  'Healthy Bell Pepper Plant': 'Bell Pepper',
+  'Potato with Early Blight': 'Potato',
+  'Potato with Late Blight': 'Potato',
+  'Healthy Potato Plant': 'Potato',
+  'Healthy Raspberry Plant': 'Raspberry',
+  'Healthy Soybean Plant': 'Soybean',
+  'Squash with Powdery Mildew': 'Squash',
+  'Strawberry with Leaf Scorch': 'Strawberry',
+  'Healthy Strawberry Plant': 'Strawberry',
+  'Tomato with Bacterial Spot': 'Tomato',
+  'Tomato with Early Blight': 'Tomato',
+  'Tomato with Late Blight': 'Tomato',
+  'Tomato with Leaf Mold': 'Tomato',
+  'Tomato with Septoria Leaf Spot': 'Tomato',
+  'Tomato with Spider Mites or Two-spotted Spider Mite': 'Tomato',
+  'Tomato with Target Spot': 'Tomato',
+  'Tomato Yellow Leaf Curl Virus': 'Tomato',
+  'Tomato Mosaic Virus': 'Tomato',
+  'Healthy Tomato Plant': 'Tomato',
+};
+
+export const CROPS: string[] = Array.from(new Set(LABELS.map((label) => LABEL_TO_CROP[label])));

@@ -11,6 +11,7 @@ import { Spacing, Tint } from '@/constants/theme';
 import { saveScan } from '@/lib/db';
 import type { BatchItem } from '@/lib/model/batch';
 import { getTreatment, SEVERITY_COLOR, SEVERITY_RANK } from '@/lib/model/treatments';
+import { persistScanPhoto } from '@/lib/scan-photo';
 
 export default function BatchSummaryScreen() {
   const { items } = useLocalSearchParams<{ items: string }>();
@@ -51,8 +52,9 @@ export default function BatchSummaryScreen() {
     try {
       const batchId = `batch-${Date.now()}`;
       for (const item of results) {
+        const photoUri = await persistScanPhoto(item.photoUri);
         await saveScan({
-          photoUri: item.photoUri,
+          photoUri,
           label: item.label,
           displayName: item.displayName,
           confidence: item.confidence,
