@@ -13,7 +13,8 @@
   },
   "tabs": {
     "home": "Nyumbani",
-    "history": "Historia"
+    "history": "Historia",
+    "dosage": "Dozi"
   },
   "home": {
     "title": "CropDoc",
@@ -106,8 +107,6 @@
     "keyPlaceholder": "Bandika ufunguo wako wa Gemini API",
     "saveKey": "Hifadhi ufunguo",
     "getFreeKey": "Pata ufunguo wa bure kutoka Google AI Studio",
-    "toolsSection": "ZANA",
-    "dosageCalculator": "Kikokotoo cha kipimo",
     "languageSection": "LUGHA",
     "changeLanguage": "Badilisha lugha",
     "dataSection": "DATA",

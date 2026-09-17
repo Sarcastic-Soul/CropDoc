@@ -13,7 +13,8 @@
   },
   "tabs": {
     "home": "হোম",
-    "history": "ইতিহাস"
+    "history": "ইতিহাস",
+    "dosage": "মাত্রা"
   },
   "home": {
     "title": "CropDoc",
@@ -106,8 +107,6 @@
     "keyPlaceholder": "আপনার Gemini API কী পেস্ট করুন",
     "saveKey": "কী সংরক্ষণ করুন",
     "getFreeKey": "Google AI Studio থেকে একটি ফ্রি কী নিন",
-    "toolsSection": "সরঞ্জাম",
-    "dosageCalculator": "মাত্রা ক্যালকুলেটর",
     "languageSection": "ভাষা",
     "changeLanguage": "ভাষা পরিবর্তন করুন",
     "dataSection": "তথ্য",

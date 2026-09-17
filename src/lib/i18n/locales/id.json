@@ -13,7 +13,8 @@
   },
   "tabs": {
     "home": "Beranda",
-    "history": "Riwayat"
+    "history": "Riwayat",
+    "dosage": "Dosis"
   },
   "home": {
     "title": "CropDoc",
@@ -106,8 +107,6 @@
     "keyPlaceholder": "Tempel kunci API Gemini Anda",
     "saveKey": "Simpan kunci",
     "getFreeKey": "Dapatkan kunci gratis dari Google AI Studio",
-    "toolsSection": "ALAT",
-    "dosageCalculator": "Kalkulator dosis",
     "languageSection": "BAHASA",
     "changeLanguage": "Ubah bahasa",
     "dataSection": "DATA",

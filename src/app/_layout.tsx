@@ -56,10 +56,6 @@ function AppShell() {
         <Stack.Screen name="plot/[tag]" options={{ title: t('nav.progression'), presentation: 'modal' }} />
         <Stack.Screen name="batch-summary" options={{ title: t('nav.batchResults'), presentation: 'modal' }} />
         <Stack.Screen name="batch/[batchId]" options={{ title: t('nav.batchScan'), presentation: 'modal' }} />
-        <Stack.Screen
-          name="dosage-calculator"
-          options={{ title: t('nav.dosageCalculator'), presentation: 'modal' }}
-        />
         <Stack.Screen name="language-picker" options={{ title: t('nav.language'), presentation: 'modal' }} />
         <Stack.Screen name="settings" options={{ title: t('nav.settings'), presentation: 'modal' }} />
       </Stack>

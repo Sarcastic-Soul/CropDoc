@@ -13,7 +13,8 @@
   },
   "tabs": {
     "home": "Inicio",
-    "history": "Historial"
+    "history": "Historial",
+    "dosage": "Dosis"
   },
   "home": {
     "title": "CropDoc",
@@ -106,8 +107,6 @@
     "keyPlaceholder": "Pega tu clave de la API de Gemini",
     "saveKey": "Guardar clave",
     "getFreeKey": "Obtén una clave gratuita en Google AI Studio",
-    "toolsSection": "HERRAMIENTAS",
-    "dosageCalculator": "Calculadora de dosis",
     "languageSection": "IDIOMA",
     "changeLanguage": "Cambiar idioma",
     "dataSection": "DATOS",

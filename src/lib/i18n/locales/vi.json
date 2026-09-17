@@ -13,7 +13,8 @@
   },
   "tabs": {
     "home": "Trang chủ",
-    "history": "Lịch sử"
+    "history": "Lịch sử",
+    "dosage": "Liều lượng"
   },
   "home": {
     "title": "CropDoc",
@@ -106,8 +107,6 @@
     "keyPlaceholder": "Dán khóa API Gemini của bạn",
     "saveKey": "Lưu khóa",
     "getFreeKey": "Lấy khóa miễn phí từ Google AI Studio",
-    "toolsSection": "CÔNG CỤ",
-    "dosageCalculator": "Máy tính liều lượng",
     "languageSection": "NGÔN NGỮ",
     "changeLanguage": "Đổi ngôn ngữ",
     "dataSection": "DỮ LIỆU",

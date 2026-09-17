@@ -67,7 +67,9 @@ export function DiagnosisResult({
         ))}
 
         {treatment.dosage && (
-          <Pressable onPress={() => router.push('/dosage-calculator')} style={styles.dosageButton}>
+          <Pressable
+            onPress={() => router.push({ pathname: '/dosage', params: { label: prediction.label } })}
+            style={styles.dosageButton}>
             <ThemedText type="small" style={styles.dosageButtonText}>
               {t('diagnosis.calculateDosage', { product: treatment.dosage.product })}
             </ThemedText>

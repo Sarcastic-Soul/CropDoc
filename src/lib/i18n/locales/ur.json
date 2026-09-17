@@ -13,7 +13,8 @@
   },
   "tabs": {
     "home": "ہوم",
-    "history": "ہسٹری"
+    "history": "ہسٹری",
+    "dosage": "خوراک"
   },
   "home": {
     "title": "CropDoc",
@@ -106,8 +107,6 @@
     "keyPlaceholder": "اپنی Gemini API کلید پیسٹ کریں",
     "saveKey": "کلید محفوظ کریں",
     "getFreeKey": "Google AI Studio سے مفت کلید حاصل کریں",
-    "toolsSection": "ٹولز",
-    "dosageCalculator": "خوراک کیلکولیٹر",
     "languageSection": "زبان",
     "changeLanguage": "زبان تبدیل کریں",
     "dataSection": "ڈیٹا",

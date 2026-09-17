@@ -163,18 +163,6 @@ export default function SettingsScreen() {
 
           <ThemedView style={styles.section}>
             <ThemedText type="smallBold" themeColor="textSecondary">
-              {t('settings.toolsSection')}
-            </ThemedText>
-            <Pressable
-              onPress={() => router.push('/dosage-calculator')}
-              style={[styles.row, styles.linkRow, { backgroundColor: theme.backgroundElement }]}>
-              <MaterialCommunityIcons name="beaker-outline" size={20} color={theme.text} />
-              <ThemedText type="default">{t('settings.dosageCalculator')}</ThemedText>
-            </Pressable>
-          </ThemedView>
-
-          <ThemedView style={styles.section}>
-            <ThemedText type="smallBold" themeColor="textSecondary">
               {t('settings.languageSection')}
             </ThemedText>
             <Pressable

@@ -13,7 +13,8 @@
   },
   "tabs": {
     "home": "首页",
-    "history": "历史记录"
+    "history": "历史记录",
+    "dosage": "剂量"
   },
   "home": {
     "title": "CropDoc",
@@ -106,8 +107,6 @@
     "keyPlaceholder": "粘贴您的 Gemini API 密钥",
     "saveKey": "保存密钥",
     "getFreeKey": "从 Google AI Studio 获取免费密钥",
-    "toolsSection": "工具",
-    "dosageCalculator": "用药量计算器",
     "languageSection": "语言",
     "changeLanguage": "更改语言",
     "dataSection": "数据",

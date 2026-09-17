@@ -13,7 +13,8 @@
   },
   "tabs": {
     "home": "होम",
-    "history": "इतिहास"
+    "history": "इतिहास",
+    "dosage": "खुराक"
   },
   "home": {
     "title": "CropDoc",
@@ -106,8 +107,6 @@
     "keyPlaceholder": "अपनी Gemini API कुंजी पेस्ट करें",
     "saveKey": "कुंजी सहेजें",
     "getFreeKey": "Google AI Studio से मुफ़्त कुंजी प्राप्त करें",
-    "toolsSection": "उपकरण",
-    "dosageCalculator": "खुराक कैलकुलेटर",
     "languageSection": "भाषा",
     "changeLanguage": "भाषा बदलें",
     "dataSection": "डेटा",
