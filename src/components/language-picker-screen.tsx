@@ -36,7 +36,15 @@ export function LanguagePickerScreen({ onSelected }: Props) {
                 key={option.code}
                 onPress={() => {
                   setLanguage(option.code);
-                  onSelected?.();
+                  // Defer the pop so it doesn't land in the same frame as the
+                  // Stack-wide re-render this triggers (every Stack.Screen's
+                  // title is re-derived via t() on language change) — doing
+                  // both at once corrupts react-native-screens' native
+                  // fragment state (IllegalStateException: ScreenStackFragment
+                  // added in...).
+                  if (onSelected) {
+                    setTimeout(onSelected, 0);
+                  }
                 }}
                 style={[
                   styles.row,
