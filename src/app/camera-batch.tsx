@@ -3,6 +3,7 @@ import { CameraView, useCameraPermissions } from 'expo-camera';
 import * as Network from 'expo-network';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -11,10 +12,10 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing, Tint } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
+import type { BatchItem } from '@/lib/model/batch';
 import { classifyLeaf } from '@/lib/model/inference';
 import { preprocessForModel } from '@/lib/model/preprocess';
 import { getTreatment } from '@/lib/model/treatments';
-import type { BatchItem } from '@/lib/model/batch';
 
 export default function CameraBatchScreen() {
   const [permission, requestPermission] = useCameraPermissions();
@@ -24,6 +25,7 @@ export default function CameraBatchScreen() {
   const cameraRef = useRef<CameraView>(null);
   const router = useRouter();
   const theme = useTheme();
+  const { t } = useTranslation();
 
   useEffect(() => {
     Network.getNetworkStateAsync().then((state) => setIsOffline(!state.isConnected));
@@ -61,12 +63,7 @@ export default function CameraBatchScreen() {
   }
 
   if (!permission.granted) {
-    return (
-      <CameraPermissionGate
-        message="CropDoc needs your camera to batch-scan crop leaves for diagnosis."
-        onRequest={requestPermission}
-      />
-    );
+    return <CameraPermissionGate message={t('cameraBatch.permissionMessage')} onRequest={requestPermission} />;
   }
 
   return (
@@ -80,20 +77,20 @@ export default function CameraBatchScreen() {
 
         <ThemedView type="backgroundElement" style={styles.countBadge}>
           <MaterialCommunityIcons name="leaf" size={14} color={theme.text} />
-          <ThemedText type="smallBold">{results.length} scanned</ThemedText>
+          <ThemedText type="smallBold">{t('cameraBatch.scannedCount', { count: results.length })}</ThemedText>
         </ThemedView>
 
         {isOffline && (
           <ThemedView type="backgroundElement" style={styles.offlineBadge}>
             <MaterialCommunityIcons name="wifi-off" size={14} color={theme.text} />
-            <ThemedText type="smallBold">Offline mode — diagnosis still works</ThemedText>
+            <ThemedText type="smallBold">{t('common.offlineBadge')}</ThemedText>
           </ThemedView>
         )}
       </SafeAreaView>
 
       <SafeAreaView style={styles.controls}>
         <ThemedText type="small" style={styles.hint}>
-          Point at a leaf, fill the frame, tap to scan — repeat for each leaf
+          {t('cameraBatch.hint')}
         </ThemedText>
         <ThemedView style={styles.controlsRow}>
           <Pressable
@@ -101,7 +98,7 @@ export default function CameraBatchScreen() {
             disabled={results.length === 0}
             style={[styles.finishButton, results.length === 0 && styles.finishButtonDisabled]}>
             <ThemedText type="default" style={styles.finishButtonText}>
-              Done
+              {t('cameraBatch.done')}
             </ThemedText>
           </Pressable>
 

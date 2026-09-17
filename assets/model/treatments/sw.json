@@ -1,0 +1,142 @@
+{
+  "_comment": "Keyed by exact id2label strings from linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification (see model/fetch_labels.py output). 'demo' classes have full curated treatment text (Stage 1 validation focus per BUILD-PLAN.md). Any other class the 38-way model predicts falls back to '_default' so the app never crashes on an out-of-scope class.",
+  "_default": {
+    "displayName": "Hali isiyotambulika",
+    "severity": "unknown",
+    "description": "Matokeo haya ni nje ya seti ya magonjwa yaliyoainishwa na programu. Uhakika na maelekezo ya matibabu yanaweza kuwa si ya kutegemewa sana.",
+    "treatment": [
+      "Tenga mmea ulioathirika ikiwezekana ili kuzuia kuenea.",
+      "Wasiliana na ofisi ya kilimo ya eneo lako kwa uchunguzi thabiti.",
+      "Piga picha tena kwenye mwanga mzuri, ukilenga jani moja lililoathirika, kwa matokeo bora zaidi."
+    ]
+  },
+  "Healthy Potato Plant": {
+    "displayName": "Viazi — Vyenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la viazi.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa baada ya mvua."
+    ]
+  },
+  "Potato with Early Blight": {
+    "displayName": "Viazi — Ukungu wa Mapema",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Alternaria solani) unaosababisha madoa meusi ya duara kwenye majani ya chini, yakienea juu.",
+    "treatment": [
+      "Ondoa na uangamize majani yaliyoathirika.",
+      "Nyunyizia dawa ya ukungu yenye chlorothalonil au shaba, ukirudia kila siku 7-10.",
+      "Zungusha mazao; epuka kupanda viazi/nyanya kwenye udongo uleule msimu ujao.",
+      "Boresha mzunguko wa hewa kati ya mimea na epuka kumwagilia juu ya majani."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya Chlorothalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Potato with Late Blight": {
+    "displayName": "Viazi — Ukungu wa Marehemu",
+    "severity": "severe",
+    "description": "Ugonjwa mkali wa ukungu wa maji (Phytophthora infestans) — kisababishi kilekile cha njaa kuu ya viazi ya Ireland. Huenea haraka wakati wa hali ya hewa ya baridi na unyevu.",
+    "treatment": [
+      "Chukua hatua mara moja: ondoa na uangamize sehemu zote za mmea zilizoathirika, usizitie kwenye mboji.",
+      "Nyunyizia dawa ya ukungu ya kimfumo (mfano metalaxyl au mancozeb) haraka iwezekanavyo.",
+      "Epuka kumwagilia juu ya mmea; mwagilia chini tu.",
+      "Ikiwa ni kali, angamiza mmea wote ili kulinda mazao jirani."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya Metalaxyl au mancozeb",
+      "rateMin": 2,
+      "rateMax": 2.5,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Nyanya — Zenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la nyanya.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa katika hali ya unyevu."
+    ]
+  },
+  "Tomato with Bacterial Spot": {
+    "displayName": "Nyanya — Madoa ya Bakteria",
+    "severity": "moderate",
+    "description": "Maambukizi ya bakteria (Xanthomonas spp.) yanayosababisha madoa madogo meusi yenye maji kwenye majani na matunda.",
+    "treatment": [
+      "Ondoa majani yaliyoathirika na uyaangamize, usiyatie kwenye mboji.",
+      "Nyunyizia dawa ya bakteria yenye shaba kila wiki wakati wa hali ya unyevu.",
+      "Epuka kushughulikia mimea myevu — bakteria huenea kwa urahisi kwa mikono na vifaa vyenye unyevu.",
+      "Tumia mbegu zisizo na ugonjwa na aina zinazostahimili msimu ujao."
+    ],
+    "dosage": {
+      "product": "Dawa ya bakteria yenye shaba",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Tomato with Early Blight": {
+    "displayName": "Nyanya — Ukungu wa Mapema",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Alternaria solani) unaosababisha madoa meusi yanayofanana na shabaha, yakianzia kwenye majani ya zamani, ya chini.",
+    "treatment": [
+      "Ondoa na uangamize majani ya chini yaliyoathirika.",
+      "Nyunyizia dawa ya ukungu yenye chlorothalonil au shaba kila siku 7-10.",
+      "Weka matandazo karibu na shina ili kuzuia udongo kurukia majani.",
+      "Egemeza au zungushia mimea ili kuboresha mzunguko wa hewa."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya Chlorothalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Late Blight": {
+    "displayName": "Nyanya — Ukungu wa Marehemu",
+    "severity": "severe",
+    "description": "Ugonjwa wa ukungu wa maji unaoenea haraka (Phytophthora infestans) unaosababisha madoa makubwa, meusi, yenye mafuta kwenye majani na matunda.",
+    "treatment": [
+      "Chukua hatua mara moja: ondoa na uangamize sehemu zilizoathirika, usizitie kwenye mboji.",
+      "Nyunyizia dawa ya ukungu ya kimfumo (mfano chlorothalonil au shaba) mara moja.",
+      "Epuka kumwagilia juu ya mmea; mwagilia chini tu.",
+      "Katika hali mbaya, ondoa mmea wote ili kulinda mazao mengine."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya Chlorothalonil au shaba",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Mahindi — Yenye Afya",
+    "severity": "none",
+    "description": "Hakuna dalili za ugonjwa zilizogunduliwa kwenye jani hili la mahindi.",
+    "treatment": [
+      "Hakuna matibabu yanayohitajika.",
+      "Endelea kufuatilia kila wiki, hasa wakati wa vipindi vya ukuaji vyenye unyevu."
+    ]
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Mahindi — Kutu ya Kawaida",
+    "severity": "moderate",
+    "description": "Ugonjwa wa fangasi (Puccinia sorghi) unaosababisha vipele vyekundu-kahawia kwenye pande zote za jani.",
+    "treatment": [
+      "Nyunyizia dawa ya ukungu ya majani (mfano azoxystrobin au propiconazole) ikiwa maambukizi ni makali kabla ya kutoa maua.",
+      "Panda aina za mahindi zinazostahimili kutu msimu ujao.",
+      "Ondoa mimea ya mahindi ya kujitokeza yenyewe inayoweza kubeba fangasi kati ya misimu.",
+      "Fuatilia kwa karibu — maambukizi madogo mara nyingi hayahitaji matibabu."
+    ],
+    "dosage": {
+      "product": "Dawa ya ukungu ya majani ya Azoxystrobin au propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  }
+}

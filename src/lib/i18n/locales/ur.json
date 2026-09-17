@@ -1,0 +1,131 @@
+{
+  "common": {
+    "offlineBadge": "آف لائن موڈ — تشخیص اب بھی کام کرتی ہے"
+  },
+  "nav": {
+    "diagnosis": "تشخیص",
+    "progression": "پیش رفت",
+    "batchResults": "بیچ کے نتائج",
+    "batchScan": "بیچ اسکین",
+    "dosageCalculator": "خوراک کیلکولیٹر",
+    "language": "زبان",
+    "settings": "ترتیبات"
+  },
+  "tabs": {
+    "home": "ہوم",
+    "history": "ہسٹری"
+  },
+  "home": {
+    "title": "CropDoc",
+    "subtitle": "پتے کی طرف اشارہ کریں، فوری تشخیص حاصل کریں — مکمل طور پر آف لائن، آلے پر ہی۔",
+    "openCamera": "کیمرہ کھولیں",
+    "uploadPhoto": "تصویر اپ لوڈ کریں",
+    "batchScan": "کھیت کا بیچ اسکین کریں"
+  },
+  "camera": {
+    "hint": "ایک پتے کی طرف اشارہ کریں، فریم کو بھریں، اسکین کرنے کے لیے تھپتھپائیں",
+    "permissionMessage": "CropDoc کو فصل کے پتوں کی تصویر لے کر تشخیص کے لیے آپ کے کیمرے کی ضرورت ہے۔"
+  },
+  "cameraPermission": {
+    "title": "کیمرے تک رسائی درکار ہے",
+    "grant": "کیمرے تک رسائی دیں"
+  },
+  "cameraBatch": {
+    "hint": "پتے کی طرف اشارہ کریں، فریم کو بھریں، اسکین کرنے کے لیے تھپتھپائیں — ہر پتے کے لیے دہرائیں",
+    "scannedCount": "{{count}} اسکین ہوئے",
+    "done": "مکمل",
+    "permissionMessage": "CropDoc کو فصل کے کئی پتوں کو بیچ میں اسکین کرنے کے لیے آپ کے کیمرے کی ضرورت ہے۔"
+  },
+  "result": {
+    "diagnosisFailed": "تشخیص ناکام ہوئی: {{error}}",
+    "analyzing": "آلے پر پتے کا تجزیہ ہو رہا ہے…"
+  },
+  "diagnosis": {
+    "confidenceOnDevice": "{{confidence}}% اعتماد · آلے پر",
+    "treatmentHeading": "علاج",
+    "calculateDosage": "{{product}} کے لیے خوراک کا حساب لگائیں",
+    "secondOpinionHeading": "دوسری رائے (آن لائن)",
+    "askGemini": "مزید تفصیلی وضاحت کے لیے Gemini سے پوچھیں",
+    "askingGemini": "Gemini سے پوچھا جا رہا ہے…",
+    "secondOpinionError": "اس وقت Gemini سے رابطہ نہیں ہو سکا۔ اوپر دی گئی آن ڈیوائس تشخیص اب بھی درست ہے۔"
+  },
+  "plotTag": {
+    "label": "پلاٹ / پودا",
+    "placeholder": "مثال: کھیت 2 - قطار 3 (اختیاری)"
+  },
+  "history": {
+    "title": "ہسٹری",
+    "from": "سے",
+    "to": "تک",
+    "clear": "صاف کریں",
+    "emptyFiltered": "اس تاریخ کی حد میں کوئی اسکین نہیں ہے۔",
+    "emptyDefault": "ابھی تک کوئی اسکین نہیں ہے۔ یہاں دیکھنے کے لیے اسکین ٹیب سے ایک پتے کی تشخیص کریں۔",
+    "batchRow": "بیچ اسکین · {{count}} پتے"
+  },
+  "plot": {
+    "worse": "اس پلاٹ کے پچھلے اسکین کے مقابلے میں بدتر لگتا ہے۔",
+    "better": "اس پلاٹ کے پچھلے اسکین کے بعد بہتری آ رہی ہے۔",
+    "same": "اس پلاٹ کے پچھلے اسکین کے بعد کوئی تبدیلی نہیں۔"
+  },
+  "batchSummary": {
+    "title": "{{count}} پتے اسکین ہوئے",
+    "worstFinding": "سب سے سنگین نتیجہ: {{name}}",
+    "saveAll": "سب کو ہسٹری میں محفوظ کریں",
+    "saving": "محفوظ ہو رہا ہے…"
+  },
+  "batchDetail": {
+    "title": "{{count}} پتے اسکین ہوئے"
+  },
+  "dosage": {
+    "diseaseLabel": "بیماری",
+    "measureByLabel": "پیمائش کا طریقہ",
+    "byArea": "پلاٹ کا رقبہ",
+    "byPlants": "پودوں کی تعداد",
+    "plotSizeLabel": "پلاٹ کا سائز",
+    "waterPerHectareLabel": "فی ہیکٹر اسپرے پانی (لیٹر)",
+    "plantCountLabel": "پودوں کی تعداد",
+    "waterPerPlantLabel": "فی پودا اسپرے پانی (ملی لیٹر)",
+    "typicalRate": "عام مقدار: {{min}}–{{max}} {{unit}}",
+    "resultLabel": "نتیجہ",
+    "resultOf": "{{product}} کی مقدار {{liters}} لیٹر پانی میں",
+    "disclaimer": "یہ نامزد پروڈکٹ کی عام لیبل شدہ مقدار ہے — ہمیشہ اپنے مخصوص پروڈکٹ کی ہدایات چیک کریں اور ان پر عمل کریں، کیونکہ برانڈز اور فارمولے مختلف ہوتے ہیں۔"
+  },
+  "settings": {
+    "theme": "تھیم",
+    "themeSystem": "سسٹم",
+    "themeLight": "لائٹ",
+    "themeDark": "ڈارک",
+    "diagnosisSection": "تشخیص",
+    "onDeviceModel": "آن ڈیوائس ماڈل",
+    "onDeviceModelDesc": "ہمیشہ فعال، مکمل طور پر آف لائن کام کرتا ہے",
+    "geminiSection": "Gemini دوسری رائے",
+    "keySaved": "کلید محفوظ ہو گئی (•••• {{last4}})",
+    "keySavedDesc": "آن لائن ہونے پر دستیاب۔ صرف اسی آلے پر خفیہ طور پر محفوظ ہے۔",
+    "removeKey": "کلید ہٹائیں",
+    "addKeyDesc": "اختیاری آن لائن \"دوسری رائے\" کی وضاحت فعال کرنے کے لیے اپنی مفت Gemini API کلید شامل کریں۔ صرف اسی آلے پر خفیہ طور پر محفوظ ہے — کبھی بھی ایپ کے ساتھ شامل نہیں کی جاتی۔",
+    "keyPlaceholder": "اپنی Gemini API کلید پیسٹ کریں",
+    "saveKey": "کلید محفوظ کریں",
+    "getFreeKey": "Google AI Studio سے مفت کلید حاصل کریں",
+    "toolsSection": "ٹولز",
+    "dosageCalculator": "خوراک کیلکولیٹر",
+    "languageSection": "زبان",
+    "changeLanguage": "زبان تبدیل کریں",
+    "dataSection": "ڈیٹا",
+    "clearHistory": "اسکین ہسٹری صاف کریں",
+    "aboutSection": "بارے میں",
+    "appName": "CropDoc",
+    "version": "ورژن {{version}}",
+    "clearHistoryAlertTitle": "اسکین ہسٹری صاف کریں",
+    "clearHistoryAlertMessage": "یہ اس آلے پر محفوظ تمام تشخیصات کو حذف کر دے گا۔ اسے واپس نہیں لایا جا سکتا۔",
+    "clearHistoryAlertCancel": "منسوخ کریں",
+    "clearHistoryAlertConfirm": "صاف کریں",
+    "removeKeyAlertTitle": "Gemini API کلید ہٹائیں",
+    "removeKeyAlertMessage": "جب تک آپ دوبارہ کلید شامل نہیں کرتے \"دوسری رائے\" کی خصوصیت دستیاب نہیں ہوگی۔",
+    "removeKeyAlertCancel": "منسوخ کریں",
+    "removeKeyAlertConfirm": "ہٹائیں"
+  },
+  "languagePicker": {
+    "title": "اپنی زبان منتخب کریں",
+    "subtitle": "آپ اسے بعد میں ترتیبات میں تبدیل کر سکتے ہیں۔"
+  }
+}

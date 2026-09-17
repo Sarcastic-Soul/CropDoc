@@ -1,0 +1,142 @@
+{
+  "_comment": "Keyed by exact id2label strings from linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification (see model/fetch_labels.py output). 'demo' classes have full curated treatment text (Stage 1 validation focus per BUILD-PLAN.md). Any other class the 38-way model predicts falls back to '_default' so the app never crashes on an out-of-scope class.",
+  "_default": {
+    "displayName": "Condition non reconnue",
+    "severity": "unknown",
+    "description": "Ce résultat sort de l'ensemble de maladies pris en charge par l'application. La confiance et les conseils de traitement peuvent être moins fiables.",
+    "treatment": [
+      "Isolez la plante affectée si possible pour limiter la propagation.",
+      "Consultez un service agricole local pour un diagnostic confirmé.",
+      "Reprenez la photo avec un bon éclairage, en vous concentrant sur une seule feuille affectée, pour un résultat plus clair."
+    ]
+  },
+  "Healthy Potato Plant": {
+    "displayName": "Pomme de terre — Saine",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de pomme de terre.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout après la pluie."
+    ]
+  },
+  "Potato with Early Blight": {
+    "displayName": "Pomme de terre — Alternariose (mildiou précoce)",
+    "severity": "moderate",
+    "description": "Maladie fongique (Alternaria solani) provoquant des taches sombres concentriques sur les feuilles basses, qui se propagent vers le haut.",
+    "treatment": [
+      "Retirez et détruisez les feuilles infectées.",
+      "Appliquez un fongicide à base de chlorothalonil ou de cuivre, en répétant tous les 7 à 10 jours.",
+      "Effectuez une rotation des cultures ; évitez de replanter pommes de terre/tomates dans le même sol la saison prochaine.",
+      "Améliorez la circulation de l'air entre les plants et évitez l'arrosage par le haut."
+    ],
+    "dosage": {
+      "product": "Fongicide au chlorothalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Potato with Late Blight": {
+    "displayName": "Pomme de terre — Mildiou",
+    "severity": "severe",
+    "description": "Maladie agressive causée par un oomycète (Phytophthora infestans) — le même pathogène responsable de la grande famine irlandaise. Se propage rapidement par temps frais et humide.",
+    "treatment": [
+      "Agissez immédiatement : retirez et détruisez tout le matériel végétal infecté, ne le compostez pas.",
+      "Appliquez un fongicide systémique (par ex. à base de métalaxyl ou de mancozèbe) dès que possible.",
+      "Évitez l'irrigation par aspersion ; arrosez uniquement à la base.",
+      "En cas de forte attaque, détruisez la plante entière pour protéger les cultures voisines."
+    ],
+    "dosage": {
+      "product": "Fongicide à base de métalaxyl ou de mancozèbe",
+      "rateMin": 2,
+      "rateMax": 2.5,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Tomate — Saine",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de tomate.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout en conditions humides."
+    ]
+  },
+  "Tomato with Bacterial Spot": {
+    "displayName": "Tomate — Tache bactérienne",
+    "severity": "moderate",
+    "description": "Infection bactérienne (Xanthomonas spp.) provoquant de petites taches sombres et détrempées sur les feuilles et les fruits.",
+    "treatment": [
+      "Retirez les feuilles infectées et détruisez-les, ne les compostez pas.",
+      "Appliquez un bactéricide à base de cuivre chaque semaine par temps humide.",
+      "Évitez de manipuler les plants mouillés — les bactéries se propagent facilement par les mains et outils humides.",
+      "Utilisez des semences saines et des variétés résistantes la saison prochaine."
+    ],
+    "dosage": {
+      "product": "Bactéricide à base de cuivre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Tomato with Early Blight": {
+    "displayName": "Tomate — Alternariose (mildiou précoce)",
+    "severity": "moderate",
+    "description": "Maladie fongique (Alternaria solani) provoquant des taches sombres en forme de cible, apparaissant d'abord sur les feuilles âgées et basses.",
+    "treatment": [
+      "Retirez et détruisez les feuilles basses affectées.",
+      "Appliquez un fongicide à base de chlorothalonil ou de cuivre tous les 7 à 10 jours.",
+      "Paillez la base pour éviter les éclaboussures de terre sur les feuilles.",
+      "Tuteurez ou palissez les plants pour améliorer la circulation de l'air."
+    ],
+    "dosage": {
+      "product": "Fongicide au chlorothalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Late Blight": {
+    "displayName": "Tomate — Mildiou",
+    "severity": "severe",
+    "description": "Maladie causée par un oomycète à propagation rapide (Phytophthora infestans) provoquant de larges taches sombres et huileuses sur les feuilles et les fruits.",
+    "treatment": [
+      "Agissez immédiatement : retirez et détruisez le matériel infecté, ne le compostez pas.",
+      "Appliquez immédiatement un fongicide systémique (par ex. chlorothalonil ou à base de cuivre).",
+      "Évitez l'arrosage par le haut ; arrosez uniquement à la base.",
+      "Dans les cas graves, retirez la plante entière pour protéger le reste de la culture."
+    ],
+    "dosage": {
+      "product": "Fongicide au chlorothalonil ou à base de cuivre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Maïs — Sain",
+    "severity": "none",
+    "description": "Aucun signe de maladie détecté sur cette feuille de maïs.",
+    "treatment": [
+      "Aucun traitement nécessaire.",
+      "Continuez à surveiller chaque semaine, surtout pendant les périodes de croissance humides."
+    ]
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Maïs — Rouille commune",
+    "severity": "moderate",
+    "description": "Maladie fongique (Puccinia sorghi) provoquant des pustules brun-rougeâtre sur les deux faces de la feuille.",
+    "treatment": [
+      "Appliquez un fongicide foliaire (par ex. azoxystrobine ou propiconazole) si l'infection est sévère avant la formation des panicules.",
+      "Plantez des hybrides de maïs résistants à la rouille les saisons suivantes.",
+      "Éliminez les plants de maïs spontanés pouvant porter le champignon d'une saison à l'autre.",
+      "Surveillez de près — les infections légères ne nécessitent souvent pas de traitement."
+    ],
+    "dosage": {
+      "product": "Fongicide à base d'azoxystrobine ou de propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  }
+}

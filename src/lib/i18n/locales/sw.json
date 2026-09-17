@@ -1,0 +1,131 @@
+{
+  "common": {
+    "offlineBadge": "Hali ya nje ya mtandao — uchunguzi bado unafanya kazi"
+  },
+  "nav": {
+    "diagnosis": "Uchunguzi",
+    "progression": "Maendeleo",
+    "batchResults": "Matokeo ya kundi",
+    "batchScan": "Uchunguzi wa kundi",
+    "dosageCalculator": "Kikokotoo cha kipimo",
+    "language": "Lugha",
+    "settings": "Mipangilio"
+  },
+  "tabs": {
+    "home": "Nyumbani",
+    "history": "Historia"
+  },
+  "home": {
+    "title": "CropDoc",
+    "subtitle": "Elekeza kwenye jani, pata uchunguzi wa papo hapo — bila mtandao, kwenye kifaa chako.",
+    "openCamera": "Fungua kamera",
+    "uploadPhoto": "Pakia picha",
+    "batchScan": "Chunguza shamba kwa kundi"
+  },
+  "camera": {
+    "hint": "Elekeza kwenye jani moja, jaza fremu, gusa ili kuchunguza",
+    "permissionMessage": "CropDoc inahitaji kamera yako kupiga picha za majani ya mimea kwa uchunguzi."
+  },
+  "cameraPermission": {
+    "title": "Ruhusa ya kamera inahitajika",
+    "grant": "Ruhusu matumizi ya kamera"
+  },
+  "cameraBatch": {
+    "hint": "Elekeza kwenye jani, jaza fremu, gusa ili kuchunguza — rudia kwa kila jani",
+    "scannedCount": "{{count}} zimechunguzwa",
+    "done": "Imekamilika",
+    "permissionMessage": "CropDoc inahitaji kamera yako kuchunguza majani mengi ya mimea kwa kundi."
+  },
+  "result": {
+    "diagnosisFailed": "Uchunguzi umeshindwa: {{error}}",
+    "analyzing": "Inachunguza jani kwenye kifaa…"
+  },
+  "diagnosis": {
+    "confidenceOnDevice": "Uhakika wa {{confidence}}% · kwenye kifaa",
+    "treatmentHeading": "Matibabu",
+    "calculateDosage": "Kokotoa kipimo cha {{product}}",
+    "secondOpinionHeading": "Maoni ya pili (mtandaoni)",
+    "askGemini": "Muulize Gemini maelezo zaidi",
+    "askingGemini": "Inauliza Gemini…",
+    "secondOpinionError": "Imeshindwa kufikia Gemini kwa sasa. Uchunguzi wa kwenye kifaa hapo juu bado ni sahihi."
+  },
+  "plotTag": {
+    "label": "SHAMBA / MMEA",
+    "placeholder": "mfano: Shamba 2 - Mstari 3 (si lazima)"
+  },
+  "history": {
+    "title": "Historia",
+    "from": "Kutoka",
+    "to": "Hadi",
+    "clear": "Futa",
+    "emptyFiltered": "Hakuna uchunguzi katika muda huu.",
+    "emptyDefault": "Bado hakuna uchunguzi. Chunguza jani kutoka kwenye kichupo cha Kuchunguza ili kuona hapa.",
+    "batchRow": "Uchunguzi wa kundi · majani {{count}}"
+  },
+  "plot": {
+    "worse": "Inaonekana mbaya zaidi kuliko uchunguzi uliopita wa shamba hili.",
+    "better": "Inaboreka tangu uchunguzi uliopita wa shamba hili.",
+    "same": "Hakuna mabadiliko tangu uchunguzi uliopita wa shamba hili."
+  },
+  "batchSummary": {
+    "title": "Majani {{count}} yamechunguzwa",
+    "worstFinding": "Tatizo kubwa zaidi: {{name}}",
+    "saveAll": "Hifadhi yote kwenye historia",
+    "saving": "Inahifadhi…"
+  },
+  "batchDetail": {
+    "title": "Majani {{count}} yamechunguzwa"
+  },
+  "dosage": {
+    "diseaseLabel": "UGONJWA",
+    "measureByLabel": "PIMA KWA",
+    "byArea": "Eneo la shamba",
+    "byPlants": "Idadi ya mimea",
+    "plotSizeLabel": "UKUBWA WA SHAMBA",
+    "waterPerHectareLabel": "MAJI YA KUNYUNYIZIA KWA HEKTA (L)",
+    "plantCountLabel": "IDADI YA MIMEA",
+    "waterPerPlantLabel": "MAJI YA KUNYUNYIZIA KWA MMEA (mL)",
+    "typicalRate": "Kiwango cha kawaida: {{min}}–{{max}} {{unit}}",
+    "resultLabel": "MATOKEO",
+    "resultOf": "ya {{product}} katika lita {{liters}} za maji",
+    "disclaimer": "Kiwango cha kawaida cha lebo kwa bidhaa iliyotajwa — hakikisha kila wakati unafuata maagizo ya bidhaa yako mahususi, kwa kuwa chapa na muundo hutofautiana."
+  },
+  "settings": {
+    "theme": "MANDHARI",
+    "themeSystem": "Mfumo",
+    "themeLight": "Nyepesi",
+    "themeDark": "Nyeusi",
+    "diagnosisSection": "UCHUNGUZI",
+    "onDeviceModel": "Kielelezo cha kwenye kifaa",
+    "onDeviceModelDesc": "Kinafanya kazi daima, hufanya kazi bila mtandao kabisa",
+    "geminiSection": "MAONI YA PILI YA GEMINI",
+    "keySaved": "Ufunguo umehifadhiwa (•••• {{last4}})",
+    "keySavedDesc": "Inapatikana ukiwa mtandaoni. Imehifadhiwa kwa usalama kwenye kifaa hiki tu.",
+    "removeKey": "Ondoa ufunguo",
+    "addKeyDesc": "Ongeza ufunguo wako wa bure wa Gemini API ili kuwezesha maelezo ya hiari ya \"maoni ya pili\" mtandaoni. Imehifadhiwa kwa usalama kwenye kifaa hiki tu — haijawekwa ndani ya programu.",
+    "keyPlaceholder": "Bandika ufunguo wako wa Gemini API",
+    "saveKey": "Hifadhi ufunguo",
+    "getFreeKey": "Pata ufunguo wa bure kutoka Google AI Studio",
+    "toolsSection": "ZANA",
+    "dosageCalculator": "Kikokotoo cha kipimo",
+    "languageSection": "LUGHA",
+    "changeLanguage": "Badilisha lugha",
+    "dataSection": "DATA",
+    "clearHistory": "Futa historia ya uchunguzi",
+    "aboutSection": "KUHUSU",
+    "appName": "CropDoc",
+    "version": "Toleo {{version}}",
+    "clearHistoryAlertTitle": "Futa historia ya uchunguzi",
+    "clearHistoryAlertMessage": "Hii itafuta uchunguzi wote uliohifadhiwa kwenye kifaa hiki. Haiwezi kutenduliwa.",
+    "clearHistoryAlertCancel": "Ghairi",
+    "clearHistoryAlertConfirm": "Futa",
+    "removeKeyAlertTitle": "Ondoa ufunguo wa Gemini API",
+    "removeKeyAlertMessage": "Kipengele cha \"maoni ya pili\" hakitapatikana hadi utakapoongeza ufunguo tena.",
+    "removeKeyAlertCancel": "Ghairi",
+    "removeKeyAlertConfirm": "Ondoa"
+  },
+  "languagePicker": {
+    "title": "Chagua lugha yako",
+    "subtitle": "Unaweza kubadilisha hii baadaye kwenye Mipangilio."
+  }
+}

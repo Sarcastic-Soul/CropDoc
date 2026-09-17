@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, TextInput } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
@@ -14,6 +15,7 @@ type Props = {
 export function PlotTagField({ value, onChange }: Props) {
   const [draft, setDraft] = useState(value ?? '');
   const theme = useTheme();
+  const { t } = useTranslation();
 
   function commit() {
     const trimmed = draft.trim();
@@ -24,14 +26,14 @@ export function PlotTagField({ value, onChange }: Props) {
   return (
     <ThemedView style={styles.section}>
       <ThemedText type="smallBold" themeColor="textSecondary">
-        PLOT / PLANT
+        {t('plotTag.label')}
       </ThemedText>
       <TextInput
         value={draft}
         onChangeText={setDraft}
         onBlur={commit}
         onSubmitEditing={commit}
-        placeholder="e.g. Field 2 - Row 3 (optional)"
+        placeholder={t('plotTag.placeholder')}
         placeholderTextColor={theme.textSecondary}
         returnKeyType="done"
         style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}

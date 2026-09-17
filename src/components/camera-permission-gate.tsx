@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -11,18 +12,19 @@ type Props = {
 };
 
 export function CameraPermissionGate({ message, onRequest }: Props) {
+  const { t } = useTranslation();
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedText type="subtitle" style={styles.centerText}>
-          Camera access needed
+          {t('cameraPermission.title')}
         </ThemedText>
         <ThemedText type="default" themeColor="textSecondary" style={styles.centerText}>
-          {message ?? 'CropDoc needs your camera to photograph crop leaves for diagnosis.'}
+          {message ?? t('camera.permissionMessage')}
         </ThemedText>
         <Pressable onPress={onRequest} style={styles.button}>
           <ThemedText type="default" style={styles.buttonText}>
-            Grant camera access
+            {t('cameraPermission.grant')}
           </ThemedText>
         </Pressable>
       </SafeAreaView>

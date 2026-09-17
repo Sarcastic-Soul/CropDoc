@@ -1,0 +1,131 @@
+{
+  "common": {
+    "offlineBadge": "Offline mode — diagnosis still works"
+  },
+  "nav": {
+    "diagnosis": "Diagnosis",
+    "progression": "Progression",
+    "batchResults": "Batch results",
+    "batchScan": "Batch scan",
+    "dosageCalculator": "Dosage calculator",
+    "language": "Language",
+    "settings": "Settings"
+  },
+  "tabs": {
+    "home": "Home",
+    "history": "History"
+  },
+  "home": {
+    "title": "CropDoc",
+    "subtitle": "Point a leaf, get an instant diagnosis — fully offline, on-device.",
+    "openCamera": "Open camera",
+    "uploadPhoto": "Upload a photo",
+    "batchScan": "Batch scan a field"
+  },
+  "camera": {
+    "hint": "Point at a single leaf, fill the frame, tap to scan",
+    "permissionMessage": "CropDoc needs your camera to photograph crop leaves for diagnosis."
+  },
+  "cameraPermission": {
+    "title": "Camera access needed",
+    "grant": "Grant camera access"
+  },
+  "cameraBatch": {
+    "hint": "Point at a leaf, fill the frame, tap to scan — repeat for each leaf",
+    "scannedCount": "{{count}} scanned",
+    "done": "Done",
+    "permissionMessage": "CropDoc needs your camera to batch-scan crop leaves for diagnosis."
+  },
+  "result": {
+    "diagnosisFailed": "Diagnosis failed: {{error}}",
+    "analyzing": "Analyzing leaf on-device…"
+  },
+  "diagnosis": {
+    "confidenceOnDevice": "{{confidence}}% confidence · on-device",
+    "treatmentHeading": "Treatment",
+    "calculateDosage": "Calculate dosage for {{product}}",
+    "secondOpinionHeading": "Second opinion (online)",
+    "askGemini": "Ask Gemini for a richer explanation",
+    "askingGemini": "Asking Gemini…",
+    "secondOpinionError": "Couldn't reach Gemini right now. The on-device diagnosis above still stands."
+  },
+  "plotTag": {
+    "label": "PLOT / PLANT",
+    "placeholder": "e.g. Field 2 - Row 3 (optional)"
+  },
+  "history": {
+    "title": "History",
+    "from": "From",
+    "to": "To",
+    "clear": "Clear",
+    "emptyFiltered": "No scans in this date range.",
+    "emptyDefault": "No scans yet. Diagnose a leaf from the Scan tab to see it here.",
+    "batchRow": "Batch scan · {{count}} leaves"
+  },
+  "plot": {
+    "worse": "Looks worse than the last scan for this plot.",
+    "better": "Improving since the last scan for this plot.",
+    "same": "No change since the last scan for this plot."
+  },
+  "batchSummary": {
+    "title": "{{count}} leaves scanned",
+    "worstFinding": "Worst finding: {{name}}",
+    "saveAll": "Save all to history",
+    "saving": "Saving…"
+  },
+  "batchDetail": {
+    "title": "{{count}} leaves scanned"
+  },
+  "dosage": {
+    "diseaseLabel": "DISEASE",
+    "measureByLabel": "MEASURE BY",
+    "byArea": "Plot area",
+    "byPlants": "Plant count",
+    "plotSizeLabel": "PLOT SIZE",
+    "waterPerHectareLabel": "SPRAY WATER PER HECTARE (L)",
+    "plantCountLabel": "NUMBER OF PLANTS",
+    "waterPerPlantLabel": "SPRAY WATER PER PLANT (mL)",
+    "typicalRate": "Typical rate: {{min}}–{{max}} {{unit}}",
+    "resultLabel": "RESULT",
+    "resultOf": "of {{product}} in {{liters}} L of water",
+    "disclaimer": "Typical label rate for the product named — always check and follow your specific product's instructions, since brands and formulations vary."
+  },
+  "settings": {
+    "theme": "THEME",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "diagnosisSection": "DIAGNOSIS",
+    "onDeviceModel": "On-device model",
+    "onDeviceModelDesc": "Always on, works fully offline",
+    "geminiSection": "GEMINI SECOND OPINION",
+    "keySaved": "Key saved (•••• {{last4}})",
+    "keySavedDesc": "Available when online. Stored encrypted on this device only.",
+    "removeKey": "Remove key",
+    "addKeyDesc": "Add your own free-tier Gemini API key to enable the optional online \"second opinion\" explanation. Stored encrypted on this device only — never bundled with the app.",
+    "keyPlaceholder": "Paste your Gemini API key",
+    "saveKey": "Save key",
+    "getFreeKey": "Get a free key from Google AI Studio",
+    "toolsSection": "TOOLS",
+    "dosageCalculator": "Dosage calculator",
+    "languageSection": "LANGUAGE",
+    "changeLanguage": "Change language",
+    "dataSection": "DATA",
+    "clearHistory": "Clear scan history",
+    "aboutSection": "ABOUT",
+    "appName": "CropDoc",
+    "version": "Version {{version}}",
+    "clearHistoryAlertTitle": "Clear scan history",
+    "clearHistoryAlertMessage": "This deletes all saved diagnoses from this device. This cannot be undone.",
+    "clearHistoryAlertCancel": "Cancel",
+    "clearHistoryAlertConfirm": "Clear",
+    "removeKeyAlertTitle": "Remove Gemini API key",
+    "removeKeyAlertMessage": "The \"second opinion\" feature will be unavailable until you add a key again.",
+    "removeKeyAlertCancel": "Cancel",
+    "removeKeyAlertConfirm": "Remove"
+  },
+  "languagePicker": {
+    "title": "Choose your language",
+    "subtitle": "You can change this later in Settings."
+  }
+}

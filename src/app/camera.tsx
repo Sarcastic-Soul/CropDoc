@@ -3,6 +3,7 @@ import { CameraView, useCameraPermissions } from 'expo-camera';
 import * as Network from 'expo-network';
 import { useRouter } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -19,6 +20,7 @@ export default function CameraScreen() {
   const cameraRef = useRef<CameraView>(null);
   const router = useRouter();
   const theme = useTheme();
+  const { t } = useTranslation();
 
   useEffect(() => {
     Network.getNetworkStateAsync().then((state) => setIsOffline(!state.isConnected));
@@ -59,7 +61,7 @@ export default function CameraScreen() {
         {isOffline && (
           <ThemedView type="backgroundElement" style={styles.offlineBadge}>
             <MaterialCommunityIcons name="wifi-off" size={14} color={theme.text} />
-            <ThemedText type="smallBold">Offline mode — diagnosis still works</ThemedText>
+            <ThemedText type="smallBold">{t('common.offlineBadge')}</ThemedText>
           </ThemedView>
         )}
       </SafeAreaView>
@@ -72,7 +74,7 @@ export default function CameraScreen() {
           <ThemedView style={styles.shutterInner} />
         </Pressable>
         <ThemedText type="small" style={styles.hint}>
-          Point at a single leaf, fill the frame, tap to scan
+          {t('camera.hint')}
         </ThemedText>
       </SafeAreaView>
     </ThemedView>

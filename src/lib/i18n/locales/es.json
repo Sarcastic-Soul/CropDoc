@@ -1,0 +1,131 @@
+{
+  "common": {
+    "offlineBadge": "Modo sin conexión — el diagnóstico sigue funcionando"
+  },
+  "nav": {
+    "diagnosis": "Diagnóstico",
+    "progression": "Progresión",
+    "batchResults": "Resultados del lote",
+    "batchScan": "Escaneo por lotes",
+    "dosageCalculator": "Calculadora de dosis",
+    "language": "Idioma",
+    "settings": "Ajustes"
+  },
+  "tabs": {
+    "home": "Inicio",
+    "history": "Historial"
+  },
+  "home": {
+    "title": "CropDoc",
+    "subtitle": "Apunta a una hoja y obtén un diagnóstico instantáneo — totalmente sin conexión, en el dispositivo.",
+    "openCamera": "Abrir cámara",
+    "uploadPhoto": "Subir una foto",
+    "batchScan": "Escanear un campo por lotes"
+  },
+  "camera": {
+    "hint": "Apunta a una sola hoja, llena el encuadre, toca para escanear",
+    "permissionMessage": "CropDoc necesita tu cámara para fotografiar hojas de cultivos y hacer el diagnóstico."
+  },
+  "cameraPermission": {
+    "title": "Se necesita acceso a la cámara",
+    "grant": "Conceder acceso a la cámara"
+  },
+  "cameraBatch": {
+    "hint": "Apunta a una hoja, llena el encuadre, toca para escanear — repite con cada hoja",
+    "scannedCount": "{{count}} escaneadas",
+    "done": "Listo",
+    "permissionMessage": "CropDoc necesita tu cámara para escanear hojas de cultivos por lotes."
+  },
+  "result": {
+    "diagnosisFailed": "Error en el diagnóstico: {{error}}",
+    "analyzing": "Analizando la hoja en el dispositivo…"
+  },
+  "diagnosis": {
+    "confidenceOnDevice": "{{confidence}}% de confianza · en el dispositivo",
+    "treatmentHeading": "Tratamiento",
+    "calculateDosage": "Calcular dosis de {{product}}",
+    "secondOpinionHeading": "Segunda opinión (en línea)",
+    "askGemini": "Pedir a Gemini una explicación más detallada",
+    "askingGemini": "Consultando a Gemini…",
+    "secondOpinionError": "No se pudo conectar con Gemini en este momento. El diagnóstico en el dispositivo indicado arriba sigue siendo válido."
+  },
+  "plotTag": {
+    "label": "PARCELA / PLANTA",
+    "placeholder": "ej. Campo 2 - Hilera 3 (opcional)"
+  },
+  "history": {
+    "title": "Historial",
+    "from": "Desde",
+    "to": "Hasta",
+    "clear": "Borrar",
+    "emptyFiltered": "No hay escaneos en este rango de fechas.",
+    "emptyDefault": "Aún no hay escaneos. Diagnostica una hoja desde la pestaña de escaneo para verla aquí.",
+    "batchRow": "Escaneo por lotes · {{count}} hojas"
+  },
+  "plot": {
+    "worse": "Se ve peor que en el último escaneo de esta parcela.",
+    "better": "Está mejorando desde el último escaneo de esta parcela.",
+    "same": "Sin cambios desde el último escaneo de esta parcela."
+  },
+  "batchSummary": {
+    "title": "{{count}} hojas escaneadas",
+    "worstFinding": "Peor hallazgo: {{name}}",
+    "saveAll": "Guardar todo en el historial",
+    "saving": "Guardando…"
+  },
+  "batchDetail": {
+    "title": "{{count}} hojas escaneadas"
+  },
+  "dosage": {
+    "diseaseLabel": "ENFERMEDAD",
+    "measureByLabel": "MEDIR POR",
+    "byArea": "Área de la parcela",
+    "byPlants": "Número de plantas",
+    "plotSizeLabel": "TAMAÑO DE LA PARCELA",
+    "waterPerHectareLabel": "AGUA DE ASPERSIÓN POR HECTÁREA (L)",
+    "plantCountLabel": "NÚMERO DE PLANTAS",
+    "waterPerPlantLabel": "AGUA DE ASPERSIÓN POR PLANTA (mL)",
+    "typicalRate": "Dosis típica: {{min}}–{{max}} {{unit}}",
+    "resultLabel": "RESULTADO",
+    "resultOf": "de {{product}} en {{liters}} L de agua",
+    "disclaimer": "Dosis típica de etiqueta para el producto indicado — siempre revisa y sigue las instrucciones de tu producto específico, ya que las marcas y formulaciones varían."
+  },
+  "settings": {
+    "theme": "TEMA",
+    "themeSystem": "Sistema",
+    "themeLight": "Claro",
+    "themeDark": "Oscuro",
+    "diagnosisSection": "DIAGNÓSTICO",
+    "onDeviceModel": "Modelo en el dispositivo",
+    "onDeviceModelDesc": "Siempre activo, funciona totalmente sin conexión",
+    "geminiSection": "SEGUNDA OPINIÓN DE GEMINI",
+    "keySaved": "Clave guardada (•••• {{last4}})",
+    "keySavedDesc": "Disponible cuando hay conexión. Almacenada de forma cifrada solo en este dispositivo.",
+    "removeKey": "Eliminar clave",
+    "addKeyDesc": "Agrega tu propia clave gratuita de la API de Gemini para habilitar la explicación opcional de \"segunda opinión\" en línea. Almacenada de forma cifrada solo en este dispositivo — nunca incluida con la app.",
+    "keyPlaceholder": "Pega tu clave de la API de Gemini",
+    "saveKey": "Guardar clave",
+    "getFreeKey": "Obtén una clave gratuita en Google AI Studio",
+    "toolsSection": "HERRAMIENTAS",
+    "dosageCalculator": "Calculadora de dosis",
+    "languageSection": "IDIOMA",
+    "changeLanguage": "Cambiar idioma",
+    "dataSection": "DATOS",
+    "clearHistory": "Borrar historial de escaneos",
+    "aboutSection": "ACERCA DE",
+    "appName": "CropDoc",
+    "version": "Versión {{version}}",
+    "clearHistoryAlertTitle": "Borrar historial de escaneos",
+    "clearHistoryAlertMessage": "Esto elimina todos los diagnósticos guardados en este dispositivo. No se puede deshacer.",
+    "clearHistoryAlertCancel": "Cancelar",
+    "clearHistoryAlertConfirm": "Borrar",
+    "removeKeyAlertTitle": "Eliminar clave de la API de Gemini",
+    "removeKeyAlertMessage": "La función de \"segunda opinión\" no estará disponible hasta que agregues una clave nuevamente.",
+    "removeKeyAlertCancel": "Cancelar",
+    "removeKeyAlertConfirm": "Eliminar"
+  },
+  "languagePicker": {
+    "title": "Elige tu idioma",
+    "subtitle": "Puedes cambiarlo más tarde en Ajustes."
+  }
+}

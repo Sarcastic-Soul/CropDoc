@@ -3,6 +3,7 @@ import * as ImagePicker from 'expo-image-picker';
 import * as Network from 'expo-network';
 import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -15,6 +16,7 @@ export default function HomeScreen() {
   const [isOffline, setIsOffline] = useState<boolean | null>(null);
   const router = useRouter();
   const theme = useTheme();
+  const { t } = useTranslation();
 
   useEffect(() => {
     Network.getNetworkStateAsync().then((state) => setIsOffline(!state.isConnected));
@@ -46,16 +48,16 @@ export default function HomeScreen() {
 
         <ThemedView style={styles.hero}>
           <ThemedText type="title" style={styles.title}>
-            CropDoc
+            {t('home.title')}
           </ThemedText>
           <ThemedText type="default" themeColor="textSecondary" style={styles.subtitle}>
-            Point a leaf, get an instant diagnosis — fully offline, on-device.
+            {t('home.subtitle')}
           </ThemedText>
 
           {isOffline && (
             <ThemedView type="backgroundElement" style={styles.offlineBadge}>
               <MaterialCommunityIcons name="wifi-off" size={14} color={theme.text} />
-              <ThemedText type="smallBold">Offline mode — diagnosis still works</ThemedText>
+              <ThemedText type="smallBold">{t('common.offlineBadge')}</ThemedText>
             </ThemedView>
           )}
         </ThemedView>
@@ -64,18 +66,18 @@ export default function HomeScreen() {
           <Pressable onPress={() => router.push('/camera')} style={styles.primaryButton}>
             <MaterialCommunityIcons name="camera-outline" size={20} color="#ffffff" />
             <ThemedText type="default" style={styles.primaryButtonText}>
-              Open camera
+              {t('home.openCamera')}
             </ThemedText>
           </Pressable>
 
           <Pressable onPress={handleUpload} style={styles.secondaryButton}>
             <MaterialCommunityIcons name="image-multiple-outline" size={20} color={theme.text} />
-            <ThemedText type="default">Upload a photo</ThemedText>
+            <ThemedText type="default">{t('home.uploadPhoto')}</ThemedText>
           </Pressable>
 
           <Pressable onPress={() => router.push('/camera-batch')} style={styles.secondaryButton}>
             <MaterialCommunityIcons name="view-grid-outline" size={20} color={theme.text} />
-            <ThemedText type="default">Batch scan a field</ThemedText>
+            <ThemedText type="default">{t('home.batchScan')}</ThemedText>
           </Pressable>
         </ThemedView>
       </SafeAreaView>

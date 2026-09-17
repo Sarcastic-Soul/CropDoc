@@ -1,0 +1,131 @@
+{
+  "common": {
+    "offlineBadge": "অফলাইন মোড — রোগ নির্ণয় এখনও কাজ করছে"
+  },
+  "nav": {
+    "diagnosis": "রোগ নির্ণয়",
+    "progression": "অগ্রগতি",
+    "batchResults": "ব্যাচের ফলাফল",
+    "batchScan": "ব্যাচ স্ক্যান",
+    "dosageCalculator": "মাত্রা ক্যালকুলেটর",
+    "language": "ভাষা",
+    "settings": "সেটিংস"
+  },
+  "tabs": {
+    "home": "হোম",
+    "history": "ইতিহাস"
+  },
+  "home": {
+    "title": "CropDoc",
+    "subtitle": "একটি পাতার দিকে ধরুন, সঙ্গে সঙ্গে রোগ নির্ণয় পান — সম্পূর্ণ অফলাইনে, ডিভাইসেই।",
+    "openCamera": "ক্যামেরা খুলুন",
+    "uploadPhoto": "একটি ছবি আপলোড করুন",
+    "batchScan": "একসাথে অনেক পাতা স্ক্যান করুন"
+  },
+  "camera": {
+    "hint": "একটি পাতার দিকে ধরুন, ফ্রেম ভরে ফেলুন, স্ক্যান করতে ট্যাপ করুন",
+    "permissionMessage": "রোগ নির্ণয়ের জন্য ফসলের পাতার ছবি তুলতে CropDoc-এর আপনার ক্যামেরা প্রয়োজন।"
+  },
+  "cameraPermission": {
+    "title": "ক্যামেরার অনুমতি প্রয়োজন",
+    "grant": "ক্যামেরার অনুমতি দিন"
+  },
+  "cameraBatch": {
+    "hint": "একটি পাতার দিকে ধরুন, ফ্রেম ভরে ফেলুন, স্ক্যান করতে ট্যাপ করুন — প্রতিটি পাতার জন্য এটি করুন",
+    "scannedCount": "{{count}}টি স্ক্যান হয়েছে",
+    "done": "সম্পন্ন",
+    "permissionMessage": "একসাথে অনেক পাতা স্ক্যান করে রোগ নির্ণয়ের জন্য CropDoc-এর আপনার ক্যামেরা প্রয়োজন।"
+  },
+  "result": {
+    "diagnosisFailed": "রোগ নির্ণয় ব্যর্থ হয়েছে: {{error}}",
+    "analyzing": "ডিভাইসেই পাতা বিশ্লেষণ করা হচ্ছে…"
+  },
+  "diagnosis": {
+    "confidenceOnDevice": "{{confidence}}% নির্ভুলতা · ডিভাইসেই",
+    "treatmentHeading": "চিকিৎসা",
+    "calculateDosage": "{{product}}-এর মাত্রা হিসাব করুন",
+    "secondOpinionHeading": "দ্বিতীয় মতামত (অনলাইন)",
+    "askGemini": "আরও বিস্তারিত ব্যাখ্যার জন্য Gemini-কে জিজ্ঞাসা করুন",
+    "askingGemini": "Gemini-কে জিজ্ঞাসা করা হচ্ছে…",
+    "secondOpinionError": "এখন Gemini-এর সাথে যোগাযোগ করা যায়নি। উপরের ডিভাইস-ভিত্তিক রোগ নির্ণয় এখনও বৈধ।"
+  },
+  "plotTag": {
+    "label": "জমি / গাছ",
+    "placeholder": "যেমন: জমি ২ - সারি ৩ (ঐচ্ছিক)"
+  },
+  "history": {
+    "title": "ইতিহাস",
+    "from": "থেকে",
+    "to": "পর্যন্ত",
+    "clear": "মুছুন",
+    "emptyFiltered": "এই তারিখের মধ্যে কোনো স্ক্যান নেই।",
+    "emptyDefault": "এখনও কোনো স্ক্যান নেই। এখানে দেখতে স্ক্যান ট্যাব থেকে একটি পাতার রোগ নির্ণয় করুন।",
+    "batchRow": "ব্যাচ স্ক্যান · {{count}}টি পাতা"
+  },
+  "plot": {
+    "worse": "এই জমির আগের স্ক্যানের চেয়ে খারাপ দেখাচ্ছে।",
+    "better": "এই জমির আগের স্ক্যানের চেয়ে উন্নতি হচ্ছে।",
+    "same": "এই জমির আগের স্ক্যান থেকে কোনো পরিবর্তন নেই।"
+  },
+  "batchSummary": {
+    "title": "{{count}}টি পাতা স্ক্যান হয়েছে",
+    "worstFinding": "সবচেয়ে খারাপ ফলাফল: {{name}}",
+    "saveAll": "সবকিছু ইতিহাসে সংরক্ষণ করুন",
+    "saving": "সংরক্ষণ করা হচ্ছে…"
+  },
+  "batchDetail": {
+    "title": "{{count}}টি পাতা স্ক্যান হয়েছে"
+  },
+  "dosage": {
+    "diseaseLabel": "রোগ",
+    "measureByLabel": "কীভাবে হিসাব করবেন",
+    "byArea": "জমির আয়তন",
+    "byPlants": "গাছের সংখ্যা",
+    "plotSizeLabel": "জমির আয়তন",
+    "waterPerHectareLabel": "প্রতি হেক্টরে স্প্রে-র পানি (লিটার)",
+    "plantCountLabel": "গাছের সংখ্যা",
+    "waterPerPlantLabel": "প্রতি গাছে স্প্রে-র পানি (মিলিলিটার)",
+    "typicalRate": "সাধারণ মাত্রা: {{min}}–{{max}} {{unit}}",
+    "resultLabel": "ফলাফল",
+    "resultOf": "{{liters}} লিটার পানিতে {{product}}",
+    "disclaimer": "উল্লেখিত পণ্যের জন্য সাধারণ লেবেল মাত্রা — ব্র্যান্ড ও ফর্মুলেশন ভিন্ন হতে পারে বলে সবসময় আপনার নির্দিষ্ট পণ্যের নির্দেশনা যাচাই করে অনুসরণ করুন।"
+  },
+  "settings": {
+    "theme": "থিম",
+    "themeSystem": "সিস্টেম",
+    "themeLight": "হালকা",
+    "themeDark": "গাঢ়",
+    "diagnosisSection": "রোগ নির্ণয়",
+    "onDeviceModel": "ডিভাইস-ভিত্তিক মডেল",
+    "onDeviceModelDesc": "সবসময় চালু থাকে, সম্পূর্ণ অফলাইনে কাজ করে",
+    "geminiSection": "GEMINI দ্বিতীয় মতামত",
+    "keySaved": "কী সংরক্ষিত (•••• {{last4}})",
+    "keySavedDesc": "অনলাইনে থাকলে ব্যবহারযোগ্য। শুধুমাত্র এই ডিভাইসে এনক্রিপ্ট করে সংরক্ষিত।",
+    "removeKey": "কী সরান",
+    "addKeyDesc": "ঐচ্ছিক অনলাইন \"দ্বিতীয় মতামত\" ব্যাখ্যা চালু করতে আপনার নিজের ফ্রি-টায়ার Gemini API কী যোগ করুন। শুধুমাত্র এই ডিভাইসে এনক্রিপ্ট করে সংরক্ষিত — অ্যাপের সাথে কখনও অন্তর্ভুক্ত করা হয় না।",
+    "keyPlaceholder": "আপনার Gemini API কী পেস্ট করুন",
+    "saveKey": "কী সংরক্ষণ করুন",
+    "getFreeKey": "Google AI Studio থেকে একটি ফ্রি কী নিন",
+    "toolsSection": "সরঞ্জাম",
+    "dosageCalculator": "মাত্রা ক্যালকুলেটর",
+    "languageSection": "ভাষা",
+    "changeLanguage": "ভাষা পরিবর্তন করুন",
+    "dataSection": "তথ্য",
+    "clearHistory": "স্ক্যানের ইতিহাস মুছুন",
+    "aboutSection": "সম্পর্কে",
+    "appName": "CropDoc",
+    "version": "সংস্করণ {{version}}",
+    "clearHistoryAlertTitle": "স্ক্যানের ইতিহাস মুছুন",
+    "clearHistoryAlertMessage": "এটি এই ডিভাইসে সংরক্ষিত সমস্ত রোগ নির্ণয় মুছে ফেলবে। এটি পূর্বাবস্থায় ফেরানো যাবে না।",
+    "clearHistoryAlertCancel": "বাতিল",
+    "clearHistoryAlertConfirm": "মুছুন",
+    "removeKeyAlertTitle": "Gemini API কী সরান",
+    "removeKeyAlertMessage": "আপনি আবার একটি কী যোগ না করা পর্যন্ত \"দ্বিতীয় মতামত\" বৈশিষ্ট্যটি অনুপলব্ধ থাকবে।",
+    "removeKeyAlertCancel": "বাতিল",
+    "removeKeyAlertConfirm": "সরান"
+  },
+  "languagePicker": {
+    "title": "আপনার ভাষা বেছে নিন",
+    "subtitle": "আপনি পরে সেটিংস থেকে এটি পরিবর্তন করতে পারবেন।"
+  }
+}

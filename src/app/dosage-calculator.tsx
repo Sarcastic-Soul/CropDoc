@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -6,7 +7,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
-import { DOSAGE_DISCLAIMER, getDosageTreatments, type Treatment } from '@/lib/model/treatments';
+import { getDosageTreatments, type Treatment } from '@/lib/model/treatments';
 
 type AreaUnit = 'm2' | 'hectare' | 'acre';
 type Mode = 'area' | 'plants';
@@ -29,7 +30,8 @@ function parseNumber(value: string): number | null {
 }
 
 export default function DosageCalculatorScreen() {
-  const diseases = useMemo(() => getDosageTreatments(), []);
+  const { t, i18n } = useTranslation();
+  const diseases = useMemo(() => getDosageTreatments(i18n.language), [i18n.language]);
   const [selectedLabel, setSelectedLabel] = useState<string | null>(diseases[0]?.[0] ?? null);
   const [mode, setMode] = useState<Mode>('area');
   const [areaValue, setAreaValue] = useState('');
@@ -64,7 +66,7 @@ export default function DosageCalculatorScreen() {
     <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <SafeAreaView edges={['bottom']} style={styles.safeArea}>
         <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionLabel}>
-          DISEASE
+          {t('dosage.diseaseLabel')}
         </ThemedText>
         <View style={styles.chipRow}>
           {diseases.map(([label, treatment]) => {
@@ -89,27 +91,31 @@ export default function DosageCalculatorScreen() {
           <ThemedView type="backgroundElement" style={styles.productBox}>
             <ThemedText type="smallBold">{selected.dosage.product}</ThemedText>
             <ThemedText type="small" themeColor="textSecondary">
-              Typical rate: {selected.dosage.rateMin}–{selected.dosage.rateMax} {selected.dosage.unit}
+              {t('dosage.typicalRate', {
+                min: selected.dosage.rateMin,
+                max: selected.dosage.rateMax,
+                unit: selected.dosage.unit,
+              })}
             </ThemedText>
           </ThemedView>
         )}
 
         <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionLabel}>
-          MEASURE BY
+          {t('dosage.measureByLabel')}
         </ThemedText>
         <ThemedView type="backgroundElement" style={styles.segmented}>
           <Pressable
             onPress={() => setMode('area')}
             style={[styles.segment, mode === 'area' && { backgroundColor: theme.backgroundSelected }]}>
             <ThemedText type="small" themeColor={mode === 'area' ? 'text' : 'textSecondary'}>
-              Plot area
+              {t('dosage.byArea')}
             </ThemedText>
           </Pressable>
           <Pressable
             onPress={() => setMode('plants')}
             style={[styles.segment, mode === 'plants' && { backgroundColor: theme.backgroundSelected }]}>
             <ThemedText type="small" themeColor={mode === 'plants' ? 'text' : 'textSecondary'}>
-              Plant count
+              {t('dosage.byPlants')}
             </ThemedText>
           </Pressable>
         </ThemedView>
@@ -117,7 +123,7 @@ export default function DosageCalculatorScreen() {
         {mode === 'area' ? (
           <>
             <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionLabel}>
-              PLOT SIZE
+              {t('dosage.plotSizeLabel')}
             </ThemedText>
             <View style={styles.row}>
               <TextInput
@@ -146,7 +152,7 @@ export default function DosageCalculatorScreen() {
             </View>
 
             <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionLabel}>
-              SPRAY WATER PER HECTARE (L)
+              {t('dosage.waterPerHectareLabel')}
             </ThemedText>
             <TextInput
               value={waterPerHectare}
@@ -160,7 +166,7 @@ export default function DosageCalculatorScreen() {
         ) : (
           <>
             <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionLabel}>
-              NUMBER OF PLANTS
+              {t('dosage.plantCountLabel')}
             </ThemedText>
             <TextInput
               value={plantCount}
@@ -172,7 +178,7 @@ export default function DosageCalculatorScreen() {
             />
 
             <ThemedText type="smallBold" themeColor="textSecondary" style={styles.sectionLabel}>
-              SPRAY WATER PER PLANT (mL)
+              {t('dosage.waterPerPlantLabel')}
             </ThemedText>
             <TextInput
               value={waterPerPlantMl}
@@ -188,19 +194,22 @@ export default function DosageCalculatorScreen() {
         {productRange && selected?.dosage && (
           <ThemedView type="backgroundElement" style={styles.resultBox}>
             <ThemedText type="smallBold" themeColor="textSecondary">
-              RESULT
+              {t('dosage.resultLabel')}
             </ThemedText>
             <ThemedText type="title" style={styles.resultValue}>
               {productRange.min.toFixed(1)}–{productRange.max.toFixed(1)} {productRange.unit.split('/')[0]}
             </ThemedText>
             <ThemedText type="small" themeColor="textSecondary">
-              of {selected.dosage.product} in {totalWaterLiters?.toFixed(1)} L of water
+              {t('dosage.resultOf', {
+                product: selected.dosage.product,
+                liters: totalWaterLiters?.toFixed(1),
+              })}
             </ThemedText>
           </ThemedView>
         )}
 
         <ThemedText type="small" themeColor="textSecondary" style={styles.disclaimer}>
-          {DOSAGE_DISCLAIMER}
+          {t('dosage.disclaimer')}
         </ThemedText>
       </SafeAreaView>
     </ScrollView>

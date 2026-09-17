@@ -3,6 +3,7 @@ import DateTimePicker, { type DateTimePickerEvent } from '@react-native-communit
 import { Image } from 'expo-image';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, FlatList, Pressable, ScrollView, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -11,6 +12,7 @@ import { ThemedView } from '@/components/themed-view';
 import { BottomTabInset, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { getPlotTags, getScanHistoryPage, type ScanRecord } from '@/lib/db';
+import { getTreatment } from '@/lib/model/treatments';
 
 const PAGE_SIZE = 20;
 
@@ -50,6 +52,7 @@ export default function HistoryScreen() {
   const offsetRef = useRef(0);
   const router = useRouter();
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const loadFirstPage = useCallback(() => {
     const query = {
@@ -109,7 +112,7 @@ export default function HistoryScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedText type="title" style={styles.title}>
-          History
+          {t('history.title')}
         </ThemedText>
 
         {plotTags.length > 0 && (
@@ -134,7 +137,7 @@ export default function HistoryScreen() {
             style={[styles.filterChip, { backgroundColor: theme.backgroundElement }]}>
             <MaterialCommunityIcons name="calendar-outline" size={14} color={theme.textSecondary} />
             <ThemedText type="small" themeColor="textSecondary">
-              {startDate ? startDate.toLocaleDateString() : 'From'}
+              {startDate ? startDate.toLocaleDateString() : t('history.from')}
             </ThemedText>
           </Pressable>
 
@@ -143,7 +146,7 @@ export default function HistoryScreen() {
             style={[styles.filterChip, { backgroundColor: theme.backgroundElement }]}>
             <MaterialCommunityIcons name="calendar-outline" size={14} color={theme.textSecondary} />
             <ThemedText type="small" themeColor="textSecondary">
-              {endDate ? endDate.toLocaleDateString() : 'To'}
+              {endDate ? endDate.toLocaleDateString() : t('history.to')}
             </ThemedText>
           </Pressable>
 
@@ -151,7 +154,7 @@ export default function HistoryScreen() {
             <Pressable onPress={clearFilters} style={styles.clearButton}>
               <MaterialCommunityIcons name="close" size={14} color={theme.textSecondary} />
               <ThemedText type="small" themeColor="textSecondary">
-                Clear
+                {t('history.clear')}
               </ThemedText>
             </Pressable>
           )}
@@ -170,9 +173,7 @@ export default function HistoryScreen() {
         {scans.length === 0 ? (
           <ThemedView style={styles.emptyState}>
             <ThemedText type="default" themeColor="textSecondary">
-              {hasFilter
-                ? 'No scans in this date range.'
-                : 'No scans yet. Diagnose a leaf from the Scan tab to see it here.'}
+              {hasFilter ? t('history.emptyFiltered') : t('history.emptyDefault')}
             </ThemedText>
           </ThemedView>
         ) : (
@@ -191,7 +192,9 @@ export default function HistoryScreen() {
                     <ThemedView type="backgroundElement" style={styles.row}>
                       <Image source={{ uri: cover.photoUri }} style={styles.thumb} contentFit="cover" />
                       <View style={styles.rowText}>
-                        <ThemedText type="smallBold">Batch scan · {row.items.length} leaves</ThemedText>
+                        <ThemedText type="smallBold">
+                          {t('history.batchRow', { count: row.items.length })}
+                        </ThemedText>
                         <ThemedText type="small" themeColor="textSecondary">
                           {new Date(cover.createdAt).toLocaleString()}
                         </ThemedText>
@@ -207,7 +210,7 @@ export default function HistoryScreen() {
                   <ThemedView type="backgroundElement" style={styles.row}>
                     <Image source={{ uri: item.photoUri }} style={styles.thumb} contentFit="cover" />
                     <View style={styles.rowText}>
-                      <ThemedText type="smallBold">{item.displayName}</ThemedText>
+                      <ThemedText type="smallBold">{getTreatment(item.label).displayName}</ThemedText>
                       <ThemedText type="small" themeColor="textSecondary">
                         {Math.round(item.confidence * 100)}% · {new Date(item.createdAt).toLocaleString()}
                       </ThemedText>

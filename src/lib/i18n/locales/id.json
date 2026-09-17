@@ -1,0 +1,131 @@
+{
+  "common": {
+    "offlineBadge": "Mode offline — diagnosis tetap berfungsi"
+  },
+  "nav": {
+    "diagnosis": "Diagnosis",
+    "progression": "Perkembangan",
+    "batchResults": "Hasil batch",
+    "batchScan": "Pindai batch",
+    "dosageCalculator": "Kalkulator dosis",
+    "language": "Bahasa",
+    "settings": "Pengaturan"
+  },
+  "tabs": {
+    "home": "Beranda",
+    "history": "Riwayat"
+  },
+  "home": {
+    "title": "CropDoc",
+    "subtitle": "Arahkan ke daun, dapatkan diagnosis instan — sepenuhnya offline, langsung di perangkat.",
+    "openCamera": "Buka kamera",
+    "uploadPhoto": "Unggah foto",
+    "batchScan": "Pindai banyak daun di lahan"
+  },
+  "camera": {
+    "hint": "Arahkan ke satu daun, penuhi bingkai, ketuk untuk memindai",
+    "permissionMessage": "CropDoc memerlukan kamera Anda untuk memotret daun tanaman guna diagnosis."
+  },
+  "cameraPermission": {
+    "title": "Izin kamera diperlukan",
+    "grant": "Berikan izin kamera"
+  },
+  "cameraBatch": {
+    "hint": "Arahkan ke daun, penuhi bingkai, ketuk untuk memindai — ulangi untuk setiap daun",
+    "scannedCount": "{{count}} dipindai",
+    "done": "Selesai",
+    "permissionMessage": "CropDoc memerlukan kamera Anda untuk memindai banyak daun tanaman guna diagnosis."
+  },
+  "result": {
+    "diagnosisFailed": "Diagnosis gagal: {{error}}",
+    "analyzing": "Menganalisis daun di perangkat…"
+  },
+  "diagnosis": {
+    "confidenceOnDevice": "Keyakinan {{confidence}}% · di perangkat",
+    "treatmentHeading": "Pengobatan",
+    "calculateDosage": "Hitung dosis untuk {{product}}",
+    "secondOpinionHeading": "Pendapat kedua (online)",
+    "askGemini": "Minta penjelasan lebih lengkap dari Gemini",
+    "askingGemini": "Menghubungi Gemini…",
+    "secondOpinionError": "Tidak dapat menghubungi Gemini saat ini. Diagnosis di perangkat di atas tetap berlaku."
+  },
+  "plotTag": {
+    "label": "PETAK / TANAMAN",
+    "placeholder": "mis. Petak 2 - Baris 3 (opsional)"
+  },
+  "history": {
+    "title": "Riwayat",
+    "from": "Dari",
+    "to": "Sampai",
+    "clear": "Hapus",
+    "emptyFiltered": "Tidak ada pemindaian dalam rentang tanggal ini.",
+    "emptyDefault": "Belum ada pemindaian. Diagnosis daun dari tab Pindai untuk melihatnya di sini.",
+    "batchRow": "Pindai batch · {{count}} daun"
+  },
+  "plot": {
+    "worse": "Tampak lebih buruk dibanding pemindaian terakhir petak ini.",
+    "better": "Membaik sejak pemindaian terakhir petak ini.",
+    "same": "Tidak ada perubahan sejak pemindaian terakhir petak ini."
+  },
+  "batchSummary": {
+    "title": "{{count}} daun dipindai",
+    "worstFinding": "Temuan terburuk: {{name}}",
+    "saveAll": "Simpan semua ke riwayat",
+    "saving": "Menyimpan…"
+  },
+  "batchDetail": {
+    "title": "{{count}} daun dipindai"
+  },
+  "dosage": {
+    "diseaseLabel": "PENYAKIT",
+    "measureByLabel": "UKUR BERDASARKAN",
+    "byArea": "Luas lahan",
+    "byPlants": "Jumlah tanaman",
+    "plotSizeLabel": "LUAS LAHAN",
+    "waterPerHectareLabel": "AIR SEMPROT PER HEKTAR (L)",
+    "plantCountLabel": "JUMLAH TANAMAN",
+    "waterPerPlantLabel": "AIR SEMPROT PER TANAMAN (mL)",
+    "typicalRate": "Dosis umum: {{min}}–{{max}} {{unit}}",
+    "resultLabel": "HASIL",
+    "resultOf": "{{product}} dalam {{liters}} L air",
+    "disclaimer": "Dosis label umum untuk produk yang disebutkan — selalu periksa dan ikuti petunjuk produk spesifik Anda, karena merek dan formulasi bisa berbeda-beda."
+  },
+  "settings": {
+    "theme": "TEMA",
+    "themeSystem": "Sistem",
+    "themeLight": "Terang",
+    "themeDark": "Gelap",
+    "diagnosisSection": "DIAGNOSIS",
+    "onDeviceModel": "Model di perangkat",
+    "onDeviceModelDesc": "Selalu aktif, berfungsi sepenuhnya offline",
+    "geminiSection": "PENDAPAT KEDUA GEMINI",
+    "keySaved": "Kunci tersimpan (•••• {{last4}})",
+    "keySavedDesc": "Tersedia saat online. Disimpan terenkripsi hanya di perangkat ini.",
+    "removeKey": "Hapus kunci",
+    "addKeyDesc": "Tambahkan kunci API Gemini tingkat gratis Anda sendiri untuk mengaktifkan penjelasan opsional \"pendapat kedua\" secara online. Disimpan terenkripsi hanya di perangkat ini — tidak pernah disertakan dalam aplikasi.",
+    "keyPlaceholder": "Tempel kunci API Gemini Anda",
+    "saveKey": "Simpan kunci",
+    "getFreeKey": "Dapatkan kunci gratis dari Google AI Studio",
+    "toolsSection": "ALAT",
+    "dosageCalculator": "Kalkulator dosis",
+    "languageSection": "BAHASA",
+    "changeLanguage": "Ubah bahasa",
+    "dataSection": "DATA",
+    "clearHistory": "Hapus riwayat pemindaian",
+    "aboutSection": "TENTANG",
+    "appName": "CropDoc",
+    "version": "Versi {{version}}",
+    "clearHistoryAlertTitle": "Hapus riwayat pemindaian",
+    "clearHistoryAlertMessage": "Ini akan menghapus semua diagnosis yang tersimpan di perangkat ini. Tindakan ini tidak dapat dibatalkan.",
+    "clearHistoryAlertCancel": "Batal",
+    "clearHistoryAlertConfirm": "Hapus",
+    "removeKeyAlertTitle": "Hapus kunci API Gemini",
+    "removeKeyAlertMessage": "Fitur \"pendapat kedua\" tidak akan tersedia sampai Anda menambahkan kunci lagi.",
+    "removeKeyAlertCancel": "Batal",
+    "removeKeyAlertConfirm": "Hapus"
+  },
+  "languagePicker": {
+    "title": "Pilih bahasa Anda",
+    "subtitle": "Anda dapat mengubahnya nanti di Pengaturan."
+  }
+}

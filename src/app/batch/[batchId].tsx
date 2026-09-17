@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FlatList, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -14,6 +15,7 @@ export default function BatchDetailScreen() {
   const { batchId } = useLocalSearchParams<{ batchId: string }>();
   const [scans, setScans] = useState<ScanRecord[]>([]);
   const router = useRouter();
+  const { t } = useTranslation();
 
   useFocusEffect(
     useCallback(() => {
@@ -25,7 +27,7 @@ export default function BatchDetailScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView edges={['bottom']} style={styles.safeArea}>
         <ThemedText type="title" style={styles.title}>
-          {scans.length} leaves scanned
+          {t('batchDetail.title', { count: scans.length })}
         </ThemedText>
         {scans[0] && (
           <ThemedText type="small" themeColor="textSecondary" style={styles.date}>
@@ -44,7 +46,7 @@ export default function BatchDetailScreen() {
                 <ThemedView type="backgroundElement" style={styles.row}>
                   <Image source={{ uri: item.photoUri }} style={styles.thumb} contentFit="cover" />
                   <View style={styles.rowText}>
-                    <ThemedText type="smallBold">{item.displayName}</ThemedText>
+                    <ThemedText type="smallBold">{getTreatment(item.label).displayName}</ThemedText>
                     <ThemedText type="small" themeColor="textSecondary">
                       {Math.round(item.confidence * 100)}% confidence
                     </ThemedText>

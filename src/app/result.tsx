@@ -1,6 +1,7 @@
 import * as Network from 'expo-network';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -27,6 +28,7 @@ export default function ResultScreen() {
   const [secondOpinion, setSecondOpinion] = useState<string | null>(null);
   const [secondOpinionState, setSecondOpinionState] = useState<SecondOpinionState>('idle');
   const { apiKey } = useGeminiKey();
+  const { t } = useTranslation();
 
   useEffect(() => {
     Network.getNetworkStateAsync().then((state) => setIsOnline(Boolean(state.isConnected)));
@@ -89,7 +91,7 @@ export default function ResultScreen() {
         {error && (
           <ThemedView style={styles.section}>
             <ThemedText type="default" themeColor="textSecondary">
-              Diagnosis failed: {error}
+              {t('result.diagnosisFailed', { error })}
             </ThemedText>
           </ThemedView>
         )}
@@ -98,7 +100,7 @@ export default function ResultScreen() {
           <ThemedView style={[styles.section, styles.loadingRow]}>
             <ActivityIndicator />
             <ThemedText type="default" themeColor="textSecondary">
-              Analyzing leaf on-device…
+              {t('result.analyzing')}
             </ThemedText>
           </ThemedView>
         )}

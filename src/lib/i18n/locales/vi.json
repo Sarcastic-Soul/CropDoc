@@ -1,0 +1,131 @@
+{
+  "common": {
+    "offlineBadge": "Chế độ ngoại tuyến — vẫn chẩn đoán được"
+  },
+  "nav": {
+    "diagnosis": "Chẩn đoán",
+    "progression": "Tiến triển",
+    "batchResults": "Kết quả quét hàng loạt",
+    "batchScan": "Quét hàng loạt",
+    "dosageCalculator": "Máy tính liều lượng",
+    "language": "Ngôn ngữ",
+    "settings": "Cài đặt"
+  },
+  "tabs": {
+    "home": "Trang chủ",
+    "history": "Lịch sử"
+  },
+  "home": {
+    "title": "CropDoc",
+    "subtitle": "Hướng vào lá cây, nhận chẩn đoán tức thì — hoàn toàn ngoại tuyến, ngay trên thiết bị.",
+    "openCamera": "Mở máy ảnh",
+    "uploadPhoto": "Tải ảnh lên",
+    "batchScan": "Quét hàng loạt cho cả ruộng"
+  },
+  "camera": {
+    "hint": "Hướng vào một lá cây, lấp đầy khung hình, chạm để quét",
+    "permissionMessage": "CropDoc cần quyền truy cập máy ảnh để chụp ảnh lá cây trồng phục vụ chẩn đoán."
+  },
+  "cameraPermission": {
+    "title": "Cần quyền truy cập máy ảnh",
+    "grant": "Cấp quyền máy ảnh"
+  },
+  "cameraBatch": {
+    "hint": "Hướng vào lá cây, lấp đầy khung hình, chạm để quét — lặp lại cho từng lá",
+    "scannedCount": "Đã quét {{count}}",
+    "done": "Xong",
+    "permissionMessage": "CropDoc cần quyền truy cập máy ảnh để quét hàng loạt lá cây trồng."
+  },
+  "result": {
+    "diagnosisFailed": "Chẩn đoán thất bại: {{error}}",
+    "analyzing": "Đang phân tích lá cây trên thiết bị…"
+  },
+  "diagnosis": {
+    "confidenceOnDevice": "Độ tin cậy {{confidence}}% · trên thiết bị",
+    "treatmentHeading": "Cách điều trị",
+    "calculateDosage": "Tính liều lượng cho {{product}}",
+    "secondOpinionHeading": "Ý kiến thứ hai (trực tuyến)",
+    "askGemini": "Hỏi Gemini để có giải thích chi tiết hơn",
+    "askingGemini": "Đang hỏi Gemini…",
+    "secondOpinionError": "Không thể kết nối với Gemini lúc này. Chẩn đoán trên thiết bị ở trên vẫn đáng tin cậy."
+  },
+  "plotTag": {
+    "label": "LÔ / CÂY TRỒNG",
+    "placeholder": "vd: Ruộng 2 - Hàng 3 (không bắt buộc)"
+  },
+  "history": {
+    "title": "Lịch sử",
+    "from": "Từ",
+    "to": "Đến",
+    "clear": "Xóa",
+    "emptyFiltered": "Không có lượt quét nào trong khoảng thời gian này.",
+    "emptyDefault": "Chưa có lượt quét nào. Hãy chẩn đoán một lá cây từ tab Quét để xem tại đây.",
+    "batchRow": "Quét hàng loạt · {{count}} lá"
+  },
+  "plot": {
+    "worse": "Có vẻ nặng hơn so với lần quét trước của lô này.",
+    "better": "Đang cải thiện so với lần quét trước của lô này.",
+    "same": "Không thay đổi so với lần quét trước của lô này."
+  },
+  "batchSummary": {
+    "title": "Đã quét {{count}} lá",
+    "worstFinding": "Phát hiện nặng nhất: {{name}}",
+    "saveAll": "Lưu tất cả vào lịch sử",
+    "saving": "Đang lưu…"
+  },
+  "batchDetail": {
+    "title": "Đã quét {{count}} lá"
+  },
+  "dosage": {
+    "diseaseLabel": "BỆNH",
+    "measureByLabel": "ĐO THEO",
+    "byArea": "Diện tích ruộng",
+    "byPlants": "Số lượng cây",
+    "plotSizeLabel": "DIỆN TÍCH RUỘNG",
+    "waterPerHectareLabel": "LƯỢNG NƯỚC PHUN MỖI HÉC-TA (L)",
+    "plantCountLabel": "SỐ LƯỢNG CÂY",
+    "waterPerPlantLabel": "LƯỢNG NƯỚC PHUN MỖI CÂY (mL)",
+    "typicalRate": "Liều lượng thông thường: {{min}}–{{max}} {{unit}}",
+    "resultLabel": "KẾT QUẢ",
+    "resultOf": "{{product}} trong {{liters}} lít nước",
+    "disclaimer": "Đây là liều lượng thông thường ghi trên nhãn sản phẩm được nêu — luôn kiểm tra và làm theo hướng dẫn của sản phẩm cụ thể bạn dùng, vì mỗi thương hiệu và công thức có thể khác nhau."
+  },
+  "settings": {
+    "theme": "GIAO DIỆN",
+    "themeSystem": "Theo hệ thống",
+    "themeLight": "Sáng",
+    "themeDark": "Tối",
+    "diagnosisSection": "CHẨN ĐOÁN",
+    "onDeviceModel": "Mô hình trên thiết bị",
+    "onDeviceModelDesc": "Luôn bật, hoạt động hoàn toàn ngoại tuyến",
+    "geminiSection": "Ý KIẾN THỨ HAI TỪ GEMINI",
+    "keySaved": "Đã lưu khóa (•••• {{last4}})",
+    "keySavedDesc": "Khả dụng khi có mạng. Được lưu mã hóa chỉ trên thiết bị này.",
+    "removeKey": "Xóa khóa",
+    "addKeyDesc": "Thêm khóa API Gemini miễn phí của riêng bạn để bật tính năng \"ý kiến thứ hai\" trực tuyến tùy chọn. Được lưu mã hóa chỉ trên thiết bị này — không bao giờ được đính kèm sẵn trong ứng dụng.",
+    "keyPlaceholder": "Dán khóa API Gemini của bạn",
+    "saveKey": "Lưu khóa",
+    "getFreeKey": "Lấy khóa miễn phí từ Google AI Studio",
+    "toolsSection": "CÔNG CỤ",
+    "dosageCalculator": "Máy tính liều lượng",
+    "languageSection": "NGÔN NGỮ",
+    "changeLanguage": "Đổi ngôn ngữ",
+    "dataSection": "DỮ LIỆU",
+    "clearHistory": "Xóa lịch sử quét",
+    "aboutSection": "GIỚI THIỆU",
+    "appName": "CropDoc",
+    "version": "Phiên bản {{version}}",
+    "clearHistoryAlertTitle": "Xóa lịch sử quét",
+    "clearHistoryAlertMessage": "Thao tác này sẽ xóa toàn bộ chẩn đoán đã lưu trên thiết bị này. Không thể hoàn tác.",
+    "clearHistoryAlertCancel": "Hủy",
+    "clearHistoryAlertConfirm": "Xóa",
+    "removeKeyAlertTitle": "Xóa khóa API Gemini",
+    "removeKeyAlertMessage": "Tính năng \"ý kiến thứ hai\" sẽ không khả dụng cho đến khi bạn thêm lại khóa.",
+    "removeKeyAlertCancel": "Hủy",
+    "removeKeyAlertConfirm": "Xóa"
+  },
+  "languagePicker": {
+    "title": "Chọn ngôn ngữ của bạn",
+    "subtitle": "Bạn có thể thay đổi sau trong phần Cài đặt."
+  }
+}

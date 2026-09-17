@@ -1,0 +1,142 @@
+{
+  "_comment": "Keyed by exact id2label strings from linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification (see model/fetch_labels.py output). 'demo' classes have full curated treatment text (Stage 1 validation focus per BUILD-PLAN.md). Any other class the 38-way model predicts falls back to '_default' so the app never crashes on an out-of-scope class.",
+  "_default": {
+    "displayName": "未识别的病症",
+    "severity": "unknown",
+    "description": "此结果超出了应用程序已收录的病害范围。置信度和治疗建议的可靠性可能较低。",
+    "treatment": [
+      "如有可能，隔离受影响的植株以限制传播。",
+      "咨询当地农业推广机构以获得确诊。",
+      "在光线良好的条件下，聚焦单片受影响的叶子重新拍照，以获得更清晰的结果。"
+    ]
+  },
+  "Healthy Potato Plant": {
+    "displayName": "马铃薯 — 健康",
+    "severity": "none",
+    "description": "此马铃薯叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是降雨之后。"
+    ]
+  },
+  "Potato with Early Blight": {
+    "displayName": "马铃薯 — 早疫病",
+    "severity": "moderate",
+    "description": "真菌性病害（Alternaria solani），在下部叶片上形成深色同心环状斑点，并向上蔓延。",
+    "treatment": [
+      "摘除并销毁受感染的叶片。",
+      "喷施百菌清或含铜类杀菌剂，每 7-10 天重复一次。",
+      "轮作；下一季避免在同一块地种植马铃薯/番茄。",
+      "改善植株间的通风，避免使用喷灌方式浇水。"
+    ],
+    "dosage": {
+      "product": "百菌清杀菌剂",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Potato with Late Blight": {
+    "displayName": "马铃薯 — 晚疫病",
+    "severity": "severe",
+    "description": "一种侵袭性水霉病害（Phytophthora infestans）— 正是这种病原体导致了爱尔兰马铃薯大饥荒。在凉爽潮湿的天气下传播迅速。",
+    "treatment": [
+      "立即行动：清除并销毁所有受感染的植株材料，不要堆肥。",
+      "尽快喷施内吸性杀菌剂（如甲霜灵或代森锰锌类）。",
+      "避免喷灌；仅在根部浇水。",
+      "若病情严重，应销毁整株植物以保护邻近作物。"
+    ],
+    "dosage": {
+      "product": "甲霜灵或代森锰锌类杀菌剂",
+      "rateMin": 2,
+      "rateMax": 2.5,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "番茄 — 健康",
+    "severity": "none",
+    "description": "此番茄叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在潮湿条件下。"
+    ]
+  },
+  "Tomato with Bacterial Spot": {
+    "displayName": "番茄 — 细菌性斑点病",
+    "severity": "moderate",
+    "description": "细菌感染（Xanthomonas spp.），在叶片和果实上形成小而深色的水渍状斑点。",
+    "treatment": [
+      "摘除受感染的叶片并销毁，不要堆肥。",
+      "在潮湿天气期间每周喷施含铜类杀菌剂。",
+      "避免在植株潮湿时进行操作 — 细菌容易通过潮湿的手和工具传播。",
+      "下一季使用无病种子和抗病品种。"
+    ],
+    "dosage": {
+      "product": "含铜类杀菌剂",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Tomato with Early Blight": {
+    "displayName": "番茄 — 早疫病",
+    "severity": "moderate",
+    "description": "真菌性病害（Alternaria solani），从较老的下部叶片开始形成深色靶状斑点。",
+    "treatment": [
+      "摘除并销毁受影响的下部叶片。",
+      "每 7-10 天喷施一次百菌清或含铜类杀菌剂。",
+      "在植株基部覆盖护根物，防止泥土溅到叶片上。",
+      "为植株搭支架或使用支撑笼以改善通风。"
+    ],
+    "dosage": {
+      "product": "百菌清杀菌剂",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Late Blight": {
+    "displayName": "番茄 — 晚疫病",
+    "severity": "severe",
+    "description": "快速蔓延的水霉病害（Phytophthora infestans），在叶片和果实上形成大片油渍状深色斑块。",
+    "treatment": [
+      "立即行动：清除并销毁受感染的材料，不要堆肥。",
+      "立即喷施内吸性杀菌剂（如百菌清或含铜类）。",
+      "避免喷灌浇水；仅在根部浇水。",
+      "情况严重时，应移除整株植物以保护其余作物。"
+    ],
+    "dosage": {
+      "product": "百菌清或含铜类杀菌剂",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "玉米 — 健康",
+    "severity": "none",
+    "description": "此玉米叶片未检测到病害迹象。",
+    "treatment": [
+      "无需治疗。",
+      "继续每周监测，尤其是在潮湿的生长期。"
+    ]
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "玉米 — 普通锈病",
+    "severity": "moderate",
+    "description": "真菌性病害（Puccinia sorghi），在叶片两面形成红褐色脓疱状斑点。",
+    "treatment": [
+      "若在抽雄前感染严重，可喷施叶面杀菌剂（如嘧菌酯或丙环唑）。",
+      "未来几季种植抗锈病玉米杂交品种。",
+      "清除可能在季节间携带真菌的自生玉米植株。",
+      "密切监测 — 轻度感染通常无需治疗。"
+    ],
+    "dosage": {
+      "product": "嘧菌酯或丙环唑杀菌剂",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  }
+}

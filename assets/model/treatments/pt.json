@@ -1,0 +1,142 @@
+{
+  "_comment": "Keyed by exact id2label strings from linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification (see model/fetch_labels.py output). 'demo' classes have full curated treatment text (Stage 1 validation focus per BUILD-PLAN.md). Any other class the 38-way model predicts falls back to '_default' so the app never crashes on an out-of-scope class.",
+  "_default": {
+    "displayName": "Condição não reconhecida",
+    "severity": "unknown",
+    "description": "Este resultado está fora do conjunto de doenças selecionadas pelo aplicativo. A confiança e as orientações de tratamento podem ser menos confiáveis.",
+    "treatment": [
+      "Isole a planta afetada, se possível, para limitar a propagação.",
+      "Consulte um escritório local de extensão agrícola para um diagnóstico confirmado.",
+      "Tire a foto novamente com boa iluminação, focando em uma única folha afetada, para obter um resultado mais claro."
+    ]
+  },
+  "Healthy Potato Plant": {
+    "displayName": "Batata — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de batata.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente após chuvas."
+    ]
+  },
+  "Potato with Early Blight": {
+    "displayName": "Batata — Pinta Preta",
+    "severity": "moderate",
+    "description": "Doença fúngica (Alternaria solani) que causa manchas escuras em anéis concêntricos nas folhas inferiores, espalhando-se para cima.",
+    "treatment": [
+      "Remova e destrua as folhas infectadas.",
+      "Aplique um fungicida à base de clorotalonil ou cobre, repetindo a cada 7-10 dias.",
+      "Faça rotação de culturas; evite plantar batata/tomate no mesmo solo na próxima safra.",
+      "Melhore a circulação de ar entre as plantas e evite a irrigação por aspersão sobre as folhas."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de clorotalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Potato with Late Blight": {
+    "displayName": "Batata — Requeima",
+    "severity": "severe",
+    "description": "Doença agressiva causada por um mofo aquático (Phytophthora infestans) — o mesmo patógeno da grande fome da batata na Irlanda. Espalha-se rapidamente em clima frio e úmido.",
+    "treatment": [
+      "Aja imediatamente: remova e destrua todo o material vegetal infectado, não faça compostagem.",
+      "Aplique um fungicida sistêmico (por exemplo, à base de metalaxil ou mancozebe) o mais rápido possível.",
+      "Evite irrigação por aspersão; regue apenas na base da planta.",
+      "Em casos graves, destrua a planta inteira para proteger as lavouras vizinhas."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de metalaxil ou mancozebe",
+      "rateMin": 2,
+      "rateMax": 2.5,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Tomate — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de tomate.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente em condições de alta umidade."
+    ]
+  },
+  "Tomato with Bacterial Spot": {
+    "displayName": "Tomate — Mancha Bacteriana",
+    "severity": "moderate",
+    "description": "Infecção bacteriana (Xanthomonas spp.) que causa pequenas manchas escuras e encharcadas nas folhas e frutos.",
+    "treatment": [
+      "Remova as folhas infectadas e destrua-as, não faça compostagem.",
+      "Aplique um bactericida à base de cobre semanalmente durante períodos de chuva.",
+      "Evite manusear as plantas molhadas — as bactérias se espalham facilmente em mãos e ferramentas úmidas.",
+      "Use sementes livres de doenças e variedades resistentes na próxima safra."
+    ],
+    "dosage": {
+      "product": "Bactericida à base de cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Tomato with Early Blight": {
+    "displayName": "Tomate — Pinta Preta",
+    "severity": "moderate",
+    "description": "Doença fúngica (Alternaria solani) que causa manchas escuras em formato de alvo, começando nas folhas mais velhas e baixas.",
+    "treatment": [
+      "Remova e destrua as folhas inferiores afetadas.",
+      "Aplique um fungicida à base de clorotalonil ou cobre a cada 7-10 dias.",
+      "Cubra o solo ao redor da base para evitar respingos de terra nas folhas.",
+      "Estaque ou tutore as plantas para melhorar a circulação de ar."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de clorotalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Late Blight": {
+    "displayName": "Tomate — Requeima",
+    "severity": "severe",
+    "description": "Doença causada por mofo aquático (Phytophthora infestans) de rápida propagação, causando manchas grandes, escuras e oleosas nas folhas e frutos.",
+    "treatment": [
+      "Aja imediatamente: remova e destrua o material infectado, não faça compostagem.",
+      "Aplique um fungicida sistêmico (por exemplo, à base de clorotalonil ou cobre) imediatamente.",
+      "Evite irrigação por aspersão; regue apenas na base da planta.",
+      "Em casos graves, remova a planta inteira para proteger o restante da lavoura."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de clorotalonil ou cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Milho — Saudável",
+    "severity": "none",
+    "description": "Nenhum sinal de doença detectado nesta folha de milho.",
+    "treatment": [
+      "Nenhum tratamento necessário.",
+      "Continue monitorando semanalmente, especialmente em períodos de crescimento úmidos."
+    ]
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Milho — Ferrugem Comum",
+    "severity": "moderate",
+    "description": "Doença fúngica (Puccinia sorghi) que causa pústulas de cor marrom-avermelhada em ambas as faces da folha.",
+    "treatment": [
+      "Aplique um fungicida foliar (por exemplo, à base de azoxistrobina ou propiconazol) se a infecção estiver intensa antes do florescimento.",
+      "Plante híbridos de milho resistentes à ferrugem nas próximas safras.",
+      "Remova plantas voluntárias de milho que possam carregar o fungo entre as safras.",
+      "Monitore de perto — infecções leves geralmente não precisam de tratamento."
+    ],
+    "dosage": {
+      "product": "Fungicida à base de azoxistrobina ou propiconazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  }
+}

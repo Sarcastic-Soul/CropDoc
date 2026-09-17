@@ -1,5 +1,6 @@
 import { Image } from 'expo-image';
 import { useRouter } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
@@ -30,6 +31,7 @@ export function DiagnosisResult({
   onRequestSecondOpinion,
 }: Props) {
   const router = useRouter();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -41,7 +43,7 @@ export function DiagnosisResult({
           <ThemedView style={[styles.severityDot, { backgroundColor: SEVERITY_COLOR[treatment.severity] }]} />
         </ThemedView>
         <ThemedText type="small" themeColor="textSecondary">
-          {Math.round(prediction.confidence * 100)}% confidence · on-device
+          {t('diagnosis.confidenceOnDevice', { confidence: Math.round(prediction.confidence * 100) })}
         </ThemedText>
       </ThemedView>
 
@@ -51,7 +53,7 @@ export function DiagnosisResult({
 
       <ThemedView style={styles.section}>
         <ThemedText type="smallBold" style={styles.treatmentHeading}>
-          Treatment
+          {t('diagnosis.treatmentHeading')}
         </ThemedText>
         {treatment.treatment.map((step, index) => (
           <ThemedView key={index} style={styles.stepRow}>
@@ -67,7 +69,7 @@ export function DiagnosisResult({
         {treatment.dosage && (
           <Pressable onPress={() => router.push('/dosage-calculator')} style={styles.dosageButton}>
             <ThemedText type="small" style={styles.dosageButtonText}>
-              Calculate dosage for {treatment.dosage.product}
+              {t('diagnosis.calculateDosage', { product: treatment.dosage.product })}
             </ThemedText>
           </Pressable>
         )}
@@ -76,13 +78,13 @@ export function DiagnosisResult({
       {canRequestSecondOpinion && (
         <ThemedView style={styles.section}>
           <ThemedText type="smallBold" style={styles.treatmentHeading}>
-            Second opinion (online)
+            {t('diagnosis.secondOpinionHeading')}
           </ThemedText>
 
           {secondOpinionState === 'idle' && !secondOpinion && (
             <Pressable onPress={onRequestSecondOpinion} style={styles.secondOpinionButton}>
               <ThemedText type="default" style={styles.secondOpinionButtonText}>
-                Ask Gemini for a richer explanation
+                {t('diagnosis.askGemini')}
               </ThemedText>
             </Pressable>
           )}
@@ -91,14 +93,14 @@ export function DiagnosisResult({
             <ThemedView style={styles.loadingRow}>
               <ActivityIndicator />
               <ThemedText type="default" themeColor="textSecondary">
-                Asking Gemini…
+                {t('diagnosis.askingGemini')}
               </ThemedText>
             </ThemedView>
           )}
 
           {secondOpinionState === 'error' && (
             <ThemedText type="default" themeColor="textSecondary">
-              Couldn&apos;t reach Gemini right now. The on-device diagnosis above still stands.
+              {t('diagnosis.secondOpinionError')}
             </ThemedText>
           )}
 

@@ -1,0 +1,131 @@
+{
+  "common": {
+    "offlineBadge": "Modo offline — o diagnóstico continua funcionando"
+  },
+  "nav": {
+    "diagnosis": "Diagnóstico",
+    "progression": "Evolução",
+    "batchResults": "Resultados do lote",
+    "batchScan": "Escaneamento em lote",
+    "dosageCalculator": "Calculadora de dosagem",
+    "language": "Idioma",
+    "settings": "Configurações"
+  },
+  "tabs": {
+    "home": "Início",
+    "history": "Histórico"
+  },
+  "home": {
+    "title": "CropDoc",
+    "subtitle": "Aponte para uma folha e obtenha um diagnóstico instantâneo — totalmente offline, no dispositivo.",
+    "openCamera": "Abrir câmera",
+    "uploadPhoto": "Enviar uma foto",
+    "batchScan": "Escanear um lote de folhas"
+  },
+  "camera": {
+    "hint": "Aponte para uma única folha, preencha o quadro, toque para escanear",
+    "permissionMessage": "O CropDoc precisa da sua câmera para fotografar folhas da lavoura para diagnóstico."
+  },
+  "cameraPermission": {
+    "title": "Acesso à câmera necessário",
+    "grant": "Conceder acesso à câmera"
+  },
+  "cameraBatch": {
+    "hint": "Aponte para uma folha, preencha o quadro, toque para escanear — repita para cada folha",
+    "scannedCount": "{{count}} escaneadas",
+    "done": "Concluir",
+    "permissionMessage": "O CropDoc precisa da sua câmera para escanear várias folhas da lavoura para diagnóstico."
+  },
+  "result": {
+    "diagnosisFailed": "Falha no diagnóstico: {{error}}",
+    "analyzing": "Analisando a folha no dispositivo…"
+  },
+  "diagnosis": {
+    "confidenceOnDevice": "{{confidence}}% de confiança · no dispositivo",
+    "treatmentHeading": "Tratamento",
+    "calculateDosage": "Calcular dosagem de {{product}}",
+    "secondOpinionHeading": "Segunda opinião (online)",
+    "askGemini": "Pedir ao Gemini uma explicação mais detalhada",
+    "askingGemini": "Consultando o Gemini…",
+    "secondOpinionError": "Não foi possível contatar o Gemini agora. O diagnóstico feito no dispositivo acima continua válido."
+  },
+  "plotTag": {
+    "label": "TALHÃO / PLANTA",
+    "placeholder": "ex.: Talhão 2 - Linha 3 (opcional)"
+  },
+  "history": {
+    "title": "Histórico",
+    "from": "De",
+    "to": "Até",
+    "clear": "Limpar",
+    "emptyFiltered": "Nenhum escaneamento nesse período.",
+    "emptyDefault": "Ainda não há escaneamentos. Diagnostique uma folha na aba Escanear para vê-la aqui.",
+    "batchRow": "Escaneamento em lote · {{count}} folhas"
+  },
+  "plot": {
+    "worse": "Parece pior do que o último escaneamento deste talhão.",
+    "better": "Melhorando desde o último escaneamento deste talhão.",
+    "same": "Sem mudanças desde o último escaneamento deste talhão."
+  },
+  "batchSummary": {
+    "title": "{{count}} folhas escaneadas",
+    "worstFinding": "Pior resultado: {{name}}",
+    "saveAll": "Salvar tudo no histórico",
+    "saving": "Salvando…"
+  },
+  "batchDetail": {
+    "title": "{{count}} folhas escaneadas"
+  },
+  "dosage": {
+    "diseaseLabel": "DOENÇA",
+    "measureByLabel": "MEDIR POR",
+    "byArea": "Área do talhão",
+    "byPlants": "Número de plantas",
+    "plotSizeLabel": "TAMANHO DO TALHÃO",
+    "waterPerHectareLabel": "ÁGUA DE PULVERIZAÇÃO POR HECTARE (L)",
+    "plantCountLabel": "NÚMERO DE PLANTAS",
+    "waterPerPlantLabel": "ÁGUA DE PULVERIZAÇÃO POR PLANTA (mL)",
+    "typicalRate": "Dose típica: {{min}}–{{max}} {{unit}}",
+    "resultLabel": "RESULTADO",
+    "resultOf": "de {{product}} em {{liters}} L de água",
+    "disclaimer": "Dose típica de rótulo para o produto indicado — sempre verifique e siga as instruções do seu produto específico, pois marcas e formulações variam."
+  },
+  "settings": {
+    "theme": "TEMA",
+    "themeSystem": "Sistema",
+    "themeLight": "Claro",
+    "themeDark": "Escuro",
+    "diagnosisSection": "DIAGNÓSTICO",
+    "onDeviceModel": "Modelo no dispositivo",
+    "onDeviceModelDesc": "Sempre ativo, funciona totalmente offline",
+    "geminiSection": "SEGUNDA OPINIÃO DO GEMINI",
+    "keySaved": "Chave salva (•••• {{last4}})",
+    "keySavedDesc": "Disponível quando online. Armazenada de forma criptografada apenas neste dispositivo.",
+    "removeKey": "Remover chave",
+    "addKeyDesc": "Adicione sua própria chave de API gratuita do Gemini para ativar a explicação opcional de \"segunda opinião\" online. Armazenada de forma criptografada apenas neste dispositivo — nunca incluída no aplicativo.",
+    "keyPlaceholder": "Cole sua chave de API do Gemini",
+    "saveKey": "Salvar chave",
+    "getFreeKey": "Obtenha uma chave gratuita no Google AI Studio",
+    "toolsSection": "FERRAMENTAS",
+    "dosageCalculator": "Calculadora de dosagem",
+    "languageSection": "IDIOMA",
+    "changeLanguage": "Alterar idioma",
+    "dataSection": "DADOS",
+    "clearHistory": "Limpar histórico de escaneamentos",
+    "aboutSection": "SOBRE",
+    "appName": "CropDoc",
+    "version": "Versão {{version}}",
+    "clearHistoryAlertTitle": "Limpar histórico de escaneamentos",
+    "clearHistoryAlertMessage": "Isso exclui todos os diagnósticos salvos neste dispositivo. Essa ação não pode ser desfeita.",
+    "clearHistoryAlertCancel": "Cancelar",
+    "clearHistoryAlertConfirm": "Limpar",
+    "removeKeyAlertTitle": "Remover chave de API do Gemini",
+    "removeKeyAlertMessage": "O recurso de \"segunda opinião\" ficará indisponível até que você adicione uma chave novamente.",
+    "removeKeyAlertCancel": "Cancelar",
+    "removeKeyAlertConfirm": "Remover"
+  },
+  "languagePicker": {
+    "title": "Escolha seu idioma",
+    "subtitle": "Você pode alterar isso depois em Configurações."
+  }
+}

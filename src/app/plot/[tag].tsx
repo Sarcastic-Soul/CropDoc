@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FlatList, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -14,6 +15,7 @@ export default function PlotProgressionScreen() {
   const { tag } = useLocalSearchParams<{ tag: string }>();
   const [scans, setScans] = useState<ScanRecord[]>([]);
   const router = useRouter();
+  const { t } = useTranslation();
 
   useFocusEffect(
     useCallback(() => {
@@ -29,11 +31,11 @@ export default function PlotProgressionScreen() {
   let trendMessage: string | null = null;
   if (latestSeverity && previousSeverity && SEVERITY_RANK[latestSeverity] >= 0 && SEVERITY_RANK[previousSeverity] >= 0) {
     if (SEVERITY_RANK[latestSeverity] > SEVERITY_RANK[previousSeverity]) {
-      trendMessage = 'Looks worse than the last scan for this plot.';
+      trendMessage = t('plot.worse');
     } else if (SEVERITY_RANK[latestSeverity] < SEVERITY_RANK[previousSeverity]) {
-      trendMessage = 'Improving since the last scan for this plot.';
+      trendMessage = t('plot.better');
     } else {
-      trendMessage = 'No change since the last scan for this plot.';
+      trendMessage = t('plot.same');
     }
   }
 
@@ -63,7 +65,7 @@ export default function PlotProgressionScreen() {
                 <ThemedView type="backgroundElement" style={styles.row}>
                   <Image source={{ uri: item.photoUri }} style={styles.thumb} contentFit="cover" />
                   <View style={styles.rowText}>
-                    <ThemedText type="smallBold">{item.displayName}</ThemedText>
+                    <ThemedText type="smallBold">{getTreatment(item.label).displayName}</ThemedText>
                     <ThemedText type="small" themeColor="textSecondary">
                       {new Date(item.createdAt).toLocaleString()}
                     </ThemedText>

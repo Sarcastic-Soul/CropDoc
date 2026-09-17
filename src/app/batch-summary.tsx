@@ -1,6 +1,7 @@
 import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FlatList, Pressable, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -15,6 +16,7 @@ export default function BatchSummaryScreen() {
   const { items } = useLocalSearchParams<{ items: string }>();
   const [isSaving, setIsSaving] = useState(false);
   const router = useRouter();
+  const { t, i18n } = useTranslation();
 
   const results = useMemo<BatchItem[]>(() => {
     try {
@@ -36,10 +38,12 @@ export default function BatchSummaryScreen() {
   const counts = useMemo(() => {
     const map = new Map<string, number>();
     for (const item of results) {
-      map.set(item.displayName, (map.get(item.displayName) ?? 0) + 1);
+      map.set(item.label, (map.get(item.label) ?? 0) + 1);
     }
-    return Array.from(map.entries());
-  }, [results]);
+    return Array.from(map.entries()).map(
+      ([label, count]) => [getTreatment(label, i18n.language).displayName, count] as const
+    );
+  }, [results, i18n.language]);
 
   async function handleSaveAll() {
     if (isSaving || results.length === 0) return;
@@ -65,7 +69,7 @@ export default function BatchSummaryScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView edges={['bottom']} style={styles.safeArea}>
         <ThemedText type="title" style={styles.title}>
-          {results.length} leaves scanned
+          {t('batchSummary.title', { count: results.length })}
         </ThemedText>
 
         {worst && (
@@ -73,7 +77,9 @@ export default function BatchSummaryScreen() {
             <ThemedView
               style={[styles.severityDot, { backgroundColor: SEVERITY_COLOR[getTreatment(worst.label).severity] }]}
             />
-            <ThemedText type="smallBold">Worst finding: {worst.displayName}</ThemedText>
+            <ThemedText type="smallBold">
+              {t('batchSummary.worstFinding', { name: getTreatment(worst.label).displayName })}
+            </ThemedText>
           </ThemedView>
         )}
 
@@ -95,7 +101,7 @@ export default function BatchSummaryScreen() {
               <ThemedView type="backgroundElement" style={styles.row}>
                 <Image source={{ uri: item.photoUri }} style={styles.thumb} contentFit="cover" />
                 <View style={styles.rowText}>
-                  <ThemedText type="smallBold">{item.displayName}</ThemedText>
+                  <ThemedText type="smallBold">{getTreatment(item.label).displayName}</ThemedText>
                   <ThemedText type="small" themeColor="textSecondary">
                     {Math.round(item.confidence * 100)}% confidence
                   </ThemedText>
@@ -111,7 +117,7 @@ export default function BatchSummaryScreen() {
           disabled={isSaving || results.length === 0}
           style={[styles.saveButton, (isSaving || results.length === 0) && styles.saveButtonDisabled]}>
           <ThemedText type="default" style={styles.saveButtonText}>
-            {isSaving ? 'Saving…' : 'Save all to history'}
+            {isSaving ? t('batchSummary.saving') : t('batchSummary.saveAll')}
           </ThemedText>
         </Pressable>
       </SafeAreaView>

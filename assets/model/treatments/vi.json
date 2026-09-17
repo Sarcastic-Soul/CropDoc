@@ -1,0 +1,142 @@
+{
+  "_comment": "Keyed by exact id2label strings from linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification (see model/fetch_labels.py output). 'demo' classes have full curated treatment text (Stage 1 validation focus per BUILD-PLAN.md). Any other class the 38-way model predicts falls back to '_default' so the app never crashes on an out-of-scope class.",
+  "_default": {
+    "displayName": "Tình trạng không xác định",
+    "severity": "unknown",
+    "description": "Kết quả này nằm ngoài tập hợp bệnh được chọn lọc của ứng dụng. Độ tin cậy và hướng dẫn điều trị có thể kém chính xác hơn.",
+    "treatment": [
+      "Cách ly cây bị ảnh hưởng nếu có thể để hạn chế lây lan.",
+      "Liên hệ trạm khuyến nông địa phương để được chẩn đoán chính xác.",
+      "Chụp lại ảnh trong điều kiện ánh sáng tốt, tập trung vào một lá bị ảnh hưởng, để có kết quả rõ ràng hơn."
+    ]
+  },
+  "Healthy Potato Plant": {
+    "displayName": "Khoai tây — Khỏe mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá khoai tây này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt sau khi mưa."
+    ]
+  },
+  "Potato with Early Blight": {
+    "displayName": "Khoai tây — Bệnh mốc sương sớm",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Alternaria solani) gây các đốm vòng tròn đồng tâm màu sẫm trên lá dưới, lan dần lên trên.",
+    "treatment": [
+      "Loại bỏ và tiêu hủy lá bị nhiễm bệnh.",
+      "Phun thuốc trừ nấm gốc chlorothalonil hoặc đồng, lặp lại mỗi 7-10 ngày.",
+      "Luân canh cây trồng; tránh trồng khoai tây/cà chua trên cùng đất vào vụ sau.",
+      "Cải thiện lưu thông không khí giữa các cây và tránh tưới nước từ trên xuống."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm Chlorothalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Potato with Late Blight": {
+    "displayName": "Khoai tây — Bệnh mốc sương muộn",
+    "severity": "severe",
+    "description": "Bệnh nấm thủy sinh nguy hiểm (Phytophthora infestans) — chính là tác nhân gây nạn đói khoai tây Ireland. Lây lan nhanh trong thời tiết mát và ẩm.",
+    "treatment": [
+      "Hành động ngay: loại bỏ và tiêu hủy toàn bộ phần cây bị nhiễm bệnh, không ủ phân compost.",
+      "Phun thuốc trừ nấm nội hấp (ví dụ metalaxyl hoặc mancozeb) càng sớm càng tốt.",
+      "Tránh tưới nước từ trên xuống; chỉ tưới ở gốc.",
+      "Nếu nặng, tiêu hủy toàn bộ cây để bảo vệ các cây lân cận."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm gốc Metalaxyl hoặc mancozeb",
+      "rateMin": 2,
+      "rateMax": 2.5,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Cà chua — Khỏe mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá cà chua này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong điều kiện ẩm ướt."
+    ]
+  },
+  "Tomato with Bacterial Spot": {
+    "displayName": "Cà chua — Đốm vi khuẩn",
+    "severity": "moderate",
+    "description": "Nhiễm khuẩn (Xanthomonas spp.) gây các đốm nhỏ sẫm màu, ướt nước trên lá và quả.",
+    "treatment": [
+      "Loại bỏ lá bị nhiễm bệnh và tiêu hủy, không ủ phân compost.",
+      "Phun thuốc diệt khuẩn gốc đồng hàng tuần trong thời tiết ẩm ướt.",
+      "Tránh làm việc với cây ướt — vi khuẩn lây lan dễ dàng qua tay và dụng cụ ẩm.",
+      "Sử dụng hạt giống sạch bệnh và giống kháng bệnh cho vụ sau."
+    ],
+    "dosage": {
+      "product": "Thuốc diệt khuẩn gốc đồng",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Tomato with Early Blight": {
+    "displayName": "Cà chua — Bệnh mốc sương sớm",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Alternaria solani) gây các đốm giống hình bia bắn màu sẫm, bắt đầu từ lá già, lá dưới.",
+    "treatment": [
+      "Loại bỏ và tiêu hủy lá dưới bị ảnh hưởng.",
+      "Phun thuốc trừ nấm gốc chlorothalonil hoặc đồng mỗi 7-10 ngày.",
+      "Phủ gốc để tránh đất bắn lên lá.",
+      "Cắm cọc hoặc làm giàn cho cây để cải thiện lưu thông không khí."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm Chlorothalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Late Blight": {
+    "displayName": "Cà chua — Bệnh mốc sương muộn",
+    "severity": "severe",
+    "description": "Bệnh nấm thủy sinh lây lan nhanh (Phytophthora infestans) gây các đốm lớn, sẫm màu, nhờn dầu trên lá và quả.",
+    "treatment": [
+      "Hành động ngay: loại bỏ và tiêu hủy phần bị nhiễm bệnh, không ủ phân compost.",
+      "Phun thuốc trừ nấm nội hấp (ví dụ chlorothalonil hoặc gốc đồng) ngay lập tức.",
+      "Tránh tưới nước từ trên xuống; chỉ tưới ở gốc.",
+      "Trong trường hợp nặng, loại bỏ toàn bộ cây để bảo vệ phần còn lại của vụ mùa."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm Chlorothalonil hoặc gốc đồng",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Ngô — Khỏe mạnh",
+    "severity": "none",
+    "description": "Không phát hiện dấu hiệu bệnh trên lá ngô này.",
+    "treatment": [
+      "Không cần điều trị.",
+      "Tiếp tục theo dõi hàng tuần, đặc biệt trong giai đoạn sinh trưởng ẩm ướt."
+    ]
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Ngô — Bệnh gỉ sắt thông thường",
+    "severity": "moderate",
+    "description": "Bệnh nấm (Puccinia sorghi) gây các mụn mủ màu nâu đỏ trên cả hai mặt lá.",
+    "treatment": [
+      "Phun thuốc trừ nấm qua lá (ví dụ azoxystrobin hoặc propiconazole) nếu nhiễm bệnh nặng trước khi trổ cờ.",
+      "Trồng giống ngô kháng gỉ sắt cho các vụ sau.",
+      "Loại bỏ cây ngô mọc tự nhiên có thể mang mầm nấm qua các vụ.",
+      "Theo dõi sát sao — nhiễm bệnh nhẹ thường không cần điều trị."
+    ],
+    "dosage": {
+      "product": "Thuốc trừ nấm Azoxystrobin hoặc propiconazole",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  }
+}

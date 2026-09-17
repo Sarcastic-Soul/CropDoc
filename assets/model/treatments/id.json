@@ -1,0 +1,142 @@
+{
+  "_comment": "Keyed by exact id2label strings from linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification (see model/fetch_labels.py output). 'demo' classes have full curated treatment text (Stage 1 validation focus per BUILD-PLAN.md). Any other class the 38-way model predicts falls back to '_default' so the app never crashes on an out-of-scope class.",
+  "_default": {
+    "displayName": "Kondisi tidak dikenali",
+    "severity": "unknown",
+    "description": "Hasil ini berada di luar kumpulan penyakit yang dikurasi aplikasi. Keyakinan dan panduan pengobatan mungkin kurang dapat diandalkan.",
+    "treatment": [
+      "Isolasi tanaman yang terkena jika memungkinkan untuk membatasi penyebaran.",
+      "Konsultasikan ke kantor penyuluhan pertanian setempat untuk diagnosis yang terkonfirmasi.",
+      "Ambil ulang foto dengan pencahayaan baik, fokus pada satu daun yang terkena, untuk hasil yang lebih jelas."
+    ]
+  },
+  "Healthy Potato Plant": {
+    "displayName": "Kentang — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda penyakit terdeteksi pada daun kentang ini.",
+    "treatment": [
+      "Tidak perlu pengobatan.",
+      "Terus pantau setiap minggu, terutama setelah hujan."
+    ]
+  },
+  "Potato with Early Blight": {
+    "displayName": "Kentang — Hawar Daun Awal",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Alternaria solani) yang menyebabkan bercak gelap cincin konsentris pada daun bawah, menyebar ke atas.",
+    "treatment": [
+      "Buang dan musnahkan daun yang terinfeksi.",
+      "Aplikasikan fungisida berbahan klorotalonil atau tembaga, ulangi setiap 7-10 hari.",
+      "Rotasi tanaman; hindari menanam kentang/tomat di tanah yang sama musim berikutnya.",
+      "Tingkatkan sirkulasi udara antar tanaman dan hindari penyiraman dari atas."
+    ],
+    "dosage": {
+      "product": "Fungisida klorotalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Potato with Late Blight": {
+    "displayName": "Kentang — Hawar Daun Akhir",
+    "severity": "severe",
+    "description": "Penyakit jamur air yang agresif (Phytophthora infestans) — patogen yang sama di balik bencana kelaparan kentang Irlandia. Menyebar cepat pada cuaca sejuk dan basah.",
+    "treatment": [
+      "Bertindak segera: buang dan musnahkan semua bagian tanaman yang terinfeksi, jangan dikompos.",
+      "Aplikasikan fungisida sistemik (misalnya berbahan metalaksil atau mankozeb) sesegera mungkin.",
+      "Hindari irigasi dari atas; siram hanya di pangkal tanaman.",
+      "Jika parah, musnahkan seluruh tanaman untuk melindungi tanaman di sekitarnya."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan metalaksil atau mankozeb",
+      "rateMin": 2,
+      "rateMax": 2.5,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Tomat — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda penyakit terdeteksi pada daun tomat ini.",
+    "treatment": [
+      "Tidak perlu pengobatan.",
+      "Terus pantau setiap minggu, terutama pada kondisi lembap."
+    ]
+  },
+  "Tomato with Bacterial Spot": {
+    "displayName": "Tomat — Bercak Bakteri",
+    "severity": "moderate",
+    "description": "Infeksi bakteri (Xanthomonas spp.) yang menyebabkan bercak gelap kecil basah pada daun dan buah.",
+    "treatment": [
+      "Buang daun yang terinfeksi dan musnahkan, jangan dikompos.",
+      "Aplikasikan bakterisida berbahan tembaga setiap minggu saat cuaca basah.",
+      "Hindari bekerja dengan tanaman basah — bakteri mudah menyebar melalui tangan dan alat yang lembap.",
+      "Gunakan benih bebas penyakit dan varietas tahan pada musim berikutnya."
+    ],
+    "dosage": {
+      "product": "Bakterisida berbahan tembaga",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Tomato with Early Blight": {
+    "displayName": "Tomat — Hawar Daun Awal",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Alternaria solani) yang menyebabkan bercak gelap menyerupai sasaran, dimulai pada daun tua di bagian bawah.",
+    "treatment": [
+      "Buang dan musnahkan daun bawah yang terkena.",
+      "Aplikasikan fungisida berbahan klorotalonil atau tembaga setiap 7-10 hari.",
+      "Beri mulsa di sekitar pangkal untuk mencegah percikan tanah ke daun.",
+      "Pasang ajir atau sangkar pada tanaman untuk meningkatkan sirkulasi udara."
+    ],
+    "dosage": {
+      "product": "Fungisida klorotalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Late Blight": {
+    "displayName": "Tomat — Hawar Daun Akhir",
+    "severity": "severe",
+    "description": "Penyakit jamur air (Phytophthora infestans) yang menyebar cepat, menyebabkan bercak besar, berminyak, dan gelap pada daun dan buah.",
+    "treatment": [
+      "Bertindak segera: buang dan musnahkan bagian yang terinfeksi, jangan dikompos.",
+      "Segera aplikasikan fungisida sistemik (misalnya berbahan klorotalonil atau tembaga).",
+      "Hindari penyiraman dari atas; siram hanya di pangkal tanaman.",
+      "Pada kasus parah, buang seluruh tanaman untuk melindungi sisa tanaman lainnya."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan klorotalonil atau tembaga",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Jagung — Sehat",
+    "severity": "none",
+    "description": "Tidak ada tanda penyakit terdeteksi pada daun jagung ini.",
+    "treatment": [
+      "Tidak perlu pengobatan.",
+      "Terus pantau setiap minggu, terutama pada periode pertumbuhan yang lembap."
+    ]
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Jagung — Karat Umum",
+    "severity": "moderate",
+    "description": "Penyakit jamur (Puccinia sorghi) yang menyebabkan bintil-bintil cokelat kemerahan pada kedua permukaan daun.",
+    "treatment": [
+      "Aplikasikan fungisida daun (misalnya berbahan azoksistrobin atau propikonazol) jika infeksi berat sebelum masa keluar bunga.",
+      "Tanam hibrida jagung tahan karat pada musim berikutnya.",
+      "Buang tanaman jagung liar yang dapat membawa jamur antar musim.",
+      "Pantau dengan cermat — infeksi ringan umumnya tidak memerlukan pengobatan."
+    ],
+    "dosage": {
+      "product": "Fungisida berbahan azoksistrobin atau propikonazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  }
+}

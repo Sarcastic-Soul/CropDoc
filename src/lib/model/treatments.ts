@@ -1,4 +1,16 @@
-import treatmentsData from '@/assets/model/treatments.json';
+import bn from '@/assets/model/treatments/bn.json';
+import en from '@/assets/model/treatments/en.json';
+import es from '@/assets/model/treatments/es.json';
+import fr from '@/assets/model/treatments/fr.json';
+import hi from '@/assets/model/treatments/hi.json';
+import id from '@/assets/model/treatments/id.json';
+import pt from '@/assets/model/treatments/pt.json';
+import sw from '@/assets/model/treatments/sw.json';
+import ur from '@/assets/model/treatments/ur.json';
+import vi from '@/assets/model/treatments/vi.json';
+import zh from '@/assets/model/treatments/zh.json';
+
+import i18n, { type LanguageCode } from '@/lib/i18n';
 
 import type { Label } from './labels';
 
@@ -17,17 +29,34 @@ export type Treatment = {
   dosage?: Dosage;
 };
 
-export const DOSAGE_DISCLAIMER =
-  "Typical label rate for the product named — always check and follow your specific product's instructions, since brands and formulations vary.";
+type TreatmentTable = Record<string, Treatment> & { _default: Treatment };
 
-const DATA = treatmentsData as unknown as Record<string, Treatment> & { _default: Treatment };
+const TABLES: Record<LanguageCode, TreatmentTable> = {
+  en: en as unknown as TreatmentTable,
+  hi: hi as unknown as TreatmentTable,
+  es: es as unknown as TreatmentTable,
+  zh: zh as unknown as TreatmentTable,
+  pt: pt as unknown as TreatmentTable,
+  bn: bn as unknown as TreatmentTable,
+  id: id as unknown as TreatmentTable,
+  sw: sw as unknown as TreatmentTable,
+  vi: vi as unknown as TreatmentTable,
+  fr: fr as unknown as TreatmentTable,
+  ur: ur as unknown as TreatmentTable,
+};
 
-export function getTreatment(label: Label | string): Treatment {
-  return DATA[label] ?? DATA._default;
+function getTable(language?: string): TreatmentTable {
+  return TABLES[language as LanguageCode] ?? TABLES.en;
 }
 
-export function getDosageTreatments(): [string, Treatment][] {
-  return Object.entries(DATA).filter(
+export function getTreatment(label: Label | string, language?: string): Treatment {
+  const table = getTable(language ?? i18n.language);
+  return table[label] ?? table._default;
+}
+
+export function getDosageTreatments(language?: string): [string, Treatment][] {
+  const table = getTable(language ?? i18n.language);
+  return Object.entries(table).filter(
     (entry): entry is [string, Treatment] => !entry[0].startsWith('_') && Boolean(entry[1].dosage)
   );
 }

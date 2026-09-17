@@ -1,0 +1,142 @@
+{
+  "_comment": "Keyed by exact id2label strings from linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification (see model/fetch_labels.py output). 'demo' classes have full curated treatment text (Stage 1 validation focus per BUILD-PLAN.md). Any other class the 38-way model predicts falls back to '_default' so the app never crashes on an out-of-scope class.",
+  "_default": {
+    "displayName": "Afección no reconocida",
+    "severity": "unknown",
+    "description": "Este resultado está fuera del conjunto de enfermedades seleccionado por la app. La confianza y las recomendaciones de tratamiento pueden ser menos fiables.",
+    "treatment": [
+      "Aísla la planta afectada si es posible para limitar la propagación.",
+      "Consulta a una oficina de extensión agrícola local para un diagnóstico confirmado.",
+      "Vuelve a tomar la foto con buena luz, enfocando una sola hoja afectada, para obtener un resultado más claro."
+    ]
+  },
+  "Healthy Potato Plant": {
+    "displayName": "Papa — Sana",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de papa.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente después de la lluvia."
+    ]
+  },
+  "Potato with Early Blight": {
+    "displayName": "Papa — Tizón temprano",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Alternaria solani) que causa manchas oscuras en forma de anillos concéntricos en las hojas inferiores, extendiéndose hacia arriba.",
+    "treatment": [
+      "Retira y destruye las hojas infectadas.",
+      "Aplica un fungicida a base de clorotalonil o cobre, repitiendo cada 7 a 10 días.",
+      "Rota los cultivos; evita plantar papas/tomates en el mismo suelo la próxima temporada.",
+      "Mejora la circulación de aire entre las plantas y evita el riego por aspersión."
+    ],
+    "dosage": {
+      "product": "Fungicida de clorotalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Potato with Late Blight": {
+    "displayName": "Papa — Tizón tardío",
+    "severity": "severe",
+    "description": "Enfermedad agresiva causada por un moho acuático (Phytophthora infestans) — el mismo patógeno detrás de la gran hambruna de la papa en Irlanda. Se propaga rápido en clima fresco y húmedo.",
+    "treatment": [
+      "Actúa de inmediato: retira y destruye todo el material vegetal infectado, no lo compostes.",
+      "Aplica un fungicida sistémico (por ejemplo, a base de metalaxil o mancozeb) lo antes posible.",
+      "Evita el riego por aspersión; riega solo en la base.",
+      "Si es grave, destruye toda la planta para proteger los cultivos vecinos."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de metalaxil o mancozeb",
+      "rateMin": 2,
+      "rateMax": 2.5,
+      "unit": "g/L"
+    }
+  },
+  "Healthy Tomato Plant": {
+    "displayName": "Tomate — Sano",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de tomate.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente en condiciones húmedas."
+    ]
+  },
+  "Tomato with Bacterial Spot": {
+    "displayName": "Tomate — Mancha bacteriana",
+    "severity": "moderate",
+    "description": "Infección bacteriana (Xanthomonas spp.) que causa pequeñas manchas oscuras y empapadas de agua en hojas y frutos.",
+    "treatment": [
+      "Retira las hojas infectadas y destrúyelas, no las compostes.",
+      "Aplica un bactericida a base de cobre semanalmente durante el clima húmedo.",
+      "Evita trabajar con las plantas mojadas — las bacterias se propagan fácilmente en manos y herramientas húmedas.",
+      "Usa semillas libres de enfermedades y variedades resistentes la próxima temporada."
+    ],
+    "dosage": {
+      "product": "Bactericida a base de cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "g/L"
+    }
+  },
+  "Tomato with Early Blight": {
+    "displayName": "Tomate — Tizón temprano",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Alternaria solani) que causa manchas oscuras en forma de diana, comenzando en las hojas más viejas e inferiores.",
+    "treatment": [
+      "Retira y destruye las hojas inferiores afectadas.",
+      "Aplica un fungicida a base de clorotalonil o cobre cada 7 a 10 días.",
+      "Coloca mantillo (mulch) en la base para evitar salpicaduras de tierra sobre las hojas.",
+      "Entutora o enjaula las plantas para mejorar la circulación de aire."
+    ],
+    "dosage": {
+      "product": "Fungicida de clorotalonil",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Tomato with Late Blight": {
+    "displayName": "Tomate — Tizón tardío",
+    "severity": "severe",
+    "description": "Enfermedad de moho acuático de rápida propagación (Phytophthora infestans) que causa manchas grandes, oscuras y grasosas en hojas y frutos.",
+    "treatment": [
+      "Actúa de inmediato: retira y destruye el material infectado, no lo compostes.",
+      "Aplica de inmediato un fungicida sistémico (por ejemplo, a base de clorotalonil o cobre).",
+      "Evita el riego por aspersión; riega solo en la base.",
+      "En casos graves, retira toda la planta para proteger el resto del cultivo."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de clorotalonil o cobre",
+      "rateMin": 2,
+      "rateMax": 3,
+      "unit": "mL/L"
+    }
+  },
+  "Healthy Corn (Maize) Plant": {
+    "displayName": "Maíz — Sano",
+    "severity": "none",
+    "description": "No se detectaron signos de enfermedad en esta hoja de maíz.",
+    "treatment": [
+      "No se necesita tratamiento.",
+      "Sigue monitoreando semanalmente, especialmente durante períodos de crecimiento húmedos."
+    ]
+  },
+  "Corn (Maize) with Common Rust": {
+    "displayName": "Maíz — Roya común",
+    "severity": "moderate",
+    "description": "Enfermedad fúngica (Puccinia sorghi) que causa pústulas de color marrón rojizo en ambas caras de la hoja.",
+    "treatment": [
+      "Aplica un fungicida foliar (por ejemplo, a base de azoxistrobina o propiconazol) si la infección es intensa antes de la floración masculina.",
+      "Planta híbridos de maíz resistentes a la roya en futuras temporadas.",
+      "Elimina las plantas de maíz voluntarias que puedan portar el hongo entre temporadas.",
+      "Monitorea de cerca — las infecciones leves a menudo no necesitan tratamiento."
+    ],
+    "dosage": {
+      "product": "Fungicida a base de azoxistrobina o propiconazol",
+      "rateMin": 1,
+      "rateMax": 1.5,
+      "unit": "mL/L"
+    }
+  }
+}

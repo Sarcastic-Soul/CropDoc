@@ -1,0 +1,131 @@
+{
+  "common": {
+    "offlineBadge": "离线模式 — 诊断功能仍可使用"
+  },
+  "nav": {
+    "diagnosis": "诊断",
+    "progression": "病情进展",
+    "batchResults": "批量结果",
+    "batchScan": "批量扫描",
+    "dosageCalculator": "用药量计算器",
+    "language": "语言",
+    "settings": "设置"
+  },
+  "tabs": {
+    "home": "首页",
+    "history": "历史记录"
+  },
+  "home": {
+    "title": "CropDoc",
+    "subtitle": "对准叶片，立即获得诊断 — 完全离线，设备本地运行。",
+    "openCamera": "打开相机",
+    "uploadPhoto": "上传照片",
+    "batchScan": "批量扫描整片田地"
+  },
+  "camera": {
+    "hint": "对准单片叶子，充满取景框，点击进行扫描",
+    "permissionMessage": "CropDoc 需要使用您的相机拍摄作物叶片以进行诊断。"
+  },
+  "cameraPermission": {
+    "title": "需要相机权限",
+    "grant": "授予相机权限"
+  },
+  "cameraBatch": {
+    "hint": "对准叶片，充满取景框，点击扫描 — 对每片叶子重复此操作",
+    "scannedCount": "已扫描 {{count}} 片",
+    "done": "完成",
+    "permissionMessage": "CropDoc 需要使用您的相机批量扫描作物叶片。"
+  },
+  "result": {
+    "diagnosisFailed": "诊断失败：{{error}}",
+    "analyzing": "正在设备本地分析叶片…"
+  },
+  "diagnosis": {
+    "confidenceOnDevice": "置信度 {{confidence}}% · 设备本地",
+    "treatmentHeading": "治疗方法",
+    "calculateDosage": "计算 {{product}} 的用药量",
+    "secondOpinionHeading": "第二诊断意见（在线）",
+    "askGemini": "向 Gemini 询问更详细的解释",
+    "askingGemini": "正在询问 Gemini…",
+    "secondOpinionError": "暂时无法连接 Gemini。上方的设备本地诊断结果仍然有效。"
+  },
+  "plotTag": {
+    "label": "地块 / 植株",
+    "placeholder": "例如：2号田 - 第3行（可选）"
+  },
+  "history": {
+    "title": "历史记录",
+    "from": "起始",
+    "to": "结束",
+    "clear": "清除",
+    "emptyFiltered": "此日期范围内没有扫描记录。",
+    "emptyDefault": "还没有扫描记录。请在扫描标签页诊断一片叶子，即可在此查看。",
+    "batchRow": "批量扫描 · {{count}} 片叶子"
+  },
+  "plot": {
+    "worse": "与上次扫描相比，此地块的情况看起来更严重了。",
+    "better": "自上次扫描以来，此地块的情况有所改善。",
+    "same": "自上次扫描以来，此地块没有变化。"
+  },
+  "batchSummary": {
+    "title": "已扫描 {{count}} 片叶子",
+    "worstFinding": "最严重的情况：{{name}}",
+    "saveAll": "全部保存到历史记录",
+    "saving": "正在保存…"
+  },
+  "batchDetail": {
+    "title": "已扫描 {{count}} 片叶子"
+  },
+  "dosage": {
+    "diseaseLabel": "病害",
+    "measureByLabel": "计算方式",
+    "byArea": "按地块面积",
+    "byPlants": "按植株数量",
+    "plotSizeLabel": "地块面积",
+    "waterPerHectareLabel": "每公顷喷洒用水量（升）",
+    "plantCountLabel": "植株数量",
+    "waterPerPlantLabel": "每株喷洒用水量（毫升）",
+    "typicalRate": "常用剂量：{{min}}–{{max}} {{unit}}",
+    "resultLabel": "结果",
+    "resultOf": "在 {{liters}} 升水中加入 {{product}}",
+    "disclaimer": "此为该产品的常见标签用量 — 请务必查阅并遵循您所用具体产品的说明，因为不同品牌和配方会有所不同。"
+  },
+  "settings": {
+    "theme": "主题",
+    "themeSystem": "跟随系统",
+    "themeLight": "浅色",
+    "themeDark": "深色",
+    "diagnosisSection": "诊断",
+    "onDeviceModel": "设备本地模型",
+    "onDeviceModelDesc": "始终开启，完全离线运行",
+    "geminiSection": "GEMINI 第二意见",
+    "keySaved": "密钥已保存（•••• {{last4}}）",
+    "keySavedDesc": "联网时可用。仅加密保存在本设备上。",
+    "removeKey": "移除密钥",
+    "addKeyDesc": "添加您自己的免费 Gemini API 密钥，以启用可选的在线\"第二意见\"解释功能。仅加密保存在本设备上 — 从不随应用打包提供。",
+    "keyPlaceholder": "粘贴您的 Gemini API 密钥",
+    "saveKey": "保存密钥",
+    "getFreeKey": "从 Google AI Studio 获取免费密钥",
+    "toolsSection": "工具",
+    "dosageCalculator": "用药量计算器",
+    "languageSection": "语言",
+    "changeLanguage": "更改语言",
+    "dataSection": "数据",
+    "clearHistory": "清除扫描历史",
+    "aboutSection": "关于",
+    "appName": "CropDoc",
+    "version": "版本 {{version}}",
+    "clearHistoryAlertTitle": "清除扫描历史",
+    "clearHistoryAlertMessage": "这将删除本设备上保存的所有诊断记录，且无法恢复。",
+    "clearHistoryAlertCancel": "取消",
+    "clearHistoryAlertConfirm": "清除",
+    "removeKeyAlertTitle": "移除 Gemini API 密钥",
+    "removeKeyAlertMessage": "在您重新添加密钥之前，\"第二意见\"功能将无法使用。",
+    "removeKeyAlertCancel": "取消",
+    "removeKeyAlertConfirm": "移除"
+  },
+  "languagePicker": {
+    "title": "选择您的语言",
+    "subtitle": "您可以稍后在设置中更改。"
+  }
+}

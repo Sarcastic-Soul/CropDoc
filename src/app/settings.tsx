@@ -2,6 +2,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Constants from 'expo-constants';
 import { useRouter } from 'expo-router';
 import { useState, type ComponentProps } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Pressable, ScrollView, StyleSheet, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -10,16 +11,18 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing, Tint } from '@/constants/theme';
 import { useGeminiKey } from '@/contexts/gemini-key';
+import { useLanguagePreference } from '@/contexts/language-preference';
 import { type ThemePreference, useThemePreference } from '@/contexts/theme-preference';
 import { useTheme } from '@/hooks/use-theme';
 import { clearScanHistory } from '@/lib/db';
+import { SUPPORTED_LANGUAGES } from '@/lib/i18n';
 
 type IconName = ComponentProps<typeof MaterialCommunityIcons>['name'];
 
-const THEME_OPTIONS: { value: ThemePreference; label: string; icon: IconName }[] = [
-  { value: 'system', label: 'System', icon: 'cellphone-cog' },
-  { value: 'light', label: 'Light', icon: 'white-balance-sunny' },
-  { value: 'dark', label: 'Dark', icon: 'weather-night' },
+const THEME_OPTIONS: { value: ThemePreference; labelKey: string; icon: IconName }[] = [
+  { value: 'system', labelKey: 'settings.themeSystem', icon: 'cellphone-cog' },
+  { value: 'light', labelKey: 'settings.themeLight', icon: 'white-balance-sunny' },
+  { value: 'dark', labelKey: 'settings.themeDark', icon: 'weather-night' },
 ];
 
 export default function SettingsScreen() {
@@ -27,14 +30,18 @@ export default function SettingsScreen() {
   const [draftKey, setDraftKey] = useState('');
   const { preference, setPreference } = useThemePreference();
   const { apiKey, setApiKey } = useGeminiKey();
+  const { language } = useLanguagePreference();
   const theme = useTheme();
   const router = useRouter();
+  const { t } = useTranslation();
+
+  const currentLanguage = SUPPORTED_LANGUAGES.find((option) => option.code === language);
 
   function handleClearHistory() {
-    Alert.alert('Clear scan history', 'This deletes all saved diagnoses from this device. This cannot be undone.', [
-      { text: 'Cancel', style: 'cancel' },
+    Alert.alert(t('settings.clearHistoryAlertTitle'), t('settings.clearHistoryAlertMessage'), [
+      { text: t('settings.clearHistoryAlertCancel'), style: 'cancel' },
       {
-        text: 'Clear',
+        text: t('settings.clearHistoryAlertConfirm'),
         style: 'destructive',
         onPress: async () => {
           setIsClearing(true);
@@ -56,9 +63,9 @@ export default function SettingsScreen() {
   }
 
   function handleRemoveKey() {
-    Alert.alert('Remove Gemini API key', 'The "second opinion" feature will be unavailable until you add a key again.', [
-      { text: 'Cancel', style: 'cancel' },
-      { text: 'Remove', style: 'destructive', onPress: () => setApiKey(null) },
+    Alert.alert(t('settings.removeKeyAlertTitle'), t('settings.removeKeyAlertMessage'), [
+      { text: t('settings.removeKeyAlertCancel'), style: 'cancel' },
+      { text: t('settings.removeKeyAlertConfirm'), style: 'destructive', onPress: () => setApiKey(null) },
     ]);
   }
 
@@ -68,7 +75,7 @@ export default function SettingsScreen() {
         <SafeAreaView edges={['bottom']} style={styles.safeArea}>
           <ThemedView style={styles.section}>
             <ThemedText type="smallBold" themeColor="textSecondary">
-              THEME
+              {t('settings.theme')}
             </ThemedText>
             <ThemedView type="backgroundElement" style={styles.segmented}>
               {THEME_OPTIONS.map((option) => {
@@ -84,7 +91,7 @@ export default function SettingsScreen() {
                       color={selected ? theme.text : theme.textSecondary}
                     />
                     <ThemedText type="small" themeColor={selected ? 'text' : 'textSecondary'}>
-                      {option.label}
+                      {t(option.labelKey)}
                     </ThemedText>
                   </Pressable>
                 );
@@ -94,44 +101,44 @@ export default function SettingsScreen() {
 
           <ThemedView style={styles.section}>
             <ThemedText type="smallBold" themeColor="textSecondary">
-              DIAGNOSIS
+              {t('settings.diagnosisSection')}
             </ThemedText>
             <ThemedView type="backgroundElement" style={styles.row}>
-              <ThemedText type="default">On-device model</ThemedText>
+              <ThemedText type="default">{t('settings.onDeviceModel')}</ThemedText>
               <ThemedText type="small" themeColor="textSecondary">
-                Always on, works fully offline
+                {t('settings.onDeviceModelDesc')}
               </ThemedText>
             </ThemedView>
           </ThemedView>
 
           <ThemedView style={styles.section}>
             <ThemedText type="smallBold" themeColor="textSecondary">
-              GEMINI SECOND OPINION
+              {t('settings.geminiSection')}
             </ThemedText>
             <ThemedView type="backgroundElement" style={styles.row}>
               {apiKey ? (
                 <>
-                  <ThemedText type="default">Key saved (•••• {apiKey.slice(-4)})</ThemedText>
+                  <ThemedText type="default">
+                    {t('settings.keySaved', { last4: apiKey.slice(-4) })}
+                  </ThemedText>
                   <ThemedText type="small" themeColor="textSecondary">
-                    Available when online. Stored encrypted on this device only.
+                    {t('settings.keySavedDesc')}
                   </ThemedText>
                   <Pressable onPress={handleRemoveKey} style={styles.linkButton}>
                     <ThemedText type="small" style={styles.dangerText}>
-                      Remove key
+                      {t('settings.removeKey')}
                     </ThemedText>
                   </Pressable>
                 </>
               ) : (
                 <>
                   <ThemedText type="small" themeColor="textSecondary">
-                    Add your own free-tier Gemini API key to enable the optional online
-                    &ldquo;second opinion&rdquo; explanation. Stored encrypted on this device only —
-                    never bundled with the app.
+                    {t('settings.addKeyDesc')}
                   </ThemedText>
                   <TextInput
                     value={draftKey}
                     onChangeText={setDraftKey}
-                    placeholder="Paste your Gemini API key"
+                    placeholder={t('settings.keyPlaceholder')}
                     placeholderTextColor={theme.textSecondary}
                     autoCapitalize="none"
                     autoCorrect={false}
@@ -143,11 +150,11 @@ export default function SettingsScreen() {
                     disabled={!draftKey.trim()}
                     style={[styles.saveButton, !draftKey.trim() && styles.rowDisabled]}>
                     <ThemedText type="default" style={styles.saveButtonText}>
-                      Save key
+                      {t('settings.saveKey')}
                     </ThemedText>
                   </Pressable>
                   <ExternalLink href="https://aistudio.google.com/apikey">
-                    <ThemedText type="linkPrimary">Get a free key from Google AI Studio</ThemedText>
+                    <ThemedText type="linkPrimary">{t('settings.getFreeKey')}</ThemedText>
                   </ExternalLink>
                 </>
               )}
@@ -156,38 +163,50 @@ export default function SettingsScreen() {
 
           <ThemedView style={styles.section}>
             <ThemedText type="smallBold" themeColor="textSecondary">
-              TOOLS
+              {t('settings.toolsSection')}
             </ThemedText>
             <Pressable
               onPress={() => router.push('/dosage-calculator')}
               style={[styles.row, styles.linkRow, { backgroundColor: theme.backgroundElement }]}>
               <MaterialCommunityIcons name="beaker-outline" size={20} color={theme.text} />
-              <ThemedText type="default">Dosage calculator</ThemedText>
+              <ThemedText type="default">{t('settings.dosageCalculator')}</ThemedText>
             </Pressable>
           </ThemedView>
 
           <ThemedView style={styles.section}>
             <ThemedText type="smallBold" themeColor="textSecondary">
-              DATA
+              {t('settings.languageSection')}
+            </ThemedText>
+            <Pressable
+              onPress={() => router.push('/language-picker')}
+              style={[styles.row, styles.linkRow, { backgroundColor: theme.backgroundElement }]}>
+              <MaterialCommunityIcons name="translate" size={20} color={theme.text} />
+              <ThemedText type="default">{currentLanguage?.nativeLabel ?? t('settings.changeLanguage')}</ThemedText>
+            </Pressable>
+          </ThemedView>
+
+          <ThemedView style={styles.section}>
+            <ThemedText type="smallBold" themeColor="textSecondary">
+              {t('settings.dataSection')}
             </ThemedText>
             <Pressable
               onPress={handleClearHistory}
               disabled={isClearing}
               style={[styles.row, styles.dangerRow, isClearing && styles.rowDisabled]}>
               <ThemedText type="default" style={styles.dangerText}>
-                Clear scan history
+                {t('settings.clearHistory')}
               </ThemedText>
             </Pressable>
           </ThemedView>
 
           <ThemedView style={styles.section}>
             <ThemedText type="smallBold" themeColor="textSecondary">
-              ABOUT
+              {t('settings.aboutSection')}
             </ThemedText>
             <ThemedView type="backgroundElement" style={styles.row}>
-              <ThemedText type="default">CropDoc</ThemedText>
+              <ThemedText type="default">{t('settings.appName')}</ThemedText>
               <ThemedText type="small" themeColor="textSecondary">
-                Version {Constants.expoConfig?.version ?? '1.0.0'}
+                {t('settings.version', { version: Constants.expoConfig?.version ?? '1.0.0' })}
               </ThemedText>
             </ThemedView>
           </ThemedView>
