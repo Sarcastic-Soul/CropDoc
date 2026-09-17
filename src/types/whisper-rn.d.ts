@@ -1,11 +1,19 @@
-// whisper.rn's package.json `exports` map has no "." entry and orders the
-// "react-native" condition before "types", so TypeScript (correctly mirroring
-// Metro's own resolution here) resolves bare `whisper.rn` imports to its
-// untranspiled `src/index.ts` instead of the compiled `lib/typescript/*.d.ts`
-// output — which doesn't type-check standalone outside the package's own
-// tsconfig (missing RN globals). Ambient declarations here bypass that
-// resolution entirely for the exact specifiers this app imports; Metro still
-// bundles the real package at runtime regardless of how tsc types it.
+// whisper.rn's own untranspiled source (which both Metro's "react-native"
+// export condition and TS's "bundler" moduleResolution resolve bare
+// `whisper.rn/**` imports to — see below) references the bare `global`
+// object without any ambient type for it, and this project has no other
+// source of one (React Native's own global.d.ts declares `require`,
+// `console`, etc., never `global` itself). Without this, type-checking any
+// whisper.rn subpath that happens to resolve to a real file (e.g. the
+// AudioPcmStreamAdapter import further down) fails with "Cannot find name
+// 'global'" — not a whisper.rn bug, just a real, accurate gap this fills.
+declare const global: any;
+
+// whisper.rn's package.json `exports` map has no "." entry, so TypeScript
+// (correctly mirroring Metro's own resolution here) can't resolve a bare
+// `whisper.rn` import to anything at all. This ambient declaration is the
+// only thing making that import type-check; Metro still bundles the real
+// package's compiled output at runtime regardless of how tsc types it here.
 declare module 'whisper.rn' {
   export type TranscribeResult = {
     result: string;
@@ -29,30 +37,9 @@ declare module 'whisper.rn' {
   export function initWhisper(options: { filePath: string }): Promise<WhisperContext>;
 }
 
-declare module 'whisper.rn/realtime-transcription/adapters' {
-  export type AudioStreamData = {
-    data: Uint8Array;
-    sampleRate: number;
-    channels: number;
-    timestamp: number;
-  };
-
-  export type AudioStreamConfig = {
-    sampleRate?: number;
-    channels?: number;
-    bitsPerSample?: number;
-    bufferSize?: number;
-    audioSource?: number;
-  };
-
-  export class AudioPcmStreamAdapter {
-    initialize(config: AudioStreamConfig): Promise<void>;
-    start(): Promise<void>;
-    stop(): Promise<void>;
-    isRecording(): boolean;
-    onData(callback: (data: AudioStreamData) => void): void;
-    onError(callback: (error: string) => void): void;
-    onStatusChange(callback: (isRecording: boolean) => void): void;
-    release(): Promise<void>;
-  }
-}
+// No ambient declaration needed for
+// 'whisper.rn/realtime-transcription/adapters/AudioPcmStreamAdapter' or
+// '.../types': unlike the root 'whisper.rn' import above, these subpaths
+// resolve to real files (see src/lib/stt/recorder.ts), so TS type-checks
+// whisper.rn's actual source for them — which is what needs the `global`
+// declaration above.

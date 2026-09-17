@@ -1,10 +1,12 @@
 import { Directory, File, Paths } from 'expo-file-system';
 import { PermissionsAndroid, Platform } from 'react-native';
-// Resolves fine at runtime via whisper.rn's package.json exports map; the
-// lint resolver doesn't follow it, see src/types/whisper-rn.d.ts for the
-// ambient type shim.
-// eslint-disable-next-line import/no-unresolved
-import { AudioPcmStreamAdapter, type AudioStreamData } from 'whisper.rn/realtime-transcription/adapters';
+// `whisper.rn/realtime-transcription/adapters` (no further subpath) is a
+// directory with no index/barrel file in the published package — its own
+// docs are wrong about this import path (confirmed the hard way: this broke
+// the CI OTA-update bundle). Importing the individual file underneath it
+// directly resolves fine, both here and at Metro bundle time.
+import { AudioPcmStreamAdapter } from 'whisper.rn/realtime-transcription/adapters/AudioPcmStreamAdapter';
+import type { AudioStreamData } from 'whisper.rn/realtime-transcription/types';
 
 import { STT_BITS_PER_SAMPLE, STT_CHANNELS, STT_SAMPLE_RATE } from './config';
 
