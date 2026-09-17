@@ -161,8 +161,9 @@ npx expo start --dev-client
 
 ## CI: auto build / OTA update
 
-`.github/workflows/eas-deploy.yml` runs on every push to `main` that touches
-`app/`. It uses Expo's official `continuous-deploy-fingerprint` action:
+`.github/workflows/eas-deploy.yml` runs on every push to `main` (this repo
+*is* the app now — no more path filter needed). It uses Expo's official
+`continuous-deploy-fingerprint` action:
 computes this commit's native fingerprint, starts a new `eas build --profile
 preview --platform android` only if no existing build matches it, and always
 publishes an OTA update to the `preview` channel/branch otherwise (Android

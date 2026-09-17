@@ -1,0 +1,38 @@
+name: EAS build or OTA update
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+env:
+  EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      # Builds only if no EAS build already matches this commit's native
+      # fingerprint (app.json/eas.json/native deps unchanged); otherwise
+      # always publishes an OTA update to the "preview" channel/branch.
+      - uses: expo/expo-github-action/continuous-deploy-fingerprint@main
+        with:
+          profile: preview
+          branch: preview
+          platform: android
