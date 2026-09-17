@@ -4,7 +4,7 @@ import { StyleSheet, TextInput } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Spacing } from '@/constants/theme';
+import { Spacing, Tint } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 type Props = {
@@ -36,6 +36,7 @@ export function PlotTagField({ value, onChange }: Props) {
         placeholder={t('plotTag.placeholder')}
         placeholderTextColor={theme.textSecondary}
         returnKeyType="done"
+        selectionColor={Tint}
         style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
       />
     </ThemedView>

@@ -412,6 +412,7 @@ export default function AskScreen() {
                   onChangeText={setQuestion}
                   placeholder={t('ask.placeholder')}
                   placeholderTextColor={theme.textSecondary}
+                  selectionColor={Tint}
                   multiline
                   style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
                 />

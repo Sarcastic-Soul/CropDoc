@@ -148,6 +148,7 @@ export default function SettingsScreen() {
                     autoCapitalize="none"
                     autoCorrect={false}
                     secureTextEntry
+                    selectionColor={Tint}
                     style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
                   />
                   <Pressable

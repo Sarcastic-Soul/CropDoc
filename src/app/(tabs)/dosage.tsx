@@ -9,7 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, Spacing } from '@/constants/theme';
+import { BottomTabInset, Spacing, Tint } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { extractRateFromText, formatRate, recognizeLabelText, type ParsedLabelRate } from '@/lib/dosage/label-ocr';
 import { getDosageTreatments, SEVERITY_COLOR, type Treatment } from '@/lib/model/treatments';
@@ -237,6 +237,7 @@ export default function DosageCalculatorScreen() {
                   keyboardType="decimal-pad"
                   placeholder={t('dosage.plotSizePlaceholder')}
                   placeholderTextColor={theme.textSecondary}
+                  selectionColor={Tint}
                   style={[
                     styles.input,
                     styles.flexInput,
@@ -269,6 +270,7 @@ export default function DosageCalculatorScreen() {
                 keyboardType="decimal-pad"
                 placeholder={t('dosage.waterPerHectarePlaceholder')}
                 placeholderTextColor={theme.textSecondary}
+                selectionColor={Tint}
                 style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
               />
             </>
@@ -283,6 +285,7 @@ export default function DosageCalculatorScreen() {
                 keyboardType="number-pad"
                 placeholder={t('dosage.plantCountPlaceholder')}
                 placeholderTextColor={theme.textSecondary}
+                selectionColor={Tint}
                 style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
               />
 
@@ -295,6 +298,7 @@ export default function DosageCalculatorScreen() {
                 keyboardType="decimal-pad"
                 placeholder={t('dosage.waterPerPlantPlaceholder')}
                 placeholderTextColor={theme.textSecondary}
+                selectionColor={Tint}
                 style={[styles.input, { color: theme.text, borderColor: theme.backgroundSelected }]}
               />
             </>
