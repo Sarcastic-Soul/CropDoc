@@ -41,6 +41,15 @@ export function initDb() {
       if (!columns.some((c) => c.name === 'batchId')) {
         await db.execAsync('ALTER TABLE scans ADD COLUMN batchId TEXT');
       }
+      await db.execAsync(`
+        CREATE TABLE IF NOT EXISTS treatment_embeddings (
+          label TEXT NOT NULL,
+          language TEXT NOT NULL,
+          model TEXT NOT NULL,
+          vector TEXT NOT NULL,
+          PRIMARY KEY (label, language, model)
+        );
+      `);
     })();
   }
   return readyPromise;
@@ -142,4 +151,34 @@ export async function getScanById(id: number): Promise<ScanRecord | null> {
 export async function clearScanHistory(): Promise<void> {
   await initDb();
   await db.execAsync('DELETE FROM scans');
+}
+
+// Keyed by model filename too — switching the downloadable LLM changes the
+// embedding dimensionality/space, and stale vectors from a different model
+// would silently corrupt cosine-similarity ranking rather than erroring.
+export async function getCachedEmbedding(label: string, language: string, model: string): Promise<number[] | null> {
+  await initDb();
+  const row = await db.getFirstAsync<{ vector: string }>(
+    'SELECT vector FROM treatment_embeddings WHERE label = ? AND language = ? AND model = ?',
+    [label, language, model]
+  );
+  return row ? JSON.parse(row.vector) : null;
+}
+
+export async function setCachedEmbedding(
+  label: string,
+  language: string,
+  model: string,
+  vector: number[]
+): Promise<void> {
+  await initDb();
+  await db.runAsync(
+    'INSERT OR REPLACE INTO treatment_embeddings (label, language, model, vector) VALUES (?, ?, ?, ?)',
+    [label, language, model, JSON.stringify(vector)]
+  );
+}
+
+export async function clearTreatmentEmbeddings(): Promise<void> {
+  await initDb();
+  await db.execAsync('DELETE FROM treatment_embeddings');
 }

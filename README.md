@@ -24,7 +24,9 @@ profiles back in.
   either plot size (m²/hectare/acre + spray water per hectare) or plant count
   (+ spray water per plant), get a product quantity from the bundled typical
   label rate. Clearly disclaimed as a typical rate, not a specific product's
-  instructions.
+  instructions. Can also scan a physical product label's printed dosage
+  (on-device OCR) and flags whether it matches the bundled typical rate — see
+  below.
 - **Gemini second opinion** — optional, online-only, layered on top of the
   offline result (see below).
 - **Ask (offline AI assistant)** — its own bottom tab. A small LLM
@@ -60,20 +62,53 @@ ready. Downloaded model lives in app-private storage
 (`expo-file-system`'s `File`/`Directory`/`Paths` API) and can be removed from
 the same screen to reclaim space.
 
-Grounding is deliberately small, not a full RAG pipeline:
+Grounding is deliberately small, not a full RAG pipeline, but it is real
+vector search, not just string matching:
 - The farmer picks which past scan (if any) to ground answers on, via a chip
-  row above the chat.
-- `src/lib/llm/retrieval.ts` does a keyword-overlap match (no embeddings —
-  none fit this scope on-device) against all 38 treatment classes'
-  `displayName`/`description`, so a question about a disease that's never
-  been scanned can still surface the right bundled treatment text.
+  row above the chat — multi-turn (last 6 turns, `MAX_HISTORY_TURNS` in
+  `src/lib/llm/engine.ts`).
+- `src/lib/llm/embeddings.ts` embeds all 38 treatment classes once per
+  language using the *same already-loaded chat model* (`llama.rn`'s
+  `context.embedding()`, no second model shipped) and caches the vectors in
+  SQLite (`treatment_embeddings` table, keyed by label+language+model so
+  switching the downloadable LLM can't silently mix incompatible vectors).
+  A farmer's question is embedded the same way and ranked by cosine
+  similarity — this indexing pass runs once in the background right after
+  setup (shown as "Indexing…") and never blocks the chat.
+- `src/lib/llm/retrieval.ts` is the keyword-overlap fallback used before the
+  index has warmed up, or if an `embedding()` call errors — always available,
+  never throws.
 - Grounding is capped at 3 treatment blocks (selected scan + up to 2
-  retrieved matches) and conversation history at the last 6 turns
-  (`MAX_HISTORY_TURNS` in `src/lib/llm/engine.ts`) — SmolLM2-360M's
-  architectural ceiling is 8192 tokens, but its benchmarks are weak (MMLU
-  ~33%, GSM8K ~7%) with no published guidance on reliable context length, so
-  the prompt budget stays in the low hundreds of tokens rather than pushing
-  toward that ceiling.
+  retrieved matches) for the same reason history is capped at 6 turns:
+  SmolLM2-360M's architectural ceiling is 8192 tokens, but its benchmarks are
+  weak (MMLU ~33%, GSM8K ~7%) with no published guidance on reliable context
+  length, so the prompt budget stays in the low hundreds of tokens rather
+  than pushing toward that ceiling.
+- Every assistant answer is read aloud (`expo-speech`, on-device OS TTS, no
+  network) — toggle in the Ask tab header, or tap any answer bubble to
+  replay/stop it individually. Aimed at farmers who can't comfortably read
+  the screen. Voice *input* (speech-to-text) was investigated
+  (`whisper.rn` + `@fugood/react-native-audio-pcm-stream`) and dropped: its
+  Android PCM-capture path doesn't actually write the WAV file its own
+  TypeScript types claim it does — confirmed by reading the native module
+  source, not just the docs — so it would have shipped untested. TTS output
+  alone was the safer bet this close to the deadline.
+
+## Label scan (Dosage calculator)
+
+`@react-native-ml-kit/text-recognition` runs Google ML Kit's *bundled*
+on-device text recognizer (`com.google.mlkit:text-recognition`, not the
+Play-Services-downloaded variant) — no network, no first-run model download,
+adds to APK size instead. Point the camera at a physical product's printed
+label; `src/lib/dosage/label-ocr.ts` regex-matches a per-liter application
+rate out of the raw OCR text (requires an explicit `/L` or "per litre"
+denominator specifically so it doesn't grab the bottle's net-volume figure
+printed elsewhere on the same label) and flags whether it falls inside the
+bundled typical-rate range for the selected disease. Script selection
+(`Latin`/`Devanagari`/`Chinese`) follows the app's current language; Bengali
+and Urdu aren't among the 5 scripts this library supports at all, so labels
+in those scripts fall back to (weaker) Latin recognition — a library
+limitation, not something fixable at the app level.
 
 ## Development
 
@@ -140,10 +175,11 @@ pass before this ships anywhere real.
 
 ## Native modules / rebuilding
 
-`@react-native-community/datetimepicker`, `react-native-fast-tflite`, and
-`llama.rn` are native modules — after pulling changes that touch any of
-them, or after editing `app.json`'s `plugins`, you need `npx expo run:android`
-(or a fresh EAS build), not just a Metro reload.
+`@react-native-community/datetimepicker`, `react-native-fast-tflite`,
+`llama.rn`, `@react-native-ml-kit/text-recognition`, and `expo-speech` are
+native modules — after pulling changes that touch any of them, or after
+editing `app.json`'s `plugins`, you need `npx expo run:android` (or a fresh
+EAS build), not just a Metro reload.
 
 Local Gradle builds are pinned to `arm64-v8a` only
 (`android/gradle.properties` and the `ORG_GRADLE_PROJECT_reactNativeArchitectures`

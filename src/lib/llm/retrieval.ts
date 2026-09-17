@@ -1,8 +1,8 @@
 import { getAllTreatments, type Treatment } from '@/lib/model/treatments';
 
-// No embeddings on-device — this is deterministic keyword overlap, not semantic
-// search. Good enough to catch "my tomato has blight" against 38 short disease
-// entries; a 360M model has no room in its context budget for anything heavier.
+// Deterministic keyword overlap, not semantic search. Used as the instant
+// fallback before the embedding index (see ./embeddings.ts) has finished
+// warming, or if an embedding call errors — always available, never blocks.
 const STOPWORDS = new Set([
   'a', 'an', 'the', 'is', 'are', 'was', 'were', 'be', 'my', 'our', 'your', 'their',
   'this', 'that', 'these', 'those', 'i', 'you', 'we', 'they', 'it', 'on', 'in', 'of',

@@ -1,3 +1,5 @@
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import * as ImagePicker from 'expo-image-picker';
 import { useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +11,15 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { BottomTabInset, Spacing } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
-import { getDosageTreatments, type Treatment } from '@/lib/model/treatments';
+import { extractRateFromText, formatRate, recognizeLabelText, type ParsedLabelRate } from '@/lib/dosage/label-ocr';
+import { getDosageTreatments, SEVERITY_COLOR, type Treatment } from '@/lib/model/treatments';
+
+type LabelResult =
+  | { status: 'no-rate' }
+  | { status: 'error' }
+  | { status: 'unit-mismatch'; parsed: ParsedLabelRate }
+  | { status: 'match'; parsed: ParsedLabelRate }
+  | { status: 'mismatch'; parsed: ParsedLabelRate };
 
 type AreaUnit = 'm2' | 'hectare' | 'acre';
 type Mode = 'area' | 'plants';
@@ -44,9 +54,45 @@ export default function DosageCalculatorScreen() {
   const [waterPerHectare, setWaterPerHectare] = useState('500');
   const [plantCount, setPlantCount] = useState('');
   const [waterPerPlantMl, setWaterPerPlantMl] = useState('300');
+  const [isScanningLabel, setIsScanningLabel] = useState(false);
+  const [labelResult, setLabelResult] = useState<LabelResult | null>(null);
   const theme = useTheme();
 
   const selected: Treatment | undefined = diseases.find(([label]) => label === selectedLabel)?.[1];
+
+  function handleSelectDisease(label: string) {
+    setSelectedLabel(label);
+    setLabelResult(null);
+  }
+
+  async function handleScanLabel() {
+    if (!selected?.dosage) return;
+    const permission = await ImagePicker.requestCameraPermissionsAsync();
+    if (!permission.granted) return;
+    const photo = await ImagePicker.launchCameraAsync({ quality: 0.8 });
+    if (photo.canceled) return;
+
+    setIsScanningLabel(true);
+    setLabelResult(null);
+    try {
+      const text = await recognizeLabelText(photo.assets[0].uri, i18n.language);
+      const parsed = extractRateFromText(text);
+      if (!parsed) {
+        setLabelResult({ status: 'no-rate' });
+        return;
+      }
+      if (parsed.unit !== selected.dosage.unit) {
+        setLabelResult({ status: 'unit-mismatch', parsed });
+        return;
+      }
+      const overlaps = parsed.min <= selected.dosage.rateMax && parsed.max >= selected.dosage.rateMin;
+      setLabelResult({ status: overlaps ? 'match' : 'mismatch', parsed });
+    } catch {
+      setLabelResult({ status: 'error' });
+    } finally {
+      setIsScanningLabel(false);
+    }
+  }
 
   const totalWaterLiters = useMemo(() => {
     if (mode === 'area') {
@@ -88,7 +134,7 @@ export default function DosageCalculatorScreen() {
               return (
                 <Pressable
                   key={label}
-                  onPress={() => setSelectedLabel(label)}
+                  onPress={() => handleSelectDisease(label)}
                   style={[
                     styles.chip,
                     { backgroundColor: isSelected ? theme.backgroundSelected : theme.backgroundElement },
@@ -111,6 +157,51 @@ export default function DosageCalculatorScreen() {
                   unit: selected.dosage.unit,
                 })}
               </ThemedText>
+
+              <Pressable
+                onPress={handleScanLabel}
+                disabled={isScanningLabel}
+                style={[styles.scanLabelButton, { borderColor: theme.backgroundSelected }, isScanningLabel && styles.rowDisabled]}>
+                <MaterialCommunityIcons name="text-recognition" size={16} color={theme.text} />
+                <ThemedText type="small">{isScanningLabel ? t('dosage.scanningLabel') : t('dosage.scanLabel')}</ThemedText>
+              </Pressable>
+
+              {labelResult && (
+                <View style={styles.labelResultBox}>
+                  {labelResult.status === 'no-rate' && (
+                    <ThemedText type="small" themeColor="textSecondary">
+                      {t('dosage.labelNoRateFound')}
+                    </ThemedText>
+                  )}
+                  {labelResult.status === 'error' && (
+                    <ThemedText type="small" themeColor="textSecondary">
+                      {t('dosage.labelReadError')}
+                    </ThemedText>
+                  )}
+                  {labelResult.status === 'unit-mismatch' && (
+                    <ThemedText type="small" themeColor="textSecondary">
+                      {t('dosage.labelUnitMismatch', {
+                        rate: formatRate(labelResult.parsed.min, labelResult.parsed.max, labelResult.parsed.unit),
+                      })}
+                    </ThemedText>
+                  )}
+                  {labelResult.status === 'match' && (
+                    <ThemedText type="small" style={{ color: SEVERITY_COLOR.none }}>
+                      {t('dosage.labelWithinRange', {
+                        rate: formatRate(labelResult.parsed.min, labelResult.parsed.max, labelResult.parsed.unit),
+                      })}
+                    </ThemedText>
+                  )}
+                  {labelResult.status === 'mismatch' && (
+                    <ThemedText type="small" style={{ color: SEVERITY_COLOR.moderate }}>
+                      {t('dosage.labelOutsideRange', {
+                        rate: formatRate(labelResult.parsed.min, labelResult.parsed.max, labelResult.parsed.unit),
+                        typicalRate: formatRate(selected.dosage.rateMin, selected.dosage.rateMax, selected.dosage.unit),
+                      })}
+                    </ThemedText>
+                  )}
+                </View>
+              )}
             </ThemedView>
           )}
 
@@ -272,6 +363,23 @@ const styles = StyleSheet.create({
     padding: Spacing.three,
     borderRadius: Spacing.three,
     gap: Spacing.half,
+  },
+  scanLabelButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    gap: Spacing.one,
+    marginTop: Spacing.one,
+    paddingVertical: Spacing.one,
+    paddingHorizontal: Spacing.two,
+    borderRadius: Spacing.four,
+    borderWidth: 1,
+  },
+  rowDisabled: {
+    opacity: 0.5,
+  },
+  labelResultBox: {
+    marginTop: Spacing.one,
   },
   segmented: {
     flexDirection: 'row',

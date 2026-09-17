@@ -24,6 +24,11 @@ export async function setupLlm(onProgress?: (fraction: number) => void): Promise
       n_ctx: 2048,
       n_threads: 4,
       use_mlock: true,
+      // Enables context.embedding() for the semantic retrieval index — same
+      // loaded model, no second model needed. mean pooling is the standard
+      // choice for sentence-level embeddings (vs. last-token/cls).
+      embedding: true,
+      pooling_type: 'mean',
     },
     (progress) => onProgress?.(progress / 100)
   );
@@ -62,6 +67,17 @@ export type ChatTurn = { role: 'user' | 'assistant'; content: string };
 function buildSystemPrompt(groundingBlocks: string[]): string {
   if (groundingBlocks.length === 0) return SYSTEM_PROMPT_BASE;
   return `${SYSTEM_PROMPT_BASE}\n\nOn-device diagnosis data that may be relevant:\n\n${groundingBlocks.join('\n\n')}`;
+}
+
+// L2-normalized (embd_normalize: 2, see common_embd_normalize in llama.cpp) so
+// downstream dot products already equal cosine similarity — no separate norm step.
+export async function embedText(text: string): Promise<number[]> {
+  if (!contextPromise) {
+    throw new Error('LLM is not set up yet');
+  }
+  const context = await contextPromise;
+  const { embedding } = await context.embedding(text, { embd_normalize: 2 });
+  return embedding;
 }
 
 export async function askLlm(history: ChatTurn[], groundingBlocks: string[] = []): Promise<string> {
