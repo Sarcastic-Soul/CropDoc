@@ -1,7 +1,8 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
@@ -68,7 +69,11 @@ export default function DosageCalculatorScreen() {
 
   return (
     <ThemedView style={styles.container}>
-      <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
+      <KeyboardAwareScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.content}
+        enableOnAndroid
+        extraScrollHeight={Spacing.four}>
         <SafeAreaView style={styles.safeArea}>
           <ThemedText type="title" style={styles.title}>
             {t('nav.dosageCalculator')}
@@ -225,7 +230,7 @@ export default function DosageCalculatorScreen() {
             {t('dosage.disclaimer')}
           </ThemedText>
         </SafeAreaView>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </ThemedView>
   );
 }

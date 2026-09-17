@@ -2,7 +2,8 @@ import * as Network from 'expo-network';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ActivityIndicator, ScrollView, StyleSheet } from 'react-native';
+import { ActivityIndicator, StyleSheet } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { DiagnosisResult, type SecondOpinionState } from '@/components/diagnosis-result';
@@ -86,7 +87,11 @@ export default function ResultScreen() {
   }, [uri, width, height]);
 
   return (
-    <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
+    <KeyboardAwareScrollView
+      style={styles.scroll}
+      contentContainerStyle={styles.content}
+      enableOnAndroid
+      extraScrollHeight={Spacing.four}>
       <SafeAreaView edges={['bottom']}>
         {error && (
           <ThemedView style={styles.section}>
@@ -120,7 +125,7 @@ export default function ResultScreen() {
           </>
         )}
       </SafeAreaView>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 }
 

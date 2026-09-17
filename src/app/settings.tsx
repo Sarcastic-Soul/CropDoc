@@ -3,7 +3,8 @@ import Constants from 'expo-constants';
 import { useRouter } from 'expo-router';
 import { useState, type ComponentProps } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, Pressable, ScrollView, StyleSheet, TextInput } from 'react-native';
+import { Alert, Pressable, StyleSheet, TextInput } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ExternalLink } from '@/components/external-link';
@@ -71,7 +72,11 @@ export default function SettingsScreen() {
 
   return (
     <ThemedView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.scrollContent}
+        keyboardShouldPersistTaps="handled"
+        enableOnAndroid
+        extraScrollHeight={Spacing.four}>
         <SafeAreaView edges={['bottom']} style={styles.safeArea}>
           <ThemedView style={styles.section}>
             <ThemedText type="smallBold" themeColor="textSecondary">
@@ -199,7 +204,7 @@ export default function SettingsScreen() {
             </ThemedView>
           </ThemedView>
         </SafeAreaView>
-      </ScrollView>
+      </KeyboardAwareScrollView>
     </ThemedView>
   );
 }
