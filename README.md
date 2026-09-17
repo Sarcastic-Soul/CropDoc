@@ -8,19 +8,34 @@ required. See `../BUILD-PLAN.md` for the full architecture and rationale.
 account, no iOS builds/testing. Don't add iOS config, scripts, or build
 profiles back in.
 
-## Status
+## Features
 
-Stage 2 (app core) in progress:
+- **Diagnosis** — camera or gallery photo → on-device MobileNetV2 (`.tflite`)
+  classification → bundled treatment steps. Works with no network at all.
+- **Batch scan** — walk a field capturing leaf after leaf; each is classified
+  immediately, then a summary screen flags the worst finding and per-disease
+  counts before saving the whole batch to history as one group.
+- **Progression tracking** — tag a scan with an optional plot/plant name;
+  the Plot screen lists that tag's scans chronologically and flags whether
+  the latest one looks better, worse, or unchanged vs. the previous one.
+- **History** — paginated (loads 20 at a time, not the whole table), with a
+  from/to date-range filter and batch scans grouped into one card.
+- **Dosage calculator** — its own bottom tab. Pick a treatable disease, enter
+  either plot size (m²/hectare/acre + spray water per hectare) or plant count
+  (+ spray water per plant), get a product quantity from the bundled typical
+  label rate. Clearly disclaimed as a typical rate, not a specific product's
+  instructions.
+- **Gemini second opinion** — optional, online-only, layered on top of the
+  offline result (see below).
+- **11 languages** — English plus Hindi, Spanish, Mandarin, Portuguese,
+  Bengali, Indonesian, Swahili, Vietnamese, French, and Urdu (RTL), picked for
+  large farming populations. A first-launch picker sets the language; it's
+  changeable later in Settings. Diagnosis/treatment content is translated
+  too, not just UI chrome.
+- **Theme** — system/light/dark, in Settings.
 
-- [x] Expo Router app skeleton (Scan / History tabs + Diagnosis modal)
-- [x] Camera capture (`expo-camera`)
-- [x] On-device preprocessing (center-crop + resize + normalize)
-- [x] `react-native-fast-tflite` wired up, awaiting `assets/model/model.tflite`
-- [x] Local scan history (`expo-sqlite`)
-- [x] Bundled treatment lookup (`assets/model/treatments.json`)
-- [x] Model conversion finished and dropped into `assets/model/` (see `../model/README.md`)
-- [x] Gemini "second opinion" online enhancement (Stage 4) — `gemini-3.6-flash`, direct REST call, online-only, optional
-- [ ] Real on-device camera-photo validation (PyTorch/TFLite parity already verified on random input)
+Three bottom tabs: **Home** (scan/upload/batch entry points), **History**,
+**Dosage**.
 
 ## Gemini second opinion
 
@@ -73,5 +88,35 @@ Then in the GitHub repo: **Settings → Secrets and variables → Actions**, add
 The classifier (`assets/model/model.tflite`) is produced by the scripts in
 `../model/` — see that directory for the conversion pipeline from the
 Hugging Face checkpoint. Class list and treatment text live in
-`assets/model/treatments.json`; any class outside the curated demo subset
-falls back to generic guidance rather than crashing.
+`assets/model/treatments/` (one JSON file per supported language,
+`en.json` is the source of truth for keys/structure); any class outside the
+curated demo subset falls back to generic guidance rather than crashing.
+
+## Internationalization
+
+UI strings live in `src/lib/i18n/locales/*.json` (one file per language,
+loaded via `i18next`/`react-i18next`), and treatment/diagnosis content lives
+in `assets/model/treatments/*.json` the same way — `getTreatment()` in
+`src/lib/model/treatments.ts` picks the active language's table, defaulting
+to the app's current `i18n.language`. Adding a language means adding both a
+locale file and a treatments file with the exact same keys as the English
+ones, then registering the language in `src/lib/i18n/index.ts`'s
+`SUPPORTED_LANGUAGES` list.
+
+The 10 non-English translations were AI-generated and structurally verified
+(keys, `{{placeholder}}` tokens, severity/unit enums all match the English
+source across every locale) — not yet reviewed by native speakers. Worth a
+pass before this ships anywhere real.
+
+## Native modules / rebuilding
+
+`@react-native-community/datetimepicker` and `react-native-fast-tflite` are
+native modules — after pulling changes that touch either, or after editing
+`app.json`'s `plugins`, you need `npx expo run:android` (or a fresh EAS
+build), not just a Metro reload.
+
+Local Gradle builds are pinned to `arm64-v8a` only
+(`android/gradle.properties` and the `ORG_GRADLE_PROJECT_reactNativeArchitectures`
+env var) to avoid OOM on memory-constrained dev machines — covers virtually
+all modern Android phones, but won't install on x86 emulators or 32-bit
+devices. EAS builds are unaffected and still build all ABIs.
