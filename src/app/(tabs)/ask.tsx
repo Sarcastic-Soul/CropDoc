@@ -16,6 +16,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ChatHistorySidebar } from '@/components/chat-history-sidebar';
 import { DiagnosisAttachPicker } from '@/components/diagnosis-attach-picker';
+import { MarkdownText } from '@/components/markdown-text';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing, Tint } from '@/constants/theme';
@@ -459,11 +460,15 @@ export default function AskScreen() {
                       <ThemedText type="small">{attachment}</ThemedText>
                     </View>
                   )}
-                  <ThemedText
-                    type="small"
-                    style={[message.role === 'user' ? styles.userBubbleText : undefined, styles.bubbleText]}>
-                    {message.content}
-                  </ThemedText>
+                  {message.role === 'assistant' ? (
+                    <MarkdownText type="small" style={styles.bubbleText}>
+                      {message.content}
+                    </MarkdownText>
+                  ) : (
+                    <ThemedText type="small" style={[styles.userBubbleText, styles.bubbleText]}>
+                      {message.content}
+                    </ThemedText>
+                  )}
                   {message.role === 'assistant' && (
                     <Pressable
                       onPress={() => handleToggleSpeak(index, message.content)}

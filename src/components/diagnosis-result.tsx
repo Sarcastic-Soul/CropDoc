@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, Pressable, StyleSheet } from 'react-native';
 
+import { MarkdownText } from '@/components/markdown-text';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing, Tint } from '@/constants/theme';
@@ -108,7 +109,7 @@ export function DiagnosisResult({
 
           {secondOpinion && (
             <ThemedView type="backgroundElement" style={styles.secondOpinionBox}>
-              <ThemedText type="default">{secondOpinion}</ThemedText>
+              <MarkdownText type="default">{secondOpinion}</MarkdownText>
             </ThemedView>
           )}
         </ThemedView>

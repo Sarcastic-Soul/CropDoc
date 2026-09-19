@@ -62,6 +62,10 @@ const SYSTEM_PROMPT_BASE =
 // in the few-hundred-token range, not the low thousands.
 const MAX_HISTORY_TURNS = 6;
 
+// Room for a short numbered list, which is how the model tends to answer. The
+// prompt asks for 3-5 sentences; this cap is only the backstop.
+const MAX_ANSWER_TOKENS = 384;
+
 export type ChatTurn = { role: 'user' | 'assistant'; content: string };
 
 function buildSystemPrompt(groundingBlocks: string[]): string {
@@ -89,8 +93,21 @@ export async function askLlm(history: ChatTurn[], groundingBlocks: string[] = []
   const trimmedHistory = history.slice(-MAX_HISTORY_TURNS);
   const result = await context.completion({
     messages: [{ role: 'system', content: buildSystemPrompt(groundingBlocks) }, ...trimmedHistory],
-    n_predict: 220,
+    n_predict: MAX_ANSWER_TOKENS,
   });
 
-  return result.text.trim();
+  const text = result.text.trim();
+  return result.stopped_limit ? trimToLastSentence(text) : text;
+}
+
+// The model often ignores the "3-5 short sentences" instruction and runs into
+// the token cap mid-sentence. Rather than show a dangling fragment, cut back to
+// the last complete sentence (or list item) when that keeps most of the answer.
+function trimToLastSentence(text: string): string {
+  const sentenceEnds = [...text.matchAll(/[.!?](?=\s|$)/g)];
+  const lastSentenceEnd = sentenceEnds.length > 0 ? (sentenceEnds[sentenceEnds.length - 1].index ?? -1) + 1 : 0;
+  const lastLineBreak = text.lastIndexOf('\n');
+  const cut = Math.max(lastSentenceEnd, lastLineBreak);
+  if (cut < text.length * 0.5) return `${text}…`;
+  return text.slice(0, cut).trim();
 }

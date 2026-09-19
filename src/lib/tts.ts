@@ -1,5 +1,7 @@
 import * as Speech from 'expo-speech';
 
+import { stripMarkdown } from '@/lib/markdown';
+
 // Android's TTS engine resolves voices by BCP-47 region tag; a bare base
 // language code (e.g. 'sw', 'ur') more often fails to match an installed
 // voice than a fully-qualified one does. Voice availability itself is an
@@ -27,7 +29,7 @@ export type SpeakCallbacks = {
 };
 
 export function speakText(text: string, language: string, callbacks?: SpeakCallbacks): void {
-  Speech.speak(text, {
+  Speech.speak(stripMarkdown(text), {
     language: LANGUAGE_TAGS[language] ?? language,
     onDone: callbacks?.onDone,
     onStopped: callbacks?.onStopped,
