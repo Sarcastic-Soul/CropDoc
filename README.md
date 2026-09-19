@@ -20,11 +20,13 @@
 ![Classes](https://img.shields.io/badge/Diseases-38_classes-2E7D32?style=flat-square)
 ![Hackathon](https://img.shields.io/badge/NextStep_Hacks-2026-2E7D32?style=flat-square)
 
+[![Download APK](https://img.shields.io/github/v/release/Sarcastic-Soul/CropDoc?label=Download%20APK&logo=android&style=for-the-badge&color=2E7D32)](https://github.com/Sarcastic-Soul/CropDoc/releases/latest)
+
 <img src="docs/screenshots/01-home.png" width="200" alt="Home" />
 <img src="docs/screenshots/03-diagnosis.png" width="200" alt="Diagnosis" />
 <img src="docs/screenshots/08-ask-answer.png" width="200" alt="Offline AI assistant" />
 
-[Features](#features) · [Screenshots](#screenshots) · [How it works](#how-it-works) · [Getting started](#getting-started) · [Tech notes](docs/TECHNICAL.md)
+[Download](https://github.com/Sarcastic-Soul/CropDoc/releases/latest) · [Features](#features) · [Screenshots](#screenshots) · [How it works](#how-it-works) · [Getting started](#getting-started) · [Tech notes](docs/TECHNICAL.md)
 
 </div>
 
@@ -113,6 +115,13 @@ MobileNetV2 (TFLite, on-device) ──► disease + confidence
 <a id="getting-started"></a>
 
 ## 🚀 Getting started
+
+### Install the app
+
+- 📥 Download the latest APK from **[Releases](https://github.com/Sarcastic-Soul/CropDoc/releases/latest)** and open it on your phone. You'll need to allow installs from your browser or file manager.
+- 📱 Needs an arm64 Android phone, which covers virtually every modern one.
+
+### Build from source
 
 > [!NOTE]
 > Android only. CropDoc uses native modules, so it **won't run in Expo Go**. You need a development build.
