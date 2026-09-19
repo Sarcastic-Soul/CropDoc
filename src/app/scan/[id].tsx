@@ -2,10 +2,10 @@ import * as Network from 'expo-network';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, StyleSheet } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { DiagnosisResult, type SecondOpinionState } from '@/components/diagnosis-result';
+import { KeyboardScrollView } from '@/components/keyboard-scroll-view';
 import { PlotTagField } from '@/components/plot-tag-field';
 import { ThemedView } from '@/components/themed-view';
 import { Spacing } from '@/constants/theme';
@@ -64,11 +64,7 @@ export default function ScanDetailScreen() {
   const treatment = getTreatment(record.label);
 
   return (
-    <KeyboardAwareScrollView
-      style={styles.scroll}
-      contentContainerStyle={styles.content}
-      enableOnAndroid
-      extraScrollHeight={Spacing.four}>
+    <KeyboardScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <SafeAreaView edges={['bottom']}>
         <DiagnosisResult
           photoUri={record.photoUri}
@@ -81,7 +77,7 @@ export default function ScanDetailScreen() {
         />
         <PlotTagField value={record.plotTag} onChange={handlePlotTagChange} />
       </SafeAreaView>
-    </KeyboardAwareScrollView>
+    </KeyboardScrollView>
   );
 }
 

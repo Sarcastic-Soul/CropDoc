@@ -3,10 +3,10 @@ import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ActivityIndicator, StyleSheet } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { DiagnosisResult, type SecondOpinionState } from '@/components/diagnosis-result';
+import { KeyboardScrollView } from '@/components/keyboard-scroll-view';
 import { PlotTagField } from '@/components/plot-tag-field';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -90,11 +90,7 @@ export default function ResultScreen() {
   }, [uri, width, height]);
 
   return (
-    <KeyboardAwareScrollView
-      style={styles.scroll}
-      contentContainerStyle={styles.content}
-      enableOnAndroid
-      extraScrollHeight={Spacing.four}>
+    <KeyboardScrollView style={styles.scroll} contentContainerStyle={styles.content}>
       <SafeAreaView edges={['bottom']}>
         {error && (
           <ThemedView style={styles.section}>
@@ -128,7 +124,7 @@ export default function ResultScreen() {
           </>
         )}
       </SafeAreaView>
-    </KeyboardAwareScrollView>
+    </KeyboardScrollView>
   );
 }
 
