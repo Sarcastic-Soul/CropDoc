@@ -21,12 +21,14 @@
 [![Hackathon](https://img.shields.io/badge/NextStep_Hacks-2026-2E7D32?style=flat-square)](https://devpost.com/software/cropdoc-pcnmez)
 
 [![Download APK](https://img.shields.io/github/v/release/Sarcastic-Soul/CropDoc?label=Download%20APK&logo=android&style=for-the-badge&color=2E7D32)](https://github.com/Sarcastic-Soul/CropDoc/releases/latest)
+[![Watch the demo](https://img.shields.io/badge/Watch_the_demo-2:18-2E7D32?style=for-the-badge&logo=youtube&logoColor=white)](https://github.com/Sarcastic-Soul/CropDoc/releases/download/v1.0.0/CropDoc-demo.mp4)
+[![Devpost](https://img.shields.io/badge/Devpost-Submission-003E54?style=for-the-badge&logo=devpost&logoColor=white)](https://devpost.com/software/cropdoc-pcnmez)
 
 <img src="docs/screenshots/01-home.png" width="200" alt="Home" />
 <img src="docs/screenshots/03-diagnosis.png" width="200" alt="Diagnosis" />
 <img src="docs/screenshots/08-ask-answer.png" width="200" alt="Offline AI assistant" />
 
-[Download](https://github.com/Sarcastic-Soul/CropDoc/releases/latest) · [Devpost](https://devpost.com/software/cropdoc-pcnmez) · [Features](#features) · [Screenshots](#screenshots) · [How it works](#how-it-works) · [Getting started](#getting-started) · [Tech notes](docs/TECHNICAL.md)
+[Download](https://github.com/Sarcastic-Soul/CropDoc/releases/latest) · [Demo video](https://github.com/Sarcastic-Soul/CropDoc/releases/download/v1.0.0/CropDoc-demo.mp4) · [Devpost](https://devpost.com/software/cropdoc-pcnmez) · [Features](#features) · [Screenshots](#screenshots) · [How it works](#how-it-works) · [Getting started](#getting-started) · [Tech notes](docs/TECHNICAL.md)
 
 </div>
 
