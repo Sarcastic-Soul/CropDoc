@@ -1,230 +1,279 @@
 # CropDoc
 
-Offline crop leaf disease detection. Point the camera at a leaf, get an
-instant diagnosis and treatment steps — fully on-device, no internet
-required. See `../BUILD-PLAN.md` for the full architecture and rationale.
+**Point your phone at a leaf and get an instant disease diagnosis and
+treatment plan, fully offline.**
 
-**Android only.** No app-store distribution planned, no Apple Developer
-account, no iOS builds/testing. Don't add iOS config, scripts, or build
-profiles back in.
+CropDoc is an Android app for farmers who can't count on a signal in the
+field. It spots 38 crop leaf conditions across 14 crops with an on-device
+neural network, explains how to treat them, works out how much fungicide to
+mix, and answers follow-up questions with a small AI assistant that also
+runs on the phone. None of this needs an internet connection.
+
+Built for **NextStep Hacks 2026** (theme: *Earth Forward*, Machine Learning / AI track).
+
+<p align="center">
+  <img src="docs/screenshots/01-home.png" width="220" alt="Home screen" />
+  <img src="docs/screenshots/03-diagnosis.png" width="220" alt="Diagnosis result" />
+  <img src="docs/screenshots/08-ask-answer.png" width="220" alt="Offline AI assistant" />
+</p>
+
+## Contents
+
+- [Why CropDoc](#why-cropdoc)
+- [Features](#features)
+- [Screenshots](#screenshots)
+  - [Offline vs. Gemini second opinion](#offline-vs-gemini-second-opinion)
+- [How it works](#how-it-works)
+- [Supported crops](#supported-crops)
+- [Tech stack](#tech-stack)
+- [Getting started](#getting-started)
+- [Project structure](#project-structure)
+- [Privacy](#privacy)
+- [Known limitations](#known-limitations)
+- [Further reading](#further-reading)
+
+## Why CropDoc
+
+Plant disease destroys a large share of the world's crops every year. When a
+farmer can't tell one leaf disease from another, the usual response is to
+spray broad-spectrum chemicals, which costs money, harms soil and water, and
+often doesn't treat the real problem. Most diagnosis apps need a good data
+connection, and fields often don't have one.
+
+CropDoc runs everything on the phone. It identifies the specific disease,
+recommends a targeted treatment, and calculates a sensible dose, so farmers
+spray less and spray the right thing.
 
 ## Features
 
-- **Diagnosis** — camera or gallery photo → on-device MobileNetV2 (`.tflite`)
-  classification → bundled treatment steps. Works with no network at all.
-- **Batch scan** — walk a field capturing leaf after leaf; each is classified
-  immediately, then a summary screen flags the worst finding and per-disease
-  counts before saving the whole batch to history as one group.
-- **Progression tracking** — tag a scan with an optional plot/plant name;
-  the Plot screen lists that tag's scans chronologically and flags whether
-  the latest one looks better, worse, or unchanged vs. the previous one.
-- **History** — paginated (loads 20 at a time, not the whole table), with a
-  from/to date-range filter and batch scans grouped into one card.
-- **Dosage calculator** — its own bottom tab. Cascading crop → disease
-  dropdowns cover all 38 model classes (not just the ones with curated
-  dosage data — the rest show a clear "no dosage data for this one" state
-  instead of a wrong number). Enter either plot size (m²/hectare/acre +
-  spray water per hectare) or plant count (+ spray water per plant), get a
-  product quantity from the bundled typical label rate. Clearly disclaimed
-  as a typical rate, not a specific product's instructions. Can also scan a
-  physical product label's printed dosage (on-device OCR, same in-app
-  camera as diagnosis) and flags whether it matches the bundled typical
-  rate — see below.
-- **Gemini second opinion** — optional, online-only, layered on top of the
-  offline result (see below).
-- **Ask (offline AI assistant)** — its own bottom tab. A small LLM
-  (SmolLM2-360M-Instruct, GGUF) that answers farming questions fully
-  on-device, no internet required once set up. Not bundled with the app —
-  opt-in download (~370 MB) keeps the base install small. Conversations
-  persist (day/time, browsable and resumable from a history sidebar) and
-  a farmer can attach a specific past scan's diagnosis to any question via
-  a searchable picker, not a flat list. Voice input (speech-to-text, also
-  opt-in/on-device) lets a farmer speak a question instead of typing it;
-  see below.
-- **11 languages** — English plus Hindi, Spanish, Mandarin, Portuguese,
-  Bengali, Indonesian, Swahili, Vietnamese, French, and Urdu (RTL), picked for
-  large farming populations. A first-launch picker sets the language; it's
-  changeable later in Settings. Diagnosis/treatment content is translated
-  too, not just UI chrome.
-- **Theme** — system/light/dark, in Settings.
+| | |
+| --- | --- |
+| **Instant offline diagnosis** | Take a photo or pick one from the gallery. A MobileNetV2 model on the phone identifies the disease on the spot and shows a confidence score, a description, and step-by-step treatment. |
+| **Batch field scanning** | Walk a field and scan leaf after leaf. At the end you get a summary that flags the worst finding and counts each disease, and the whole batch is saved as one group. |
+| **Plot progression tracking** | Tag scans with a plot name, e.g. *North Field - Row 3*. CropDoc lists that plot's scans over time and tells you whether it looks better, worse, or unchanged since the last scan. |
+| **Dosage calculator** | Pick a crop and disease, then enter your plot size (m², hectares, or acres) or number of plants. CropDoc tells you how much product and water to mix, based on typical label rates. |
+| **Label scanner** | Point the camera at a pesticide label. On-device text recognition reads the printed dose and checks it against the typical rate. |
+| **Ask, an offline AI assistant** | A small language model (SmolLM2-360M) that runs on the phone and answers farming questions. Its answers draw on CropDoc's treatment data, you can attach any past scan to a question, and chats are saved so you can pick them up later. |
+| **Voice in, voice out** | Ask your question out loud (on-device Whisper speech-to-text) and hear the answer read back, for farmers who find reading on a small screen hard. |
+| **11 languages** | English, Hindi, Spanish, Mandarin, Portuguese, Bengali, Indonesian, Swahili, Vietnamese, French, and Urdu (right-to-left). Both the interface and the disease/treatment content are translated. |
+| **Optional Gemini second opinion** | When you're online, you can add your own free Gemini API key for a more detailed explanation of a diagnosis. The app never depends on it. |
 
-Four bottom tabs: **Home** (scan/upload/batch entry points), **History**,
-**Dosage**, **Ask**. Every tab's header has a settings gear icon for
-one-tap access to Settings, not just a Settings entry buried in one tab.
+## Screenshots
 
-## Gemini second opinion
+### Diagnosis
 
-Each user supplies their own free-tier key in-app (Settings → Gemini second
-opinion), stored via `expo-secure-store` (Android Keystore-backed), not
-bundled with the app. An `EXPO_PUBLIC_*` env var would get inlined into the
-JS bundle at build time — extractable in plaintext from the shipped
-APK/AAB — so the app never ships with a key baked in.
+<p>
+  <img src="docs/screenshots/03-diagnosis.png" width="240" alt="Diagnosis with confidence score" />
+  <img src="docs/screenshots/04-treatment.png" width="240" alt="Treatment steps and plot tag" />
+  <img src="docs/screenshots/14-diagnosis-hindi.png" width="240" alt="Diagnosis in Hindi" />
+</p>
 
-## Ask (offline AI assistant)
+A diagnosis with its confidence score, then the treatment steps and plot tag
+field, and then the same kind of result in Hindi.
 
-A local LLM (`SmolLM2-360M-Instruct`, Q8_0 GGUF, ~370 MB) that runs fully
-on-device via `llama.rn` (CPU-only — this library's GPU offload is iOS-only,
-so Android always runs CPU inference; fine at this model size). Not bundled
-with the app: the Ask tab walks the user through download → one-time setup
-(loads the model into memory, can take a couple of minutes the first time) →
-ready. Downloaded model lives in app-private storage
-(`expo-file-system`'s `File`/`Directory`/`Paths` API) and can be removed from
-the same screen to reclaim space.
+### Offline vs. Gemini second opinion
 
-Grounding is deliberately small, not a full RAG pipeline, but it is real
-vector search, not just string matching:
-- A farmer can attach one past scan's diagnosis to a specific outgoing
-  message via the leaf icon in the input bar, which opens
-  `DiagnosisAttachPicker` — a modal that browses real scan history (not a
-  capped list of distinct disease names), since a farmer with hundreds of
-  scans needs to find one, not skim a chip row. Attaching text only, never
-  a photo — the LLM is text-only. Multi-turn history is capped at the last
-  6 turns (`MAX_HISTORY_TURNS` in `src/lib/llm/engine.ts`).
-- Conversations persist to SQLite (`conversations` /
-  `conversation_messages` tables in `src/lib/db.ts`), grouped by day/time.
-  The hamburger icon opens `ChatHistorySidebar` to browse and resume any
-  past conversation; the "+" icon starts a new one.
-- `src/lib/llm/embeddings.ts` embeds all 38 treatment classes once per
-  language using the *same already-loaded chat model* (`llama.rn`'s
-  `context.embedding()`, no second model shipped) and caches the vectors in
-  SQLite (`treatment_embeddings` table, keyed by label+language+model so
-  switching the downloadable LLM can't silently mix incompatible vectors).
-  A farmer's question is embedded the same way and ranked by cosine
-  similarity — this indexing pass runs once in the background right after
-  setup (shown as "Indexing…") and never blocks the chat.
-- `src/lib/llm/retrieval.ts` is the keyword-overlap fallback used before the
-  index has warmed up, or if an `embedding()` call errors — always available,
-  never throws.
-- Grounding is capped at 3 treatment blocks (attached scan + up to 2
-  retrieved matches) for the same reason history is capped at 6 turns:
-  SmolLM2-360M's architectural ceiling is 8192 tokens, but its benchmarks are
-  weak (MMLU ~33%, GSM8K ~7%) with no published guidance on reliable context
-  length, so the prompt budget stays in the low hundreds of tokens rather
-  than pushing toward that ceiling.
-- Every assistant answer is read aloud (`expo-speech`, on-device OS TTS, no
-  network) — toggle in the Ask tab header, or tap the small speaker badge on
-  the top-right corner of any answer bubble to replay/stop it individually.
-  Aimed at farmers who can't comfortably read the screen.
-- **Voice input (speech-to-text)** — a mic button in the input row. Tap to
-  record, tap again to stop; the recording is transcribed on-device via
-  `whisper.rn` (`ggml-tiny.bin`, ~78 MB, its own opt-in download separate
-  from the chat LLM) and the result fills the text input for the farmer to
-  review or edit — it never auto-sends. Android's `MediaRecorder` (what
-  `expo-audio`/`expo-av` use) can't produce raw WAV/PCM at all, and
-  whisper.cpp's file loader only reads WAV, so recording goes through
-  `@fugood/react-native-audio-pcm-stream` (via `whisper.rn`'s own
-  `AudioPcmStreamAdapter`, not its heavier realtime/VAD pipeline) for raw
-  PCM capture, which gets wrapped into a WAV file by hand
-  (`src/lib/stt/recorder.ts`). Transcription language is passed as the
-  app's current UI language rather than left on `auto`, for better
-  accuracy. Model lives under Settings alongside the chat LLM, removable
-  the same way.
+The same Tomato Mosaic Virus scan, with and without the optional online
+second opinion:
 
-## Label scan (Dosage calculator)
+<table>
+  <tr>
+    <th>Offline only (always available)</th>
+    <th>With Gemini second opinion (online, optional)</th>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/04-treatment.png" width="280" alt="Offline diagnosis and treatment" /></td>
+    <td><img src="docs/screenshots/15-diagnosis-gemini.png" width="280" alt="Diagnosis with Gemini second opinion" /></td>
+  </tr>
+  <tr>
+    <td>The on-device model gives the diagnosis and the standard treatment steps, with no connection needed.</td>
+    <td>Gemini looks at the photo, confirms whether it matches the diagnosis, explains how the disease spreads, and adds tips specific to that photo.</td>
+  </tr>
+</table>
 
-Crop and disease are chosen via cascading dropdowns
-(`src/components/dropdown-field.tsx`) driven by `CROPS`/`LABEL_TO_CROP` in
-`src/lib/model/labels.ts`, which cover all 38 model classes — not just the
-ones with curated dosage data, so a disease outside that curated subset is
-still selectable and just shows a "no dosage data" state rather than being
-hidden.
+### History and plot tracking
 
-The label camera is the app's own `CameraView` screen (`src/app/camera.tsx`,
-opened with `mode=label-scan`) — the same in-app camera used for leaf
-diagnosis, not the OS's stock camera via `expo-image-picker`. It hands the
-captured photo back to the Dosage tab (`labelScanUri` route param) for OCR.
+<p>
+  <img src="docs/screenshots/02-history.png" width="240" alt="Scan history" />
+  <img src="docs/screenshots/05-plot-progress.png" width="240" alt="Plot progression" />
+</p>
 
-`@react-native-ml-kit/text-recognition` runs Google ML Kit's *bundled*
-on-device text recognizer (`com.google.mlkit:text-recognition`, not the
-Play-Services-downloaded variant) — no network, no first-run model download,
-adds to APK size instead. `src/lib/dosage/label-ocr.ts` regex-matches a
-per-liter application rate out of the raw OCR text (requires an explicit
-`/L` or "per litre" denominator specifically so it doesn't grab the
-bottle's net-volume figure printed elsewhere on the same label) and flags
-whether it falls inside the bundled typical-rate range for the selected
-disease. Script selection (`Latin`/`Devanagari`/`Chinese`) follows the
-app's current language; Bengali and Urdu aren't among the 5 scripts this
-library supports at all, so labels in those scripts fall back to (weaker)
-Latin recognition — a library limitation, not something fixable at the app
-level.
+Every scan is saved on the phone. You can filter by date and open any plot
+to see how it's changing over time.
 
-## Development
+### Dosage calculator
 
-Requires an EAS custom dev client — `react-native-fast-tflite` is a native
-module, so Expo Go cannot run this app.
+<p>
+  <img src="docs/screenshots/06-dosage-area.png" width="240" alt="Dosage by plot area" />
+  <img src="docs/screenshots/07-dosage-plants.png" width="240" alt="Dosage by plant count" />
+</p>
+
+Doses for a 1.5-acre plot and for 120 plants, for tomato late blight.
+
+### Ask (offline AI assistant)
+
+<p>
+  <img src="docs/screenshots/08-ask-answer.png" width="240" alt="Assistant answer" />
+  <img src="docs/screenshots/09-ask-attach-picker.png" width="240" alt="Attach a past diagnosis" />
+  <img src="docs/screenshots/10-ask-attached-scan.png" width="240" alt="Question with attached scan" />
+  <img src="docs/screenshots/11-ask-chat-history.png" width="240" alt="Chat history" />
+</p>
+
+Ask a question, attach a past scan so the answer is about that diagnosis,
+and come back to earlier conversations. It all runs on the phone.
+
+### Settings and languages
+
+<p>
+  <img src="docs/screenshots/12-settings.png" width="240" alt="Settings" />
+  <img src="docs/screenshots/13-language-picker.png" width="240" alt="Language picker" />
+</p>
+
+## How it works
+
+```
+ Camera / gallery photo
+          │
+          ▼
+ Center-crop, resize to 224×224, normalize
+          │
+          ▼
+ MobileNetV2 (TensorFlow Lite, on-device)  ──►  38 disease scores
+          │
+          ▼
+ Top match + bundled treatment data (in your language)
+          │
+          ▼
+ Result screen  ──►  saved to local SQLite history
+          │
+          ├──►  Dosage calculator (typical label rates, ML Kit label OCR)
+          ├──►  Ask assistant (SmolLM2 via llama.rn, grounded in treatment data)
+          └──►  Optional: Gemini second opinion (only if online and a key is set)
+```
+
+- **Classifier:** a MobileNetV2 fine-tuned on the PlantVillage dataset
+  (about 95% evaluation accuracy), converted from PyTorch to TensorFlow Lite
+  and bundled inside the app.
+- **Assistant:** SmolLM2-360M-Instruct runs through `llama.rn`. When you ask
+  a question, the app finds the most relevant treatment entries with vector
+  search, using embeddings from the same model, and includes them in the
+  prompt so the answer is grounded in real treatment data.
+- **Speech:** Whisper (tiny) runs on the phone through `whisper.rn` for voice
+  input, and the phone's built-in text-to-speech reads answers aloud.
+
+The two AI models used by Ask (~370 MB chat model and ~78 MB speech model)
+are **optional one-time downloads**, which keeps the app itself small. The
+diagnosis model is always included.
+
+## Supported crops
+
+Apple, Blueberry, Cherry, Corn (maize), Grape, Orange, Peach, Bell pepper,
+Potato, Raspberry, Soybean, Squash, Strawberry, and Tomato. That's 38
+classes in total: common diseases such as scab, rusts, blights, mildews,
+leaf spots, and mosaic and leaf-curl viruses, plus healthy leaves for most
+crops.
+
+## Tech stack
+
+| Area | Technology |
+| --- | --- |
+| App | Expo SDK 57, React Native 0.86, TypeScript, Expo Router |
+| Diagnosis model | MobileNetV2 → TensorFlow Lite via `react-native-fast-tflite` |
+| Chat assistant | SmolLM2-360M-Instruct (GGUF) via `llama.rn` |
+| Speech-to-text | Whisper tiny via `whisper.rn` |
+| Text-to-speech | `expo-speech` |
+| Label OCR | Google ML Kit text recognition (bundled, offline) |
+| Storage | `expo-sqlite` (history, chats, embeddings), `expo-secure-store` (API key) |
+| Translations | `i18next` / `react-i18next` |
+| CI/CD | GitHub Actions + EAS Build / EAS Update |
+
+## Getting started
+
+CropDoc is **Android only**. It uses native modules (TFLite, llama.cpp,
+whisper.cpp), so it **will not run in Expo Go**. You need a development
+build.
+
+### Prerequisites
+
+- Node.js (current LTS) and npm
+- Android Studio with the Android SDK and NDK, or an [EAS](https://expo.dev/eas) account
+- An Android phone with an arm64 CPU (virtually all modern phones)
+
+### Install and run
 
 ```sh
-npx eas login                       # sarcastic-soul account owns this project
+npm install
+
+# Option A: build and install locally on a USB-connected phone
+npm run android:lite       # resource-capped wrapper around `expo run:android`
+
+# Option B: build in the cloud with EAS
 npx eas build --profile development --platform android
-npx expo start --dev-client
+
+# Then start the dev server and open the app on your phone
+npm run start
 ```
 
-## CI: auto build / OTA update
+The first native build is slow because `whisper.rn` compiles whisper.cpp from
+source. After that, JavaScript changes reload instantly through Metro.
 
-`.github/workflows/eas-deploy.yml` runs on every push to `main` (this repo
-*is* the app now — no more path filter needed). It uses Expo's official
-`continuous-deploy-fingerprint` action:
-computes this commit's native fingerprint, starts a new `eas build --profile
-preview --platform android` only if no existing build matches it, and always
-publishes an OTA update to the `preview` channel/branch otherwise (Android
-only — iOS is out of scope, see above). That action's own README
-flags it as **experimental / not yet production-ready** — worth knowing, not
-a reason to avoid it here.
+### Try it out
 
-One-time setup (needs your EAS login, do this yourself):
+1. Tap **Open camera** or **Upload a photo** and choose a leaf image.
+2. Read the diagnosis and treatment, and optionally tag it with a plot name.
+3. Open the **Dosage** tab to work out how much to spray.
+4. Open the **Ask** tab, download the assistant once, and ask a question.
 
-```sh
-cd app
-npx eas login
-npx eas init                    # links the project (owner: sarcastic-soul)
-npx eas update:configure        # installs expo-updates config, sets app.json "updates.url"
-npx eas channel:create preview  # if it doesn't already exist
-npx eas build --profile preview --platform android   # one manual build first —
-                                                       # the action needs an existing
-                                                       # build to compare fingerprints against
+## Project structure
+
+```
+src/
+├── app/                  Screens (Expo Router, file-based routing)
+│   ├── (tabs)/           Home, History, Dosage, Ask
+│   ├── result.tsx        Diagnosis result
+│   ├── camera*.tsx       Single and batch camera
+│   ├── plot/[tag].tsx    Plot progression
+│   └── settings.tsx
+├── components/           Shared UI
+└── lib/
+    ├── model/            Preprocessing, TFLite inference, labels, treatments
+    ├── llm/              Chat model download, engine, embeddings, retrieval
+    ├── stt/              Whisper speech-to-text and WAV recorder
+    ├── dosage/           Dose maths and label OCR parsing
+    ├── i18n/             Translations for 11 languages
+    ├── db.ts             SQLite storage
+    └── gemini.ts         Optional online second opinion
+assets/model/             model.tflite and per-language treatment data
+plugins/                  Expo config plugins (Android build tuning)
+docs/                     Screenshots and technical notes
 ```
 
-Then in the GitHub repo: **Settings → Secrets and variables → Actions**, add
-`EXPO_TOKEN` (generate at https://expo.dev/settings/access-tokens).
+## Privacy
 
-## Model
+- Photos, scan history, and chats are stored **only on your phone**.
+- Diagnosis, the assistant, speech recognition, and label reading all run
+  **on the device**.
+- The only network requests are the optional model downloads and the
+  optional Gemini second opinion. For the Gemini feature you supply your own
+  API key, which is stored encrypted in the Android Keystore and never
+  shipped with the app.
 
-The classifier (`assets/model/model.tflite`) is produced by the scripts in
-`../model/` — see that directory for the conversion pipeline from the
-Hugging Face checkpoint. Class list and treatment text live in
-`assets/model/treatments/` (one JSON file per supported language,
-`en.json` is the source of truth for keys/structure); any class outside the
-curated demo subset falls back to generic guidance rather than crashing.
+## Known limitations
 
-## Internationalization
+- The classifier was trained on PlantVillage images, which are mostly
+  single leaves on plain backgrounds. Photos of busy real-world scenes can
+  lower its accuracy. For best results, photograph one leaf that fills the
+  frame.
+- Dosage figures are **typical label rates**, not instructions for a
+  specific product. Always follow the label on the product you're using.
+- The assistant is a small 360M-parameter model. It's useful for general
+  guidance but can make mistakes, so check important decisions with a local
+  agricultural extension officer.
+- The non-English translations were machine-generated and have been checked
+  for structure, but not yet reviewed by native speakers.
 
-UI strings live in `src/lib/i18n/locales/*.json` (one file per language,
-loaded via `i18next`/`react-i18next`), and treatment/diagnosis content lives
-in `assets/model/treatments/*.json` the same way — `getTreatment()` in
-`src/lib/model/treatments.ts` picks the active language's table, defaulting
-to the app's current `i18n.language`. Adding a language means adding both a
-locale file and a treatments file with the exact same keys as the English
-ones, then registering the language in `src/lib/i18n/index.ts`'s
-`SUPPORTED_LANGUAGES` list.
+## Further reading
 
-The 10 non-English translations were AI-generated and structurally verified
-(keys, `{{placeholder}}` tokens, severity/unit enums all match the English
-source across every locale) — not yet reviewed by native speakers. Worth a
-pass before this ships anywhere real.
-
-## Native modules / rebuilding
-
-`@react-native-community/datetimepicker`, `react-native-fast-tflite`,
-`llama.rn`, `@react-native-ml-kit/text-recognition`, `expo-speech`,
-`whisper.rn`, and `@fugood/react-native-audio-pcm-stream` are native
-modules — after pulling changes that touch any of them, or after editing
-`app.json`'s `plugins`, you need `npx expo run:android` (or a fresh EAS
-build), not just a Metro reload / `npm run start`. `whisper.rn` compiles
-whisper.cpp from source via CMake/NDK (no prebuilt `jniLibs`), so the first
-build after adding it is noticeably slower than usual.
-
-Local Gradle builds are pinned to `arm64-v8a` only
-(`android/gradle.properties` and the `ORG_GRADLE_PROJECT_reactNativeArchitectures`
-env var) to avoid OOM on memory-constrained dev machines — covers virtually
-all modern Android phones, but won't install on x86 emulators or 32-bit
-devices. EAS builds are unaffected and still build all ABIs.
+- [docs/TECHNICAL.md](docs/TECHNICAL.md): implementation details for the
+  assistant's retrieval, label OCR, CI/OTA setup, translations, and native
+  build notes.
