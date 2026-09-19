@@ -20,6 +20,12 @@ needed, and if it's a from-source native build (e.g. `whisper.rn` compiles
 whisper.cpp via CMake/NDK), say the first build after it will be slower
 than usual.
 
+Local builds: the user runs `npm run android:lite` (`scripts/android-lite.sh`),
+which caps the build's CPU and RAM so the 8 GB laptop stays usable. Build
+settings (ABIs, Gradle heap, in-process Kotlin, build cache) come from
+`plugins/with-android-build-tuning.js`; ABIs are arm64-v8a only because
+llama.rn ships prebuilt native libraries for arm64-v8a and x86_64 only.
+
 ## Android only
 
 No app-store distribution planned, no Apple Developer account. Do not add

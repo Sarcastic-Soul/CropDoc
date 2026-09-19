@@ -61,7 +61,13 @@
         }
       ],
       "expo-secure-store",
-      "@react-native-community/datetimepicker"
+      "@react-native-community/datetimepicker",
+      [
+        "./plugins/with-android-build-tuning.js",
+        {
+          "easArchitectures": "arm64-v8a"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
