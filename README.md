@@ -18,7 +18,7 @@
 ![Offline first](https://img.shields.io/badge/100%25-Offline_first-2E7D32?style=flat-square)
 ![Languages](https://img.shields.io/badge/Languages-11-2E7D32?style=flat-square)
 ![Classes](https://img.shields.io/badge/Diseases-38_classes-2E7D32?style=flat-square)
-![Hackathon](https://img.shields.io/badge/NextStep_Hacks-2026-2E7D32?style=flat-square)
+[![Hackathon](https://img.shields.io/badge/NextStep_Hacks-2026-2E7D32?style=flat-square)](https://devpost.com/software/cropdoc-pcnmez)
 
 [![Download APK](https://img.shields.io/github/v/release/Sarcastic-Soul/CropDoc?label=Download%20APK&logo=android&style=for-the-badge&color=2E7D32)](https://github.com/Sarcastic-Soul/CropDoc/releases/latest)
 
@@ -26,7 +26,7 @@
 <img src="docs/screenshots/03-diagnosis.png" width="200" alt="Diagnosis" />
 <img src="docs/screenshots/08-ask-answer.png" width="200" alt="Offline AI assistant" />
 
-[Download](https://github.com/Sarcastic-Soul/CropDoc/releases/latest) · [Features](#features) · [Screenshots](#screenshots) · [How it works](#how-it-works) · [Getting started](#getting-started) · [Tech notes](docs/TECHNICAL.md)
+[Download](https://github.com/Sarcastic-Soul/CropDoc/releases/latest) · [Devpost](https://devpost.com/software/cropdoc-pcnmez) · [Features](#features) · [Screenshots](#screenshots) · [How it works](#how-it-works) · [Getting started](#getting-started) · [Tech notes](docs/TECHNICAL.md)
 
 </div>
 
@@ -38,7 +38,7 @@
 - 📵 Most diagnosis apps need a good data connection. Many fields don't have one.
 - ✅ CropDoc runs everything on the phone. It names the specific disease, suggests a targeted treatment and works out the dose, **so farmers spray less and spray the right thing.**
 
-Built for **NextStep Hacks 2026**, theme *Earth Forward*, Machine Learning / AI track.
+Built for **NextStep Hacks 2026**, theme *Earth Forward*, Machine Learning / AI track. See the **[Devpost submission](https://devpost.com/software/cropdoc-pcnmez)**.
 
 <a id="features"></a>
 
