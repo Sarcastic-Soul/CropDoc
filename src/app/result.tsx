@@ -26,6 +26,9 @@ export default function ResultScreen() {
   const [error, setError] = useState<string | null>(null);
   const [isOnline, setIsOnline] = useState(false);
   const [scanId, setScanId] = useState<number | null>(null);
+  // Android can clear the cache (where camera/picker photos land) at any time
+  // under storage pressure, so later reads of the photo use the persisted copy.
+  const [photoUri, setPhotoUri] = useState(uri);
   const [plotTag, setPlotTag] = useState<string | null>(null);
   const [secondOpinion, setSecondOpinion] = useState<string | null>(null);
   const [secondOpinionState, setSecondOpinionState] = useState<SecondOpinionState>('idle');
@@ -47,7 +50,7 @@ export default function ResultScreen() {
     if (!treatment || !apiKey) return;
     setSecondOpinionState('loading');
     try {
-      const text = await getSecondOpinion(uri, treatment, apiKey);
+      const text = await getSecondOpinion(photoUri, treatment, apiKey);
       setSecondOpinion(text);
       setSecondOpinionState('idle');
       if (scanId !== null) {
@@ -71,6 +74,7 @@ export default function ResultScreen() {
         setTreatment(treatmentInfo);
         const persistedUri = await persistScanPhoto(uri);
         if (cancelled) return;
+        setPhotoUri(persistedUri);
         const id = await saveScan({
           photoUri: persistedUri,
           label: result.label,
@@ -112,7 +116,7 @@ export default function ResultScreen() {
         {prediction && treatment && (
           <>
             <DiagnosisResult
-              photoUri={uri}
+              photoUri={photoUri}
               prediction={prediction}
               treatment={treatment}
               canRequestSecondOpinion={isOnline && Boolean(apiKey)}
